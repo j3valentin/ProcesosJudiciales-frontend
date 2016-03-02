@@ -1,4 +1,4 @@
-import * as gulp from 'gulp';
+﻿import * as gulp from 'gulp';
 import {runSequence, task} from './tools/utils';
 
 // --------------
@@ -16,6 +16,7 @@ gulp.task('serve.coverage', task('serve.coverage'));
 gulp.task('build.dev', done =>
   runSequence('clean.dev',
               'tslint',
+              'build.jade.dev',
               'build.sass.dev',
               'build.assets.dev',
               'build.js.dev',
@@ -34,6 +35,7 @@ gulp.task('build.dev.watch', done =>
 gulp.task('build.prod', done =>
   runSequence('clean.prod',
               'tslint',
+              'build.jade.prod',
               'build.sass.prod',
               'build.assets.prod',
               'build.html_css.prod',

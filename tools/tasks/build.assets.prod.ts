@@ -20,6 +20,7 @@ export = function buildAssetsDev(gulp, plugins) {
         '!' + join(APP_SRC, '**', '*.css'),
         '!' + join(APP_SRC, '**', '*.scss'),
         '!' + join(APP_SRC, '**', '*.html'),
+        '!' + join(APP_SRC, '**', '*.jade'),
         '!' + join(ASSETS_SRC, '**', '*.js')
       ])
       .pipe(onlyDirs(es))
