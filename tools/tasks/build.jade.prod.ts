@@ -7,7 +7,7 @@ export = function buildJadeProd(gulp, plugins, option) {
   return function () {
     return gulp.src(join(APP_SRC, '**', '*.jade'))
       .pipe(plugins.plumber())
-      .pipe(plugins.jade().on('error', (error) => {
+      .pipe(plugins.jade({ pretty: true }).on('error', (error) => {
         log(chalk.red('Jade compiler error:'), error.message);
       }))
       .pipe(gulp.dest(TMP_DIR));

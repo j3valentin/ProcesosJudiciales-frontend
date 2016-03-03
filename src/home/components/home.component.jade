@@ -1,8 +1,10 @@
 p
   | Howdy! Here's a list of awesome computer scientists.
   | Do you know any others? Add to the list yourself.
-form((submit)='addName()')
-  input([(ngModel)]='newName', placeholder='Awesome Computer Scientist')
-  button(type='submit') Add
+form.form-inline((submit)='addName()')
+  .form-group
+    label.sr-only(for='newName') Awesome Computer Scientist
+    input#newName.form-control(type='text', [(ngModel)]='newName', placeholder='Awesome Computer Scientist')
+  button.btn.btn-primary(type='submit') Add
 ul
   li(*ngFor='#name of nameListService.get()') {{name}}

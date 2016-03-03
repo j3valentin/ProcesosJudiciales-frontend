@@ -1,3 +1,12 @@
-nav
-  a([routerLink]="['Home']") HOME
-  a([routerLink]="['About']") ABOUT
+nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      a.navbar-brand(href='#') Angular 2 Seed
+    div
+      ul.nav.navbar-nav
+        li
+          a([routerLink]="['Home']")
+            | HOME 
+            span.sr-only (current)
+        li
+          a([routerLink]="['About']") ABOUT

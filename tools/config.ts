@@ -71,7 +71,8 @@ export const DEV_NPM_DEPENDENCIES: IDependency[] = normalizeDependencies([
   { src: 'rxjs/bundles/Rx.js', inject: 'libs' },
   { src: 'angular2/bundles/angular2.js', inject: 'libs' },
   { src: 'angular2/bundles/router.js', inject: 'libs' },
-  { src: 'angular2/bundles/http.js', inject: 'libs' }
+  { src: 'angular2/bundles/http.js', inject: 'libs' },
+  { src: 'bootstrap/dist/css/bootstrap.css', inject: true }
 ]);
 
 export const PROD_NPM_DEPENDENCIES: IDependency[] = normalizeDependencies([
@@ -80,7 +81,8 @@ export const PROD_NPM_DEPENDENCIES: IDependency[] = normalizeDependencies([
   { src: 'es6-shim/es6-shim.min.js', inject: 'shims' },
   { src: 'angular2/es6/dev/src/testing/shims_for_IE.js', inject: 'shims' },
   { src: 'systemjs/dist/system.js', inject: 'shims' },
-  { src: 'angular2/bundles/angular2-polyfills.min.js', inject: 'libs' }
+  { src: 'angular2/bundles/angular2-polyfills.min.js', inject: 'libs' },
+  { src: 'bootstrap/dist/css/bootstrap.min.css', inject: true }
 ]);
 
 // Declare local files that needs to be injected
