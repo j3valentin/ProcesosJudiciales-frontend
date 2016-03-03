@@ -22,6 +22,12 @@ It is something similar to the Angular Quick Start but does the entire build wit
 - Manager of your type definitions using [typings](https://github.com/typings/typings).
 - Basic Service Worker, which implements "Cache then network strategy".
 
+# Fork notes
+
+This fork adds SASS and Jade preprocessors support, and includes the Twitter Bootstrap module.
+
+Soon to include: the Firebase module.
+
 # How to start
 
 **Note** that this seed project requires node v4.x.x or higher and npm 2.14.7.
