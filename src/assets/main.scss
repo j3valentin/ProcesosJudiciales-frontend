@@ -1,12 +1,194 @@
-/* Set up a default font and some padding to provide breathing room */
-body {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+input.butt {
+    font-size: 14px;
+    color: #494949;
+    text-align: center;
+    font-family: 'HelveticaNeueLTStdMedCnRg';
+    background: url(btn_gris.png) left center #CCC;
+    border: 2px solid #D0D0D0;
+    width: auto;
+    height: 30px;
+    cursor: pointer;
+    line-height: 20px;
+    padding-left: 25px;
+    padding-right: 20px;
 }
 
-ul {
-  margin: 10px 0 0 0;
-  padding: 0 0 0 20px;
+.fr {
+    float: right!important;
 }
+
+.pequ2 input.butt:first-child {
+    margin-right: 30px;
+}
+
+input.butt:disabled {
+    color: #666;
+    background: url(btn_gris.png) left top #CCC;
+    border:1px solid #999;
+    cursor: default;
+}
+
+.butt[disabled]:hover {
+    color: #666;
+    background: url(bgButtFormDisable.png) center repeat-x #CCC;
+    border: 1px solid #999;
+    cursor: default;
+}
+
+input.butt:hover {
+    font-size: 14px;
+    color: #BE0C02;
+    text-align: center;
+    font-family: 'HelveticaNeueLTStdMedCnRg';
+    background: url(btn_gris.png) left center #CCC;
+    border: 2px solid #999999;
+    width: auto;
+    height: 30px;
+    cursor: pointer;
+    line-height: 20px;
+    padding-left: 25px;
+    padding-right: 20px;
+}
+
+/*INPUTS*/
+input.input_form {
+    background-color: transparent;
+    background-image: url("bgFormInput.jpg");
+    background-position: center bottom;
+    background-repeat: repeat-x;
+    border: 1px solid #BDBCBD;
+    color: #333333;
+    font-size: 12px;
+    height: 18px;
+    margin: 0 0 0 10px;
+    text-align: left;
+    width: 200px;
+    padding: 2px;
+}
+
+input.input_form:focus {
+    background-color: #E3EFEF;
+    background-image: none;
+}
+
+input.input_form:disabled {
+    color: #999999;
+}
+
+
+select.input_select {
+    background-color: transparent;
+    background-image: url("bgFormInput.jpg");
+    background-position: center bottom;
+    background-repeat: repeat-x;
+    border: 1px solid #BDBCBD;
+    color: #333333;
+    font-size: 0.9em;
+    height: 23px;
+    margin: 0 0 0 10px;
+    text-align: left;
+    width: 225px;
+    padding: 2px;
+    width: 195px!important;
+}
+
+
+select.input_select:focus {
+    background-color: #E3EFEF;
+    background-image: none;
+}
+
+select.input_select:disabled {
+    color: #999999;
+}
+
+
+.float_center {
+  float: right;
+
+  position: relative;
+  left: -50%; /* or right 50% */
+  text-align: left;
+}
+
+.float_center > .child {
+  position: relative;
+  left: 50%;
+}
+
+.clear {
+  clear:both;
+}
+
+ul{
+  list-style-type: none;
+  margin:0;
+  /*padding:10px 0;*/
+}
+ul li {
+  float: left;
+  list-style-type: none;
+  margin: 0 6px;
+}
+ul  input {
+  display: block;
+  height: 26px;
+  line-height: 26px;
+  text-decoration: none;
+  color: #C12247;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0px 4px;
+  background-color: #ffffff;
+}
+
+.firstTd {
+        width: 40%;
+}
+
+td {
+        width: auto;
+        padding: 0;
+}
+
+.tabla_ing {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 auto;
+    width: 360px;
+    display: block;
+    table-layout: fixed;
+    font-weight: bold;
+}
+
+ .tabla_ing tbody, .tabla_ing tr {
+     display: table;
+     width: 360px;
+ }
+
+ .tabla_ing td {
+     width: auto;
+     padding: 0;
+ }
+
+ .tabla_ing .firstTd {
+     width: 40%;
+ }
+
+ .tabla_ing input[type="text"], .tabla_ing input[type="password"] {
+     width: 190px;
+ }
+
+ .tabla_ing select {
+     width: 195px!important;
+ }
+ 
+ label{
+ 	font-family: Arial, Helvetica, sans-serif;
+ 	font-weight: bold;
+ 	width: auto;
+	padding: 0;
+    margin: 0 auto;
+    width: 360px;
+    display: block;
+    table-layout: fixed;	
+ }
