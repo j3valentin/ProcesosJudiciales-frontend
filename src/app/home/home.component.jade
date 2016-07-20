@@ -9,15 +9,15 @@
 //ul
 //  li(*ngFor='#name of nameListService.get()') {{name}}
 
-ul#example-tabs.tabs(data-tabs)
-    li.tabs-title.is-active
-        a(href="#panel1", aria-selected=true) Georeferenciación y Datos Generales
-    li.tabs-title
-        a(href="#panel2") Validar Duplicidad
-    li.tabs-title
-        a(href="#panel3") Datos Cualitativos,Pretenciones y Etapas Procesales
-    li.tabs-title
-        a(href="#panel4") Estado de validación de los Procesos Duplicados
+ul
+  li.principalMenuItem
+    a(href="#panel1") Georeferenciación y Datos Generales
+  li.principalMenuItem
+    a(href="#panel2") Validar Duplicidad
+  li.principalMenuItem
+    a(href="#panel3") Datos Cualitativos,Pretenciones y Etapas Procesales
+  li.principalMenuItem
+    a(href="#panel4") Estado de validación de los Procesos Duplicados
 
 //<div class="tabs-content" data-tabs-content="example-tabs">
 //    <div class="tabs-panel is-active" id="panel1">

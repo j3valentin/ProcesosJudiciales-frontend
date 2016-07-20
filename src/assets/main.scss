@@ -126,7 +126,7 @@ ul{
   /*padding:10px 0;*/
 }
 ul li {
-  float: left;
+  /*float: left;*/
   list-style-type: none;
   margin: 0 6px;
 }
@@ -192,3 +192,29 @@ td {
     display: block;
     table-layout: fixed;	
  }
+
+/*Clases para el proyecto*/
+$break-small: 425px;
+
+.colpensionesLogo {
+  width: 52%;
+
+  @media screen and (max-width: $break-small) {
+    width: 130%;
+  }
+}
+
+.repColLog {
+  width: 25%;
+
+  @media screen and (max-width: $break-small) {
+    width: 60%;
+  }
+}
+
+.textoLogo {
+  color: #1F6AA4;
+  font-size: 23px !important;
+}
+
+

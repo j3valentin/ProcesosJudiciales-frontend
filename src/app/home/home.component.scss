@@ -7,3 +7,22 @@ ul {
   list-style-type: none;
   padding: 0 0 0 8px;
 }
+
+.principalMenuItem {
+	font-size: 16px !important;
+  color: #245575 !important;
+
+  :visited {
+  	color: #41A11D;
+  	text-decoration: none;
+  }
+
+  :hover {
+  	color: #b7ddf7 !important;
+  	text-decoration: none;
+  }
+
+  :focus {
+  	text-decoration: none;
+  }
+}
