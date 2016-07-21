@@ -1,105 +1,104 @@
 input.butt {
-    font-size: 14px;
-    color: #494949;
-    text-align: center;
-    font-family: 'HelveticaNeueLTStdMedCnRg';
-    background: url(btn_gris.png) left center #CCC;
-    border: 2px solid #D0D0D0;
-    width: auto;
-    height: 30px;
-    cursor: pointer;
-    line-height: 20px;
-    padding-left: 25px;
-    padding-right: 20px;
+  font-size: 14px;
+  color: #494949;
+  text-align: center;
+  font-family: 'HelveticaNeueLTStdMedCnRg';
+  background: url(btn_gris.png) left center #CCC;
+  border: 2px solid #D0D0D0;
+  width: auto;
+  height: 30px;
+  cursor: pointer;
+  line-height: 20px;
+  padding-left: 25px;
+  padding-right: 20px;
 }
 
 .fr {
-    float: right!important;
+  float: right!important;
 }
 
 .pequ2 input.butt:first-child {
-    margin-right: 30px;
+  margin-right: 30px;
 }
 
 input.butt:disabled {
-    color: #666;
-    background: url(btn_gris.png) left top #CCC;
-    border:1px solid #999;
-    cursor: default;
+  color: #666;
+  background: url(btn_gris.png) left top #CCC;
+  border:1px solid #999;
+  cursor: default;
 }
 
 .butt[disabled]:hover {
-    color: #666;
-    background: url(bgButtFormDisable.png) center repeat-x #CCC;
-    border: 1px solid #999;
-    cursor: default;
+  color: #666;
+  background: url(bgButtFormDisable.png) center repeat-x #CCC;
+  border: 1px solid #999;
+  cursor: default;
 }
 
 input.butt:hover {
-    font-size: 14px;
-    color: #BE0C02;
-    text-align: center;
-    font-family: 'HelveticaNeueLTStdMedCnRg';
-    background: url(btn_gris.png) left center #CCC;
-    border: 2px solid #999999;
-    width: auto;
-    height: 30px;
-    cursor: pointer;
-    line-height: 20px;
-    padding-left: 25px;
-    padding-right: 20px;
+  font-size: 14px;
+  color: #BE0C02;
+  text-align: center;
+  font-family: 'HelveticaNeueLTStdMedCnRg';
+  background: url(btn_gris.png) left center #CCC;
+  border: 2px solid #999999;
+  width: auto;
+  height: 30px;
+  cursor: pointer;
+  line-height: 20px;
+  padding-left: 25px;
+  padding-right: 20px;
 }
 
 /*INPUTS*/
 input.input_form {
-    background-color: transparent;
-    background-image: url("bgFormInput.jpg");
-    background-position: center bottom;
-    background-repeat: repeat-x;
-    border: 1px solid #BDBCBD;
-    color: #333333;
-    font-size: 12px;
-    height: 18px;
-    margin: 0 0 0 10px;
-    text-align: left;
-    width: 200px;
-    padding: 2px;
+  background-color: transparent;
+  background-image: url("bgFormInput.jpg");
+  background-position: center bottom;
+  background-repeat: repeat-x;
+  border: 1px solid #BDBCBD;
+  color: #333333;
+  font-size: 12px;
+  height: 18px;
+  margin: 0 0 0 10px;
+  text-align: left;
+  width: 200px;
+  padding: 2px;
 }
 
 input.input_form:focus {
-    background-color: #E3EFEF;
-    background-image: none;
+  background-color: #E3EFEF;
+  background-image: none;
 }
 
 input.input_form:disabled {
-    color: #999999;
+  color: #999999;
 }
 
-
 select.input_select {
-    background-color: transparent;
-    background-image: url("bgFormInput.jpg");
-    background-position: center bottom;
-    background-repeat: repeat-x;
-    border: 1px solid #BDBCBD;
-    color: #333333;
-    font-size: 0.9em;
-    height: 23px;
-    margin: 0 0 0 10px;
-    text-align: left;
-    width: 225px;
-    padding: 2px;
-    width: 195px!important;
+  background-color: transparent;
+  background-image: url("bgFormInput.jpg");
+  background-position: center bottom;
+  background-repeat: repeat-x;
+  border: 1px solid #BDBCBD;
+  color: #333333;
+  font-size: 0.9em;
+  height: 23px;
+  margin: 0 0 0 10px;
+  text-align: left;
+  width: 225px;
+  padding: 2px;
+  width: 195px!important;
 }
 
 
 select.input_select:focus {
-    background-color: #E3EFEF;
-    background-image: none;
+  background-color: #E3EFEF;
+  background-image: none;
 }
 
 select.input_select:disabled {
-    color: #999999;
+  color: #999999;
 }
 
 
@@ -125,11 +124,13 @@ ul{
   margin:0;
   /*padding:10px 0;*/
 }
+
 ul li {
   /*float: left;*/
   list-style-type: none;
   margin: 0 6px;
 }
+
 ul  input {
   display: block;
   height: 26px;
@@ -260,4 +261,21 @@ a.hyper_foot {
   &:focus {
     text-decoration: none;
   }
+}
+
+.footerImage {
+  -webkit-filter: grayscale(100%); 
+  filter: grayscale(100%);
+  cursor: pointer;
+  
+  &:hover {
+    -webkit-filter: grayscale(0%); 
+    filter: grayscale(0%);
+  }
+}
+
+.footerSeparator {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ccc;
 }

@@ -44,7 +44,7 @@
 
     <div class="footer">
       <div class="row">
-        <div class="col-xs-3">
+        <div class="col-sm-3">
           <table class="pull-right" id="uc_footer_dl_logosredes" cellspacing="0" style="width:150px;border-collapse:collapse;">
             <tbody>
               <tr>
@@ -72,7 +72,7 @@
             </tbody>
           </table>
         </div>
-        <div class="col-xs-3">
+        <div class="col-sm-3">
           <table id="uc_footer_dl_vinculos" cellspacing="0" style="width:280px;border-collapse:collapse;margin-left:50px">
             <caption style="text-align:left;color:#003F65;font-size:16px;padding:0">Enlaces de interés</caption>
             <tbody>
@@ -104,7 +104,7 @@
             </tbody>
           </table>
         </div>
-        <div class="col-xs-3">
+        <div class="col-sm-3">
           <table>
             <tbody>
               <caption> </caption>
@@ -146,7 +146,7 @@
             </tbody>
           </table>
         </div>
-        <div class="col-xs-3" style="font-size:10px">
+        <div class="col-sm-3" style="font-size:10px">
           <p style="margin:0">
             Call Center:
           </p>
@@ -162,6 +162,21 @@
           <p style="margin:0">
             Bogotá D.C. - Colombia
           </p>
+        </div>
+        <div class="col-xs-10 col-xs-offset-1 footerSeparator"/>
+      </div>
+      <div class="row">
+        <div class="col-sm-3 col-sm-offset-1 text-center">
+          <a href="http://www.presidencia.gov.co" target="_blank"><img src="assets/img/presidenciaRepublica.png" class="footerImage"/></a>
+        </div>
+        <div class="col-sm-2">
+          <a href="https://www.sivirtual.gov.co" target="_blank"><img src="assets/img/siConectaEstado.png" class="footerImage"/></a>
+        </div>
+        <div class="col-sm-2">
+          <a href="http://www.urnadecristal.gov.co" target="_blank"><img src="assets/img/urnaCristal.png" class="footerImage"/></a>
+        </div>
+        <div class="col-sm-2">
+          <a href="http://www.mintrabajo.gov.co" target="_blank"><img src="assets/img/mintrabajo.png" class="footerImage"/></a>
         </div>
       </div>
     </div>
@@ -206,8 +221,8 @@
     <script>
       System.import('<%= BOOTSTRAP_MODULE %>')
       .catch(function (e) {
-          console.error(e,
-                  'Report this error at https://github.com/mgechev/angular2-seed/issues');
+        console.error(e,
+        'Report this error at https://github.com/mgechev/angular2-seed/issues');
       });
     </script>
     <% } %>
