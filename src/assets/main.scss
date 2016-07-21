@@ -193,28 +193,71 @@ td {
     table-layout: fixed;	
  }
 
-/*Clases para el proyecto*/
-$break-small: 425px;
+/*Clases para Procesos Judiciales*/
+$break-small: 321px;
+$break-medium: 425px;
 
 .colpensionesLogo {
-  width: 52%;
 
-  @media screen and (max-width: $break-small) {
+  @media screen and (max-width: $break-medium) {
     width: 130%;
+  }
+  @media screen and (max-width: $break-small) {
+    margin-top: 18px;
   }
 }
 
 .repColLog {
-  width: 25%;
+  margin-left:-30px;
 
-  @media screen and (max-width: $break-small) {
+  @media screen and (max-width: $break-medium) {
     width: 60%;
+  }
+  @media screen and (max-width: $break-small) {
+    margin-top: 18px;
   }
 }
 
 .textoLogo {
+  float: right;
+  margin-top: 8%;
+  border-left: 2px solid #1F6AA4;
+  padding-left: 10px;
   color: #1F6AA4;
   font-size: 23px !important;
+
+  @media screen and (max-width: $break-medium) {
+    margin-left: 40px;
+  }
+  @media screen and (max-width: $break-small) {
+    padding-left: 17px;
+    margin-left: 10px;
+    font-size: 18px !important;
+  }
 }
 
+.footer {
+  line-height: 1.2 !important;
+  background-color: #F1F1F1;
+  padding: 10px 0 10px 0;
+}
 
+a.hyper_foot {
+  line-height: 0;
+  color: #4B85AB;
+  text-decoration: none;
+
+  :visited {
+    color: #b7ddf7;
+    text-decoration: none;
+  }
+
+  :hover {
+    color: #4B85AB !important;
+    text-decoration: none;
+  }
+
+  :focus {
+    text-decoration: none !important;
+  }
+}

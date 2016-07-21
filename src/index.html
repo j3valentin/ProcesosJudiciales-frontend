@@ -7,24 +7,34 @@
       <title><%= APP_TITLE %></title>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <!-- <link rel="stylesheet" href="assets/css/foundation.css" /> -->
       <!-- inject:css -->
-      <!-- Latest compiled and minified CSS for Bootstrap-->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-      <link rel="stylesheet" href="assets/index.css" />
       <!-- endinject -->
   </head>
   <body>
         
     <div class="container">
-      <div class="col-xs-12" style="padding:5% 0 2% 0">
-        <div class="col-xs-4">
+      <div class="col-xs-12" style="padding:6px 0 4px 0">
+        <div class="col-xs-3">
           <img class="colpensionesLogo" src="assets/img/logo_colpensiones.png" alt="Colpensiones">
         </div>
-        <div class="col-xs-4 text-center">
-          <h4 class="textoLogo">Procesos judiciales</h4>
+        <div class="col-xs-6">
+          <table style="float: right;">
+            <tbody>
+              <tr>
+                <td>
+                    <a id="uc_header1_LinkButton1" title="Preguntas Frecuentes" href='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("uc_header1$LinkButton1", "", false, "", "preguntas_frecuentes.aspx", false, true))' style="color:#909090;text-decoration:none;">Preguntas frecuentes</a></td>
+                <td style="padding-left: 5px; padding-right: 5px">|</td>
+                <td>
+                    <a id="uc_header1_LinkButton2" title="Glosario" href='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("uc_header1$LinkButton2", "", false, "", "glosario.aspx", false, true))' style="color:#909090;text-decoration:none;">Glosario</a></td>
+                <td style="padding-left: 5px; padding-right: 5px">|</td>
+                <td>
+                  <a id="uc_header1_LinkButton3" title="Intranet" href='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("uc_header1$LinkButton3", "", false, "", "Inicio_Intranet.aspx", false, true))' style="color:#909090;text-decoration:none;">Intranet</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div class="col-xs-4">
+        <div class="col-xs-3">
           <img class="repColLog pull-right" src="assets/img/escudo_colombia.png" alt="República de Colombia">
         </div>
       </div>
@@ -32,6 +42,128 @@
 
     <sd-app>Loading...</sd-app>
 
+    <div class="footer">
+      <div class="row">
+        <div class="col-xs-3">
+          <table class="pull-right" id="uc_footer_dl_logosredes" cellspacing="0" style="width:150px;border-collapse:collapse;">
+            <tbody>
+              <tr>
+                <td>
+                  <a href="https://twitter.com/colpensionesinf" style="text-decoration: none;" target="_blank">
+                    <img id="uc_footer_dl_logosredes_Image1_0" title=" Ingrese al twitter de Colpensiones" src="assets/img/2_TWITTER.png" alt=" Ingrese al twitter de Colpensiones" style="width:24px;" data-pin-nopin="true"></a>
+                </td>
+                <td>
+                  <a href="https://www.facebook.com/ColpensionesOficial/" style="text-decoration: none;" target="_blank">
+                    <img id="uc_footer_dl_logosredes_Image1_1" title="Ingrese al facebook de Colpensiones" src="assets/img/3_FACEBOOK.png" alt="Ingrese al facebook de Colpensiones" style="width:24px;" data-pin-nopin="true"></a>
+                </td>
+                <td>
+                  <a href="https://www.youtube.com/user/Colpensionescomunica" style="text-decoration: none;" target="_blank">
+                    <img id="uc_footer_dl_logosredes_Image1_2" title="Canal de youtube de Colpensiones" src="assets/img/6_YOUTUBE.png" alt="Canal de youtube de Colpensiones" style="width:24px;" data-pin-nopin="true"></a>
+                </td>
+                <td>
+                  <a href="/suscripcion.aspx" style="text-decoration: none;" target="_self">
+                    <img id="uc_footer_dl_logosredes_Image1_3" title="RSS" src="assets/img/1_RSS.png" alt="RSS" style="width:24px;" data-pin-nopin="true"></a>
+                </td>
+                <td>
+                  <a href="/blogs.aspx" style="text-decoration: none;" target="_self">
+                    <img id="uc_footer_dl_logosredes_Image1_4" title="BLOGS" src="assets/img/5_BLOGS.png" alt="BLOGS" style="width:24px;" data-pin-nopin="true"></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-xs-3">
+          <table id="uc_footer_dl_vinculos" cellspacing="0" style="width:280px;border-collapse:collapse;">
+            <caption style="text-align:left;color:#003F65;font-size:16px;padding:0">Enlaces de interés</caption>
+            <tbody>
+              <tr>
+                <td>
+                  - <a id="uc_footer_dl_vinculos_lkb_enlace_0" title="Ingrese a Preafiliación Colombianos en el Exterior" class="hyper_foot" href="https://pawcex.colpensionestransaccional.gov.co/" target="_blank" style="font-size:14px;">Preafiliación Colombianos en el Exterior</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  - <a id="uc_footer_dl_vinculos_lkb_enlace_1" title="Ingrese a Preafiliación empresas" class="hyper_foot" href="https://pawemp.colpensionestransaccional.gov.co/" target="_blank" style="font-size:14px;">Preafiliación Empresas</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  - <a id="uc_footer_dl_vinculos_lkb_enlace_2" title="Entidades Operadoras de Libranza y de Afiliación" class="hyper_foot" href="http://www.colpensiones.gov.co/publicaciones/es-CO/968/" target="_blank" style="font-size:14px;">Entidades Operadoras Libranza y Afiliación</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  - <a id="uc_footer_dl_vinculos_lkb_enlace_3" title="Sistema de atención al consumidor financiero" class="hyper_foot" href="http://www.colpensiones.gov.co/publicaciones/es-CO/239/SAC" target="_blank" style="font-size:14px;">Atención al consumidor financiero</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  - <a id="uc_footer_dl_vinculos_lkb_enlace_4" title="Atención al ciudadano" class="hyper_foot" href="http://www.colpensiones.gov.co/publicaciones/es-CO/712/Atencion_al_ciudadano" target="_blank" style="font-size:14px;">Atención al ciudadano</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-xs-3">
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  - <a href="/publicaciones/es-CO/114/Terminos-y-Condiciones-De-Uso" tabindex="0" title="Conozca los términos y condiciones de uso" class="hyper_foot" id="uc_footer_lkb_terminos">Términos y Condiciones de uso</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  - <a tabindex="0" title="Conozca el mapa del sitio" class="hyper_foot" id="lkb_mapa">Mapa del Sitio</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  - <a href="http://www.colpensiones.gov.co/reporte_bug.aspx" tabindex="0" title="Reportar Errores del sitio" class="hyper_foot" id="uc_footer_LinkButton1">Reporte de Errores</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  - <a href="/calendario.aspx" tabindex="0" title="Visualizar Calendario" class="hyper_foot" id="uc_footer_LinkButton2">Calendario</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  - <a href="/publicaciones/es-CO/249/Defensor-del-Consumidor-Financiero" tabindex="0" title="Defensor del consumidor financiero" class="hyper_foot" id="uc_footer_LinkButton5">Defensor del consumidor financiero</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  - <a href="/publicaciones/es-CO/763/Localizacion_de_Puntos_de_Atencion_COLPENSIONES_-_PAC" tabindex="0" title="Sucursales" class="hyper_foot" id="uc_footer_HyperLink1">Sucursales</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  - <a href="/publicaciones/es-CO/418/Derechos-peticion-notificaciones-judiciales" tabindex="0" title="Derechos de Petición y Notificaciones Judiciales" class="hyper_foot" id="uc_footer_LinkButton4">Derechos de Petición y Notificaciones Judiciales</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-xs-3" style="font-size:10px">
+          <p>
+            Call Center:
+          </p>
+          <p>
+            Bogotá 57(1) 489 09 09-M Medellín +57(4)- 283 60 90
+          </p>
+          <p>
+            Resto del País: 018000 41 0909 
+          </p>
+          <p>
+            Sede Principal: Carrera 10 No. 72 - 33 Torre B Piso 11 PBX [057] +1 217 0100
+          </p>
+          <p>
+            Bogotá D.C. - Colombia
+          </p>
+        </div>
+      </div>
+    </div>
 
     <script>
         // function.name (all IE)
@@ -65,20 +197,17 @@
 
     <!-- libs:js -->
     <!-- endinject -->
-    <!-- Latest compiled and minified JavaScript for Bootstrap-->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
 
     <!-- inject:js -->
     <!-- endinject -->
 
     <% if (ENV === 'dev') { %>
     <script>
-                System.import('<%= BOOTSTRAP_MODULE %>')
-                .catch(function (e) {
-                    console.error(e,
-                            'Report this error at https://github.com/mgechev/angular2-seed/issues');
-                });
+      System.import('<%= BOOTSTRAP_MODULE %>')
+      .catch(function (e) {
+          console.error(e,
+                  'Report this error at https://github.com/mgechev/angular2-seed/issues');
+      });
     </script>
     <% } %>
 

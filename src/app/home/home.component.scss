@@ -8,9 +8,18 @@ ul {
   padding: 0 0 0 8px;
 }
 
+a {
+  color: #23527c;
+}
+
+.titleItem {
+  color:#245575 !important;
+  text-decoration: none;
+}
+
 .principalMenuItem {
 	font-size: 16px !important;
-  color: #245575 !important;
+  color: #23527c !important;
 
   :visited {
   	color: #41A11D;
