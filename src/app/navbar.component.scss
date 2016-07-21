@@ -1,7 +1,6 @@
 .navbar-default {
   background-color: #005E9D;
   clear: both;
-  height: 20px !important;
 
   .navbar-brand {
     color: white;
@@ -15,11 +14,16 @@
   color: white;
   font-size: 14px;
   font-weight: 500;
+  padding: 5px;
 }
 
 .navbar-default .navbar-nav a.router-link-active,
 .navbar-default .navbar-nav a.router-link-active:hover, 
 .navbar-default .navbar-nav a.router-link-active:focus {
-    color: white;
-    /*background-color: #FFF;*/
+  color: white;
+  /*background-color: #FFF;*/
+}
+
+.navbar {
+  min-height: 5px !important;
 }

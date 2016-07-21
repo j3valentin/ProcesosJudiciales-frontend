@@ -239,7 +239,7 @@ $break-medium: 425px;
 .footer {
   line-height: 1.2 !important;
   background-color: #F1F1F1;
-  padding: 10px 0 10px 0;
+  padding: 35px 0 10px 0;
 }
 
 a.hyper_foot {
@@ -247,17 +247,17 @@ a.hyper_foot {
   color: #4B85AB;
   text-decoration: none;
 
-  :visited {
-    color: #b7ddf7;
+  &:visited {
+    color: #41A11D;
     text-decoration: none;
   }
 
-  :hover {
-    color: #4B85AB !important;
+  &:hover {
+    color: #b7ddf7 !important;
     text-decoration: none;
   }
 
-  :focus {
-    text-decoration: none !important;
+  &:focus {
+    text-decoration: none;
   }
 }
