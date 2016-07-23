@@ -39,14 +39,11 @@ $break-medium: 426px;
 
 .form-control {
   width: 100%;
+  margin-bottom: 30px;
 
   @media screen and (min-width: $break-medium) {
     width: 50%;
   }
-}
-
-.form-control {
-  margin-bottom: 10px;
 }
 
 .control-label { 
