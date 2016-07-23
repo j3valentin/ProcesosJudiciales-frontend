@@ -5,11 +5,10 @@
 
 ul {
   list-style-type: none;
-  padding: 0 0 0 8px;
 }
 
 a {
-  color: #23527c;
+  color: white;
 }
 
 .titleItem {
@@ -18,20 +17,43 @@ a {
 }
 
 .principalMenuItem {
-	font-size: 16px !important;
+  margin-left: 0;
+  border-radius: 15px 15px 0 0;
+	font-size: 12px !important;
   color: #23527c !important;
-
-  :visited {
-  	color: #41A11D;
-  	text-decoration: none;
-  }
+  background: #23527c;
 
   :hover {
+    border-radius: 15px 15px 0 0;
   	color: #b7ddf7 !important;
-  	text-decoration: none;
+    background: #23527c;
   }
+}
 
-  :focus {
-  	text-decoration: none;
+.tab-content {
+  padding-left: 10px;
+}
+
+$break-small: 325px;
+$break-medium: 426px;
+
+.form-control {
+  width: 100%;
+
+  @media screen and (min-width: $break-medium) {
+    width: 50%;
   }
+}
+
+.form-control {
+  margin-bottom: 10px;
+}
+
+.control-label { 
+  font-size: 12px;
+}
+
+.header {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 15px;
 }

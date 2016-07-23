@@ -10,627 +10,137 @@
 //  li(*ngFor='#name of nameListService.get()') {{name}}
 
 
-.col-xs-12
-	ul
-		li.titleItem
-			p(style="font-size:24px;margin:0") Procesjos Judiciales
-		li.principalMenuItem
-			a(href="#panel1") Georeferenciación y Datos Generales
-		li.principalMenuItem
-			a(href="#panel2") Validar Duplicidad
-		li.principalMenuItem
-			a(href="#panel3") Datos Cualitativos, Pretenciones y Etapas Procesales
-		li.principalMenuItem
-			a(href="#panel4") Estado de validación de los Procesos Duplicados
+.container
+  .row
+    ul.nav.nav-pills
+      li.principalMenuItem
+        a(href="#geoDatGen") Georeferenciación y Datos Generales
+      li.principalMenuItem
+        a(href="#valDup") Validar Duplicidad
+      li.principalMenuItem
+        a(href="#daPrePro") Datos Cualitativos, Pretenciones y Etapas Procesales
+      li.principalMenuItem
+        a(href="#valProDup") Estado de validación de los Procesos Duplicados
+  .row
+    .tab-content
+      #geoDatGen.tab-pane.fade.in.active
+        .header
+          h3 Georeferenciación y Datos Generales
+        form.form-horizontal(role="form")
+          form-group
+            label.control-label.col-sm-4 ID proceso
+            col-sm-6
+              input#idProcess.form-control(placeholder="Digite ID del proceso")
+          form-group
+            label.control-label.col-sm-4 ID litigar
+            col-sm-6
+              input#idProcess.form-control(placeholder="Digite ID a litigar")
+          form-group
+            label.control-label.col-sm-4 Fecha de notificación
+            col-sm-6
+              input#idProcess.form-control(placeholder="Ingrese fecha de notificación")
+          form-group
+            label.control-label.col-sm-4 No. Bizagi - caso defensa judicial
+            col-sm-6
+              input#idProcess.form-control(placeholder="Digite No. Bizagi - caso defensa judicial")
+          form-group
+            label.control-label.col-sm-4 No. de juzgado
+            col-sm-6
+              input#idProcess.form-control(placeholder="Digite No. de juzgado")
+          form-group
+            label.control-label.col-sm-4 Tipo de juzgado
+            col-sm-6
+              input#idProcess.form-control(placeholder="Seleccione tipo de juzgado")
+          form-group
+            label.control-label.col-sm-4 Nombre de despacho inicial
+            col-sm-6
+              input#idProcess.form-control(placeholder="Seleccione nombre de despacho inicial")
+          form-group
+            label.control-label.col-sm-4 Departamento juzgado
+            col-sm-6
+              input#idProcess.form-control(placeholder="Seleccione departamento juzgado")
+          form-group
+            label.control-label.col-sm-4 Ciudad de juzgado / Lugar de los hechos
+            col-sm-6
+              input#idProcess.form-control(placeholder="Seleccione ciudad de juzgado / Lugar de los hechos")
+          form-group
+            label.control-label.col-sm-4 Radicado rama judicial / Número de radicación
+            col-sm-6
+              input#idProcess.form-control(placeholder="Digite Radicado rama judicial / Número de radicación ej. 2015_000003")
+          form-group
+            label.control-label.col-sm-4 23 dígitos del proceso / Número de proceso rama judicial
+            col-sm-6
+              input#idProcess.form-control(placeholder="Digite 23 dígitos del proceso / Número de proceso rama judicial")
+          form-group
+            label.control-label.col-sm-4 Tipo de proceso
+            col-sm-6
+              input#idProcess.form-control(placeholder="Seleccione tipo de proceso")
+          form-group
+            label.control-label.col-sm-4 Clasificación procesos /jurisdicción - acción
+            col-sm-6
+              input#idProcess.form-control(placeholder="Digite clasificación procesos /jurisdicción - acción")
+          form-group
+            label.control-label.col-sm-4 Clasificación procesos /jurisdicción - acción
+            col-sm-6
+              input#idProcess.form-control(placeholder="Digite clasificación procesos /jurisdicción - acción")
+          form-group
+            label.control-label.col-sm-4 CC demandante / identificación demandante
+            col-sm-6
+              input#idProcess.form-control(placeholder="Digite CC demandante / identificación demandante")
+          form-group
+            label.control-label.col-sm-4 Nombre demandante
+            col-sm-6
+              input#idProcess.form-control(placeholder="Digite nombre demandante")
+          form-group
+            label.control-label.col-sm-4 Demandado
+            col-sm-6
+              input#idProcess.form-control(placeholder="Digite demandado")
+          form-group
+            label.control-label.col-sm-4 Nombre apoderado actual
+            col-sm-6
+              input#idProcess.form-control(placeholder="Digite nombre apoderado actual")
+          form-group
+            label.control-label.col-sm-4 Cédula apoderado Colpensiones
+            col-sm-6
+              input#idProcess.form-control(placeholder="Digite cédula apoderado Colpensiones")
+          form-group
+            label.control-label.col-sm-4 Tarjeta profesional apoderado
+            col-sm-6
+              input#idProcess.form-control(placeholder="Digite tarjeta profesional apoderado")
+          form-group
+            label.control-label.col-sm-4 Clasificación trámites
+            col-sm-6
+              input#idProcess.form-control(placeholder="Seleccione clasificación trámites")
+          form-group
+            label.control-label.col-sm-4 Tipo informativo
+            col-sm-6
+              input#idProcess.form-control(placeholder="Seleccione clasificación trámites")
+          form-group
+            label.control-label.col-sm-4 Relación de informativo
+            col-sm-6
+              input#idProcess.form-control(placeholder="Digite relación de informativo")
+          form-group
+            label.control-label.col-sm-4 Regional
+            col-sm-6
+              input#idProcess.form-control(placeholder="Seleccione regional")
+          form-group
+            label.control-label.col-sm-4 Año de radicación
+            col-sm-6
+              input#idProcess.form-control(placeholder="Digite el año de radicación")
+          form-group
+            label.control-label.col-sm-4 Tipo de unidad
+            col-sm-6
+              input#idProcess.form-control(placeholder="Digite el tipo de unidad", value="pesos")
+          form-group
+            label.control-label.col-sm-4 Tipo de apoderado
+            col-sm-6
+              input#idProcess.form-control(placeholder="Digite el tipo de apoderado", value="externo")
+        .col-xs-12
+          .btn-group(role="group").pull-right
+            .btn.btn-default.btn-md Limpiar
+            .btn.btn-primary.btn-md Guardar
+      #valDup.tab-pane.fade
+        h3 Validar Duplicidad
 
-//<div class="tabs-content" data-tabs-content="example-tabs">
-//    <div class="tabs-panel is-active" id="panel1">
-//        <form>
-//            <table class="">
-//                <tbody>
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">ID Proceso *:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="XXXXX">
-//                        </td>
-//                    </tr>
-//                    <tr>
-//                        <td class="firstTd">	      		
-//                            <label for="middle-label" class="text-right">ID Litigar *:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="XXXXX">
-//                        </td>
-//                    </tr> 
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Fecha de notificación *:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="aaaa-mm-dd">
-//                        </td>
-//                        <td>
-//                            <label for="middle-label" class="text-right">N° Bizagi - Caso defensa judicial *:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="2015_12345">
-//                        </td>
-//                    </tr>
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">N° de Juzgado(en letras)*:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="28">
-//                        </td>
-//                    </tr>
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Tipo de juzgado *:</label>
-//                        </td>
-//                        <td>
-//                            <select class="input_select">
-//                                <option value="v_1">Seleccione</option>
-//                            </select>
-//                        </td>
-//                    </tr>
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Nombre despacho inicial *:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="Juzgado 028">
-//                        </td>
-//                    </tr>	 
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Departamento juzgado *:</label>
-//                        </td>
-//                        <td>
-//                            <select class="input_select">
-//                                <option value="v_1">Seleccione</option>
-//                            </select>
-//                        </td>
-//                    </tr>
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Ciudad juzgado/Lugar de los hechos *:</label>
-//                        </td>
-//                        <td>
-//                            <select class="input_select">
-//                                <option value="v_1">Seleccione</option>
-//                            </select>	      	      	      	      
-//                        </td>
-//                    </tr>
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Radicado rama judicial/Número de radicación *:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="2015-00075">
-//                        </td>
-//                    </tr>
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">23 Dígitos de proceso/No. Proceso Rama Judicial *:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="12345678901234567890123">
-//                        </td>
-//                    </tr> 
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Tipo de proceso *:</label>
-//                        </td>
-//                        <td>
-//                            <select class="input_select">
-//                                <option value="v_1">Seleccione</option>
-//                            </select>
-//                        </td>
-//                    </tr>
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Clasificación procesos *:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="Ordinaria">
-//                        </td>
-//                    </tr>
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Nombre demandante *:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="XXXXXX">
-//                        </td>
-//                    </tr>
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">CC demandante / Identificación *:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="1234567">
-//                        </td>
-//                    </tr>
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Demandado *:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="Colpensiones">
-//                        </td>
-//                    </tr>
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Nombre apoderado actual:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="XXXXXXX">
-//                        </td>
-//                    </tr>
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">CC Apoderado Colpensiones *:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="987654">
-//                        </td>
-//                    </tr>
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">TP Apoderado Colpensiones *:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="Right- and middle-aligned text input">
-//                        </td>
-//                    </tr>
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Clasificación trámites *:</label>
-//                        </td>
-//                        <td>
-//                            <select class="input_select">
-//                                <option value="v_1">Seleccione</option>
-//                            </select>
-//                        </td>
-//                    </tr>
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Tipo informativo *:</label>
-//                        </td>
-//                        <td>
-//                            <select class="input_select">
-//                                <option value="v_1">Seleccione</option>
-//                            </select>
-//                        </td>
-//                    </tr>
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Relación de informativo *:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="">
-//                        </td>
-//                    </tr>
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Regional *:</label>
-//                        </td>
-//                        <td>
-//                            <select class="input_select">
-//                                <option value="v_1">Seleccione</option>
-//                            </select>
-//                        </td>
-//                    </tr> 
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Año de radicación *:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="2015">
-//                        </td>
-//                    </tr>
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Tipo de unidad *:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="Pesos">
-//                        </td>
-//                    </tr>
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Tipo de apoderado *:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="Externo">
-//                        </td>
-//                    </tr>  				
-//
-//
-//
-//
-//
-//                </tbody>
-//            </table>
-//
-//            <div class="row">	 <!-- 26 -->			
-//                <div class="float_center">
-//                    <ul class="child">
-//                        <li>
-//                            <input type="submit" class="butt fr" Value="GUARDAR">
-//                        </li>
-//                        <li>
-//                            <input type="reset" class="butt fr" value="CANCELAR">
-//                        </li>
-//                    </ul>	
-//                    <div class="clear"></div>
-//                </div>
-//                <div class="clear"></div>
-//            </div>
-//        </form>
-//    </div>
-//    <div class="tabs-panel" id="panel2">
-//        <table class="">
-//            <tbody>
-//                <tr>
-//                    <td class="firstTd">
-//                        <label for="middle-label" class="text-right">Hechos del proceso *:</label>
-//                    </td>
-//                    <td>
-//                        <input class="input_form" type="text" placeholder="">
-//                    </td>
-//                </tr>  
-//
-//                <tr>
-//                    <td class="firstTd">
-//                        <label for="middle-label" class="text-right">¿De quién es el acto administrativo?:</label>
-//                    </td>
-//                    <td>
-//                        <input class="input_form" type="text" placeholder="Juzgado 028">
-//                    </td>
-//                </tr>  	
-//                <tr>
-//                    <td class="firstTd">
-//                        <label for="middle-label" class="text-right">Número de la resolución:</label>
-//                    </td>
-//                    <td>
-//                        <input class="input_form" type="text" placeholder="Juzgado 028">
-//                    </td>
-//                </tr>        		
-//            </tbody>
-//        </table>
-//
-//
-//        <div class="row">	<!-- 4 -->			
-//            <div class="float_center">
-//                <ul class="child">
-//                    <li>
-//                        <input data-open="VDModal" class="butt fr" value="VALIDAR DUPLICIDAD">
-//                    </li>
-//                </ul>	
-//                <div class="clear"></div>
-//            </div>
-//            <div class="clear"></div>
-//        </div>
-//
-//
-//    </div>
-//    <div class="tabs-panel" id="panel3">
-//        <form>
-//            <table class="">
-//                <tbody>
-//                    <tr>
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Hechos del proceso *:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="XXXXX">
-//                        </td>
-//                    </tr>   
-//
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">¿De quién es el acto administrativo demandado?:</label>
-//                        </td>
-//                        <td>
-//                            <select class="input_select">
-//                                <option value="v_1">Seleccione</option>
-//                            </select>	    
-//                        </td>
-//                    </tr>
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Número de la resolución:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="">
-//                        </td>
-//                    </tr>     	  	
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Causa del proceso / Fondo que cubre el riesgo:</label>
-//                        </td>
-//                        <td>
-//                            <select class="input_select">
-//                                <option value="v_1">Seleccione</option>
-//                            </select>
-//                        </td>
-//                    </tr>   
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Modalidad de pretensión:</label>
-//                        </td>
-//                        <td>
-//                            <select class="input_select">
-//                                <option value="v_1">Seleccione</option>
-//                            </select>
-//                        </td>
-//                    </tr>   
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Pretensión principal:</label>
-//                        </td>
-//                        <td>
-//                            <select class="input_select">
-//                                <option value="v_1">Seleccione</option>
-//                            </select>
-//                        </td>
-//                    </tr>   
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Clase de pretensión:</label>
-//                        </td>
-//                        <td>
-//                            <select class="input_select">
-//                                <option value="v_1">Seleccione</option>
-//                            </select>
-//                        </td>
-//                    </tr>     
-//
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Fecha de admisión de la demanda:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="aaaa-mm-dd">
-//                        </td>
-//                    </tr>   
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Cuantía estimada en el proceso *:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="">
-//                        </td>
-//                    </tr>   
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Nombre afiliado causante *:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="">
-//                        </td>
-//                    </tr>   
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">CC afiliado causante / Identificación *:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="">
-//                        </td>
-//                    </tr>   
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Nombre beneficiario 1*:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="">
-//                        </td>
-//                    </tr>   
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Cédula ciudadanía beneficiario 1 *:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="">
-//                        </td>
-//                    </tr>   
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Nombre beneficiario 2:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="">
-//                        </td>
-//                    </tr>   
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Cédula ciudadanía beneficiario 2:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="">
-//                        </td>
-//                    </tr>    
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Nombre beneficiario 3:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="">
-//                        </td>
-//                    </tr>   
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Cédula ciudadanía beneficiario 3:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="">
-//                        </td>
-//                    </tr>   
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Nombre beneficiario 4:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="">
-//                        </td>
-//                    </tr>   
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Cédula ciudadanía beneficiario 4:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="">
-//                        </td>
-//                    </tr>    
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Nombre beneficiario 5:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="">
-//                        </td>
-//                    </tr>   
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Cédula ciudadanía beneficiario 5:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="">
-//                        </td>
-//                    </tr>   
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Cantidad demandantes:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="">
-//                        </td>
-//                    </tr>   
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Entre los demandantes hay entidades públicas:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="Right- and middle-aligned text input">
-//                        </td>
-//                    </tr>    
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Nombre apoderado contraparte:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="">
-//                        </td>
-//                    </tr>   
-//
-//                    <tr>
-//                        <td class="firstTd">
-//                            <label for="middle-label" class="text-right">Identificación apoderado contraparte:</label>
-//                        </td>
-//                        <td>
-//                            <input class="input_form" type="text" id="middle-label" placeholder="">
-//                        </td>
-//                    </tr>   		
-//
-//
-//                </tbody>
-//            </table>	
-//
-//
-//            <div class="row">	<!-- 26 -->			
-//                <div class="float_center">
-//                    <ul class="child">
-//                        <li>
-//                            <input type="submit" class="butt fr" Value="GUARDAR">
-//                        </li>
-//                        <li>
-//                            <input type="reset" class="butt fr" value="CANCELAR">
-//                        </li>
-//                    </ul>	
-//                    <div class="clear"></div>
-//                </div>
-//                <div class="clear"></div>
-//            </div>  	
-//
-//        </form>
-//    </div>
-//    <div class="tabs-panel" id="panel4">
-//        <div class="row"> <!-- 1 -->
-//            <div class="small-3 columns">
-//                <label class="text-right">Estado del Proceso:</label>
-//            </div>
-//            <div class="small-9 columns">
-//                <label class="text-right">-----------------</label>
-//            </div>
-//        </div>	
-//        <div class="row"> <!-- 2 -->
-//            <div class="small-3 columns">
-//                <label class="text-right">Código:</label>
-//            </div>
-//            <div class="small-9 columns">
-//                <label class="text-right">-----------------</label>
-//            </div>
-//        </div>	
-//
-//        <div class="row">				
-//            <div class="float_center">
-//                <ul class="child">
-//                    <li>
-//                        <input type="submit" class="butt fr" Value="CANCELAR">
-//                    </li>
-//                </ul>	
-//                <div class="clear"></div>
-//            </div>
-//            <div class="clear"></div>
-//        </div>	  	  
-//    </div>
-//</div>
-//<%@include file="/WEB-INF/views/optionsMenu/duplicados/_validacionDuplicados.jsp" %>
+
+
