@@ -9,7 +9,7 @@
 //ul
 //  li(*ngFor='#name of nameListService.get()') {{name}}
 
-
+//CUS002 Formularios de registro, y CUS003
 .container
   .row
     ul.nav.nav-pills
@@ -24,7 +24,7 @@
   .tab-content
     #geoDatGen.tab-pane.fade.in.active
       .header
-        h3 Georeferenciación y datos generales
+        h3 Consulta de procesos / Validar duplicidad
       form.form-horizontal(role="form")
         .form-group
           label.control-label.col-sm-4 23 dígitos del proceso / Número de proceso rama judicial
@@ -33,15 +33,79 @@
         .form-group
           label.control-label.col-sm-4 CC demandante / identificación demandante
           .col-sm-6
-            input#idDemandante.form-control(placeholder="Digite el documento del demandante / identificación demandante")
+            input#idDemandante.form-control(disabled="disabled", placeholder="Digite el documento del demandante / identificación demandante")
         .form-group
           label.control-label.col-sm-4 Nombre demandante
           .col-sm-6
-            input#nombreDemandante.form-control(placeholder="Digite el nombre del demandante")
-        .dashed-bottom
-          .row
-            .col-xs-11
-              .btn.btn-primary.btn-md.pull-right Validar duplicidad
+            input#nombreDemandante.form-control(disabled="disabled", placeholder="Digite el nombre del demandante")
+        .row
+          .col-xs-11
+            .btn.btn-primary.btn-md.pull-right Validar duplicidad
+        .well.well-sm
+          .table-responsive
+          table.table.table-condensed.table-hover.table-curved
+            caption.text-left Procesos judiciales asociados / duplicados
+            thead.primary-emphasis
+              tr
+                th Notificación
+                th 23 dígitos
+                th Bizagi
+                th Tipo proceso
+                th Demandante
+                th Cédula
+                th Nombre despacho
+                th Estados
+                th.text-center Corregir
+            tbody
+              tr
+                td 2016-06-18
+                td 1234567891011121314151617
+                td 2016_132456
+                td ordinario laboral
+                td Camilo Erazo
+                td 80234562
+                td Juzgado 028
+                td Duplicado
+                td.text-center
+                  i.glyphicon.glyphicon-wrench.btn-sm-primary(aria-hidden="true")
+              tr
+                td
+                  input.form-control.input-sm(value="2016-06-25")
+                td
+                  input.form-control.input-sm(value="6587967891011121314156857")
+                td
+                  input.form-control.input-sm(value="2016_132456")
+                td
+                  input.form-control.input-sm(value="ordinario laboral")
+                td
+                  input.form-control.input-sm(value="Camilo Erazo")
+                td
+                  input.form-control.input-sm(value="80234562")
+                td
+                  input.form-control.input-sm(value="Juzgado 028")
+                td
+                  select.form-control.input-sm
+                    option Duplicado
+                    option Notificación por ejecutivo
+                    option Pleito pendiente
+                    option Cosa juzgada
+                    option Registro correcto
+                td.text-center
+                  i.glyphicon.glyphicon-repeat.btn-sm-danger.flip-glyphicon
+                  i.glyphicon.glyphicon-floppy-disk.btn-sm-success
+              tr
+                td 2016-07-02
+                td 1984465654654121314151617
+                td 2016_132456
+                td ordinario laboral
+                td Camilo Erazo
+                td 80234562
+                td Juzgado 028
+                td Cosa juzgada
+                td.text-center
+                  i.glyphicon.glyphicon-wrench.btn-sm-primary
+      .header
+        h3 Georeferenciación y datos generales
       form.form-horizontal(role="form")
         .form-group
           label.control-label.col-sm-4 ID proceso
@@ -607,19 +671,22 @@
           label.control-label.col-sm-4 CC afiliado Causante/ identificación
           .col-sm-6
             input#idafilCaus.form-control(placeholder="Digite la CC afiliado Causante/ identificación")
-        .form-group
-          label.control-label.col-sm-4 Nombre beneficiario 1
-          .col-sm-6
-            input#nomBef1.form-control(placeholder="Digite el nombre beneficiario 1")
-        .form-group
-          label.control-label.col-sm-4 Cédula ciudadanía beneficiario 1
-          .col-sm-6
-            input#idBef1.form-control(placeholder="Digite la cédula ciudadanía beneficiario 1")
-        .form-group
-          label.control-label.col-sm-4
-          .col-sm-6
-            .btn.btn-success.btn-xs.pull-right + beneficiario
-            // Nota para el programador: El botón debe permitir agregar nuevos campos para "Nombre del beneficiario #" y "Cédula ciudadania beneficiario #". Según especificaciones del CUS002 se pueden agregar hasta 5 beneficiarios. Al quinto el botón se oculta.
+        .dashed-group
+          .form-group
+            label.control-label.col-sm-4 Nombre beneficiario 1
+            .col-sm-6
+              input#nomBef1.form-control(placeholder="Digite el nombre beneficiario 1")
+          .form-group
+            label.control-label.col-sm-4 Cédula ciudadanía beneficiario 1
+            .col-sm-6
+              input#idBef1.form-control(placeholder="Digite la cédula ciudadanía beneficiario 1")
+          .form-group
+            label.control-label.col-sm-4
+            .col-sm-6
+              .btn-group.pull-right
+                .btn.btn-danger.btn-xs - beneficiario
+                .btn.btn-success.btn-xs + beneficiario
+                // Nota para el programador: El botón debe permitir agregar nuevos campos para "Nombre del beneficiario #" y "Cédula ciudadania beneficiario #". Según especificaciones del CUS002 se pueden agregar hasta 5 beneficiarios. Al quinto el botón se oculta.
         .form-group
           label.control-label.col-sm-4 Cantidad demandantes
           .col-sm-6
@@ -642,4 +709,64 @@
       .col-xs-11
         .btn-group(role="group").pull-right
           .btn.btn-default.btn-md Limpiar
+          .btn.btn-success.btn-md Volver
           .btn.btn-primary.btn-md Guardar
+
+//CUS011 loguin
+.container.non-display
+  .header
+    h3 Inicie sesión en Procesos Judiciales
+  form.form-horizontal(role="form")
+    .form-group
+      .col-sm-6.col-sm-offset-3
+        input#email.form-control(placeholder="Digite en email, ejemplo@ejemplo.com")
+    .form-group
+      .col-sm-6.col-sm-offset-3
+        input#password.form-control(placeholder="Digite la contraseña")
+    .form-group
+      .col-sm-6.col-sm-offset-3
+        select#email.form-control
+          option(selected="selected", value="Seleccione un dominio") Seleccione un dominio
+          option(value="Colpensiones") Colpensiones
+          option(value="Externo") Externo
+    .col-sm-3.col-sm-offset-3
+      a Recuperar contraseña
+    .col-sm-3
+      .btn-group.pull-right
+        .btn.btn-default.btn-md Limpiar
+        .btn.btn-primary.btn-md Ingresar
+
+//CUS005 Búsqueda avanzada
+.container.non-display
+  .header
+    h3 Búsqueda avanzada / Consulta por filtros
+  .col-md-6
+    form.form-horizontal(role="form")
+      .form-group
+        label.control-label.col-sm-4 Fecha inicio notificación
+        .col-sm-6
+          input#fechaIniNotif.form-control(placeholder="Ingrese fecha inicio notificación")
+      .form-group
+        label.control-label.col-sm-4 Nombre despacho inicial
+        .col-sm-6
+          input#nomDespaIni.form-control(placeholder="Digite el nombre del despacho inicial")
+      .form-group
+        label.control-label.col-sm-4 Departamento juzgado
+        .col-sm-6
+          select#depJuzgado.form-control
+            option(selected="selected", value="Seleccione un departamento juzgado") Seleccione un departamento juzgado
+            option(value="1") ACCION DE NULIDAD Y RESTABLECIMIENTO DEL DERECHO
+            option(value="1") ACCION DE REPARACION DIRECTA
+            option(value="1") ACCION DE CUMPLIMIENTO
+            option(value="1") ACCION POPULAR
+            option(value="1") EXTENSION DE JURISPRUDENCIA
+            option(value="1") NULIDAD SIMPLE
+            option(value="1") REPARACION DIRECTA
+            option(value="1") ADMINISTRATIVO EJECUTIVO
+            option(value="1") EJECUTIVO LABORAL
+            option(value="1") ORDINARIO LABORAL DE UNICA INSTANCIA
+            option(value="1") ORDINARIO LABORAL DE PRIMERA INSTANCIA
+      .form-group
+        label.control-label.col-sm-4 Nombre despacho inicial
+        .col-sm-6
+          input#nomDespaIni.form-control(placeholder="Digite el nombre del despacho inicial")
