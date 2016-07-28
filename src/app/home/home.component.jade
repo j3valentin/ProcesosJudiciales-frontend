@@ -22,7 +22,7 @@
       //li.principalMenuItem
         a(href="#valProDup") Estado de validación de los Procesos Duplicados
   .tab-content
-    #geoDatGen.tab-pane.fade.in.active
+    #geoDatGen.tab-pane.fade.in
       .header
         h3 Consulta de procesos / Validar duplicidad
       form.form-horizontal(role="form")
@@ -31,13 +31,13 @@
           .col-sm-6
             input#veintiTresDig.form-control(placeholder="Digite los 23 dígitos del proceso / Número de proceso rama judicial")
         .form-group
-          label.control-label.col-sm-4 CC demandante / identificación demandante
+          label.control-label.col-sm-4 CC demandante / identificación del demandante
           .col-sm-6
-            input#idDemandante.form-control(disabled="disabled", placeholder="Digite el documento del demandante / identificación demandante")
+            input#idDemandante.form-control(placeholder="Digite el documento del demandante / identificación demandante")
         .form-group
-          label.control-label.col-sm-4 Nombre demandante
+          label.control-label.col-sm-4 Nombre del demandante
           .col-sm-6
-            input#nombreDemandante.form-control(disabled="disabled", placeholder="Digite el nombre del demandante")
+            input#nombreDemandante.form-control(disabled="disabled", placeholder="Digite el nombre del demandante", value="Camilo Erazo")
         .row
           .col-xs-11
             .btn.btn-primary.btn-md.pull-right Validar duplicidad
@@ -67,8 +67,8 @@
                 td Juzgado 028
                 td Duplicado
                 td.text-center
-                  i.glyphicon.glyphicon-wrench.btn-sm-primary(aria-hidden="true")
-              tr
+                  i.glyphicon.glyphicon-wrench.btn-sm-primary(title="Corregir")
+              //tr
                 td
                   input.form-control.input-sm(value="2016-06-25")
                 td
@@ -76,7 +76,18 @@
                 td
                   input.form-control.input-sm(value="2016_132456")
                 td
-                  input.form-control.input-sm(value="ordinario laboral")
+                  select.form-control.input-sm
+                    option(value="1") ACCION DE NULIDAD Y RESTABLECIMIENTO DEL DERECHO
+                    option(value="2") ACCION DE REPARACION DIRECTA
+                    option(value="3") ACCION DE CUMPLIMIENTO
+                    option(value="4") ACCION POPULAR
+                    option(value="5") EXTENSION DE JURISPRUDENCIA
+                    option(value="6") NULIDAD SIMPLE
+                    option(value="7") REPARACION DIRECTA
+                    option(value="8") ADMINISTRATIVO EJECUTIVO
+                    option(value="9") EJECUTIVO LABORAL
+                    option(value="10") ORDINARIO LABORAL DE UNICA INSTANCIA
+                    option(value="11") ORDINARIO LABORAL DE PRIMERA INSTANCIA
                 td
                   input.form-control.input-sm(value="Camilo Erazo")
                 td
@@ -91,8 +102,8 @@
                     option Cosa juzgada
                     option Registro correcto
                 td.text-center
-                  i.glyphicon.glyphicon-repeat.btn-sm-danger.flip-glyphicon
-                  i.glyphicon.glyphicon-floppy-disk.btn-sm-success
+                  i.glyphicon.glyphicon-repeat.btn-sm-danger.flip-glyphicon(title="Cancelar")
+                  i.glyphicon.glyphicon-floppy-disk.btn-sm-success(title="Guardar")
               tr
                 td 2016-07-02
                 td 1984465654654121314151617
@@ -103,7 +114,7 @@
                 td Juzgado 028
                 td Cosa juzgada
                 td.text-center
-                  i.glyphicon.glyphicon-wrench.btn-sm-primary
+                  i.glyphicon.glyphicon-wrench.btn-sm-primary(title="Corregir")
       .header
         h3 Georeferenciación y datos generales
       form.form-horizontal(role="form")
@@ -586,9 +597,9 @@
           .btn.btn-default.btn-md Limpiar
           .btn.btn-primary.btn-md Guardar
           .btn.btn-success.btn-md Continuar
-    #daPrePro.tab-pane.fade.in
+    #daPrePro.tab-pane.fade.in.active
       .header
-        h3 Datos cualitativos, pretenciones y etapas procesales
+        h3 Datos cualitativos, pretensiones y etapas procesales
       form.form-horizontal(role="form")
         .form-group
           label.control-label.col-sm-4 Hechos del proceso
@@ -719,7 +730,7 @@
   form.form-horizontal(role="form")
     .form-group
       .col-sm-6.col-sm-offset-3
-        input#email.form-control(placeholder="Digite en email, ejemplo@ejemplo.com")
+        input#email.form-control(placeholder="Digite el email, ejemplo@ejemplo.com")
     .form-group
       .col-sm-6.col-sm-offset-3
         input#password.form-control(placeholder="Digite la contraseña")
