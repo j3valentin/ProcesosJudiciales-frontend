@@ -309,6 +309,11 @@ a.hyper_foot {
   @extend .btn-sm;
 }
 
+.btn-sm-default {
+  color: #ccc;
+  @extend .btn-sm;
+}
+
 .btn-sm-primary {
   color: #337ab7;
   @extend .btn-sm;
