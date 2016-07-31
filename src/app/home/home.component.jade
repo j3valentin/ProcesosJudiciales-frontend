@@ -928,7 +928,7 @@
     .btn.btn-success.btn-md Exportar
   
 //CUS007 Consultar información histórico proceso - Nota: Podría ser un modal
-.container
+.container.non-display
   .header
     h3 Consulta histórico de procesos
   .row
@@ -1051,3 +1051,15 @@
     .well
       p Se identificaron &lt;&lt;Número de registros calculados&gt;&gt; procesos con los filtros de consulta diligenciados
 
+//CUS008 Cargar archivo información BUPC
+.container
+  .header
+    p Carga de archivos al sistema
+  .jumbotron
+    p Para cargar un archivo presione el botón <i>Examinar</i> y luego el botón <i>Cargar</i>
+    input.custom-file-input(type="file")
+    .text-center.spacer
+      p ¡El archivo se ha cargado de forma exitosa!
+    .btn-group.pull-right
+      .btn.btn-default.btn-md Cancelar
+      .btn.btn-primary.btn-md Cargar
