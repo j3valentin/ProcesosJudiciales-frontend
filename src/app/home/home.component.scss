@@ -60,6 +60,18 @@ $break-medium: 426px;
   margin: 15px 0 15px 0; 
 }
 
+.dashed-separator-top {
+  padding-top: 30px;
+  border-top: 1px dashed #ccc;
+  // margin: 15px 0 15px 0; 
+}
+
+.dashed-separator-bottom {
+  padding-bottom: 15px;
+  border-bottom: 1px dashed #ccc;
+  // margin: 15px 0 15px 0; 
+}
+
 textarea {
   border: 0;
   resize: none;
