@@ -1,0 +1,123 @@
+//CUS007 Consultar información histórico proceso - Nota: Podría ser un modal
+.container
+  .header
+    h3 Consulta histórico de procesos
+  .row
+    .col-sm-6
+      form.form-horizontal(role="form")
+        .form-group
+          label.control-label.col-sm-4 Fecha inicio notificación
+          .col-sm-6
+            input#fechaIniModif.form-control(placeholder="Ingrese fecha inicio de notificación")
+        .form-group
+          label.control-label.col-sm-4 Regional
+          .col-sm-6
+            select#regional.form-control
+              option(selected="selected", value="Seleccione la regional") Seleccione la regional
+              option(value="1") ANTIOQUIA
+              option(value="2") BOGOTA
+              option(value="3") CARIBE
+              option(value="4") CENTRO
+              option(value="5") EJE CAFETERO
+              option(value="6") OCCIDENTE
+              option(value="7") SANTANDER
+              option(value="8") SUR
+        .form-group
+          label.control-label.col-sm-4 Apoderado actual
+          .col-sm-6
+            select#apoActual.form-control
+              option(selected="selected", value="Seleccione el nombre del apoderado actual") Seleccione el nombre del apoderado actual
+              option(value="1") Apoderado1
+              option(value="2") Apoderado2
+              option(value="3") Apoderado3
+              option(value="4") Apoderado4
+              option(value="5") Apoderado5
+              option(value="6") Apoderado6
+              option(value="7") Apoderado7
+              option(value="8") Apoderado8
+              option(value="9") Apoderado9
+              option(value="10") Apoderado10
+              option(value="11") Apoderado11
+        .form-group
+          label.control-label.col-sm-4 Instancia actual
+          .col-sm-6
+            select#pretenPrincipal.form-control
+              option(selected="selected", value="Seleccione la instancia actual") Seleccione la instancia actual
+              option(value="1") PRIMERA
+              option(value="2") SEGUNDA
+              option(value="3") UNICA
+              option(value="4") CASACION / REVISION
+              option(value="5") CONSULTA
+        .form-group
+          label.control-label.col-sm-4 Ciudad juzgado
+          .col-sm-6
+            select#pretenPrincipal.form-control
+              option(selected="selected", value="Seleccione la ciudad del juzgado") Seleccione la ciudad del juzgado
+              option(value="1") Ciudad1
+              option(value="2") Ciudad2
+              option(value="3") Ciudad3
+              option(value="4") Ciudad4
+              option(value="5") Ciudad5
+              option(value="6") Ciudad6
+              option(value="7") Ciudad7
+              option(value="8") Ciudad8
+              option(value="9") Ciudad9
+              option(value="10") Ciudad10
+    .col-sm-6
+      form.form-horizontal(role="form")
+        .form-group
+          label.control-label.col-sm-5 Fecha fin notificación
+          .col-sm-6
+            input#fechaFinNotif.form-control(placeholder="Ingrese fecha inicio notificación")
+        .form-group
+          label.control-label.col-sm-5.empty-input
+        .form-group
+          label.control-label.col-sm-5 ¿Con actualización de etapas?
+          .col-sm-6
+            select#pretenPrincipal.form-control
+              option(selected="selected", value="Seleccione la etapa actual del proceso") Seleccione la etapa actual del proceso
+              option(value="1") Etapa1
+              option(value="2") Etapa2
+              option(value="3") Etapa3
+              option(value="4") Etapa4
+              option(value="5") Etapa5
+              option(value="6") Etapa6
+              option(value="7") Etapa7
+              option(value="8") Etapa8
+              option(value="9") Etapa9
+              option(value="10") Etapa10
+        .form-group
+          label.control-label.col-sm-5 ¿Con actualización de etapas?
+          .col-sm-6
+            select#pretenPrincipal.form-control
+              option(selected="selected", value="Seleccione la etapa actual del proceso") Seleccione la etapa actual del proceso
+              option(value="1") Etapa1
+              option(value="2") Etapa2
+              option(value="3") Etapa3
+              option(value="4") Etapa4
+              option(value="5") Etapa5
+              option(value="6") Etapa6
+              option(value="7") Etapa7
+              option(value="8") Etapa8
+              option(value="9") Etapa9
+              option(value="10") Etapa10
+        .form-group
+          label.control-label.col-sm-5 Departamento juzgado
+          .col-sm-6
+            select#ciudadJuzgado.form-control
+              option(selected="selected", value="Seleccione el departamento del juzgado", style="color:#ccc !important") Seleccione la ciudad juzgado
+              option(value="1") ANTIOQUIA
+              option(value="2") BOGOTA
+              option(value="3") CARIBE
+              option(value="4") CENTRO
+              option(value="5") EJE CAFETERO
+              option(value="6") OCCIDENTE
+              option(value="7") SANTANDER
+              option(value="8") SUR
+    .col-sm-12.text-right
+      .btn-group
+        .btn.btn-default.btn-md Limpiar
+        .btn.btn-primary.btn-md Consultar
+  .row
+    .well
+      p Se identificaron &lt;&lt;Número de registros calculados&gt;&gt; procesos con los filtros de consulta diligenciados
