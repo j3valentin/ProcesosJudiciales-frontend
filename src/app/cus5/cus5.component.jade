@@ -1,0 +1,190 @@
+//p
+//  | Howdy! Here's a list of awesome computer scientists.
+//  | Do you know any others? Add to the list yourself.
+//form.form-inline((submit)='addName()')
+//  .form-group
+//    label.sr-only(for='newName') Awesome Computer Scientist
+//    input#newName.form-control(type='text', [(ngModel)]='newName', placeholder='Awesome Computer Scientist')
+//  button.btn.btn-primary(type='submit') Add
+//ul
+//  li(*ngFor='#name of nameListService.get()') {{name}}
+
+//CUS005 Búsqueda avanzada - Nota: Se recomienda un modal
+.container
+  .header
+    h3 Búsqueda avanzada / Filtros de consulta
+  .row
+    .col-sm-6
+      form.form-horizontal(role="form")
+        .form-group
+          label.control-label.col-sm-4 Fecha inicio notificación
+          .col-sm-6
+            input#fechaIniNotif.form-control(placeholder="Ingrese fecha inicio notificación")
+        .form-group
+          label.control-label.col-sm-4 Nombre despacho inicial
+          .col-sm-6
+            input#nomDespaIni.form-control(placeholder="Digite el nombre del despacho inicial")
+        .form-group
+          label.control-label.col-sm-4 Departamento juzgado
+          .col-sm-6
+            select#depJuzgado.form-control
+              option(selected="selected", value="Seleccione el departamento juzgado") Seleccione un departamento juzgado
+              option(value="1") ACCION DE NULIDAD Y RESTABLECIMIENTO DEL DERECHO
+              option(value="2") ACCION DE REPARACION DIRECTA
+              option(value="3") ACCION DE CUMPLIMIENTO
+              option(value="4") ACCION POPULAR
+              option(value="5") EXTENSION DE JURISPRUDENCIA
+              option(value="6") NULIDAD SIMPLE
+              option(value="7") REPARACION DIRECTA
+              option(value="8") ADMINISTRATIVO EJECUTIVO
+              option(value="9") EJECUTIVO LABORAL
+              option(value="10") ORDINARIO LABORAL DE UNICA INSTANCIA
+              option(value="11") ORDINARIO LABORAL DE PRIMERA INSTANCIA
+        .form-group
+          label.control-label.col-sm-4 Tipo de proceso
+          .col-sm-6
+            select#tipoProces.form-control
+              option(selected="selected", value="Seleccione un tipo de proceso") Seleccione un tipo de proceso
+              option(value="1") ACCION DE NULIDAD Y RESTABLECIMIENTO DEL DERECHO
+              option(value="2") ACCION DE REPARACION DIRECTA
+              option(value="3") ACCION DE CUMPLIMIENTO
+              option(value="4") ACCION POPULAR
+              option(value="5") EXTENSION DE JURISPRUDENCIA
+              option(value="6") NULIDAD SIMPLE
+              option(value="7") REPARACION DIRECTA
+              option(value="8") ADMINISTRATIVO EJECUTIVO
+              option(value="9") EJECUTIVO LABORAL
+              option(value="10") ORDINARIO LABORAL DE UNICA INSTANCIA
+              option(value="11") ORDINARIO LABORAL DE PRIMERA INSTANCIA
+        .form-group
+          label.control-label.col-sm-4 Pretención principal
+          .col-sm-6
+            select#pretenPrincipal.form-control
+              option(selected="selected", value="Seleccione la pretención principal") Seleccione la pretención principal
+              option(value="1") INVALIDEZ
+              option(value="2") VEJEZ
+              option(value="3") SOBREVIVIENTES
+              option(value="4") AUXILIOS FUNERARIOS
+              option(value="5") AFILIACIÓN
+              option(value="6") MORA PATRONAL
+              option(value="7") CONFLICTOS DE COMPETENCIA
+              option(value="8") COLPENSIONES PATRONO
+              option(value="9") ISS PATRONO
+              option(value="10") OTROS
+        .form-group
+          label.control-label.col-sm-4 Código reparto
+          .col-sm-6
+            input#codReparto.form-control(placeholder="Digite el código de reparto")
+        .form-group
+          label.control-label.col-sm-4 N° Bizagi - Caso defensa judicial
+          .col-sm-6
+            input#codBizagi.form-control(placeholder="Digite el número Bizagi")
+        .form-group
+          label.control-label.col-sm-4 Nombre demandante
+          .col-sm-6
+            input#nomDemandante.form-control(placeholder="Digite el nombre del demandante")
+        .form-group
+          label.control-label.col-sm-4 23 dígitos de proceso
+          .col-sm-6
+            input#cod23Digitos.form-control(placeholder="Digite los 23 dígitos del proceso")
+    .col-sm-6
+      form.form-horizontal(role="form")
+        .form-group
+          label.control-label.col-sm-4 Fecha fin notificación
+          .col-sm-6
+            input#fechaFinNotif.form-control(placeholder="Ingrese fecha inicio notificación")
+        .form-group
+          label.control-label.col-sm-4.empty-input
+        .form-group
+          label.control-label.col-sm-4 Ciudad juzgado
+          .col-sm-6
+            select#ciudadJuzgado.form-control
+              option(selected="selected", value="Seleccione la ciudad juzgado") Seleccione la ciudad juzgado
+              option(value="1") ANTIOQUIA
+              option(value="2") BOGOTA
+              option(value="3") CARIBE
+              option(value="4") CENTRO
+              option(value="5") EJE CAFETERO
+              option(value="6") OCCIDENTE
+              option(value="7") SANTANDER
+              option(value="8") SUR
+        .form-group
+          label.control-label.col-sm-4 Regional
+          .col-sm-6
+            select#tipoProces.form-control
+              option(selected="selected", value="Seleccione la regional") Seleccione la regional
+              option(value="1") ANTIOQUIA
+              option(value="2") BOGOTA
+              option(value="3") CARIBE
+              option(value="4") CENTRO
+              option(value="5") EJE CAFETERO
+              option(value="6") OCCIDENTE
+              option(value="7") SANTANDER
+              option(value="8") SUR
+        .form-group
+          label.control-label.col-sm-4 Clase de pretención
+          .col-sm-6
+            select#clasePreten.form-control
+              option(selected="selected", value="Seleccione la clase de pretensión") Seleccione la clase de pretensión
+              option(value="1") INVALIDEZ
+              option(value="2") VEJEZ
+              option(value="3") SOBREVIVIENTES
+              option(value="4") AUXILIOS FUNERARIOS
+              option(value="5") AFILIACIÓN
+              option(value="6") MORA PATRONAL
+              option(value="7") CONFLICTOS DE COMPETENCIA
+              option(value="8") COLPENSIONES PATRONO
+              option(value="9") ISS PATRONO
+              option(value="10") OTROS
+        .form-group
+          label.control-label.col-sm-4 Estado del proceso
+          .col-sm-6
+            select#clasePreten.form-control
+              option(selected="selected", value="Seleccione el estado del proceso") Seleccione el estado del proceso
+              option(value="1") Duplicado
+              option(value="2") Notificación por ejecutivo
+              option(value="3") Pleito pendiente
+              option(value="4") Cosa juzgada
+        .form-group
+          label.control-label.col-sm-4.empty-input
+        .form-group
+          label.control-label.col-sm-4 CC demandante
+          .col-sm-6
+            input#codDemandante.form-control(placeholder="Digite la cédula del demandante")
+    .col-sm-11
+      .btn-group.pull-right
+        .btn.btn-default.btn-md Limpiar
+        .btn.btn-primary.btn-md Consultar
+  .table-responsive
+    table.table.table-condensed.table-hover
+      caption.text-left Procesos encontrados
+      thead.primary-emphasis
+        tr
+          th 23 dígitos
+          th Bizagi
+          th Tipo proceso
+          th Demandante
+          th Cédula
+          th Nombre despacho
+          th.text-center Detalle
+      tbody
+        tr
+          td 1234567891011121314151617
+          td 2016_132456
+          td ordinario laboral
+          td Camilo Erazo
+          td 80234562
+          td Juzgado 028
+          td.text-center
+            i.glyphicon.glyphicon-file.btn-sm-default(title="Ver detalle")
+        tr
+          td 1984465654654121314151617
+          td 2016_132456
+          td ordinario laboral
+          td Camilo Erazo
+          td 80234562
+          td Juzgado 028
+          td.text-center
+            i.glyphicon.glyphicon-file.btn-sm-default(title="Ver detalle")
+  .btn-group.pull-right
+    .btn.btn-success.btn-md Exportar

@@ -10,7 +10,7 @@
 //  li(*ngFor='#name of nameListService.get()') {{name}}
 
 //CUS002 Formularios de registro, CUS003 Validar duplicidad y CUS004 Corregir
-.container
+.container.non-display
   .row
     ul.nav.nav-pills
       li.principalMenuItem
@@ -22,7 +22,7 @@
       //li.principalMenuItem
         a(href="#valProDup") Estado de validación de los Procesos Duplicados
   .tab-content
-    #geoDatGen.tab-pane.fade.in
+    #geoDatGen.tab-pane.fade.in.active
       .header
         h3 Consulta de procesos / Validar duplicidad
       form.form-horizontal(role="form")
@@ -597,7 +597,7 @@
           .btn.btn-default.btn-md Limpiar
           .btn.btn-primary.btn-md Guardar
           .btn.btn-success.btn-md Continuar
-    #daPrePro.tab-pane.fade.in.active
+    #daPrePro.tab-pane.fade.in
       .header
         h3 Datos cualitativos, pretensiones y etapas procesales
       form.form-horizontal(role="form")
@@ -724,7 +724,7 @@
           .btn.btn-primary.btn-md Guardar
 
 //CUS005 Búsqueda avanzada - Nota: Se recomienda un modal
-.container.non-display
+.container
   .header
     h3 Búsqueda avanzada / Filtros de consulta
   .row

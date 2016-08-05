@@ -12,7 +12,7 @@ import {Proceso}           from './proceso';
   moduleId: module.id,
 //  templateUrl: './CU02-GDG.html',
 //  templateUrl: './CU02-DCPE.html',
-  templateUrl: './CU05.html',
+  // templateUrl: './CU05.html',
 //  templateUrl: './CU07.html',
 //  templateUrl: './CU08.html',
 //  templateUrl: './CU07.html',
