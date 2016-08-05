@@ -3,6 +3,7 @@ import {ROUTER_DIRECTIVES, RouteConfig} from 'angular2/router';
 import {NavbarComponent} from './navbar.component';
 import {HomeComponent} from './home/home.component';
 import {AboutComponent} from './about/about.component';
+import {Cus234Component} from './cus234/cus234.component';
 import {NameListService} from '../shared/services/name-list.service';
 
 @Component({
@@ -15,6 +16,7 @@ import {NameListService} from '../shared/services/name-list.service';
 })
 @RouteConfig([
   { path: '/',      name: 'Home',  component: HomeComponent  },
-  { path: '/about', name: 'About', component: AboutComponent }
+  { path: '/about', name: 'About', component: AboutComponent },
+  { path: '/cus234', name: 'Cus234', component: Cus234Component }
 ])
 export class AppComponent {}
