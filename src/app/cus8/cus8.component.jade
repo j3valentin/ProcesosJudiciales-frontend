@@ -1,0 +1,23 @@
+//p
+//  | Howdy! Here's a list of awesome computer scientists.
+//  | Do you know any others? Add to the list yourself.
+//form.form-inline((submit)='addName()')
+//  .form-group
+//    label.sr-only(for='newName') Awesome Computer Scientist
+//    input#newName.form-control(type='text', [(ngModel)]='newName', placeholder='Awesome Computer Scientist')
+//  button.btn.btn-primary(type='submit') Add
+//ul
+//  li(*ngFor='#name of nameListService.get()') {{name}}
+
+//CUS008 Cargar archivo información BUPC
+.container
+  .header
+    p Carga de archivos al sistema
+  .jumbotron
+    p Para cargar un archivo presione el botón <i>Examinar</i> y luego el botón <i>Cargar</i>
+    input.custom-file-input(type="file")
+    .text-center.spacer
+      p ¡El archivo se ha cargado de forma exitosa!
+    .btn-group.pull-right
+      .btn.btn-default.btn-md Cancelar
+      .btn.btn-primary.btn-md Cargar

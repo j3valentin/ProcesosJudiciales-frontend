@@ -1,0 +1,111 @@
+//p
+//  | Howdy! Here's a list of awesome computer scientists.
+//  | Do you know any others? Add to the list yourself.
+//form.form-inline((submit)='addName()')
+//  .form-group
+//    label.sr-only(for='newName') Awesome Computer Scientist
+//    input#newName.form-control(type='text', [(ngModel)]='newName', placeholder='Awesome Computer Scientist')
+//  button.btn.btn-primary(type='submit') Add
+//ul
+//  li(*ngFor='#name of nameListService.get()') {{name}}
+
+//CUS012 Administrar perfiles por funcionalidad
+.container
+  .header
+    h3 Administrar perfiles por funcionaliddad
+  .table-responsive
+    table.table.table-condensed.table-hover.table-striped
+      thead.primary-emphasis
+        tr
+          th Perfil
+          th Registrar reparto
+          th Consultar con filtros
+          th Ver detalle información
+          th Actualizar actuaciones procesos
+          th Consultar histórico
+          th Cargar archivo BUPC
+      tbody
+        tr
+          td Funcionario central
+          td 
+            input.input-table(type="checkbox", checked="checked") 
+            | Registrar información
+          td 
+            input.input-table(type="checkbox", checked="checked") 
+            | Consultar información
+          td 
+            input.input-table(type="checkbox", checked="checked") 
+            | Consultar detalle
+          td 
+            input.input-table(type="checkbox") 
+            | Actualizar información
+          td 
+            input.input-table(type="checkbox", checked="checked") 
+            | Consultar histórico
+          td 
+            input.input-table(type="checkbox", checked="checked") 
+            | Cargar archivo
+        tr
+          td Funcionario Regional
+          td 
+            input.input-table(type="checkbox") 
+            | Registrar información
+          td 
+            input.input-table(type="checkbox", checked="checked") 
+            | Consultar información
+          td 
+            input.input-table(type="checkbox", checked="checked") 
+            | Consultar detalle
+          td 
+            input.input-table(type="checkbox") 
+            | Actualizar información
+          td 
+            input.input-table(type="checkbox", checked="checked") 
+            | Consultar histórico
+          td 
+            input.input-table(type="checkbox") 
+            | Cargar archivo
+        tr
+          td Abogado interno
+          td 
+            input.input-table(type="checkbox", checked="checked") 
+            | Registrar información
+          td 
+            input.input-table(type="checkbox", checked="checked") 
+            | Consultar información
+          td 
+            input.input-table(type="checkbox", checked="checked") 
+            | Consultar detalle
+          td 
+            input.input-table(type="checkbox", checked="checked") 
+            | Actualizar información
+          td 
+            input.input-table(type="checkbox") 
+            | Consultar histórico
+          td 
+            input.input-table(type="checkbox") 
+            | Cargar archivo
+        tr
+          td Abogado externo
+          td 
+            input.input-table(type="checkbox") 
+            | Registrar información
+          td 
+            input.input-table(type="checkbox", checked="checked") 
+            | Consultar información
+          td 
+            input.input-table(type="checkbox", checked="checked") 
+            | Consultar detalle
+          td 
+            input.input-table(type="checkbox") 
+            | Actualizar información
+          td 
+            input.input-table(type="checkbox") 
+            | Consultar histórico
+          td 
+            input.input-table(type="checkbox") 
+            | Cargar archivo
+  .btn-group(role="group").pull-right
+    .btn.btn-default.btn-md Salir
+    .btn.btn-primary.btn-md Guardar              
+
