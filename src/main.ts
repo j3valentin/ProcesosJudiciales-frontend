@@ -5,6 +5,9 @@ import {AppComponent} from './app/app.component';
 
 if ('<%= ENV %>' === 'prod') { enableProdMode(); }
 
+// Add all operators to Observable
+import 'rxjs/Rx';
+
 bootstrap(AppComponent, [
   ROUTER_PROVIDERS,
   provide(APP_BASE_HREF, { useValue: '<%= APP_BASE %>' })
