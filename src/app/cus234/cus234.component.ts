@@ -1,26 +1,59 @@
-import {Component} from 'angular2/core';
-import {CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
+import {Component, OnInit} from 'angular2/core';
+import {CORE_DIRECTIVES,
+        FORM_DIRECTIVES}   from 'angular2/common';
+import {HTTP_PROVIDERS}    from 'angular2/http';
 
-import {NameListService} from '../../shared/services/name-list.service';
+import {SeguridadService}  from '../../shared/services/seguridad.service';
+import {ProcesoService}    from './proceso.service';
+import {Juzgado}           from './juzgado';
+import {Proceso}           from './proceso';
 
 @Component({
-  selector: 'sd-cus234',
-  moduleId: module.id,
+  selector:    'sd-cus234',
+  moduleId:    module.id,
   templateUrl: './cus234.component.html',
-  styleUrls: ['./cus234.component.css'],
-  directives: [FORM_DIRECTIVES, CORE_DIRECTIVES]
+  styleUrls:   ['./cus234.component.css'],
+  directives:  [FORM_DIRECTIVES, CORE_DIRECTIVES],
+  providers:   [HTTP_PROVIDERS, SeguridadService, ProcesoService]
 })
-export class Cus234Component {
-  newName: string;
-  constructor(public nameListService: NameListService) {}
+export class Cus234Component implements OnInit {
+  errorMessage: string;
+  public juzgados:     Juzgado[];
+  procesos:     Proceso[];
 
-  /*
-   * @param newname  any text as input.
-   * @returns return false to prevent default form submit behavior to refresh the page.
-   */
-  addName(): boolean {
-    this.nameListService.add(this.newName);
-    this.newName = '';
-    return false;
+  constructor(
+    public seguridadService: SeguridadService,
+    public _service:         ProcesoService
+  ) {}
+
+  ngOnInit() {
+//    console.log('Llamando al auth...');
+//    console.log(this.seguridadService.auth());
+//    console.log('Auth llamado!');
+    this.getJuzgados();
   }
+
+  getJuzgados() {
+    console.log('Consultando los juzgados')
+    this._service.getJuzgados()
+                     .subscribe(
+      function(juzgados) {
+        console.log(juzgados);
+        this.juzgados = juzgados;
+        return true;
+      },
+//                       juzgados => this.juzgados = juzgados,
+                       error => this.errorMessage = <any>error,
+                       () => console.log(this.juzgados)
+                       );
+  }
+//
+//  onProcesoChange(nProcesoNumero: number) {
+//    console.log('Entra');
+//    this._service.getAllByProcesoNumero(nProcesoNumero)
+//                     .subscribe(
+//                       procesos => this.procesos = procesos,
+//                       error => this.errorMessage = <any>error);
+//    console.log(nProcesoNumero);
+//  }
 }

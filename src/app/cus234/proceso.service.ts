@@ -5,12 +5,35 @@ import {Headers,
 import {Observable}     from 'rxjs/Observable';
 
 import {Proceso}        from './proceso';
+import {Juzgado}        from './juzgado';
 
 @Injectable()
 export class ProcesoService {
-  private _procesosUrl = 'http://localhost:8080/judiciales/api/sp';  // URL to web api
+  private _apiUrl = 'http://localhost:8080/judiciales/api/sp';  // URL to web api
 
   constructor (private http: Http) {}
+
+  getJuzgados() {
+    let body = JSON.stringify({
+      type:'CON',
+      parameters:{}
+    });
+    let headers = new Headers({
+      'Content-Type': 'application/json',
+      'sp-name':      'pr_ConsultaTipojuzgado'
+    });
+    let options = new RequestOptions({ headers: headers });
+    let hola = this.http.post(this._apiUrl, body, options)
+      .map(function(res) {
+        let json = res.json();
+        console.log(json);
+        return <Juzgado[]> json;
+    })
+                    .do(data => console.log(data)) // eyeball results in the console
+                    .catch(this.handleError)
+                    ;
+    return hola;
+  }
 
   getAllByProcesoNumero(nProcesoNumero: number) {
     let body = JSON.stringify({
@@ -25,7 +48,7 @@ export class ProcesoService {
       'sp-name': 'pr_ConsultaDpto'
     });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(this._procesosUrl, body, options)
+    return this.http.post(this._apiUrl, body, options)
                     .map(res => <Proceso[]> res.json().data)
                     .do(data => console.log(data)) // eyeball results in the console
                     .catch(this.handleError)
@@ -33,7 +56,7 @@ export class ProcesoService {
   }
 
   getAllByCedula(nCedula: number) {
-    return this.http.get(this._procesosUrl)
+    return this.http.get(this._apiUrl)
                     .map(res => <Proceso[]> res.json().data)
                     .do(data => console.log(data)) // eyeball results in the console
                     .catch(this.handleError);
