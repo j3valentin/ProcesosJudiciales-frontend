@@ -14,7 +14,6 @@ export class Proceso {
         public id?: number,
         public litigar?: number,
         public fecha?: string,
-        public fizagi?: string,
         public juzgado?: Juzgado,
         public numRadi?: string,
         public clasificacion?: string,
@@ -36,7 +35,7 @@ export class Proceso {
         public fechaDem?: string,
         public cuantia?: string,
         public afiliado?: Afiliado,
-        public demandantes?: number,
+        public canDemandantes?: number,
         public respuesta?: string,
         public apodeContra?: Apoderado
     ) { }
