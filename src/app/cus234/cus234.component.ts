@@ -1,8 +1,6 @@
 import {Component, OnInit} from 'angular2/core';
-import {
-  CORE_DIRECTIVES,
-  FORM_DIRECTIVES
-}   from 'angular2/common';
+import {CORE_DIRECTIVES,
+        FORM_DIRECTIVES}   from 'angular2/common';
 import {HTTP_PROVIDERS}    from 'angular2/http';
 
 import {SeguridadService}  from '../../shared/services/seguridad.service';
@@ -21,49 +19,30 @@ import {Proceso}           from './proceso';
 export class Cus234Component implements OnInit {
   errorMessage: string;
   procesos: Proceso[];
-  public juzgados: Juzgado[];
+  juzgados: Juzgado[];
+  proceso: Proceso;
 
-  model = new Proceso('', 0, '', '', '', 0, '', '');
-
-  constructor(public seguridadService: SeguridadService,
-              public _service: ProcesoService) {
-
-  }
+  constructor(
+    public seguridadService: SeguridadService,
+    public _service: ProcesoService
+  ) {}
 
   ngOnInit() {
-
 //    console.log('Llamando al auth...');
 //    console.log(this.seguridadService.auth());
 //    console.log('Auth llamado!');
-   this.getJuzgados();
+    this.getJuzgados();
   }
 
   getJuzgados() {
-    console.log('Consultando los juzgados')
     this._service.getJuzgados()
       .subscribe(
-        function (juzgados) {
-          // console.log(juzgados);
-          this.juzgados = juzgados;
-          return true;
-        },
-//                       juzgados => this.juzgados = juzgados,
+        juzgados => this.juzgados = juzgados,
         error => this.errorMessage = <any>error,
-        // () => console.log(this.juzgados)
+        () => console.log(this.juzgados)
       );
   }
 
-  newProceso() {
-    this.model = new Proceso('', 0, '', '', '', 0, '', '');
-
-  }
-
-  onSubmit() {
-    this.newProceso();
-    console.log(JSON.stringify({Proceso}));
-  }
-
-//
 //  onProcesoChange(nProcesoNumero: number) {
 //    console.log('Entra');
 //    this._service.getAllByProcesoNumero(nProcesoNumero)
