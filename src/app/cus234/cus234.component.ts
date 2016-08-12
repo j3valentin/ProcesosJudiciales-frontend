@@ -11,6 +11,13 @@ import {Juzgado}           from './juzgado';
 import {Proceso}           from './proceso';
 import {Departamento}      from './departamento';
 import {TipoProceso}       from './tipoProceso';
+import {TipoInformativo} from './tipoInformativo';
+import {Regional} from './regional';
+import {Despacho} from './despacho';
+import {Clasificacion} from './clasificacion';
+import {Causa} from './causa';
+import {ModPretension} from './modPretension';
+import {ActoAdmin} from './actoAdmin';
 
 @Component({
   selector: 'sd-cus234',
@@ -24,8 +31,15 @@ export class Cus234Component implements OnInit {
   errorMessage: string;
   procesos: Proceso[];
   juzgados: Juzgado[];
+  despachos: Despacho[];
   departamentos: Departamento[];
   tiposProcesos: TipoProceso[];
+  tiposInformativo: TipoInformativo[];
+  regionales: Regional[];
+  clasificaciones: Clasificacion[];
+  causas: Causa[];
+  modPretensiones: ModPretension[];
+  actosAdmin: ActoAdmin[];
   proceso: Proceso;
 
   constructor(public seguridadService: SeguridadService,
@@ -38,14 +52,29 @@ export class Cus234Component implements OnInit {
 //    console.log(this.seguridadService.auth());
 //    console.log('Auth llamado!');
     this.getJuzgados();
+    this.getDespachos();
     this.getDepartamentos();
+    this.getRegionales();
     this.getTipoProceso();
+    this.getTipoinformativo();
+    this.getClasificacion();
+    this.getCausas();
+    this.getModPretension();
   }
 
   getJuzgados() {
     this._service.getJuzgados()
       .subscribe(
         juzgados => this.juzgados = juzgados,
+        error => this.errorMessage = <any>error
+//        () => console.log(this.juzgados)
+      );
+  }
+
+  getDespachos() {
+    this._service.getDespachos()
+      .subscribe(
+        despachos => this.despachos = despachos,
         error => this.errorMessage = <any>error
 //        () => console.log(this.juzgados)
       );
@@ -60,10 +89,64 @@ export class Cus234Component implements OnInit {
       );
   }
 
+  getRegionales() {
+    this._service.getDepartamentos()
+      .subscribe(
+        regionales => this.regionales = regionales,
+        error => this.errorMessage = <any>error
+//        () => console.log(this.juzgados)
+      );
+  }
+
   getTipoProceso() {
     this._service.getTipoProceso()
       .subscribe(
         tipoProcesos => this.tiposProcesos = tipoProcesos,
+        error => this.errorMessage = <any>error
+//        () => console.log(this.juzgados)
+      );
+  }
+
+  getTipoinformativo() {
+    this._service.getTipoInformativo()
+      .subscribe(
+        tiposInformativo => this.tiposInformativo = tiposInformativo,
+        error => this.errorMessage = <any>error
+//        () => console.log(this.juzgados)
+      );
+  }
+
+  getClasificacion() {
+    this._service.getClasificacion()
+      .subscribe(
+        clasificaciones => this.clasificaciones = clasificaciones,
+        error => this.errorMessage = <any>error
+//        () => console.log(this.juzgados)
+      );
+  }
+
+  getCausas() {
+    this._service.getCausas()
+      .subscribe(
+        causas => this.causas = causas,
+        error => this.errorMessage = <any>error
+//        () => console.log(this.juzgados)
+      );
+  }
+
+  getModPretension() {
+    this._service.getModPretension()
+      .subscribe(
+        modPretensiones => this.modPretensiones = modPretensiones,
+        error => this.errorMessage = <any>error
+//        () => console.log(this.juzgados)
+      );
+  }
+
+  getActosAdmin() {
+    this._service.getActosAdmin()
+      .subscribe(
+        actosAdmin => this.actosAdmin = actosAdmin,
         error => this.errorMessage = <any>error
 //        () => console.log(this.juzgados)
       );
