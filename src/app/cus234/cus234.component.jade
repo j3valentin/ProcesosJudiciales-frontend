@@ -11,7 +11,7 @@
 
 //CUS002 Formularios de registro, CUS003 Validar duplicidad y CUS004 Corregir
 .container
-  .row
+  .row([hidden]="submitted")
     ul.nav.nav-pills
       li.principalMenuItem
         a(href="#geoDatGen") Georeferenciación y Datos Generales
@@ -22,10 +22,10 @@
       //li.principalMenuItem
         a(href="#valProDup") Estado de validación de los Procesos Duplicados
   .tab-content
-    #geoDatGen.tab-pane.fade.in
+    #geoDatGen.tab-pane.fade.in.active
       .header
         h3 Consulta de procesos / Validar duplicidad
-      form.form-horizontal(role="form")
+      form.form-horizontal((Submit) = "onSubmit()")
         .form-group
           label.control-label.col-sm-4 23 dígitos del proceso / Número de proceso rama judicial
           .col-sm-6
@@ -121,108 +121,111 @@
         .form-group
           label.control-label.col-sm-4 ID proceso
           .col-sm-6
-            input#idProceso.form-control([(ngModel)]="Proceso.id", name="id" placeholder="Digite el ID del proceso")
+            input#idProceso.form-control(ngModel="model.id", placeholder="Digite el ID del proceso")
         .form-group
           label.control-label.col-sm-4 ID litigar
           .col-sm-6
-            input#idLitigar.form-control([(ngModel)]="Proceso.litigar", name="litigar" placeholder="Digite el ID a litigar")
+            input#idLitigar.form-control(ngModel="model.litigar", placeholder="Digite el ID a litigar")
         .form-group
           label.control-label.col-sm-4 Fecha de notificación
           .col-sm-6
-            input#fechaNotificacion.form-control([(ngModel)]="Proceso.fecha",name="fecha" placeholder="Ingrese la fecha de notificación")
+            input#fechaNotificacion.form-control(ngModel="model.fecha", placeholder="Ingrese la fecha de notificación")
         .form-group
           label.control-label.col-sm-4 No. Bizagi - caso defensa judicial
           .col-sm-6
-            input#idBizagi.form-control([(ngModel)]="Proceso.bizagi", name="bizagi" placeholder="Digite el número Bizagi - caso defensa judicial")
+            input#idBizagi.form-control(ngModel="model.bizagi", placeholder="Digite el número Bizagi - caso defensa judicial")
         .form-group
           label.control-label.col-sm-4 No. de juzgado
           .col-sm-6
-            input#idJuzgado.form-control([(ngModel)]="Proceso.juzgado.numero",name="numero" placeholder="Digite el número del juzgado")
+            input#idJuzgado.form-control(ngModel="model.juzgado.numero", placeholder="Digite el número del juzgado")
         .form-group
           label.control-label.col-sm-4 Tipo de juzgado
           .col-sm-6
-            select#tipoJuzgado.form-control([(ngModel)]="Proceso.juzgado.tipo", name="tipo")
+            select#tipoJuzgado.form-control(ngModel="model.juzgado.tipo")
               option(selected="selected", value="Seleccione el tipo de juzgado") Seleccione el tipo de juzgado
-              option(value="0100") CONSEJO SUPERIOR DE LA JUDICATURA
-              option(value="0101") CONSEJO SUPERIOR DE LA JUDICATURA - SALA ADMINISTRATIVA
-              option(value="0102") CONSEJO SUPERIOR DE LA JUDICATURA - SALA DISCIPLINARIA
-              option(value="0200") CORTE SUPREMA DE JUSTICIA
-              option(value="0203") CORTE SUPREMA DE JUSTICIA – SALA DE CASACION CIVIL
-              option(value="0204") CORTE SUPREMA DE JUSTICIA - SALA DE CASACION PENAL
-              option(value="0205") CORTE SUPREMA DE JUSTICIA - SALA DE CASACION LABORAL
-              option(value="0300") CONSEJO DE ESTADO
-              option(value="0306") CONSEJO DE ESTADO - SALA DE CONSULTA Y SERVICIO CIVIL
-              option(value="0315") CONSEJO DE ESTADO - SECRETARIA GENERAL
-              option(value="0324") CONSEJO DE ESTADO - SALA CONTENCIOSO ADMINISTRATIVA - SECCION PRIMERA
-              option(value="0325") CONSEJO DE ESTADO - SALA CONTENCIOSO ADMINISTRATIVA - SECCION SEGUNDA
-              option(value="0326") CONSEJO DE ESTADO - SALA CONTENCIOSO ADMINISTRATIVA - SECCION TERCERA
-              option(value="0327") CONSEJO DE ESTADO - SALA CONTENCIOSO ADMINISTRATIVA - SECCION CUARTA
-              option(value="0328") CONSEJO DE ESTADO - SALA CONTENCIOSO ADMINISTRATIVA - SECCION QUINTA
-              option(value="0400") CORTE CONSTITUCIONAL
-              option(value="0700") DIRECCION EJECUTIVA
-              option(value="1100") CONSEJO SECCIONAL DE LA JUDICATURA
-              option(value="1101") CONSEJO SECCIONAL DE LA JUDICATURA - SALA ADMINISTRATIVA
-              option(value="1102") CONSEJO SECCIONAL DE LA JUDICATURA - SALA DISCIPLINARIA
-              option(value="1200") DIRECCION SECCIONAL DE LA RAMA JUDICIAL
-              option(value="2200") TRIBUNAL SUPERIOR
-              option(value="2203") TRIBUNAL SUPERIOR - SALA CIVIL
-              option(value="2204") TRIBUNAL SUPERIOR - SALA PENAL
-              option(value="2205") TRIBUNAL SUPERIOR - SALA LABORAL
-              option(value="2208") TRIBUNAL SUPERIOR - SALA UNICA
-              option(value="2210") TRIBUNAL SUPERIOR - SALA DE FAMILIA
-              option(value="2212") TRIBUNAL SUPERIOR - SALA CIVIL LABORAL
-              option(value="2213") TRIBUNAL SUPERIOR - SALA CIVIL-FAMILIA
-              option(value="2214") TRIBUNAL SUPERIOR - SALA CIVIL-FAMILIA-LABORAL
-              option(value="2219") TRIBUNAL SUPERIOR SALA PENAL JUSTICIA Y PAZ
-              option(value="2221") TRIBUNAL SUPERIOR SALA CIVIL RESTITUCIÓN DE TIERRAS
-              option(value="2300") TRIBUNAL ADMINISTRATIVO
-              option(value="2315") TRIBUNAL ADMINISTRATIVO - SECRETARIA GENERAL
-              option(value="2324") TRIBUNAL ADMINISTRATIVO - SECCION PRIMERA
-              option(value="2325") TRIBUNAL ADMINISTRATIVO - SECCION SEGUNDA
-              option(value="2326") TRIBUNAL ADMINISTRATIVO - SECCION TERCERA
-              option(value="2327") TRIBUNAL ADMINISTRATIVO - SECCION CUARTA
-              option(value="2331") TRIBUNAL ADMINISTRATIVO - SIN SECCIONES
-              option(value="2333") TRIBUNAL ADMINISTRATIVO SIN SECCIÓN - ORAL
-              option(value="2336") TRIBUNAL ADMINISTRATIVO SECCIÓN TERCERA - ORAL
-              option(value="2337") TRIBUNAL ADMINISTRATIVO SECCIÓN CUARTA - ORAL
-              option(value="2341") TRIBUNAL ADMINISTRATIVO SECCIÓN PRIMERA MIXTA
-              option(value="2342") TRIBUNAL ADMINISTRATIVO SECCIÓN SEGUNDA MIXTA - ORAL
-              option(value="3103") JUZGADO DE CIRCUITO - CIVIL
-              option(value="3104") JUZGADO DE CIRCUITO - PENAL
-              option(value="3105") JUZGADO DE CIRCUITO - LABORAL
-              option(value="3107") JUZGADO PENAL DE CIRCUITO ESPECIALIZADO
-              option(value="3109") JUZGADO PENAL CON FUNCIÓN DE CONOCIMIENTO DE CIRCUITO
-              option(value="3110") JUZGADO DE CIRCUITO - FAMILIA
-              option(value="3112") JUZGADO CIVIL - LABORAL DE CIRCUITO
-              option(value="3118") JUZGADO PENAL PARA ADOLESCENTES CON FUNCION DE CONOCIMIENTO
-              option(value="3120") JUZGADO PENAL ESPECIALIZADOS DE EXTINCIÓN DE DOMINIO DE CIRCUITO
-              option(value="3121") JUZGADO CIVIL RESTITUCIÓN DE TIERRAS DE CIRCUITO
-              option(value="3133") JUZGADO DE CIRCUITO - ADMINISTRATIVO
-              option(value="3184") JUZGADO DE CIRCUITO - PROMISCUO DE FAMILIA
-              option(value="3185") JUZGADO DE CIRCUITO - MENORES
-              option(value="3186") JUZGADO DE CIRCUITO - ESPECIALIZADO EN COMERCIO
-              option(value="3187") JUZGADO DE CIRCUITO - EJECUCION DE PENAS Y MEDIDAS DE SEGURIDAD
-              option(value="3189") JUZGADO DE CIRCUITO - PROMISCUO
-              option(value="3329") JUZGADO ADMINISTRATIVO - CONTENCIOSO
-              option(value="3331") JUZGADO ADMINISTRATIVO
-              option(value="3333") JUZGADO SIN SECCIÓN - ORAL ADMINISTRATIVO
-              option(value="3334") JUZGADO SECCIÓN PRIMERA - ORAL ADMINISTRATIVO
-              option(value="3335") JUZGADO SECCIÓN SEGUNDA - ORAL ADMINISTRATIVO
-              option(value="3336") JUZGADO SECCIÓN TERCERA - ORAL ADMINISTRATIVO
-              option(value="3337") JUZGADO SECCIÓN CUARTA - ORAL ADMINISTRATIVO
-              option(value="4003") JUZGADO MUNICIPAL CIVIL
-              option(value="4004") JUZGADO MUNICIPAL PENAL
-              option(value="4009") JUZGADO PENAL CON FUNCIÓN DE CONOCIMIENTO
-              option(value="4046") JUZGADO PENAL MIXTO(LEYES 600, 906 Y 1098) MUNICIPAL
-              option(value="4071") JUZGADO PENAL PARA ADOLESCENTES CON FUNCIÓN DE CONTROL DE GARANTÍAS
-              option(value="4088") JUZGADO PENAL MUNICIPAL CON FUNCIÓN DE CONTROL DE GARANTÍAS
-              option(value="4089") JUZGADO MUNICIPAL PROMISCUO
-              option(value="4105") JUZGADO DE PEQUEÑAS CAUSAS LABORAL
-              option(value="4404") JUZGADO PENAL CON FUNCIÓN DE CONTROL DE GARANTÍAS MUNICIPAL
+              option(*ngFor="#juzgado of juzgados", [value]="juzgado.tij_id") {{juzgado.tij_descripcion}}
+            //select#tipoJuzgado.form-control([(ngModel)]="proceso.juzgado.tipo", name="tipo")
+            //  option(selected="selected", value="Seleccione el tipo de juzgado") Seleccione el tipo de juzgado
+            //  option(value="0100") CONSEJO SUPERIOR DE LA JUDICATURA
+            //  option(value="0101") CONSEJO SUPERIOR DE LA JUDICATURA - SALA ADMINISTRATIVA
+            //  option(value="0102") CONSEJO SUPERIOR DE LA JUDICATURA - SALA DISCIPLINARIA
+            //  option(value="0200") CORTE SUPREMA DE JUSTICIA
+            //  option(value="0203") CORTE SUPREMA DE JUSTICIA – SALA DE CASACION CIVIL
+            //  option(value="0204") CORTE SUPREMA DE JUSTICIA - SALA DE CASACION PENAL
+            //  option(value="0205") CORTE SUPREMA DE JUSTICIA - SALA DE CASACION LABORAL
+            //  option(value="0300") CONSEJO DE ESTADO
+            //  option(value="0306") CONSEJO DE ESTADO - SALA DE CONSULTA Y SERVICIO CIVIL
+            //  option(value="0315") CONSEJO DE ESTADO - SECRETARIA GENERAL
+            //  option(value="0324") CONSEJO DE ESTADO - SALA CONTENCIOSO ADMINISTRATIVA - SECCION PRIMERA
+            //  option(value="0325") CONSEJO DE ESTADO - SALA CONTENCIOSO ADMINISTRATIVA - SECCION SEGUNDA
+            //  option(value="0326") CONSEJO DE ESTADO - SALA CONTENCIOSO ADMINISTRATIVA - SECCION TERCERA
+            //  option(value="0327") CONSEJO DE ESTADO - SALA CONTENCIOSO ADMINISTRATIVA - SECCION CUARTA
+            //  option(value="0328") CONSEJO DE ESTADO - SALA CONTENCIOSO ADMINISTRATIVA - SECCION QUINTA
+            //  option(value="0400") CORTE CONSTITUCIONAL
+            //  option(value="0700") DIRECCION EJECUTIVA
+            //  option(value="1100") CONSEJO SECCIONAL DE LA JUDICATURA
+            //  option(value="1101") CONSEJO SECCIONAL DE LA JUDICATURA - SALA ADMINISTRATIVA
+            //  option(value="1102") CONSEJO SECCIONAL DE LA JUDICATURA - SALA DISCIPLINARIA
+            //  option(value="1200") DIRECCION SECCIONAL DE LA RAMA JUDICIAL
+            //  option(value="2200") TRIBUNAL SUPERIOR
+            //  option(value="2203") TRIBUNAL SUPERIOR - SALA CIVIL
+            //  option(value="2204") TRIBUNAL SUPERIOR - SALA PENAL
+            //  option(value="2205") TRIBUNAL SUPERIOR - SALA LABORAL
+            //  option(value="2208") TRIBUNAL SUPERIOR - SALA UNICA
+            //  option(value="2210") TRIBUNAL SUPERIOR - SALA DE FAMILIA
+            //  option(value="2212") TRIBUNAL SUPERIOR - SALA CIVIL LABORAL
+            //  option(value="2213") TRIBUNAL SUPERIOR - SALA CIVIL-FAMILIA
+            //  option(value="2214") TRIBUNAL SUPERIOR - SALA CIVIL-FAMILIA-LABORAL
+            //  option(value="2219") TRIBUNAL SUPERIOR SALA PENAL JUSTICIA Y PAZ
+            //  option(value="2221") TRIBUNAL SUPERIOR SALA CIVIL RESTITUCIÓN DE TIERRAS
+            //  option(value="2300") TRIBUNAL ADMINISTRATIVO
+            //  option(value="2315") TRIBUNAL ADMINISTRATIVO - SECRETARIA GENERAL
+            //  option(value="2324") TRIBUNAL ADMINISTRATIVO - SECCION PRIMERA
+            //  option(value="2325") TRIBUNAL ADMINISTRATIVO - SECCION SEGUNDA
+            //  option(value="2326") TRIBUNAL ADMINISTRATIVO - SECCION TERCERA
+            //  option(value="2327") TRIBUNAL ADMINISTRATIVO - SECCION CUARTA
+            //  option(value="2331") TRIBUNAL ADMINISTRATIVO - SIN SECCIONES
+            //  option(value="2333") TRIBUNAL ADMINISTRATIVO SIN SECCIÓN - ORAL
+            //  option(value="2336") TRIBUNAL ADMINISTRATIVO SECCIÓN TERCERA - ORAL
+            //  option(value="2337") TRIBUNAL ADMINISTRATIVO SECCIÓN CUARTA - ORAL
+            //  option(value="2341") TRIBUNAL ADMINISTRATIVO SECCIÓN PRIMERA MIXTA
+            //  option(value="2342") TRIBUNAL ADMINISTRATIVO SECCIÓN SEGUNDA MIXTA - ORAL
+            //  option(value="3103") JUZGADO DE CIRCUITO - CIVIL
+            //  option(value="3104") JUZGADO DE CIRCUITO - PENAL
+            //  option(value="3105") JUZGADO DE CIRCUITO - LABORAL
+            //  option(value="3107") JUZGADO PENAL DE CIRCUITO ESPECIALIZADO
+            //  option(value="3109") JUZGADO PENAL CON FUNCIÓN DE CONOCIMIENTO DE CIRCUITO
+            //  option(value="3110") JUZGADO DE CIRCUITO - FAMILIA
+            //  option(value="3112") JUZGADO CIVIL - LABORAL DE CIRCUITO
+            //  option(value="3118") JUZGADO PENAL PARA ADOLESCENTES CON FUNCION DE CONOCIMIENTO
+            //  option(value="3120") JUZGADO PENAL ESPECIALIZADOS DE EXTINCIÓN DE DOMINIO DE CIRCUITO
+            //  option(value="3121") JUZGADO CIVIL RESTITUCIÓN DE TIERRAS DE CIRCUITO
+            //  option(value="3133") JUZGADO DE CIRCUITO - ADMINISTRATIVO
+            //  option(value="3184") JUZGADO DE CIRCUITO - PROMISCUO DE FAMILIA
+            //  option(value="3185") JUZGADO DE CIRCUITO - MENORES
+            //  option(value="3186") JUZGADO DE CIRCUITO - ESPECIALIZADO EN COMERCIO
+            //  option(value="3187") JUZGADO DE CIRCUITO - EJECUCION DE PENAS Y MEDIDAS DE SEGURIDAD
+            //  option(value="3189") JUZGADO DE CIRCUITO - PROMISCUO
+            //  option(value="3329") JUZGADO ADMINISTRATIVO - CONTENCIOSO
+            //  option(value="3331") JUZGADO ADMINISTRATIVO
+            //  option(value="3333") JUZGADO SIN SECCIÓN - ORAL ADMINISTRATIVO
+            //  option(value="3334") JUZGADO SECCIÓN PRIMERA - ORAL ADMINISTRATIVO
+            //  option(value="3335") JUZGADO SECCIÓN SEGUNDA - ORAL ADMINISTRATIVO
+            //  option(value="3336") JUZGADO SECCIÓN TERCERA - ORAL ADMINISTRATIVO
+            //  option(value="3337") JUZGADO SECCIÓN CUARTA - ORAL ADMINISTRATIVO
+            //  option(value="4003") JUZGADO MUNICIPAL CIVIL
+            //  option(value="4004") JUZGADO MUNICIPAL PENAL
+            //  option(value="4009") JUZGADO PENAL CON FUNCIÓN DE CONOCIMIENTO
+            //  option(value="4046") JUZGADO PENAL MIXTO(LEYES 600, 906 Y 1098) MUNICIPAL
+            //  option(value="4071") JUZGADO PENAL PARA ADOLESCENTES CON FUNCIÓN DE CONTROL DE GARANTÍAS
+            //  option(value="4088") JUZGADO PENAL MUNICIPAL CON FUNCIÓN DE CONTROL DE GARANTÍAS
+            //  option(value="4089") JUZGADO MUNICIPAL PROMISCUO
+            //  option(value="4105") JUZGADO DE PEQUEÑAS CAUSAS LABORAL
+            //  option(value="4404") JUZGADO PENAL CON FUNCIÓN DE CONTROL DE GARANTÍAS MUNICIPAL
         .form-group
           label.control-label.col-sm-4 Nombre de despacho inicial
           .col-sm-6
-            select#nombreDespacho.form-control([(ngModel)]="Proceso.juzgado.despacho")
+            select#nombreDespacho.form-control(ngModel="model.juzgado.despacho")
               option(selected="selected", value="Seleccione el nombre del despacho inicial") Seleccione el nombre del despacho inicial
               option(value="050023184002") JUZGADO 002 PROMISCUO DE CIRCUITO DE ABEJORRAL
               option(value="050023184003") JUZGADO 003 PROMISCUO DE CIRCUITO DE ABEJORRAL
@@ -336,7 +339,7 @@
         .form-group
           label.control-label.col-sm-4 Departamento juzgado
           .col-sm-6
-            select#depJuzgado.form-control([(ngModel)]="Proceso.juzgado.depto")
+            select#depJuzgado.form-control(ngModel="model.juzgado.depto")
               option(selected="selected", value="Seleccione el departamento del juzgado") Seleccione el departamento del juzgado
               option(value="05") ANTIOQUIA
               option(value="54") NORTE_DE_SANTANDER
@@ -374,7 +377,7 @@
         .form-group
           label.control-label.col-sm-4 Ciudad de juzgado / Lugar de los hechos
           .col-sm-6
-            select#ciudadJuzgado.form-control([(ngModel)]="Proceso.juzgado.ciudad")
+            select#ciudadJuzgado.form-control(ngModel="model.juzgado.ciudad")
               option(selected="selected", value="Seleccione la ciudad del juzgado / Lugar de los hechos") Seleccione la ciudad del juzgado / Lugar de los hechos
               option(value="002") ABEJORRAL
               option(value="003") ABREGO
@@ -488,7 +491,7 @@
         .form-group
           label.control-label.col-sm-4 Radicado rama judicial / Número de radicación
           .col-sm-6
-            input#radicadoRamJud.form-control([(ngModel)]="Proceso.numRadi", placeholder="Digite el radicado de la rama judicial / Número de radicación ej. 2015_000003")
+            input#radicadoRamJud.form-control(ngModel="model.numRadi", placeholder="Digite el radicado de la rama judicial / Número de radicación ej. 2015_000003")
         //.form-group
           label.control-label.col-sm-4 23 dígitos del proceso / Número de proceso rama judicial
           .col-sm-6
@@ -496,7 +499,7 @@
         .form-group
           label.control-label.col-sm-4 Tipo de proceso
           .col-sm-6
-            select#tipoProceso.form-control([(ngModel)]="Proceso.tipo")
+            select#tipoProceso.form-control(ngModel="model.tipo")
               option(selected="selected", value="Seleccione el tipo de proceso") Seleccione el tipo de proceso
               option(value="1") ACCION DE NULIDAD Y RESTABLECIMIENTO DEL DERECHO
               option(value="2") ACCION DE REPARACION DIRECTA
@@ -512,7 +515,7 @@
         .form-group
           label.control-label.col-sm-4 Clasificación procesos /jurisdicción - acción
           .col-sm-6
-            input#clasProcesos.form-control([(ngModel)]="Proceso.clasificacion", placeholder="Digite clasificación procesos /jurisdicción - acción")
+            input#clasProcesos.form-control(ngModel="model.clasificacion", placeholder="Digite clasificación procesos /jurisdicción - acción")
         //.form-group
           label.control-label.col-sm-4 CC demandante / identificación demandante
           .col-sm-6
@@ -524,30 +527,30 @@
         .form-group
           label.control-label.col-sm-4 Demandado
           .col-sm-6
-            input#idDemandado.form-control([(ngModel)]="Proceso.demandado",placeholder="Digite el nombre del demandado", value="Colpensiones")
+            input#idDemandado.form-control(ngModel="model.demandado", placeholder="Digite el nombre del demandado", value="Colpensiones")
         .form-group
           label.control-label.col-sm-4 Nombre apoderado actual
           .col-sm-6
-            input#nombreApoAct.form-control([(ngModel)]="Proceso.apoderado.nombre",placeholder="Digite el nombre del apoderado actual")
+            input#nombreApoAct.form-control(ngModel="model.apoderado.nombre", placeholder="Digite el nombre del apoderado actual")
         .form-group
           label.control-label.col-sm-4 Cédula apoderado Colpensiones
           .col-sm-6
-            input#idApoAct.form-control([(ngModel)]="Proceso.apoderado.cedula", placeholder="Digite la cédula del apoderado Colpensiones")
+            input#idApoAct.form-control(ngModel="model.apoderado.cedula", placeholder="Digite la cédula del apoderado Colpensiones")
         .form-group
           label.control-label.col-sm-4 Tarjeta profesional apoderado
           .col-sm-6
-            input#idTarjetaPro.form-control([(ngModel)]="Proceso.apoderado.tarjeta", placeholder="Digite la tarjeta profesional del apoderado")
+            input#idTarjetaPro.form-control(ngModel="model.apoderado.tarjeta", placeholder="Digite la tarjeta profesional del apoderado")
         .form-group
           label.control-label.col-sm-4 Clasificación trámites
           .col-sm-6
-            select#clasTramit.form-control([(ngModel)]="Proceso.clasTramites")
+            select#clasTramit.form-control(ngModel="model.clasTramites")
               option(selected="selected", value="Seleccione la clasificación de trámites") Seleccione la clasificación de trámites
               option(value="nuevo") Proceso Nuevo
               option(value="informativo") Proceso Informativo
         .form-group
           label.control-label.col-sm-4 Tipo informativo
           .col-sm-6
-            select#tipoInfor.form-control([(ngModel)]="Proceso.tipoInf")
+            select#tipoInfor.form-control(ngModel="model.tipoInf")
               option(selected="selected", value="Seleccione el tipo de informativo") Seleccione el tipo de informativo
               option(value="1") AUDIENCIA
               option(value="2") CAMBIO DE DESPACHO
@@ -566,11 +569,11 @@
         .form-group
           label.control-label.col-sm-4 Relación de informativo
           .col-sm-6
-            input#relInfor.form-control([(ngModel)]="Proceso.relacion", placeholder="Digite la relación de informativo")
+            input#relInfor.form-control(ngModel="model.relacion", placeholder="Digite la relación de informativo")
         .form-group
           label.control-label.col-sm-4 Regional
           .col-sm-6
-            select#idRegion.form-control([(ngModel)]="Proceso.regional")
+            select#idRegion.form-control(ngModel="model.regional")
               option(selected="selected", value="Seleccione la regional")
               option(value="1") ANTIOQUIA
               option(value="2") CENTRO
@@ -583,33 +586,33 @@
         .form-group
           label.control-label.col-sm-4 Año de radicación
           .col-sm-6
-            input#anoRad.form-control([(ngModel)]="Proceso.anioRadi", placeholder="Digite el año de radicación")
+            input#anoRad.form-control(ngModel="model.anioRadi", placeholder="Digite el año de radicación")
         .form-group
           label.control-label.col-sm-4 Tipo de unidad
           .col-sm-6
-            input#tipoUnid.form-control([(ngModel)]="Proceso.tipoUni", placeholder="Digite el tipo de unidad", value="pesos")
+            input#tipoUnid.form-control(ngModel="model.tipoUni", placeholder="Digite el tipo de unidad", value="pesos")
         .form-group
           label.control-label.col-sm-4 Tipo de apoderado
           .col-sm-6
-            input#tipoApo.form-control([(ngModel)]="Proceso.apoderado.tipo", placeholder="Digite el tipo de apoderado", value="externo")
+            input#tipoApo.form-control(ngModel="model.apoderado.tipo", placeholder="Digite el tipo de apoderado", value="externo")
       .col-xs-11
         .btn-group(role="group").pull-right
           .btn.btn-default.btn-md Limpiar
-          .btn.btn-primary.btn-md Guardar
+          .btn.btn-primary.btn-md(type="submit") Guardar
           .btn.btn-success.btn-md Continuar
-    #daPrePro.tab-pane.fade.in.active
+    #daPrePro.tab-pane.fade.in
       .header
         h3 Datos cualitativos, pretensiones y etapas procesales
-      form.form-horizontal(role="form")
+      form.form-horizontal((Submit) = "onSubmit()")
         .form-group
           label.control-label.col-sm-4 Hechos del proceso
           .col-sm-6
             .textarea#hechosProces
-              textarea([(ngModel)]="Proceso.hechos",cols="73", rows="5", maxlength="300")
+              textarea(ngModel="model.hechos",cols="73", rows="5", maxlength="300")
         .form-group
           label.control-label.col-sm-4 ¿De quién es el acto administrativo demandado?
           .col-sm-6
-            select#propietarioActAdmDem.form-control([(ngModel)]="Proceso.actoAdmin")
+            select#propietarioActAdmDem.form-control(ngModel="model.actoAdmin")
               option(selected="selected", value="Seleccione el propietario del acto administrativo demandado") Seleccione el propietario del acto administrativo demandado
               option(value="1") ISS
               option(value="2") COLPENSIONES
@@ -617,11 +620,11 @@
         .form-group
           label.control-label.col-sm-4 Número de la resolución
           .col-sm-6
-            input#numResolicion.form-control([(ngModel)]="Proceso.numRes", placeholder="Digite el número de la resolución")
+            input#numResolicion.form-control(ngModel="model.numRes", placeholder="Digite el número de la resolución")
         .form-group
           label.control-label.col-sm-4 Causa del proceso / Fondo que cubre el riesgo
           .col-sm-6
-            select#causaProces.form-control([(ngModel)]="Proceso.causa")
+            select#causaProces.form-control(ngModel="model.causa")
               option(selected="selected", value="Seleccione la causa del proceso / Fondo que cubre el riesgo") Seleccione la causa del proceso / Fondo que cubre el riesgo
               option(value="1") INVALIDEZ
               option(value="2") VEJEZ
@@ -630,7 +633,7 @@
         .form-group
           label.control-label.col-sm-4 Modalidad de pretensión
           .col-sm-6
-            select#modPreten.form-control([(ngModel)]="Proceso.modPret")
+            select#modPreten.form-control(ngModel="model.modPret", name="modPret")
               option(selected="selected", value="Seleccione la modalidad de pretensión") Seleccione la modalidad de pretensión
               option(value="1") RECONOCIMIENTO
               option(value="2") RELIQUIDACIÓN
@@ -638,7 +641,7 @@
         .form-group
           label.control-label.col-sm-4 Pretensión principal
           .col-sm-6
-            select#principalPreten.form-control([(ngModel)]="Proceso.pretencion")
+            select#principalPreten.form-control(ngModel="model.pretencion", name="pretencion")
               option(selected="selected", value="Seleccione la pretensión principal") Seleccione la pretensión principal
               option(value="1") INVALIDEZ
               option(value="2") VEJEZ
@@ -653,7 +656,7 @@
         .form-group
           label.control-label.col-sm-4 Clase de pretensión
           .col-sm-6
-            select#clasePreten.form-control([(ngModel)]="Proceso.clasePret")
+            select#clasePreten.form-control(ngModel="model.clasePret")
               option(selected="selected", value="Seleccione la clase de pretensión") Seleccione la clase de pretensión
               option(value="1") INTERESES MORATORIOS
               option(value="2") RETROACTIVO
@@ -669,28 +672,28 @@
         .form-group
           label.control-label.col-sm-4 Fecha de admisión de la demanda
           .col-sm-6
-            input#fechaAdminDem.form-control([(ngModel)]="Proceso.fechaDem",placeholder="Digite la fecha de admisión de la demanda")
+            input#fechaAdminDem.form-control(ngModel="model.fechaDem", placeholder="Digite la fecha de admisión de la demanda")
         .form-group
           label.control-label.col-sm-4 Cuantía estimada en el proceso
           .col-sm-6
-            input#cuantiaEstimada.form-control([(ngModel)]="Proceso.cuantia", placeholder="Digite la cuantía estimada en el proceso")
+            input#cuantiaEstimada.form-control(ngModel="model.cuantia", placeholder="Digite la cuantía estimada en el proceso")
         .form-group
           label.control-label.col-sm-4 Nombre afiliado causante
           .col-sm-6
-            input#nomAfilCaus.form-control([(ngModel)]="Proceso.afiliado.nombre", placeholder="Digite el Nombre afiliado causante")
+            input#nomAfilCaus.form-control(ngModel="model.afiliado.nombre", placeholder="Digite el Nombre afiliado causante")
         .form-group
           label.control-label.col-sm-4 CC afiliado causante/ identificación
           .col-sm-6
-            input#idafilCaus.form-control([(ngModel)]="Proceso.afiliado.cedula", placeholder="Digite la CC afiliado causante/ identificación")
+            input#idafilCaus.form-control(ngModel="model.afiliado.cedula", placeholder="Digite la CC afiliado causante/ identificación")
         .dashed-group
           .form-group
             label.control-label.col-sm-4 Nombre beneficiario 1
             .col-sm-6
-              input#nomBef1.form-control([(ngModel)]="Proceso.afiliado.beneficiario",placeholder="Digite el nombre beneficiario 1")
+              input#nomBef1.form-control(ngModel="model.afiliado.beneficiario", placeholder="Digite el nombre beneficiario 1")
           .form-group
             label.control-label.col-sm-4 Cédula ciudadanía beneficiario 1
             .col-sm-6
-              input#idBef1.form-control([(ngModel)]="Proceso.afiliado.cedulaBen",placeholder="Digite la cédula ciudadanía beneficiario 1")
+              input#idBef1.form-control(ngModel="model.afiliado.cedulaBen", placeholder="Digite la cédula ciudadanía beneficiario 1")
           .form-group
             label.control-label.col-sm-4
             .col-sm-6
@@ -701,24 +704,24 @@
         .form-group
           label.control-label.col-sm-4 Cantidad demandantes
           .col-sm-6
-            input#cantDeman.form-control([(ngModel)]="Proceso.canDemandantes", placeholder="Digite la cantidad de demandantes")
+            input#cantDeman.form-control(ngModel="model.canDemandantes", placeholder="Digite la cantidad de demandantes")
         .form-group
           label.control-label.col-sm-4 ¿Entre los demandantes hay una entidad pública?
           .col-sm-6
-            select#entPub.form-control([(ngModel)]="Proceso.respuesta")
+            select#entPub.form-control(ngModel="model.respuesta")
               option(selected="selected", value="Seleccione una respuesta") Seleccione una respuesta
               option(value="si") Sí
               option(value="no") No
         .form-group
           label.control-label.col-sm-4 Nombre apoderado contraparte
           .col-sm-6
-            input#apoContra.form-control([(ngModel)]="Proceso.apodeContra.nombre", placeholder="Digite el nombre apoderado contraparte")
+            input#apoContra.form-control(ngModel="model.apodeContra.nombre", placeholder="Digite el nombre apoderado contraparte")
         .form-group
           label.control-label.col-sm-4 Identificación apoderado contraparte
           .col-sm-6
-            input#apoContraId.form-control([(ngModel)]="Proceso.apodeContra.cedula", placeholder="Digite la Identificación apoderado contraparte")
+            input#apoContraId.form-control(ngModel="model.apodeContra.cedula", placeholder="Digite la Identificación apoderado contraparte")
       .col-xs-11
         .btn-group(role="group").pull-right
           .btn.btn-default.btn-md Limpiar
           .btn.btn-success.btn-md Volver
-          .btn.btn-primary.btn-md Guarda
+          .btn.btn-primary.btn-md(type="submit") Guardar
