@@ -25,7 +25,7 @@ export class ProcesoService {
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this._apiUrl, body, options)
       .map(res => <Juzgado[]> res.json())
-      .do(data => console.log(data)) // eyeball results in the console
+//      .do(data => console.log(data)) // eyeball results in the console
       .catch(this.handleError)
       ;
   }

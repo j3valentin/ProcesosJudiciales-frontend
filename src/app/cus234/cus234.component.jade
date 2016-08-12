@@ -18,7 +18,7 @@
         .form-group
           label.control-label.col-sm-4 23 dígitos del proceso / Número de proceso rama judicial
           .col-sm-6
-            input#veintiTresDig.form-control(placeholder="Digite los 23 dígitos del proceso / Número de proceso rama judicial")
+            input.form-control(placeholder="Digite los 23 dígitos del proceso / Número de proceso rama judicial", (change)="onProcesoChange()")
         .form-group
           label.control-label.col-sm-4 CC demandante / identificación del demandante
           .col-sm-6
@@ -27,10 +27,10 @@
           label.control-label.col-sm-4 Nombre del demandante
           .col-sm-6
             input#nombreDemandante.form-control(disabled="disabled", placeholder="Digite el nombre del demandante", value="Camilo Erazo")
-        .row
+        //.row
           .col-xs-11
             .btn.btn-primary.btn-md.pull-right Validar duplicidad
-        .well.well-sm
+        .well.well-sm(*ngIf="procesos.length > 0")
           .table-responsive
             table.table.table-condensed.table-hover.table-curved
             caption.text-left Procesos judiciales asociados / duplicados
@@ -133,6 +133,8 @@
             select.form-control
               option(selected="selected", value="Seleccione el tipo de juzgado") Seleccione el tipo de juzgado
               option(*ngFor="#juzgado of juzgados", [value]="juzgado.tij_id") {{juzgado.tij_descripcion}}
+              //option(*ngFor='#juzgado of _service.getJuzgados()') {{juzgado.tij_descripcion}}
+              //li(*ngFor='#name of nameListService.get()') {{name}}
         .form-group
           label.control-label.col-sm-4 Nombre de despacho inicial
           .col-sm-6

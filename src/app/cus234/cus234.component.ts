@@ -25,7 +25,9 @@ export class Cus234Component implements OnInit {
   constructor(
     public seguridadService: SeguridadService,
     public _service: ProcesoService
-  ) {}
+  ) {
+    this.procesos = [];
+  }
 
   ngOnInit() {
 //    console.log('Llamando al auth...');
@@ -38,8 +40,8 @@ export class Cus234Component implements OnInit {
     this._service.getJuzgados()
       .subscribe(
         juzgados => this.juzgados = juzgados,
-        error => this.errorMessage = <any>error,
-        () => console.log(this.juzgados)
+        error => this.errorMessage = <any>error
+//        () => console.log(this.juzgados)
       );
   }
 
