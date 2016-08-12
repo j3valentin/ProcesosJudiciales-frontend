@@ -57,42 +57,6 @@
                 td Duplicado
                 td.text-center
                   i.glyphicon.glyphicon-edit.btn-sm-primary(title="Corregir")
-              //tr
-                td
-                  input.form-control.input-sm(value="2016-06-25")
-                td
-                  input.form-control.input-sm(value="6587967891011121314156857")
-                td
-                  input.form-control.input-sm(value="2016_132456")
-                td
-                  select.form-control.input-sm
-                    option(value="1") ACCION DE NULIDAD Y RESTABLECIMIENTO DEL DERECHO
-                    option(value="2") ACCION DE REPARACION DIRECTA
-                    option(value="3") ACCION DE CUMPLIMIENTO
-                    option(value="4") ACCION POPULAR
-                    option(value="5") EXTENSION DE JURISPRUDENCIA
-                    option(value="6") NULIDAD SIMPLE
-                    option(value="7") REPARACION DIRECTA
-                    option(value="8") ADMINISTRATIVO EJECUTIVO
-                    option(value="9") EJECUTIVO LABORAL
-                    option(value="10") ORDINARIO LABORAL DE UNICA INSTANCIA
-                    option(value="11") ORDINARIO LABORAL DE PRIMERA INSTANCIA
-                td
-                  input.form-control.input-sm(value="Camilo Erazo")
-                td
-                  input.form-control.input-sm(value="80234562")
-                td
-                  input.form-control.input-sm(value="Juzgado 028")
-                td
-                  select.form-control.input-sm
-                    option Duplicado
-                    option Notificación por ejecutivo
-                    option Pleito pendiente
-                    option Cosa juzgada
-                    option Registro correcto
-                td.text-center
-                  i.glyphicon.glyphicon-repeat.btn-sm-danger.flip-glyphicon(title="Cancelar")
-                  i.glyphicon.glyphicon-floppy-disk.btn-sm-success(title="Guardar")
               tr
                 td 2016-07-02
                 td 1984465654654121314151617
@@ -252,41 +216,9 @@
         .form-group
           label.control-label.col-sm-4 Departamento juzgado
           .col-sm-6
-            select#depJuzgado.form-control(ngModel="model.juzgado.depto")
+            select.form-control(ngModel="model.juzgado.depto")
               option(selected="selected", value="Seleccione el departamento del juzgado") Seleccione el departamento del juzgado
-              option(value="05") ANTIOQUIA
-              option(value="54") NORTE_DE_SANTANDER
-              option(value="50") META
-              option(value="27") CHOCO
-              option(value="41") HUILA
-              option(value="13") BOLIVAR
-              option(value="25") CUNDINAMARCA
-              option(value="20") CESAR
-              option(value="68") SANTANDER
-              option(value="17") CALDAS
-              option(value="85") CASANARE
-              option(value="52") NARINO
-              option(value="44") LA_GUAJIRA
-              option(value="18") CAQUETA
-              option(value="76") VALLE_DEL_CAUCA
-              option(value="47") MAGDALENA
-              option(value="19") CAUCA
-              option(value="15") BOYACA
-              option(value="73") TOLIMA
-              option(value="66") RISARALDA
-              option(value="81") ARAUCA
-              option(value="63") QUINDIO
-              option(value="23") CORDOBA
-              option(value="08") ATLANTICO
-              option(value="94") GUAINIA
-              option(value="11") DISTRITO_CAPITAL
-              option(value="70") SUCRE
-              option(value="95") GUAVIARE
-              option(value="97") VAUPES
-              option(value="86") PUTUMAYO
-              option(value="99") VICHADA
-              option(value="91") AMAZONAS
-              option(value="88") SAN_ANDRES_Y_PROVIDENCIA
+              option(*ngFor="#departamento of departamentos", [value]="departamento.dpt_id") {{departamento.dpt_descripcion}}
         .form-group
           label.control-label.col-sm-4 Ciudad de juzgado / Lugar de los hechos
           .col-sm-6
@@ -412,19 +344,9 @@
         .form-group
           label.control-label.col-sm-4 Tipo de proceso
           .col-sm-6
-            select#tipoProceso.form-control(ngModel="model.tipo")
+            select.form-control(ngModel="model.tipo")
               option(selected="selected", value="Seleccione el tipo de proceso") Seleccione el tipo de proceso
-              option(value="1") ACCION DE NULIDAD Y RESTABLECIMIENTO DEL DERECHO
-              option(value="2") ACCION DE REPARACION DIRECTA
-              option(value="3") ACCION DE CUMPLIMIENTO
-              option(value="4") ACCION POPULAR
-              option(value="5") EXTENSION DE JURISPRUDENCIA
-              option(value="6") NULIDAD SIMPLE
-              option(value="7") REPARACION DIRECTA
-              option(value="8") ADMINISTRATIVO EJECUTIVO
-              option(value="9") EJECUTIVO LABORAL
-              option(value="10") ORDINARIO LABORAL DE UNICA INSTANCIA
-              option(value="11") ORDINARIO LABORAL DE PRIMERA INSTANCIA
+              option(*ngFor="#tipoProceso of tiposProcesos", [value]="tipoProceso.tip_id") {{tipoProceso.tip_descripcion}}
         .form-group
           label.control-label.col-sm-4 Clasificación procesos /jurisdicción - acción
           .col-sm-6

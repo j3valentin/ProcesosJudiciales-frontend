@@ -1,12 +1,13 @@
 import {Juzgado}   from './juzgado';
 import {Apoderado} from './apoderado';
 import {Afiliado}  from './afiliado';
+import {TipoProceso}  from './tipoProceso';
 
 export interface Proceso {
   notificacion: string;
   numero: number;
   bizagi: string;
-  tipo: string;
+  tipo: TipoProceso;
   demandate: string;
   cedula: number;
   despacho: string;
