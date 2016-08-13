@@ -1,32 +1,65 @@
-import { Proceso } from './proceso';
+import {Proceso} from './proceso';
 
 export const PROCESOS: Proceso[] = [
-    {
-        notificacion: '2016-06-18',
-        numero: 1234567891011121314151617,
-        bizagi: '2016_132456',
-        tipo: 'ordinario laboral',
-        demandate: 'Camilo Erazo',
-        cedula: 80234562,
-        despacho: 'Juzgado 028',
-        estado: 'Duplicado'
-    }, {
-        notificacion: '2016-06-25',
-        numero: 1234567891011121314151617,
-        bizagi: '2016_132456',
-        tipo: 'ordinario laboral',
-        demandate: 'Camilo Erazo',
-        cedula: 80234562,
-        despacho: 'Juzgado 028',
-        estado: 'Duplicado'
-    }, {
-        notificacion: '2016-07-02',
-        numero: 1234567891011121314151617,
-        bizagi: '2016_132456',
-        tipo: 'ordinario laboral',
-        demandate: 'Camilo Erazo',
-        cedula: 80234562,
-        despacho: 'Juzgado 028',
-        estado: 'Cosa juzgada'
-    }
+  {
+    notificacion: '2016-06-18',
+    numero: 1234567891011121314151617,
+    bizagi: '2016_132456',
+    tipo: {
+      tip_id: 1,
+      tip_descripcion: 'oordinario laboral'
+    },
+    demandate: 'Camilo Erazo',
+    cedula: 80234562,
+    despacho: {
+      dei_id: 1,
+      dei_descripcion: 'Juzgado 028',
+      dpt_id: 1,
+      mpi_id: 1,
+      tij_id: 1,
+      dei_consecutivoid: '',
+      dei_concatenado: ''
+    },
+    estado: 'Duplicado'
+  }, {
+    notificacion: '2016-06-25',
+    numero: 1234567891011121314151617,
+    bizagi: '2016_132456',
+    tipo: {
+      tip_id: 1,
+      tip_descripcion: 'oordinario laboral'
+    },
+    demandate: 'Camilo Erazo',
+    cedula: 80234562,
+    despacho: {
+      dei_id: 1,
+      dei_descripcion: 'Juzgado 028',
+      dpt_id: 1,
+      mpi_id: 1,
+      tij_id: 1,
+      dei_consecutivoid: '',
+      dei_concatenado: ''
+    },
+    estado: 'Duplicado'
+  }, {
+    notificacion: '2016-07-02',
+    numero: 1234567891011121314151617,
+    bizagi: '2016_132456',
+    tipo: {
+      tip_id: 1,
+      tip_descripcion: 'oordinario laboral'
+    },
+    demandate: 'Camilo Erazo',
+    cedula: 80234562,
+    despacho: {
+      dei_id: 1,
+      dei_descripcion: 'Juzgado 028',
+      dpt_id: 1,
+      mpi_id: 1,
+      tij_id: 1,
+      dei_consecutivoid: '',
+      dei_concatenado: ''
+    },
+    estado: 'Cosa juzgada'
+  }
 ];
