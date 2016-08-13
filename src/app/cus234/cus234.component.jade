@@ -46,15 +46,21 @@
                 th Estado
                 th.text-center Corregir
             tbody
-              tr
-                td 2016-06-18
-                td 1234567891011121314151617
-                td 2016_132456
-                td ordinario laboral
-                td Camilo Erazo
-                td 80234562
-                td Juzgado 028
-                td Duplicado
+              tr(*ngFor="#procesoDup of procesosDup")
+                td {{procesoDup.pdu_id}}
+                td {{procesoDup.prj_id}}
+                td {{procesoDup.cup_id}}
+                td {{procesoDup.pdu_estadoDiplicidad}}
+                td {{procesoDup.pdu_fechaverificacion}}
+                td {{procesoDup.pdu_loginverifica}}
+                td {{procesoDup.prj_idduplicado}}
+                //td 1234567891011121314151617
+                //td 2016_132456
+                //td ordinario laboral
+                //td Camilo Erazo
+                //td 80234562
+                //td Juzgado 028
+                //td Duplicado
                 td.text-center
                   i.glyphicon.glyphicon-edit.btn-sm-primary(title="Corregir")
               tr
@@ -219,121 +225,123 @@
           .col-sm-6
             select.form-control(ngModel="model.juzgado.depto")
               option(selected="selected", value="Seleccione el departamento del juzgado") Seleccione el departamento del juzgado
-              option(*ngFor="#departamento of departamentos", [value]="departamento.dpt_id") {{departamento.dpt_descripcion}}
+              option(*ngFor="#departamento of departamentos", [value]="departamento.dpt_id" ) {{departamento.dpt_descripcion}}
+              //option(*ngFor="#departamento of departamentos", [value]="departamento.dpt_id" (ngModelChange)="onChange(getMunicipiosByDto(departamento.dpt_id)") {{departamento.dpt_descripcion}}
         .form-group
           label.control-label.col-sm-4 Ciudad de juzgado / Lugar de los hechos
           .col-sm-6
             select#ciudadJuzgado.form-control(ngModel="model.juzgado.ciudad")
               option(selected="selected", value="Seleccione la ciudad del juzgado / Lugar de los hechos") Seleccione la ciudad del juzgado / Lugar de los hechos
-              option(value="002") ABEJORRAL
-              option(value="003") ABREGO
-              option(value="004") ABRIAQUI
-              option(value="006") ACACÍAS
-              option(value="006") ACANDÍ
-              option(value="006") ACEVEDO
-              option(value="006") ACHÍ
-              option(value="013") AGRADO
-              option(value="001") AGUA_DE_DIOS
-              option(value="000") TRIBUNAL
-              option(value="011") AGUACHICA
-              option(value="013") AGUADA
-              option(value="013") AGUADAS
-              option(value="010") AGUAZUL
-              option(value="013") AGUSTÍN_CODAZZI
-              option(value="016") AIPE
-              option(value="019") ALBÁN
-              option(value="019") ALBÁN
-              option(value="020") ALBANIA
-              option(value="035") ALBANIA
-              option(value="029") ALBANIA
-              option(value="020") ALCALÁ
-              option(value="022") ALDANA
-              option(value="021") ALEJANDRIA
-              option(value="030") ALGARROBO
-              option(value="020") ALGECIRAS
-              option(value="022") ALMAGUER
-              option(value="022") ALMEIDA
-              option(value="024") ALPUJARRA
-              option(value="026") ALTAMIRA
-              option(value="025") ALTO_BAUDO
-              option(value="030") ALTOS_DEL_ROSARIO
-              option(value="026") ALVARADO
-              option(value="030") AMAGA
-              option(value="031") AMALFI
-              option(value="030") AMBALEMA
-              option(value="035") ANAPOIMA
-              option(value="036") ANCUYÁ
-              option(value="036") ANDALUCÍA
-              option(value="034") ANDES
-              option(value="036") ANGELOPOLIS
-              option(value="038") ANGOSTURA
-              option(value="040") ANOLAIMA
-              option(value="040") ANORI
-              option(value="042") ANSERMA
-              option(value="041") ANSERMANUEVO
-              option(value="044") ANZA
-              option(value="043") ANZOÁTEGUI
-              option(value="045") APARTADO
-              option(value="045") APÍA
-              option(value="599") APULO
-              option(value="047") AQUITANIA
-              option(value="053") ARACATACA
-              option(value="050") ARANZAZU
-              option(value="051") ARATOCA
-              option(value="001") ARAUCA
-              option(value="065") ARAUQUITA
-              option(value="053") ARBELÁEZ
-              option(value="051") ARBOLEDA
-              option(value="051") ARBOLEDAS
-              option(value="051") ARBOLETES
-              option(value="051") ARCABUCO
-              option(value="042") ARENAL
-              option(value="055") ARGELIA
-              option(value="054") ARGELIA
-              option(value="050") ARGELIA
-              option(value="058") ARIGUANÍ
-              option(value="052") ARJONA
-              option(value="059") ARMENIA
-              option(value="001") ARMENIA
-              option(value="055") ARMERO
-              option(value="062") ARROYOHONDO
-              option(value="032") ASTREA
-              option(value="067") ATACO
-              option(value="050") ATRATO
-              option(value="068") AYAPEL
-              option(value="073") BAGADÓ
-              option(value="075") BAHIA_SOLANO
-              option(value="077") BAJO_BAUDO
-              option(value="075") BALBOA
-              option(value="075") BALBOA
-              option(value="078") BARANOA
-              option(value="078") BARAYA
-              option(value="079") BARBACOAS
-              option(value="079") BARBOSA
-              option(value="077") BARBOSA
-              option(value="079") BARICHARA
-              option(value="110") BARRANCA_DE_UPÍA
-              option(value="081") BARRANCABERMEJA
-              option(value="078") BARRANCAS
-              option(value="074") BARRANCO_DE_LOBA
-              option(value="343") BARRANCO_MINAS
-              option(value="001") BARRANQUILLA
-              option(value="045") BECERRIL
-              option(value="088") BELALCÁZAR
-              option(value="087") BELÉN
-              option(value="083") BELÉN
-              option(value="086") BELÉN_DE_BAJIRÁ
-              option(value="094") BELÉN_DE_LOS_ANDAQUIES
-              option(value="088") BELÉN_DE_UMBRÍA
-              option(value="088") BELLO
-              option(value="086") BELMIRA
-              option(value="086") BELTRÁN
-              option(value="090") BERBEO
-              option(value="091") BETANIA
-              option(value="092") BETÉITIVA
-              option(value="093") BETULIA
-              option(value="092") BETULIA
-              option(value="095") BITUIMA
+              //option([value]="municipio.mpi_id") {{municipio.mpi_descripcion}}
+              //option(value="002") ABEJORRAL
+              //option(value="003") ABREGO
+              //option(value="004") ABRIAQUI
+              //option(value="006") ACACÍAS
+              //option(value="006") ACANDÍ
+              //option(value="006") ACEVEDO
+              //option(value="006") ACHÍ
+              //option(value="013") AGRADO
+              //option(value="001") AGUA_DE_DIOS
+              //option(value="000") TRIBUNAL
+              //option(value="011") AGUACHICA
+              //option(value="013") AGUADA
+              //option(value="013") AGUADAS
+              //option(value="010") AGUAZUL
+              //option(value="013") AGUSTÍN_CODAZZI
+              //option(value="016") AIPE
+              //option(value="019") ALBÁN
+              //option(value="019") ALBÁN
+              //option(value="020") ALBANIA
+              //option(value="035") ALBANIA
+              //option(value="029") ALBANIA
+              //option(value="020") ALCALÁ
+              //option(value="022") ALDANA
+              //option(value="021") ALEJANDRIA
+              //option(value="030") ALGARROBO
+              //option(value="020") ALGECIRAS
+              //option(value="022") ALMAGUER
+              //option(value="022") ALMEIDA
+              //option(value="024") ALPUJARRA
+              //option(value="026") ALTAMIRA
+              //option(value="025") ALTO_BAUDO
+              //option(value="030") ALTOS_DEL_ROSARIO
+              //option(value="026") ALVARADO
+              //option(value="030") AMAGA
+              //option(value="031") AMALFI
+              //option(value="030") AMBALEMA
+              //option(value="035") ANAPOIMA
+              //option(value="036") ANCUYÁ
+              //option(value="036") ANDALUCÍA
+              //option(value="034") ANDES
+              //option(value="036") ANGELOPOLIS
+              //option(value="038") ANGOSTURA
+              //option(value="040") ANOLAIMA
+              //option(value="040") ANORI
+              //option(value="042") ANSERMA
+              //option(value="041") ANSERMANUEVO
+              //option(value="044") ANZA
+              //option(value="043") ANZOÁTEGUI
+              //option(value="045") APARTADO
+              //option(value="045") APÍA
+              //option(value="599") APULO
+              //option(value="047") AQUITANIA
+              //option(value="053") ARACATACA
+              //option(value="050") ARANZAZU
+              //option(value="051") ARATOCA
+              //option(value="001") ARAUCA
+              //option(value="065") ARAUQUITA
+              //option(value="053") ARBELÁEZ
+              //option(value="051") ARBOLEDA
+              //option(value="051") ARBOLEDAS
+              //option(value="051") ARBOLETES
+              //option(value="051") ARCABUCO
+              //option(value="042") ARENAL
+              //option(value="055") ARGELIA
+              //option(value="054") ARGELIA
+              //option(value="050") ARGELIA
+              //option(value="058") ARIGUANÍ
+              //option(value="052") ARJONA
+              //option(value="059") ARMENIA
+              //option(value="001") ARMENIA
+              //option(value="055") ARMERO
+              //option(value="062") ARROYOHONDO
+              //option(value="032") ASTREA
+              //option(value="067") ATACO
+              //option(value="050") ATRATO
+              //option(value="068") AYAPEL
+              //option(value="073") BAGADÓ
+              //option(value="075") BAHIA_SOLANO
+              //option(value="077") BAJO_BAUDO
+              //option(value="075") BALBOA
+              //option(value="075") BALBOA
+              //option(value="078") BARANOA
+              //option(value="078") BARAYA
+              //option(value="079") BARBACOAS
+              //option(value="079") BARBOSA
+              //option(value="077") BARBOSA
+              //option(value="079") BARICHARA
+              //option(value="110") BARRANCA_DE_UPÍA
+              //option(value="081") BARRANCABERMEJA
+              //option(value="078") BARRANCAS
+              //option(value="074") BARRANCO_DE_LOBA
+              //option(value="343") BARRANCO_MINAS
+              //option(value="001") BARRANQUILLA
+              //option(value="045") BECERRIL
+              //option(value="088") BELALCÁZAR
+              //option(value="087") BELÉN
+              //option(value="083") BELÉN
+              //option(value="086") BELÉN_DE_BAJIRÁ
+              //option(value="094") BELÉN_DE_LOS_ANDAQUIES
+              //option(value="088") BELÉN_DE_UMBRÍA
+              //option(value="088") BELLO
+              //option(value="086") BELMIRA
+              //option(value="086") BELTRÁN
+              //option(value="090") BERBEO
+              //option(value="091") BETANIA
+              //option(value="092") BETÉITIVA
+              //option(value="093") BETULIA
+              //option(value="092") BETULIA
+              //option(value="095") BITUIMA
         .form-group
           label.control-label.col-sm-4 Radicado rama judicial / Número de radicación
           .col-sm-6

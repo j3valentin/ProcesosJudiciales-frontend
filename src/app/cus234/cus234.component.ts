@@ -18,6 +18,7 @@ import {Clasificacion} from './clasificacion';
 import {Causa} from './causa';
 import {ModPretension} from './modPretension';
 import {ActoAdmin} from './actoAdmin';
+import {ProcesoDup} from './procesoDup';
 
 @Component({
   selector: 'sd-cus234',
@@ -30,6 +31,7 @@ import {ActoAdmin} from './actoAdmin';
 export class Cus234Component implements OnInit {
   errorMessage: string;
   procesos: Proceso[];
+  procesosDup: ProcesoDup[];
   juzgados: Juzgado[];
   despachos: Despacho[];
   departamentos: Departamento[];
@@ -60,6 +62,8 @@ export class Cus234Component implements OnInit {
     this.getClasificacion();
     this.getCausas();
     this.getModPretension();
+    this.getActosAdmin();
+    this.getProcesosDup();
   }
 
   getJuzgados() {
@@ -90,7 +94,7 @@ export class Cus234Component implements OnInit {
   }
 
   getRegionales() {
-    this._service.getDepartamentos()
+    this._service.getRegionales()
       .subscribe(
         regionales => this.regionales = regionales,
         error => this.errorMessage = <any>error
@@ -151,6 +155,19 @@ export class Cus234Component implements OnInit {
 //        () => console.log(this.juzgados)
       );
   }
+
+  getProcesosDup() {
+    this._service.getProcesosDup()
+      .subscribe(
+        procesosDup => this.procesosDup = procesosDup,
+        error => this.errorMessage = <any>error
+//        () => console.log(this.juzgados)
+      );
+  }
+
+  // onDepartamentoChange( dpt_id: number){
+  //
+  // }
 
 //  onProcesoChange(nProcesoNumero: number) {
 //    console.log('Entra');

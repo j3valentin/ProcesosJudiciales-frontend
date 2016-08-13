@@ -1,4 +1,4 @@
-import {Injectable}     from 'angular2/core';
+import {Injectable }     from 'angular2/core';
 import {Http, Response} from 'angular2/http';
 import {
   Headers,
@@ -14,9 +14,11 @@ import {TipoProceso}    from './tipoProceso';
 import {TipoInformativo} from './tipoInformativo';
 import {Despacho} from './despacho';
 import {Clasificacion} from './clasificacion';
-import {Causa} from 'causa';
+import {Causa} from './causa';
 import {ModPretension} from './modPretension';
 import {ActoAdmin} from './actoAdmin';
+import {Municipio} from './municipio';
+import {ProcesoDup} from './procesoDup';
 
 @Injectable()
 export class ProcesoService {
@@ -122,7 +124,7 @@ export class ProcesoService {
     let options = new RequestOptions({headers: headers});
     return this.http.post(this._apiUrl, body, options)
       .map(res => <TipoInformativo[]> res.json())
-      .do(data => console.log(data)) // eyeball results in the console
+      // .do(data => console.log(data)) // eyeball results in the console
       .catch(this.handleError)
       ;
   }
@@ -139,7 +141,7 @@ export class ProcesoService {
     let options = new RequestOptions({headers: headers});
     return this.http.post(this._apiUrl, body, options)
       .map(res => <Clasificacion[]> res.json())
-      .do(data => console.log(data)) // eyeball results in the console
+      // .do(data => console.log(data)) // eyeball results in the console
       .catch(this.handleError)
       ;
   }
@@ -156,7 +158,7 @@ export class ProcesoService {
     let options = new RequestOptions({headers: headers});
     return this.http.post(this._apiUrl, body, options)
       .map(res => <Causa[]> res.json())
-      .do(data => console.log(data)) // eyeball results in the console
+      // .do(data => console.log(data)) // eyeball results in the console
       .catch(this.handleError)
       ;
   }
@@ -173,7 +175,7 @@ export class ProcesoService {
     let options = new RequestOptions({headers: headers});
     return this.http.post(this._apiUrl, body, options)
       .map(res => <ModPretension[]> res.json())
-      .do(data => console.log(data)) // eyeball results in the console
+      // .do(data => console.log(data)) // eyeball results in the console
       .catch(this.handleError)
       ;
   }
@@ -190,7 +192,44 @@ export class ProcesoService {
     let options = new RequestOptions({headers: headers});
     return this.http.post(this._apiUrl, body, options)
       .map(res => <ActoAdmin[]> res.json())
-      .do(data => console.log(data)) // eyeball results in the console
+      // .do(data => console.log(data)) // eyeball results in the console
+      .catch(this.handleError)
+      ;
+  }
+
+  getProcesosDup() {
+    let body = JSON.stringify({
+      type: 'CON',
+      parameters: {}
+    });
+    let headers = new Headers({
+      'Content-Type': 'application/json',
+      'sp-name': 'pr_ConsultaProcespDuplicado'
+    });
+    let options = new RequestOptions({headers: headers});
+    return this.http.post(this._apiUrl, body, options)
+      .map(res => <ProcesoDup[]> res.json())
+      // .do(data => console.log(data)) // eyeball results in the console
+      .catch(this.handleError)
+      ;
+  }
+
+  getMunicipiosByDto(p_dpt_id: number) {
+    let body = JSON.stringify({
+      type: 'CON',
+      parameters: {
+        'nom': ''
+      }
+    });
+    //    let body = model.toJSON();
+    let headers = new Headers({
+      'Content-Type': 'application/json',
+      'sp-name': 'pr_ConsultaMpio'
+    });
+    let options = new RequestOptions({headers: headers});
+    return this.http.post(this._apiUrl, body, options)
+      .map(res => <Municipio[]>res.json().data)
+      // .do(data => console.log(data)) // eyeball results in the console
       .catch(this.handleError)
       ;
   }
@@ -210,7 +249,7 @@ export class ProcesoService {
     let options = new RequestOptions({headers: headers});
     return this.http.post(this._apiUrl, body, options)
       .map(res => <Proceso[]>res.json().data)
-      .do(data => console.log(data)) // eyeball results in the console
+      // .do(data => console.log(data)) // eyeball results in the console
       .catch(this.handleError)
       ;
   }

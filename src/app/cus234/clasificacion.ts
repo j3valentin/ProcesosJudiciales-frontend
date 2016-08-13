@@ -1,7 +1,6 @@
 export class Clasificacion {
   constructor(
     public clt_id: number,
-    public clt_descripcion: string,
-
+    public clt_descripcion: string
   ) { }
 }

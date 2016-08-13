@@ -1,3 +1,6 @@
+import {Municipio} from './municipio';
+import {Departamento} from './departamento';
+
 export class Juzgado {
     constructor(
         public tij_id: string,
@@ -5,7 +8,7 @@ export class Juzgado {
         public numero?: number,
         public tipo?: string,
         public despacho?: string,
-        public depto?: string,
-        public ciudad?: string
+        public depto?: Departamento,
+        public ciudad?: Municipio
     ) { }
 }
