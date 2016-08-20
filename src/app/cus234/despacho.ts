@@ -1,11 +1,9 @@
-export class Despacho {
-    constructor(
-        public dei_id: number,
-        public dei_descripcion: string,
-        public dpt_id?: number,
-        public mpi_id?: number,
-        public tij_id?: number,
-        public dei_consecutivoid?: string,
-        public dei_concatenado?: string
-    ) { }
+export interface Despacho {
+  dei_id: number,
+  dei_descripcion: string,
+  dpt_id?: number,
+  mpi_id?: number,
+  tij_id?: number,
+  dei_consecutivoid?: string,
+  dei_concatenado?: string
 }
