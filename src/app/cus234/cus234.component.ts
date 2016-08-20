@@ -1,16 +1,15 @@
 import {Component, OnInit} from 'angular2/core';
-import {
-  CORE_DIRECTIVES,
-  FORM_DIRECTIVES
-}   from 'angular2/common';
-import {HTTP_PROVIDERS}    from 'angular2/http';
+import {CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
+import {HTTP_PROVIDERS} from 'angular2/http';
 
-import {SeguridadService}  from '../../shared/services/seguridad.service';
-import {ProcesoService}    from './proceso.service';
-import {Juzgado}           from './juzgado';
-import {Proceso}           from './proceso';
-import {Departamento}      from './departamento';
-import {TipoProceso}       from './tipoProceso';
+import {SeguridadService} from '../../shared/services/seguridad.service';
+import {JuzgadoService} from './juzgado.service';
+import {ProcesoService} from './proceso.service';
+
+import {Juzgado} from './juzgado';
+import {Proceso} from './proceso';
+import {Departamento} from './departamento';
+import {TipoProceso} from './tipoProceso';
 import {TipoInformativo} from './tipoInformativo';
 import {Regional} from './regional';
 import {Despacho} from './despacho';
@@ -19,6 +18,7 @@ import {Causa} from './causa';
 import {ModPretension} from './modPretension';
 import {ActoAdmin} from './actoAdmin';
 import {ProcesoDup} from './procesoDup';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'sd-cus234',
@@ -26,13 +26,13 @@ import {ProcesoDup} from './procesoDup';
   templateUrl: './cus234.component.html',
   styleUrls: ['./cus234.component.css'],
   directives: [FORM_DIRECTIVES, CORE_DIRECTIVES],
-  providers: [HTTP_PROVIDERS, SeguridadService, ProcesoService]
+  providers: [HTTP_PROVIDERS, SeguridadService, ProcesoService, JuzgadoService]
 })
 export class Cus234Component implements OnInit {
   errorMessage: string;
   procesos: Proceso[];
   procesosDup: ProcesoDup[];
-  juzgados: Juzgado[];
+  juzgados$: Observable<Juzgado[]>;
   despachos: Despacho[];
   departamentos: Departamento[];
   tiposProcesos: TipoProceso[];
@@ -44,16 +44,20 @@ export class Cus234Component implements OnInit {
   actosAdmin: ActoAdmin[];
   proceso: Proceso;
 
-  constructor(public seguridadService: SeguridadService,
-              public _service: ProcesoService) {
+  constructor(
+    private juzgadoService: JuzgadoService,
+    public seguridadService: SeguridadService,
+    public _service: ProcesoService) {
     this.procesos = [];
   }
 
   ngOnInit() {
+    this.juzgados$ = this.juzgadoService.juzgados$;
+    this.juzgadoService.loadAll();
+
 //    console.log('Llamando al auth...');
 //    console.log(this.seguridadService.auth());
 //    console.log('Auth llamado!');
-    this.getJuzgados();
     this.getDespachos();
     this.getDepartamentos();
     this.getRegionales();
@@ -64,15 +68,6 @@ export class Cus234Component implements OnInit {
     this.getModPretension();
     this.getActosAdmin();
     this.getProcesosDup();
-  }
-
-  getJuzgados() {
-    this._service.getJuzgados()
-      .subscribe(
-        juzgados => this.juzgados = juzgados,
-        error => this.errorMessage = <any>error
-//        () => console.log(this.juzgados)
-      );
   }
 
   getDespachos() {

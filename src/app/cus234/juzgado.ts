@@ -1,14 +1,12 @@
 import {Municipio} from './municipio';
 import {Departamento} from './departamento';
 
-export class Juzgado {
-    constructor(
-        public tij_id: string,
-        public tij_descripcion: string,
-        public numero?: number,
-        public tipo?: string,
-        public despacho?: string,
-        public depto?: Departamento,
-        public ciudad?: Municipio
-    ) { }
+export interface Juzgado {
+  tij_id: string,
+  tij_descripcion: string,
+  numero?: number,
+  tipo?: string,
+  despacho?: string,
+  depto?: Departamento,
+  ciudad?: Municipio
 }
