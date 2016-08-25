@@ -1,6 +1,4 @@
-export class TipoProceso {
-  constructor(
-    public tip_id: number,
-    public tip_descripcion: string
-  ) { }
+export interface TipoProceso {
+  tip_id: number,
+  tip_descripcion: string
 }

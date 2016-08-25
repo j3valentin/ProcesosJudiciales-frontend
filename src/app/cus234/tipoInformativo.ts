@@ -1,6 +1,4 @@
-export class TipoInformativo {
-  constructor(
-    public tii_id: number,
-    public tii_descripcion: string
-  ) { }
+export interface TipoInformativo {
+  tii_id: number,
+  tii_descripcion: string
 }

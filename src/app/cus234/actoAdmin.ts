@@ -1,6 +1,4 @@
-export class ActoAdmin {
-  constructor(
-    public ead_id: number,
-    public ead_descripcion: string
-  ) { }
+export interface ActoAdmin {
+    ead_id: number,
+    ead_descripcion: string
 }

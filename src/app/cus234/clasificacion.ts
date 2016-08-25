@@ -1,6 +1,4 @@
-export class Clasificacion {
-  constructor(
-    public clt_id: number,
-    public clt_descripcion: string
-  ) { }
+export interface Clasificacion {
+  clt_id: number,
+  clt_descripcion: string
 }

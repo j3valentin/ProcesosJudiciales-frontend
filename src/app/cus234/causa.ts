@@ -1,6 +1,4 @@
-export class Causa {
-  constructor(
-    public cap_id: number,
-    public cap_descripcion: string
-  ) { }
+export interface Causa {
+  cap_id: number,
+  cap_descripcion: string
 }

@@ -1,6 +1,5 @@
-export class Departamento {
-  constructor(
-    public dpt_id: number,
-    public dpt_descripcion: string
-  ) { }
+export interface Departamento {
+  dpt_id: number,
+  dpt_descripcion: string
 }
+

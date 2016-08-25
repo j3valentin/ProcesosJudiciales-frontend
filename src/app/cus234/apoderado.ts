@@ -1,8 +1,6 @@
-export class Apoderado {
-  constructor(
-    public nombre: string,
-    public cedula: number,
-    public tarjeta: string,
-    public tipo: string
-  ) { }
+export interface Apoderado {
+    nombre: string,
+    cedula: number,
+    tarjeta: string,
+    tipo: string
 }

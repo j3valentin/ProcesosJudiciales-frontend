@@ -5,6 +5,16 @@ import {HTTP_PROVIDERS} from 'angular2/http';
 import {SeguridadService} from '../../shared/services/seguridad.service';
 import {JuzgadoService} from './juzgado.service';
 import {ProcesoService} from './proceso.service';
+import {DepartamentoService} from './departamento.service';
+import {DespachoService} from './despacho.service';
+import {RegionalService} from './regional.service';
+import {TipoProcesoService} from './tipoProceso.service';
+import {TipoInformativoService} from './tipoInformativo.service';
+import {ClasificacionService} from './clasificacion.service';
+import {CausaService} from './causa.service';
+import {ModPretensionService} from './modPretension.service';
+import {ActoAdminService} from './actoAdmin.service';
+import {ProcesoDupService} from './procesoDup.service';
 
 import {Juzgado} from './juzgado';
 import {Proceso} from './proceso';
@@ -26,139 +36,68 @@ import {Observable} from 'rxjs';
   templateUrl: './cus234.component.html',
   styleUrls: ['./cus234.component.css'],
   directives: [FORM_DIRECTIVES, CORE_DIRECTIVES],
-  providers: [HTTP_PROVIDERS, SeguridadService, ProcesoService, JuzgadoService]
+  providers: [HTTP_PROVIDERS, SeguridadService, ProcesoService,
+    JuzgadoService, DepartamentoService, DespachoService, RegionalService,
+    TipoProcesoService, TipoInformativoService, ClasificacionService,
+    CausaService, ModPretensionService, ActoAdminService, ProcesoDupService]
 })
 export class Cus234Component implements OnInit {
   errorMessage: string;
   procesos: Proceso[];
-  procesosDup: ProcesoDup[];
+  procesosDup$: Observable<ProcesoDup[]>;
   juzgados$: Observable<Juzgado[]>;
-  despachos: Despacho[];
-  departamentos: Departamento[];
-  tiposProcesos: TipoProceso[];
-  tiposInformativo: TipoInformativo[];
-  regionales: Regional[];
-  clasificaciones: Clasificacion[];
-  causas: Causa[];
-  modPretensiones: ModPretension[];
-  actosAdmin: ActoAdmin[];
+  despachos$: Observable<Despacho[]>;
+  departamentos$: Observable<Departamento[]>;
+  tipoProcesos$: Observable<TipoProceso[]>;
+  tipoInformativos$: Observable<TipoInformativo[]>;
+  regionales$: Observable<Regional[]>;
+  clasificaciones$: Observable<Clasificacion[]>;
+  causas$: Observable<Causa[]>;
+  modPretensiones$: Observable<ModPretension[]>;
+  actosAdmin$: Observable<ActoAdmin[]>;
   proceso: Proceso;
 
-  constructor(
-    private juzgadoService: JuzgadoService,
-    public seguridadService: SeguridadService,
-    public _service: ProcesoService) {
+  constructor(private juzgadoService: JuzgadoService,
+              private despachoService: DespachoService,
+              private regionalService: RegionalService,
+              private tipoProcesoService: TipoProcesoService,
+              private tipoInformativoService: TipoInformativoService,
+              private clasificacionService: ClasificacionService,
+              private causaService: CausaService,
+              private modPretensionService: ModPretensionService,
+              private actoAdminService: ActoAdminService,
+              private procesoDupService: ProcesoDupService,
+              private departamentoService: DepartamentoService,
+              public seguridadService: SeguridadService,
+              public _service: ProcesoService) {
     this.procesos = [];
   }
 
   ngOnInit() {
     this.juzgados$ = this.juzgadoService.juzgados$;
     this.juzgadoService.loadAll();
-
-//    console.log('Llamando al auth...');
-//    console.log(this.seguridadService.auth());
-//    console.log('Auth llamado!');
-    this.getDespachos();
-    this.getDepartamentos();
-    this.getRegionales();
-    this.getTipoProceso();
-    this.getTipoinformativo();
-    this.getClasificacion();
-    this.getCausas();
-    this.getModPretension();
-    this.getActosAdmin();
-    this.getProcesosDup();
+    this.departamentos$ = this.departamentoService.departamentos$;
+    this.departamentoService.loadAll();
+    this.despachos$ = this.despachoService.despachos$;
+    this.despachoService.loadAll();
+    this.regionales$ = this.regionalService.regionales$;
+    this.regionalService.loadAll();
+    this.tipoProcesos$ = this.tipoProcesoService.tipoProcesos$;
+    this.tipoProcesoService.loadAll();
+    this.tipoInformativos$ = this.tipoInformativoService.tipoInformativos$;
+    this.tipoInformativoService.loadAll();
+    this.clasificaciones$ = this.clasificacionService.clasificaciones$;
+    this.clasificacionService.loadAll();
+    this.causas$ = this.causaService.causas$;
+    this.causaService.loadAll();
+    this.modPretensiones$ = this.modPretensionService.modPretensiones$;
+    this.modPretensionService.loadAll();
+    this.actosAdmin$ = this.actoAdminService.actosAdmin$;
+    this.actoAdminService.loadAll();
+    this.procesosDup$ = this.procesoDupService.procesosDup$;
+    this.procesoDupService.loadAll();
   }
 
-  getDespachos() {
-    this._service.getDespachos()
-      .subscribe(
-        despachos => this.despachos = despachos,
-        error => this.errorMessage = <any>error
-//        () => console.log(this.juzgados)
-      );
-  }
-
-  getDepartamentos() {
-    this._service.getDepartamentos()
-      .subscribe(
-        departamentos => this.departamentos = departamentos,
-        error => this.errorMessage = <any>error
-//        () => console.log(this.juzgados)
-      );
-  }
-
-  getRegionales() {
-    this._service.getRegionales()
-      .subscribe(
-        regionales => this.regionales = regionales,
-        error => this.errorMessage = <any>error
-//        () => console.log(this.juzgados)
-      );
-  }
-
-  getTipoProceso() {
-    this._service.getTipoProceso()
-      .subscribe(
-        tipoProcesos => this.tiposProcesos = tipoProcesos,
-        error => this.errorMessage = <any>error
-//        () => console.log(this.juzgados)
-      );
-  }
-
-  getTipoinformativo() {
-    this._service.getTipoInformativo()
-      .subscribe(
-        tiposInformativo => this.tiposInformativo = tiposInformativo,
-        error => this.errorMessage = <any>error
-//        () => console.log(this.juzgados)
-      );
-  }
-
-  getClasificacion() {
-    this._service.getClasificacion()
-      .subscribe(
-        clasificaciones => this.clasificaciones = clasificaciones,
-        error => this.errorMessage = <any>error
-//        () => console.log(this.juzgados)
-      );
-  }
-
-  getCausas() {
-    this._service.getCausas()
-      .subscribe(
-        causas => this.causas = causas,
-        error => this.errorMessage = <any>error
-//        () => console.log(this.juzgados)
-      );
-  }
-
-  getModPretension() {
-    this._service.getModPretension()
-      .subscribe(
-        modPretensiones => this.modPretensiones = modPretensiones,
-        error => this.errorMessage = <any>error
-//        () => console.log(this.juzgados)
-      );
-  }
-
-  getActosAdmin() {
-    this._service.getActosAdmin()
-      .subscribe(
-        actosAdmin => this.actosAdmin = actosAdmin,
-        error => this.errorMessage = <any>error
-//        () => console.log(this.juzgados)
-      );
-  }
-
-  getProcesosDup() {
-    this._service.getProcesosDup()
-      .subscribe(
-        procesosDup => this.procesosDup = procesosDup,
-        error => this.errorMessage = <any>error
-//        () => console.log(this.juzgados)
-      );
-  }
 
   // onDepartamentoChange( dpt_id: number){
   //

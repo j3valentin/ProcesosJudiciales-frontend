@@ -1,8 +1,6 @@
-export class Afiliado {
-  constructor(
-    public nombre: string,
-    public cedula: string,
-    public beneficiario: string,
-    public cedulaBen: string
-  ) { }
+export interface Afiliado {
+  nombre: string,
+  cedula: string,
+  beneficiario: string,
+  cedulaBen: string
 }

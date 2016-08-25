@@ -108,13 +108,13 @@
           .col-sm-6
             select.form-control
               option(selected="selected", value="Seleccione el nombre del despacho inicial") Seleccione el nombre del despacho inicial
-              option(*ngFor="#despacho of despachos", [value]="despacho.dei_id") {{despacho.dei_descripcion}}
+              option(*ngFor="#despacho of despachos$ | async", [value]="despacho.dei_id") {{despacho.dei_descripcion}}
         .form-group
           label.control-label.col-sm-4 Departamento juzgado
           .col-sm-6
             select.form-control(ngModel="model.juzgado.depto")
               option(selected="selected", value="Seleccione el departamento del juzgado") Seleccione el departamento del juzgado
-              option(*ngFor="#departamento of departamentos", [value]="departamento.dpt_id" ) {{departamento.dpt_descripcion}}
+              option(*ngFor="#departamento of departamentos$ | async", [value]="departamento.dpt_id" ) {{departamento.dpt_descripcion}}
               //option(*ngFor="#departamento of departamentos", [value]="departamento.dpt_id" (ngModelChange)="onChange(getMunicipiosByDto(departamento.dpt_id)") {{departamento.dpt_descripcion}}
         .form-group
           label.control-label.col-sm-4 Ciudad de juzgado / Lugar de los hechos
@@ -244,7 +244,7 @@
           .col-sm-6
             select.form-control(ngModel="model.tipo")
               option(selected="selected", value="Seleccione el tipo de proceso") Seleccione el tipo de proceso
-              option(*ngFor="#tipoProceso of tiposProcesos", [value]="tipoProceso.tip_id") {{tipoProceso.tip_descripcion}}
+              option(*ngFor="#tipoProceso of tipoProcesos$ | async", [value]="tipoProceso.tip_id") {{tipoProceso.tip_descripcion}}
         .form-group
           label.control-label.col-sm-4 Clasificación procesos /jurisdicción - acción
           .col-sm-6
@@ -278,7 +278,7 @@
           .col-sm-6
             select#clasTramit.form-control(ngModel="model.clasTramites")
               option(selected="selected", value="Seleccione la clasificación de trámites") Seleccione la clasificación de trámites
-              option(*ngFor="#clasificacion of clasificaciones", [value]="clasificacion.clt_id") {{clasificacion.clt_descripcion}}
+              option(*ngFor="#clasificacion of clasificaciones$ | async", [value]="clasificacion.clt_id") {{clasificacion.clt_descripcion}}
               //option(value="nuevo") Proceso Nuevo
               //option(value="informativo") Proceso Informativo
         .form-group
@@ -286,7 +286,7 @@
           .col-sm-6
             select#tipoInfor.form-control(ngModel="model.tipoInf")
               option(selected="selected", value="Seleccione el tipo de informativo") Seleccione el tipo de informativo
-              option(*ngFor="#tipoInformativo of tiposInformativo", [value]="tipoInformativo.tii_id") {{tipoInformativo.tii_descripcion}}
+              option(*ngFor="#tipoInformativo of tipoInformativos$ | async", [value]="tipoInformativo.tii_id") {{tipoInformativo.tii_descripcion}}
               //option(value="1") AUDIENCIA
               //option(value="2") CAMBIO DE DESPACHO
               //option(value="3") CONCILIACION EXTRA JUDICIAL
@@ -310,7 +310,7 @@
           .col-sm-6
             select#idRegion.form-control(ngModel="model.regional")
               option(selected="selected", value="Seleccione la regional")
-              option(*ngFor="#regional of regionales", [value]="regional.reg_id") {{regional.reg_descripcion}}
+              option(*ngFor="#regional of regionales$ | async", [value]="regional.reg_id") {{regional.reg_descripcion}}
               //option(value="1") ANTIOQUIA
               //option(value="2") CENTRO
               //option(value="3") SANTANDER

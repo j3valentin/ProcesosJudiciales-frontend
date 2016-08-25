@@ -1,6 +1,4 @@
-export class Regional {
-  constructor(
-    public reg_id: number,
-    public reg_descripcion: string
-  ) { }
+export interface Regional {
+  reg_id: number,
+  reg_descripcion: string
 }
