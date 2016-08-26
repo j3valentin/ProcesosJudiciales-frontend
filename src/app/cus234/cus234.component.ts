@@ -56,6 +56,7 @@ export class Cus234Component implements OnInit {
   modPretensiones$: Observable<ModPretension[]>;
   actosAdmin$: Observable<ActoAdmin[]>;
   proceso: Proceso;
+  pestana: String='geoDatGen';
 
   constructor(private juzgadoService: JuzgadoService,
               private despachoService: DespachoService,

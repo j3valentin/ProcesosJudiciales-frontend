@@ -3,15 +3,15 @@
   .row([hidden]="submitted")
     ul.nav.nav-pills
       li.principalMenuItem
-        a(href="#geoDatGen") Georeferenciación y Datos Generales
+        a((click)="pestana = 'geoDatGen'") Georeferenciación y Datos Generales
       //li.principalMenuItem
         a(href="#valDup") Validar Duplicidad
       li.principalMenuItem
-        a(href="#daPrePro") Datos Cualitativos, Pretenciones y Etapas Procesales
+        a((click)="pestana = 'daPrePro'") Datos Cualitativos, Pretenciones y Etapas Procesales
       //li.principalMenuItem
         a(href="#valProDup") Estado de validación de los Procesos Duplicados
   .tab-content
-    #geoDatGen.tab-pane.fade.in.active
+    #geoDatGen.tab-pane.fade.in([ngClass]="{'active': pestana === 'geoDatGen'}")
       .header
         h3 Consulta de procesos / Validar duplicidad
       form.form-horizontal
@@ -336,7 +336,7 @@
           .btn.btn-default.btn-md Limpiar
           .btn.btn-primary.btn-md(type="submit") Guardar
           .btn.btn-success.btn-md Continuar
-    #daPrePro.tab-pane.fade.in
+    #daPrePro.tab-pane.fade.in([ngClass]="{'active': pestana === 'daPrePro'}")
       .header
         h3 Datos cualitativos, pretensiones y etapas procesales
       form.form-horizontal((Submit) = "onSubmit()")
