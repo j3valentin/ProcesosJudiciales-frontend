@@ -5,38 +5,38 @@ nav.navbar.navbar-default.menu
     .collapse.navbar-collapse#bs-example-navbar-collapse-1
       ul.nav.navbar-nav
         li.dropdown
-          a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false") Reparto 
+          a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false") Reparto
             span.caret
           ul.dropdown-menu
             li
-              a(href="#") Registrar reparto
+              a([routerLink]="['Cus234']") Registrar reparto
         li.dropdown
           a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false") Consultas
             span.caret
           ul.dropdown-menu
             li
-              a(href="#") Consulta avanzada
+              a([routerLink]="['Cus5']") Consulta avanzada
             li
-              a(href="#") Consultar histórico
+              a([routerLink]="['Cus7']") Consultar histórico
         li.dropdown
           a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false") Cargue
             span.caret
           ul.dropdown-menu
             li
-              a(href="#") Cargar archivo
+              a([routerLink]="['Cus8']") Cargar archivo
       ul.nav.navbar-nav.navbar-right
         li
-          a(href="#") Perfil
+          a([routerLink]="['Cus12']") Perfil
         li
-          a(href="#") Salir
+          a([routerLink]="['Home']") Salir
       form.navbar-form.navbar-right
         .form-group
           input.form-control.input-search(placeholder="Buscar")
         i.glyphicon.glyphicon-search.btn-search(title="Buscar")
         i.glyphicon.glyphicon-zoom-in.btn-search(title="Búsqueda avanzada")
-      
 
-      //ul.nav.navbar-nav 
+
+      //ul.nav.navbar-nav
         li
           a([routerLink]="['Home']")
             | Reparto
