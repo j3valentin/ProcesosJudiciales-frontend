@@ -1,0 +1,52 @@
+import {Juzgado}   from './juzgado';
+import {Apoderado} from './apoderado';
+import {Afiliado}  from './afiliado';
+import {TipoProceso}  from './tipoProceso';
+import {TipoInformativo} from './tipoInformativo'
+import {Regional} from './regional';
+import {Despacho} from './despacho';
+import {Clasificacion} from './clasificacion';
+import {Causa} from './causa';
+import {Pretension} from './Pretension';
+import {ModPretension} from './modPretension';
+import {ClasePretencion} from './clasePretencion';
+import {ActoAdmin} from './actoAdmin';
+import {EstadoProceso} from './estadoProceso';
+
+export interface Proceso {
+  prj_fechanotifica?: string;
+  prj_23digitos: number;
+  prj_numerobizagi: string;
+  tipo: TipoProceso;
+  Nombre_Dem: string;
+  CC_Dem: number;
+  despacho: Despacho;
+  estadoProceso: EstadoProceso;
+  prj_id?: number;
+  prj_litigacion?: string;
+  juzgado?: Juzgado;
+  prj_numeroradica?: string;
+  prj_clasificacionps?: string;
+  prj_demandado?: number;
+  apoderado?: Apoderado;
+  clasTramites?: Clasificacion;
+  tipoInf?: TipoInformativo;
+  prj_relacioninforma?: string;
+  regional?: Regional;
+  prj_anoradicacion?: number;
+  tiu_id?: number;
+  prj_hechosproceso?: string;
+  actoAdmin?: ActoAdmin;
+  prj_numresolucion?: string;
+  causa?: Causa;
+  modPret?: ModPretension;
+  pretension?: Pretension;
+  clasePret?: ClasePretencion;
+  prj_fechaadminisiondemanda?: string;
+  prj_cuantiaestimada?: number;
+  afiliado?: Afiliado;
+  prj_cantidaddemandante?: number;
+  prj_entidadpublica?: string;
+  apodeContra?: Apoderado;
+  prj_23digitosa?:  number;
+}

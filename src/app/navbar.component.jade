@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .upperNavbar
   nav.navbar.navbar-default.menu
     .container-fluid
@@ -44,3 +45,52 @@
               span.sr-only (current)
           li
             a([routerLink]="['About']") Salir
+=======
+nav.navbar.navbar-default.menu
+  .container-fluid
+    .navbar-header
+      //a.navbar-brand(href='#') Procesos Judiciales
+    .collapse.navbar-collapse#bs-example-navbar-collapse-1
+      ul.nav.navbar-nav
+        li.dropdown
+          a.dropdown-toggle([routerLink]="['Cus234']", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false") Registrar reparto
+          //  span.caret
+          //ul.dropdown-menu
+          //  li
+          //    a([routerLink]="['Cus234']") Registrar reparto
+        li.dropdown
+          a.dropdown-toggle([routerLink]="['Cus5']", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false") Consulta avanzada
+          //  span.caret
+          //ul.dropdown-menu
+          //  li
+          //    a([routerLink]="['Cus5']") Consulta avanzada
+          //  li
+              a([routerLink]="['Cus7']") Consultar histórico
+        li.dropdown
+          a.dropdown-toggle([routerLink]="['Cus7']", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false") Consultar histórico
+        li.dropdown
+          a.dropdown-toggle([routerLink]="['Cus8']", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false") Cargar archivo
+          //  span.caret
+          //ul.dropdown-menu
+          //  li
+          //    a([routerLink]="['Cus8']") Cargar archivo
+      ul.nav.navbar-nav.navbar-right
+        li
+          a([routerLink]="['Cus12']") Perfil
+        li
+          a([routerLink]="['Cus11']") Salir
+      form.navbar-form.navbar-right
+        .form-group
+          input.form-control.input-search(placeholder="Buscar")
+        i.glyphicon.glyphicon-search.btn-search(title="Buscar")
+        i.glyphicon.glyphicon-zoom-in.btn-search(title="Búsqueda avanzada")
+
+
+      //ul.nav.navbar-nav
+        li
+          a([routerLink]="['Home']")
+            | Reparto
+            span.sr-only (current)
+        li
+          a([routerLink]="['About']") Salir
+>>>>>>> 2d14e5f48a27449feb7318e2c29a83514e183281
