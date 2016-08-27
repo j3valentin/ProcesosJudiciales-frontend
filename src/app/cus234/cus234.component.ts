@@ -57,7 +57,7 @@ export class Cus234Component implements OnInit {
   modPretensiones$: Observable<ModPretension[]>;
   actosAdmin$: Observable<ActoAdmin[]>;
   proceso: Proceso;
-  pestana: String='geoDatGen';
+  pestana: String = 'geoDatGen';
 
   constructor(private juzgadoService: JuzgadoService,
               private despachoService: DespachoService,
@@ -74,25 +74,28 @@ export class Cus234Component implements OnInit {
               public _service: ProcesoService) {
     this.procesos = [];
     this.proceso = {
-      notificacion: '2016-06-18',
+      prj_fechanotifica: '2016-06-18',
       prj_23digitos: 1234567891011121314151617,
       prj_numerobizagi: '2016_132456',
       tipo: {
         tip_id: 1,
         tip_descripcion: 'oordinario laboral'
       },
-      demandate: 'Camilo Erazo',
+      Nombre_Dem: 'Camilo Erazo',
       CC_Dem: 80234562,
       despacho: {
         dei_id: 1,
         dei_descripcion: 'Juzgado 028',
+        tij_id: '1',
         dpt_id: 1,
         mpi_id: 1,
-        tij_id: 1,
         dei_consecutivoid: '',
         dei_concatenado: ''
       },
-      estado: 'Duplicado'
+      estadoProceso:{
+        esp_id: 4,
+        esp_descripcion: 'Duplicado'
+      }
     };
   }
 

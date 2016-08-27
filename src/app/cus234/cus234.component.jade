@@ -107,7 +107,7 @@
         .form-group
           label.control-label.col-sm-4 Radicado rama judicial / Número de radicación
           .col-sm-6
-            input#radicadoRamJud.form-control(ngModel="model.numRadi", placeholder="Digite el radicado de la rama judicial / Número de radicación ej. 2015_000003")
+            input#radicadoRamJud.form-control(ngModel="model.prj_numeroradica", placeholder="Digite el radicado de la rama judicial / Número de radicación ej. 2015_000003")
         //.form-group
           label.control-label.col-sm-4 23 dígitos del proceso / Número de proceso rama judicial
           .col-sm-6
@@ -121,7 +121,7 @@
         .form-group
           label.control-label.col-sm-4 Clasificación procesos /jurisdicción - acción
           .col-sm-6
-            input#clasProcesos.form-control(ngModel="model.clasificacion", placeholder="Digite clasificación procesos /jurisdicción - acción")
+            input#clasProcesos.form-control(ngModel="model.prj_clasificacionps", placeholder="Digite clasificación procesos /jurisdicción - acción")
         //.form-group
           label.control-label.col-sm-4 CC demandante / identificación demandante
           .col-sm-6
@@ -133,7 +133,7 @@
         .form-group
           label.control-label.col-sm-4 Demandado
           .col-sm-6
-            input#idDemandado.form-control(ngModel="model.demandado", placeholder="Digite el nombre del demandado", value="Colpensiones")
+            input#idDemandado.form-control(ngModel="model.prj_demandado", placeholder="Digite el nombre del demandado", value="Colpensiones")
         .form-group
           label.control-label.col-sm-4 Nombre apoderado actual
           .col-sm-6
@@ -163,29 +163,21 @@
         .form-group
           label.control-label.col-sm-4 Relación de informativo
           .col-sm-6
-            input#relInfor.form-control(ngModel="model.relacion", placeholder="Digite la relación de informativo")
+            input#relInfor.form-control(ngModel="model.prj_relacioninforma", placeholder="Digite la relación de informativo")
         .form-group
           label.control-label.col-sm-4 Regional
           .col-sm-6
             select#idRegion.form-control(ngModel="model.regional")
               option(selected="selected", value="Seleccione la regional")
               option(*ngFor="#regional of regionales$ | async", [value]="regional.reg_id") {{regional.reg_descripcion}}
-              //option(value="1") ANTIOQUIA
-              //option(value="2") CENTRO
-              //option(value="3") SANTANDER
-              //option(value="4") SUR
-              //option(value="5") EJE CAFETERO
-              //option(value="6") BOGOTA
-              //option(value="7") OCCIDENTE
-              //option(value="8") CARIBE
         .form-group
           label.control-label.col-sm-4 Año de radicación
           .col-sm-6
-            input#anoRad.form-control(ngModel="model.anioRadi", placeholder="Digite el año de radicación")
+            input#anoRad.form-control(ngModel="model.prj_anoradicacion", placeholder="Digite el año de radicación")
         .form-group
           label.control-label.col-sm-4 Tipo de unidad
           .col-sm-6
-            input#tipoUnid.form-control(ngModel="model.tipoUni", placeholder="Digite el tipo de unidad", value="pesos")
+            input#tipoUnid.form-control(ngModel="model.tiu_id", placeholder="Digite el tipo de unidad", value="pesos")
         .form-group
           label.control-label.col-sm-4 Tipo de apoderado
           .col-sm-6
@@ -203,7 +195,7 @@
           label.control-label.col-sm-4 Hechos del proceso
           .col-sm-6
             .textarea#hechosProces
-              textarea(ngModel="model.hechos",cols="73", rows="5", maxlength="300")
+              textarea(ngModel="model.prj_hechosproceso",cols="73", rows="5", maxlength="300")
         .form-group
           label.control-label.col-sm-4 ¿De quién es el acto administrativo demandado?
           .col-sm-6
@@ -219,52 +211,33 @@
           .col-sm-6
             select#causaProces.form-control(ngModel="model.causa")
               option(selected="selected", value="Seleccione la causa del proceso / Fondo que cubre el riesgo") Seleccione la causa del proceso / Fondo que cubre el riesgo
-              option(*ngFor="#causa of causas", [value]="causa.cap_id") {{causa.cap_descripcion}}
+              option(*ngFor="#causa of causas$ | async", [value]="causa.cap_id") {{causa.cap_descripcion}}
         .form-group
           label.control-label.col-sm-4 Modalidad de pretensión
           .col-sm-6
             select#modPreten.form-control(ngModel="model.modPret", name="modPret")
               option(selected="selected", value="Seleccione la modalidad de pretensión") Seleccione la modalidad de pretensión
-              option(*ngFor="#modPretension of modPretensiones", [value]="modPretension.mop_id") {{modPretension.mop_descripcion}}
+              option(*ngFor="#modPretension of modPretensiones$ | async", [value]="modPretension.mop_id") {{modPretension.mop_descripcion}}
         .form-group
           label.control-label.col-sm-4 Pretensión principal
           .col-sm-6
-            select#principalPreten.form-control(ngModel="model.pretencion", name="pretencion")
+            select#principalPreten.form-control(ngModel="model.pretension", name="pretencion")
               option(selected="selected", value="Seleccione la pretensión principal") Seleccione la pretensión principal
-              option(value="1") INVALIDEZ
-              option(value="2") VEJEZ
-              option(value="3") SOBREVIVIENTES
-              option(value="4") AUXILIOS FUNERARIOS
-              option(value="5") AFILIACIÓN
-              option(value="6") MORA PATRONAL
-              option(value="7") CONFLICTOS DE COMPETENCIA
-              option(value="8") COLPENSIONES PATRONO
-              option(value="9") ISS PATRONO
-              option(value="10") OTROS
+              //option(*ngFor="#modPretension of modPretensiones$", [value]="modPretension.mop_id") {{modPretension.mop_descripcion}}
         .form-group
           label.control-label.col-sm-4 Clase de pretensión
           .col-sm-6
             select#clasePreten.form-control(ngModel="model.clasePret")
               option(selected="selected", value="Seleccione la clase de pretensión") Seleccione la clase de pretensión
-              option(value="1") INTERESES MORATORIOS
-              option(value="2") RETROACTIVO
-              option(value="3") INDEMNIZACIÓN SUSTITUTIVA - PRESCRIPCIÓN
-              option(value="4") INDEMNIZACIÓN SUSTITUTIVA - REQUISITOS
-              option(value="5") INDEMNIZACIÓN SUSTITUTIVA - RELIQUIDACIÓN
-              option(value="6") DECRETO 758 DE 1990 - CONDICION MAS BENEFICIOSA
-              option(value="7") LEY 797 DE 2003 - PROGRESIVIDAD
-              option(value="8") LEY 860 DE 2003 - PROGRESIVIDAD
-              option(value="9") ENFERMEDAD DEGENERATIVA - CATASTRÓFICA O CONGENITA
-              option(value="10") FIDELIDAD
-              option(value="11") INCAPACIDADES
+              //option(*ngFor="#modPretension of modPretensiones$", [value]="modPretension.mop_id") {{modPretension.mop_descripcion}}
         .form-group
           label.control-label.col-sm-4 Fecha de admisión de la demanda
           .col-sm-6
-            input#fechaAdminDem.form-control(ngModel="model.fechaDem", placeholder="Digite la fecha de admisión de la demanda")
+            input#fechaAdminDem.form-control(ngModel="model.prj_fechaadminisiondemanda", placeholder="Digite la fecha de admisión de la demanda")
         .form-group
           label.control-label.col-sm-4 Cuantía estimada en el proceso
           .col-sm-6
-            input#cuantiaEstimada.form-control(ngModel="model.cuantia", placeholder="Digite la cuantía estimada en el proceso")
+            input#cuantiaEstimada.form-control(ngModel="model.prj_cuantiaestimada", placeholder="Digite la cuantía estimada en el proceso")
         .form-group
           label.control-label.col-sm-4 Nombre afiliado causante
           .col-sm-6
@@ -292,11 +265,11 @@
         .form-group
           label.control-label.col-sm-4 Cantidad demandantes
           .col-sm-6
-            input#cantDeman.form-control(ngModel="model.canDemandantes", placeholder="Digite la cantidad de demandantes")
+            input#cantDeman.form-control(ngModel="model.prj_cantidaddemandante", placeholder="Digite la cantidad de demandantes")
         .form-group
           label.control-label.col-sm-4 ¿Entre los demandantes hay una entidad pública?
           .col-sm-6
-            select#entPub.form-control(ngModel="model.respuesta")
+            select#entPub.form-control(ngModel="model.prj_entidadpublica")
               option(selected="selected", value="Seleccione una respuesta") Seleccione una respuesta
               option(value="si") Sí
               option(value="no") No

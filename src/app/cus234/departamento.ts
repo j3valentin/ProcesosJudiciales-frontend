@@ -1,5 +1,5 @@
 export interface Departamento {
-  dpt_id: number,
+  dpt_id: string,
   dpt_descripcion?: string
 }
 
