@@ -37,8 +37,7 @@ build/Release
 
 dist
 dev
-docs
 lib
-test
 tmp
 /nbproject/private/
+nbproject/
