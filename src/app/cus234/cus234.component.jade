@@ -94,7 +94,7 @@
         .form-group
           label.control-label.col-sm-4 Departamento juzgado
           .col-sm-6
-            select.form-control(ngModel="model.juzgado.depto")
+            select.form-control([(ngModel)]='proceso.despacho.dpt_id', (change)='onDepartamentoChange(proceso.despacho.dpt_id)')
               option(selected="selected", value="Seleccione el departamento del juzgado") Seleccione el departamento del juzgado
               option(*ngFor="#departamento of departamentos$ | async", [value]="departamento.dpt_id" ) {{departamento.dpt_descripcion}}
               //option(*ngFor="#departamento of departamentos", [value]="departamento.dpt_id" (ngModelChange)="onChange(getMunicipiosByDto(departamento.dpt_id)") {{departamento.dpt_descripcion}}
@@ -103,7 +103,7 @@
           .col-sm-6
             select#ciudadJuzgado.form-control(ngModel="model.juzgado.ciudad")
               option(selected="selected", value="Seleccione la ciudad del juzgado / Lugar de los hechos") Seleccione la ciudad del juzgado / Lugar de los hechos
-              //option([value]="municipio.mpi_id") {{municipio.mpi_descripcion}}
+              option(*ngFor="#municipio of municipios$ | async", [value]="municipio.mpi_id" ) {{municipio.mpi_descripcion}}
         .form-group
           label.control-label.col-sm-4 Radicado rama judicial / Número de radicación
           .col-sm-6
