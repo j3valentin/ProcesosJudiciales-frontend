@@ -1,7 +1,7 @@
 import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
-import {Departamento} from '../departamento';
+import {Municipio} from '../../app/cus234/municipio';
 
 
 /**
@@ -9,38 +9,40 @@ import {Departamento} from '../departamento';
  */
 
 @Injectable()
-export class DepartamentoService {
-  private _departamentos$: Subject<Departamento[]>;
+export class MunicipioService {
+  private _municipios$: Subject<Municipio[]>;
   private baseUrl: string;
   private dataStore: {
-    departamentos: Departamento[]
+    municipios: Municipio[]
   };
 
   constructor(private http: Http) {
     this.baseUrl = 'http://firux.ddns.net:8080/judiciales/api/sp';
-    this.dataStore = {departamentos: []};
-    this._departamentos$ = <Subject<Departamento[]>>new Subject();
+    this.dataStore = {municipios: []};
+    this._municipios$ = <Subject<Municipio[]>>new Subject();
   }
 
-  get departamentos$() {
-    return this._departamentos$.asObservable();
+  get municipios$() {
+    return this._municipios$.asObservable();
   }
 
-  loadAll() {
+  loadAllByDepto(dpt_id: number) {
     let body = JSON.stringify({
       type: 'CON',
-      parameters: {}
+      parameters: {
+        'p_dpt_id': dpt_id
+      }
     });
     let headers = new Headers({
       'Content-Type': 'application/json',
-      'sp-name': 'pr_ConsultaDpto'
+      'sp-name': 'pr_ConsultaMpio'
     });
     let options = new RequestOptions({headers: headers});
     this.http.post(this.baseUrl, body, options)
       .map(response => response.json())
       .subscribe(data => {
-        this.dataStore.departamentos = data;
-        this._departamentos$.next(this.dataStore.departamentos);
-      }, error => console.log('Could not load departamentos.'));
+        this.dataStore.municipios = data;
+        this._municipios$.next(this.dataStore.municipios);
+      }, error => console.log('Could not load municipios.'));
   }
 }
