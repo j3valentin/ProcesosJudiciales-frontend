@@ -10,13 +10,13 @@ import {Proceso}           from './proceso';
 @Component({
   selector: 'sd-home',
   moduleId: module.id,
-//  templateUrl: './CU02-GDG.html',
+  // templateUrl: './CU02-GDG.html',
 //  templateUrl: './CU02-DCPE.html',
   // templateUrl: './CU05.html',
 //  templateUrl: './CU07.html',
 //  templateUrl: './CU08.html',
 //  templateUrl: './CU07.html',
-//  templateUrl: './CU11.html',
+  templateUrl: './CU11.html',
   styleUrls: ['./home.component.css'],
   directives: [FORM_DIRECTIVES, CORE_DIRECTIVES],
   providers: [HTTP_PROVIDERS, SeguridadService, ProcesoService]

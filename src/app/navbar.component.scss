@@ -1,5 +1,5 @@
 .navbar-default {
-  background-color: #005E9D;
+  background-color: #f7f7f7 !important;
   clear: both;
 
   .navbar-brand {
@@ -11,19 +11,27 @@
 }
 
 .navbar-default .navbar-nav a {
-  color: white;
+  // color: #88898A !important;
   font-size: 14px;
   font-weight: 500;
-  padding: 5px;
+  padding: 6px 3px;
 }
 
 .navbar-default .navbar-nav a.router-link-active,
 .navbar-default .navbar-nav a.router-link-active:hover, 
 .navbar-default .navbar-nav a.router-link-active:focus {
   color: white;
-  /*background-color: #FFF;*/
+  // background-color: #fcfcfc !important;
 }
 
 .navbar {
   min-height: 5px !important;
+  // background-color: #fcfcfc !important;
+}
+
+.upperNavbar {
+  width: 100%;
+  background-color: #f7f7f7 !important;
+  border-bottom: 1px solid #e6e5e5;
+  padding-top: 20px; 
 }

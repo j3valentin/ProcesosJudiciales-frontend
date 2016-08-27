@@ -1,45 +1,46 @@
-nav.navbar.navbar-default.menu
-  .container-fluid
-    .navbar-header
-      //a.navbar-brand(href='#') Procesos Judiciales
-    .collapse.navbar-collapse#bs-example-navbar-collapse-1
-      ul.nav.navbar-nav
-        li.dropdown
-          a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false") Reparto 
-            span.caret
-          ul.dropdown-menu
-            li
-              a(href="#") Registrar reparto
-        li.dropdown
-          a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false") Consultas
-            span.caret
-          ul.dropdown-menu
-            li
-              a(href="#") Consulta avanzada
-            li
-              a(href="#") Consultar histórico
-        li.dropdown
-          a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false") Cargue
-            span.caret
-          ul.dropdown-menu
-            li
-              a(href="#") Cargar archivo
-      ul.nav.navbar-nav.navbar-right
-        li
-          a(href="#") Perfil
-        li
-          a(href="#") Salir
-      form.navbar-form.navbar-right
-        .form-group
-          input.form-control.input-search(placeholder="Buscar")
-        i.glyphicon.glyphicon-search.btn-search(title="Buscar")
-        i.glyphicon.glyphicon-zoom-in.btn-search(title="Búsqueda avanzada")
-      
+.upperNavbar
+  nav.navbar.navbar-default.menu
+    .container-fluid
+      .navbar-header
+        //a.navbar-brand(href='#') Procesos Judiciales
+      .collapse.navbar-collapse#bs-example-navbar-collapse-1
+        ul.nav.navbar-nav
+          li.dropdown
+            a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false") Reparto 
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href="#") Registrar reparto
+          li.dropdown
+            a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false") Consultas
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href="#") Consulta avanzada
+              li
+                a(href="#") Consultar histórico
+          li.dropdown
+            a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false") Cargue
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href="#") Cargar archivo
+        ul.nav.navbar-nav.navbar-right
+          li
+            a(href="#") Perfil
+          li
+            a(href="#") Salir
+        form.navbar-form.navbar-right
+          .form-group
+            input.form-control.input-search(placeholder="Buscar")
+          i.glyphicon.glyphicon-search.btn-search(title="Buscar")
+          i.glyphicon.glyphicon-zoom-in.btn-search(title="Búsqueda avanzada")
+        
 
-      //ul.nav.navbar-nav 
-        li
-          a([routerLink]="['Home']")
-            | Reparto
-            span.sr-only (current)
-        li
-          a([routerLink]="['About']") Salir
+        //ul.nav.navbar-nav 
+          li
+            a([routerLink]="['Home']")
+              | Reparto
+              span.sr-only (current)
+          li
+            a([routerLink]="['About']") Salir
