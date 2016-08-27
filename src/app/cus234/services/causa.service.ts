@@ -1,7 +1,7 @@
 import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
-import {Causa} from './causa';
+import {Causa} from '../causa';
 
 
 /**
@@ -17,7 +17,7 @@ export class CausaService {
   };
 
   constructor(private http: Http) {
-    this.baseUrl = 'http://localhost:8080/judiciales/api/sp';
+    this.baseUrl = 'http://firux.ddns.net:8080/judiciales/api/sp';
     this.dataStore = {causas: []};
     this._causas$ = <Subject<Causa[]>>new Subject();
   }

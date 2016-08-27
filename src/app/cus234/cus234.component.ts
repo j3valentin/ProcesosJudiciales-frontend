@@ -3,18 +3,18 @@ import {CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
 import {HTTP_PROVIDERS} from 'angular2/http';
 
 import {SeguridadService} from '../../shared/services/seguridad.service';
-import {JuzgadoService} from './juzgado.service';
-import {ProcesoService} from './proceso.service';
-import {DepartamentoService} from './departamento.service';
-import {DespachoService} from './despacho.service';
-import {RegionalService} from './regional.service';
-import {TipoProcesoService} from './tipoProceso.service';
-import {TipoInformativoService} from './tipoInformativo.service';
-import {ClasificacionService} from './clasificacion.service';
-import {CausaService} from './causa.service';
-import {ModPretensionService} from './modPretension.service';
-import {ActoAdminService} from './actoAdmin.service';
-import {ProcesoDupService} from './procesoDup.service';
+import {JuzgadoService} from './services/juzgado.service';
+import {ProcesoService} from './services/proceso.service';
+import {DepartamentoService} from './services/departamento.service';
+import {DespachoService} from './services/despacho.service';
+import {RegionalService} from './services/regional.service';
+import {TipoProcesoService} from './services/tipoProceso.service';
+import {TipoInformativoService} from './services/tipoInformativo.service';
+import {ClasificacionService} from './services/clasificacion.service';
+import {CausaService} from './services/causa.service';
+import {ModPretensionService} from './services/modPretension.service';
+import {ActoAdminService} from './services/actoAdmin.service';
+import {ProcesoDupService} from './services/procesoDup.service';
 
 import {Juzgado} from './juzgado';
 import {Proceso} from './proceso';
@@ -41,6 +41,7 @@ import {Observable} from 'rxjs';
     TipoProcesoService, TipoInformativoService, ClasificacionService,
     CausaService, ModPretensionService, ActoAdminService, ProcesoDupService]
 })
+
 export class Cus234Component implements OnInit {
   errorMessage: string;
   procesos: Proceso[];
@@ -72,6 +73,27 @@ export class Cus234Component implements OnInit {
               public seguridadService: SeguridadService,
               public _service: ProcesoService) {
     this.procesos = [];
+    this.proceso = {
+      notificacion: '2016-06-18',
+      prj_23digitos: 1234567891011121314151617,
+      prj_numerobizagi: '2016_132456',
+      tipo: {
+        tip_id: 1,
+        tip_descripcion: 'oordinario laboral'
+      },
+      demandate: 'Camilo Erazo',
+      CC_Dem: 80234562,
+      despacho: {
+        dei_id: 1,
+        dei_descripcion: 'Juzgado 028',
+        dpt_id: 1,
+        mpi_id: 1,
+        tij_id: 1,
+        dei_consecutivoid: '',
+        dei_concatenado: ''
+      },
+      estado: 'Duplicado'
+    };
   }
 
   ngOnInit() {

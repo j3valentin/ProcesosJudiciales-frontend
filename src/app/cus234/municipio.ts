@@ -1,8 +1,6 @@
-export class Municipio {
-  constructor(
-    public mpi_id: string,
-    public mpi_descripcion: string,
-    public dpt_id?: number,
-    public reg_id?: number
-  ) { }
+export interface Municipio {
+  mpi_id: string,
+  mpi_descripcion: string,
+  dpt_id?: number,
+  reg_id?: number
 }

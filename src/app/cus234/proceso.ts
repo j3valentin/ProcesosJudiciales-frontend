@@ -12,17 +12,17 @@ import {ActoAdmin} from './actoAdmin';
 
 export interface Proceso {
   notificacion: string;
-  numero: number;
-  bizagi: string;
+  prj_23digitos: number;
+  prj_numerobizagi: string;
   tipo: TipoProceso;
   demandate: string;
-  cedula: number;
+  CC_Dem: number;
   despacho: Despacho;
   estado: string;
-  id?: number;
-  litigar?: number;
-  fecha?: string;
-  juzgado?: Juzgado;
+  prj_id?: number;
+  prj_litigacion?: number;
+  prj_fechanotifica?: string;
+  prj_numerojuzgado?: Juzgado;
   numRadi?: string;
   clasificacion?: Clasificacion;
   demandado?: string;

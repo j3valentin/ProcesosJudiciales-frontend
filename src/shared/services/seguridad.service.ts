@@ -4,7 +4,7 @@ import {Http, Headers,
 
 @Injectable()
 export class SeguridadService {
-  private _authUrl = 'http://localhost:8080/judiciales/api/login';  // URL to web api
+  private _authUrl = '/judiciales/api/login';  // URL to web api
 
   constructor (private http: Http) {}
 

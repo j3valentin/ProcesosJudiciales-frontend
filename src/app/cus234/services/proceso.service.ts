@@ -1,9 +1,9 @@
 import {Injectable} from 'angular2/core';
 import {Http, Response, Headers, RequestOptions} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
-import {Proceso} from './proceso';
-import {Juzgado} from './juzgado';
-import {Municipio} from './municipio';
+import {Proceso} from '../proceso';
+import {Juzgado} from '../juzgado';
+import {Municipio} from '../municipio';
 
 @Injectable()
 export class ProcesoService {
@@ -13,7 +13,7 @@ export class ProcesoService {
   };
 
   constructor(private http: Http) {
-    this.baseUrl = 'http://localhost:8080/judiciales/api/sp';
+    this.baseUrl = 'http://firux.ddns.net:8080/judiciales/api/sp';
     this.dataStore = {juzgados: []};
   }
 

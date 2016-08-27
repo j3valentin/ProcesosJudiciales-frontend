@@ -1,7 +1,7 @@
 import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
-import {ProcesoDup} from './procesoDup';
+import {Regional} from '../regional';
 
 
 /**
@@ -9,21 +9,21 @@ import {ProcesoDup} from './procesoDup';
  */
 
 @Injectable()
-export class ProcesoDupService {
-  private _procesosDup$: Subject<ProcesoDup[]>;
+export class RegionalService {
+  private _regionales$: Subject<Regional[]>;
   private baseUrl: string;
   private dataStore: {
-    procesosDup: ProcesoDup[]
+    regionales: Regional[]
   };
 
   constructor(private http: Http) {
-    this.baseUrl = 'http://localhost:8080/judiciales/api/sp';
-    this.dataStore = {procesosDup: []};
-    this._procesosDup$ = <Subject<ProcesoDup[]>>new Subject();
+    this.baseUrl = 'http://firux.ddns.net:8080/judiciales/api/sp';
+    this.dataStore = {regionales: []};
+    this._regionales$ = <Subject<Regional[]>>new Subject();
   }
 
-  get procesosDup$() {
-    return this._procesosDup$.asObservable();
+  get regionales$() {
+    return this._regionales$.asObservable();
   }
 
   loadAll() {
@@ -33,14 +33,14 @@ export class ProcesoDupService {
     });
     let headers = new Headers({
       'Content-Type': 'application/json',
-      'sp-name': 'pr_ConsultaProcespDuplicado'
+      'sp-name': 'pr_ConsultaRegional'
     });
     let options = new RequestOptions({headers: headers});
     this.http.post(this.baseUrl, body, options)
       .map(response => response.json())
       .subscribe(data => {
-        this.dataStore.procesosDup = data;
-        this._procesosDup$.next(this.dataStore.procesosDup);
-      }, error => console.log('Could not load procesosDup.'));
+        this.dataStore.regionales = data;
+        this._regionales$.next(this.dataStore.regionales);
+      }, error => console.log('Could not load regionales.'));
   }
 }

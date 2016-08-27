@@ -1,7 +1,7 @@
 import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
-import {ActoAdmin} from './actoAdmin';
+import {ProcesoDup} from '../procesoDup';
 
 
 /**
@@ -9,21 +9,21 @@ import {ActoAdmin} from './actoAdmin';
  */
 
 @Injectable()
-export class ActoAdminService {
-  private _actosAdmin$: Subject<ActoAdmin[]>;
+export class ProcesoDupService {
+  private _procesosDup$: Subject<ProcesoDup[]>;
   private baseUrl: string;
   private dataStore: {
-    actosAdmin: ActoAdmin[]
+    procesosDup: ProcesoDup[]
   };
 
   constructor(private http: Http) {
-    this.baseUrl = 'http://localhost:8080/judiciales/api/sp';
-    this.dataStore = {actosAdmin: []};
-    this._actosAdmin$ = <Subject<ActoAdmin[]>>new Subject();
+    this.baseUrl = 'http://firux.ddns.net:8080/judiciales/api/sp';
+    this.dataStore = {procesosDup: []};
+    this._procesosDup$ = <Subject<ProcesoDup[]>>new Subject();
   }
 
-  get actosAdmin$() {
-    return this._actosAdmin$.asObservable();
+  get procesosDup$() {
+    return this._procesosDup$.asObservable();
   }
 
   loadAll() {
@@ -33,14 +33,14 @@ export class ActoAdminService {
     });
     let headers = new Headers({
       'Content-Type': 'application/json',
-      'sp-name': 'pr_ConsultaEntidadActoAdministravo'
+      'sp-name': 'pr_ConsultaProcespDuplicado'
     });
     let options = new RequestOptions({headers: headers});
     this.http.post(this.baseUrl, body, options)
       .map(response => response.json())
       .subscribe(data => {
-        this.dataStore.actosAdmin = data;
-        this._actosAdmin$.next(this.dataStore.actosAdmin);
-      }, error => console.log('Could not load actosAdmin.'));
+        this.dataStore.procesosDup = data;
+        this._procesosDup$.next(this.dataStore.procesosDup);
+      }, error => console.log('Could not load procesosDup.'));
   }
 }

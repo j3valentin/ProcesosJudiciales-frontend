@@ -1,7 +1,7 @@
 import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
-import {Clasificacion} from './clasificacion';
+import {Clasificacion} from '../clasificacion';
 
 
 /**
@@ -17,7 +17,7 @@ export class ClasificacionService {
   };
 
   constructor(private http: Http) {
-    this.baseUrl = 'http://localhost:8080/judiciales/api/sp';
+    this.baseUrl = 'http://firux.ddns.net:8080/judiciales/api/sp';
     this.dataStore = {clasificaciones: []};
     this._clasificaciones$ = <Subject<Clasificacion[]>>new Subject();
   }

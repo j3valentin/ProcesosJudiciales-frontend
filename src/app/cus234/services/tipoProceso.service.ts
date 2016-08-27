@@ -1,7 +1,7 @@
 import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
-import {Despacho} from './despacho';
+import {TipoProceso} from '../tipoProceso';
 
 
 /**
@@ -9,21 +9,21 @@ import {Despacho} from './despacho';
  */
 
 @Injectable()
-export class DespachoService {
-  private _despachos$: Subject<Despacho[]>;
+export class TipoProcesoService {
+  private _tipoProcesos$: Subject<TipoProceso[]>;
   private baseUrl: string;
   private dataStore: {
-    despachos: Despacho[]
+    tipoProcesos: TipoProceso[]
   };
 
   constructor(private http: Http) {
-    this.baseUrl = 'http://localhost:8080/judiciales/api/sp';
-    this.dataStore = {despachos: []};
-    this._despachos$ = <Subject<Despacho[]>>new Subject();
+    this.baseUrl = 'http://firux.ddns.net:8080/judiciales/api/sp';
+    this.dataStore = {tipoProcesos: []};
+    this._tipoProcesos$ = <Subject<TipoProceso[]>>new Subject();
   }
 
-  get despachos$() {
-    return this._despachos$.asObservable();
+  get tipoProcesos$() {
+    return this._tipoProcesos$.asObservable();
   }
 
   loadAll() {
@@ -33,14 +33,14 @@ export class DespachoService {
     });
     let headers = new Headers({
       'Content-Type': 'application/json',
-      'sp-name': 'pr_ConsultaDespachoInicial'
+      'sp-name': 'pr_ConsultaTipoProceso'
     });
     let options = new RequestOptions({headers: headers});
     this.http.post(this.baseUrl, body, options)
       .map(response => response.json())
       .subscribe(data => {
-        this.dataStore.despachos = data;
-        this._despachos$.next(this.dataStore.despachos);
-      }, error => console.log('Could not load despachos.'));
+        this.dataStore.tipoProcesos = data;
+        this._tipoProcesos$.next(this.dataStore.tipoProcesos);
+      }, error => console.log('Could not load tipoProcesos.'));
   }
 }

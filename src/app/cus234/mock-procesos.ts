@@ -3,14 +3,14 @@ import {Proceso} from './proceso';
 export const PROCESOS: Proceso[] = [
   {
     notificacion: '2016-06-18',
-    numero: 1234567891011121314151617,
-    bizagi: '2016_132456',
+    prj_23digitos: 1234567891011121314151617,
+    prj_numerobizagi: '2016_132456',
     tipo: {
       tip_id: 1,
       tip_descripcion: 'oordinario laboral'
     },
     demandate: 'Camilo Erazo',
-    cedula: 80234562,
+    CC_Dem: 80234562,
     despacho: {
       dei_id: 1,
       dei_descripcion: 'Juzgado 028',
@@ -23,14 +23,14 @@ export const PROCESOS: Proceso[] = [
     estado: 'Duplicado'
   }, {
     notificacion: '2016-06-25',
-    numero: 1234567891011121314151617,
-    bizagi: '2016_132456',
+    prj_23digitos: 1234567891011121314151617,
+    prj_numerobizagi: '2016_132456',
     tipo: {
       tip_id: 1,
       tip_descripcion: 'oordinario laboral'
     },
     demandate: 'Camilo Erazo',
-    cedula: 80234562,
+    CC_Dem: 80234562,
     despacho: {
       dei_id: 1,
       dei_descripcion: 'Juzgado 028',
@@ -43,14 +43,14 @@ export const PROCESOS: Proceso[] = [
     estado: 'Duplicado'
   }, {
     notificacion: '2016-07-02',
-    numero: 1234567891011121314151617,
-    bizagi: '2016_132456',
+    prj_23digitos: 1234567891011121314151617,
+    prj_numerobizagi: '2016_132456',
     tipo: {
       tip_id: 1,
       tip_descripcion: 'oordinario laboral'
     },
     demandate: 'Camilo Erazo',
-    cedula: 80234562,
+    CC_Dem: 80234562,
     despacho: {
       dei_id: 1,
       dei_descripcion: 'Juzgado 028',

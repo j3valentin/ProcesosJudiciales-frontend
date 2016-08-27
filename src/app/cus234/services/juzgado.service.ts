@@ -1,7 +1,7 @@
 import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
-import {Juzgado} from './juzgado';
+import {Juzgado} from '../juzgado';
 
 /**
  * Created by fire on 20/08/2016.
@@ -15,7 +15,7 @@ export class JuzgadoService {
   };
 
   constructor(private http: Http) {
-    this.baseUrl = 'http://localhost:8080/judiciales/api/sp';
+    this.baseUrl = 'http://firux.ddns.net:8080/judiciales/api/sp';
     this.dataStore = {juzgados: []};
     this._juzgados$ = <Subject<Juzgado[]>>new Subject();
   }
