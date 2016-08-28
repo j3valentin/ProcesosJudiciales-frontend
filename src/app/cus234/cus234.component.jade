@@ -3,15 +3,15 @@
   .row([hidden]="submitted")
     ul.nav.nav-pills
       li.principalMenuItem
-        a((click)="pestana = 'geoDatGen'") Georeferenciación y Datos Generales
+        a((click)='pestana="geoDatGen"') Georeferenciación y Datos Generales
       //li.principalMenuItem
         a(href="#valDup") Validar Duplicidad
       li.principalMenuItem
-        a((click)="pestana = 'daPrePro'") Datos Cualitativos, Pretenciones y Etapas Procesales
+        a((click)='pestana="daPrePro"') Datos Cualitativos, Pretenciones y Etapas Procesales
       //li.principalMenuItem
         a(href="#valProDup") Estado de validación de los Procesos Duplicados
   .tab-content
-    #geoDatGen.tab-pane.fade.in([ngClass]="{'active': pestana === 'geoDatGen'}")
+    #geoDatGen.tab-pane.fade.in([class.active]='pestana==="geoDatGen"')
       .header
         h3 Consulta de procesos / Validar duplicidad
       form.form-horizontal
@@ -94,7 +94,7 @@
         .form-group
           label.control-label.col-sm-4 Departamento juzgado
           .col-sm-6
-            select.form-control([ngModel]='proceso?.despacho?.dpt_id', (change)='onDepartamentoChange(proceso.despacho.dpt_id)')
+            select.form-control([ngModel]='proceso?.despacho?.dpt_id', (ngModelChange)='municipioService.loadAllByDepto($event)')
               option(selected="selected", value="Seleccione el departamento del juzgado") Seleccione el departamento del juzgado
               option(*ngFor="#departamento of departamentos$ | async", [value]="departamento.dpt_id" ) {{departamento.dpt_descripcion}}
         .form-group
@@ -186,15 +186,15 @@
           .btn.btn-default.btn-md Limpiar
           .btn.btn-primary.btn-md(type="submit") Guardar
           .btn.btn-success.btn-md((click)="pestana = 'daPrePro'") Continuar
-    #daPrePro.tab-pane.fade.in([ngClass]="{'active': pestana === 'daPrePro'}")
+    #daPrePro.tab-pane.fade.in([class.active]='pestana==="daPrePro"')
       .header
         h3 Datos cualitativos, pretensiones y etapas procesales
-      form.form-horizontal((Submit) = "onSubmit()")
+      form.form-horizontal
         .form-group
           label.control-label.col-sm-4 Hechos del proceso
           .col-sm-6
             .textarea#hechosProces
-              textarea([ngModel]='proceso?.prj_hechosproceso',cols="73", rows="5", maxlength="300")
+              textarea([ngModel]='proceso?.prj_hechosproceso', cols="73", rows="5", maxlength="300")
         .form-group
           label.control-label.col-sm-4 ¿De quién es el acto administrativo demandado?
           .col-sm-6
@@ -208,7 +208,7 @@
         .form-group
           label.control-label.col-sm-4 Causa del proceso / Fondo que cubre el riesgo
           .col-sm-6
-            select#causaProces.form-control([ngModel]='proceso?.causa?.cap_id', (change)='onCausaChange(proceso?.causa?.cap_id)')
+            select#causaProces.form-control([ngModel]='proceso?.causa?.cap_id', (ngModelChange)='pretensionService.loadAllByCausa($event)')
               option(selected="selected", value="Seleccione la causa del proceso / Fondo que cubre el riesgo") Seleccione la causa del proceso / Fondo que cubre el riesgo
               option(*ngFor="#causa of causas$ | async", [value]="causa.cap_id") {{causa.cap_descripcion}}
         .form-group
@@ -220,7 +220,7 @@
         .form-group
           label.control-label.col-sm-4 Pretensión principal
           .col-sm-6
-            select#principalPreten.form-control([ngModel]='proceso?.pretension?.prp_id',(change)='onPretensionChange(proceso.pretension.prp_id)')
+            select#principalPreten.form-control([ngModel]='proceso?.pretension?.prp_id', (ngModelChange)='pretensionService.loadAllByPretension($event)')
               option(selected="selected", value="Seleccione la pretensión principal") Seleccione la pretensión principal
               option(*ngFor="#pretension of pretensiones$ | async", [value]="pretension.prp_id") {{pretension.mop_descripcion}}
         .form-group

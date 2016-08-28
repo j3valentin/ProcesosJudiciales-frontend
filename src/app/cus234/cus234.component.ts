@@ -85,8 +85,8 @@ export class Cus234Component implements OnInit {
               private procesoDupService: ProcesoDupService,
               private departamentoService: DepartamentoService,
               private municipioService: MunicipioService,
-              public seguridadService: SeguridadService,
-              public _service: ProcesoService) {
+              private procesoService: ProcesoService
+              ) {
     this.procesos = [];
     // this.proceso = {
     //   prj_fechanotifica: '2016-06-18',
@@ -155,24 +155,9 @@ export class Cus234Component implements OnInit {
     this.procesoDupService.loadAll();
   }
 
-  onDepartamentoChange(dpt_id: number) {
-    console.log(`Cambio de despartamento con ${dpt_id}`);
-    this.municipioService.loadAllByDepto(dpt_id);
-  }
-
-  onCausaChange(cap_id: number) {
-    console.log(`Cambio de causa con ${cap_id}`);
-    this.pretensionService.loadAllByCausa(cap_id);
-  }
-
-  onPretensionChange(prp_id: number) {
-    console.log(`Cambio de Pretension con ${prp_id}`);
-    this.pretensionService.loadAllByCausa(prp_id);
-  }
-
   onProcesoChange(nProcesoNumero: number) {
     console.log('Entra');
-    this._service.getAllByProcesoNumero(nProcesoNumero)
+    this.procesoService.getAllByProcesoNumero(nProcesoNumero)
       .subscribe(
         procesos => this.procesos = procesos,
         error => this.errorMessage = <any>error);

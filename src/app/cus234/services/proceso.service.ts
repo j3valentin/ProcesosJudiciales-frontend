@@ -47,7 +47,7 @@ export class ProcesoService {
     //    let body = model.toJSON();
     let headers = new Headers({
       'Content-Type': 'application/json',
-      'sp-name': 'pr_ConsultaDpto'
+      'sp-name': 'SP_VALIDA_DUPLICADO'
     });
     let options = new RequestOptions({headers: headers});
     return this.http.post(this.baseUrl, body, options)
