@@ -9,7 +9,7 @@ import {Clasificacion} from './clasificacion';
 import {Causa} from './causa';
 import {Pretension} from './Pretension';
 import {ModPretension} from './modPretension';
-import {ClasePretencion} from './clasePretencion';
+import {ClasePretension} from './clasePretencion';
 import {ActoAdmin} from './actoAdmin';
 import {EstadoProceso} from './estadoProceso';
 
@@ -41,7 +41,7 @@ export interface Proceso {
   causa?: Causa;
   modPret?: ModPretension;
   pretension?: Pretension;
-  clasePret?: ClasePretencion;
+  clasePret?: ClasePretension;
   prj_fechaadminisiondemanda?: string;
   prj_cuantiaestimada?: number;
   afiliado?: Afiliado;
