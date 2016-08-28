@@ -1,25 +1,28 @@
 //CUS002 Formularios de registro, CUS003 Validar duplicidad y CUS004 Corregir
+//input([ngModel]="name", (change)="name = $event.target.value")
+//p Hello {{name}}
+
 .upperContainer
   .container
-    .row([hidden]="submitted")
+    .row([hidden]='submitted')
       ul.nav.nav-pills
         li.principalMenuItem
-          a((click)="pestana = 'geoDatGen'") Georeferenciación y Datos Generales
+          a((click)='pestana="geoDatGen"') Georeferenciación y Datos Generales
         //li.principalMenuItem
           a(href="#valDup") Validar Duplicidad
         li.principalMenuItem
-          a((click)="pestana = 'daPrePro'") Datos Cualitativos, Pretenciones y Etapas Procesales
+          a((click)='pestana="daPrePro"') Datos Cualitativos, Pretenciones y Etapas Procesales
         //li.principalMenuItem
           a(href="#valProDup") Estado de validación de los Procesos Duplicados
     .tab-content
-      #geoDatGen.tab-pane.fade.in([ngClass]="{'active': pestana === 'geoDatGen'}")
+      #geoDatGen.tab-pane.fade.in([class.active]='pestana === "geoDatGen"')
         .header
           h3 Consulta de procesos / Validar duplicidad
         form.form-horizontal
           .form-group
             label.control-label.col-sm-4 23 dígitos del proceso / Número de proceso rama judicial
             .col-sm-6
-              input.form-control([(ngModel)]='proceso.prj_23digitos', (change)="onProcesoChange()", placeholder="Digite los 23 dígitos del proceso / Número de proceso rama judicial")
+              input.form-control([(ngModel)]='proceso.prj_23digitos', (change)='onProcesoChange()', placeholder="Digite los 23 dígitos del proceso / Número de proceso rama judicial")
           .form-group
             label.control-label.col-sm-4 CC demandante / identificación del demandante
             .col-sm-6
@@ -188,7 +191,8 @@
             .btn.btn-default.btn-md Limpiar
             .btn.btn-primary.btn-md(type="submit") Guardar
             .btn.btn-success.btn-md Continuar
-      #daPrePro.tab-pane.fade.in([ngClass]="{'active': pestana === 'daPrePro'}")
+
+      #daPrePro.tab-pane.fade.in([class.active]='pestana === "daPrePro"')
         .header
           h3 Datos cualitativos, pretensiones y etapas procesales
         form.form-horizontal((Submit) = "onSubmit()")
