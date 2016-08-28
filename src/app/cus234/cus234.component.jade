@@ -182,7 +182,7 @@
             label.control-label.col-sm-4 Tipo de apoderado
             .col-sm-6
               input#tipoApo.form-control([ngModel]='proceso?.apoderado?.tipo', placeholder="Digite el tipo de apoderado", value="externo")
-        .col-xs-11
+        .col-xs-12
           .btn-group(role="group").pull-right
             .btn.btn-default.btn-md Limpiar
             .btn.btn-primary.btn-md(type="submit") Guardar
@@ -281,7 +281,7 @@
             label.control-label.col-sm-4 Identificación apoderado contraparte
             .col-sm-6
               input#apoContraId.form-control([ngModel]='proceso?.apodeContra?.cedula', placeholder="Digite la Identificación apoderado contraparte")
-        .col-xs-11
+        .col-xs-12
           .btn-group(role="group").pull-right
             .btn.btn-default.btn-md Limpiar
             .btn.btn-success.btn-md((click)='pestana="geoDatGen"') Volver
