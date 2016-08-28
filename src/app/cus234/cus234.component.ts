@@ -13,7 +13,9 @@ import {TipoProcesoService} from './services/tipoProceso.service';
 import {TipoInformativoService} from './services/tipoInformativo.service';
 import {ClasificacionService} from './services/clasificacion.service';
 import {CausaService} from './services/causa.service';
+import {ClasePretensionService} from './services/clasePretension.service';
 import {ModPretensionService} from './services/modPretension.service';
+import {PretensionService} from './services/pretension.service';
 import {ActoAdminService} from './services/actoAdmin.service';
 import {ProcesoDupService} from './services/procesoDup.service';
 import {MunicipioService} from '../../shared/services/municipio.service';
@@ -31,6 +33,8 @@ import {ModPretension} from './modPretension';
 import {ActoAdmin} from './actoAdmin';
 import {ProcesoDup} from './procesoDup';
 import {Municipio} from './municipio';
+import {Pretension} from './pretension';
+import {ClasePretension} from './clasePretencion';
 
 @Component({
   selector: 'sd-cus234',
@@ -43,7 +47,8 @@ import {Municipio} from './municipio';
     DepartamentoService, MunicipioService,
     DespachoService, RegionalService,
     TipoProcesoService, TipoInformativoService, ClasificacionService,
-    CausaService, ModPretensionService, ActoAdminService, ProcesoDupService]
+    CausaService, ModPretensionService, PretensionService, ClasePretensionService,
+    ActoAdminService, ProcesoDupService]
 })
 
 export class Cus234Component implements OnInit {
@@ -61,6 +66,8 @@ export class Cus234Component implements OnInit {
   causas$: Observable<Causa[]>;
   modPretensiones$: Observable<ModPretension[]>;
   actosAdmin$: Observable<ActoAdmin[]>;
+  pretensiones$: Observable<Pretension[]>;
+  clasesPretensiones$: Observable<ClasePretension[]>;
   proceso: Proceso;
   pestana: String = 'geoDatGen';
 
@@ -71,7 +78,9 @@ export class Cus234Component implements OnInit {
               private tipoInformativoService: TipoInformativoService,
               private clasificacionService: ClasificacionService,
               private causaService: CausaService,
+              private clasePretensionService: ClasePretensionService,
               private modPretensionService: ModPretensionService,
+              private pretensionService: PretensionService,
               private actoAdminService: ActoAdminService,
               private procesoDupService: ProcesoDupService,
               private departamentoService: DepartamentoService,
@@ -79,30 +88,42 @@ export class Cus234Component implements OnInit {
               private procesoService: ProcesoService
               ) {
     this.procesos = [];
-    this.proceso = {
-      prj_fechanotifica: '2016-06-18',
-      prj_23digitos: 1234567891011121314151617,
-      prj_numerobizagi: '2016_132456',
-      tipo: {
-        tip_id: 1,
-        tip_descripcion: 'oordinario laboral'
-      },
-      Nombre_Dem: 'Camilo Erazo',
-      CC_Dem: 80234562,
-      despacho: {
-        dei_id: 1,
-        dei_descripcion: 'Juzgado 028',
-        tij_id: '1',
-        dpt_id: '1',
-        mpi_id: 1,
-        dei_consecutivoid: '',
-        dei_concatenado: ''
-      },
-      estadoProceso:{
-        esp_id: 4,
-        esp_descripcion: 'Duplicado'
-      }
-    };
+    // this.proceso = {
+    //   prj_fechanotifica: '2016-06-18',
+    //   prj_23digitos: 1234567891011121314151617,
+    //   prj_numerobizagi: '2016_132456',
+    //   tipo: {
+    //     tip_id: 1,
+    //     tip_descripcion: 'oordinario laboral'
+    //   },
+    //   Nombre_Dem: 'Camilo Erazo',
+    //   CC_Dem: 80234562,
+    //   despacho: {
+    //     dei_id: 1,
+    //     dei_descripcion: 'Juzgado 028',
+    //     tij_id: '1',
+    //     dpt_id: '1',
+    //     mpi_id: 1,
+    //     dei_consecutivoid: '',
+    //     dei_concatenado: ''
+    //   },
+    //   estadoProceso: {
+    //     esp_id: 4,
+    //     esp_descripcion: 'Duplicado'
+    //   },
+    //   juzgado: {
+    //     tij_id: '1',
+    //     ciudad: {
+    //       mpi_id: ''
+    //     }
+    //   },
+    //   apoderado:{
+    //     tia_id:''
+    //   },
+    //   causa{
+    //
+    //   }
+    // };
   }
 
   ngOnInit() {
@@ -116,6 +137,8 @@ export class Cus234Component implements OnInit {
     this.clasificaciones$ = this.clasificacionService.clasificaciones$;
     this.causas$ = this.causaService.causas$;
     this.modPretensiones$ = this.modPretensionService.modPretensiones$;
+    this.clasesPretensiones$ = this.clasePretensionService.clasesPretensiones$;
+    this.pretensiones$ = this.pretensionService.pretensiones$;
     this.actosAdmin$ = this.actoAdminService.actosAdmin$;
     this.procesosDup$ = this.procesoDupService.procesosDup$;
 
@@ -130,11 +153,6 @@ export class Cus234Component implements OnInit {
     this.modPretensionService.loadAll();
     this.actoAdminService.loadAll();
     this.procesoDupService.loadAll();
-  }
-
-  onDepartamentoChange(dpt_id: number) {
-    console.log(`Cambio de despartamento con ${dpt_id}`);
-    this.municipioService.loadAllByDepto(dpt_id);
   }
 
   onProcesoChange(nProcesoNumero: number) {
