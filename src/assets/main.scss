@@ -523,13 +523,14 @@ i[title]:hover:after {
 }
 
 .form-control {
+  padding-top: 3px;
   font: 9px Arial !important;
-  -webkit-box-shadow: inset 0px -3px 5px -1px rgba(0,0,0,0.09), 
-                      inset 0px 3px 5px -1px rgba(0,0,0,0.09);
-  -moz-box-shadow: inset 0px -3px 5px -1px rgba(0,0,0,0.09), 
-                   inset 0px 3px 5px -1px rgba(0,0,0,0.09);
-  box-shadow: inset 0px -3px 5px -1px rgba(0,0,0,0.09), 
-              inset 0px 3px 5px -1px rgba(0,0,0,0.09);
+  -webkit-box-shadow: inset 0px -2px 5px -1px rgba(0,0,0,0.09), 
+                      inset 0px 2px 5px -1px rgba(0,0,0,0.09);
+  -moz-box-shadow: inset 0px -2px 5px -1px rgba(0,0,0,0.09), 
+                   inset 0px 2px 5px -1px rgba(0,0,0,0.09);
+  box-shadow: inset 0px -2px 5px -1px rgba(0,0,0,0.09), 
+              inset 0px 2px 5px -1px rgba(0,0,0,0.09);
 }
 
 .control-label {
