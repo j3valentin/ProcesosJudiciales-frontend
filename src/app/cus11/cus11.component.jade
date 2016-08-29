@@ -16,13 +16,13 @@
   form.form-horizontal(role="form")
     .form-group
       .col-sm-6.col-sm-offset-3
-        input#email.form-control(placeholder="Digite el email, ejemplo@ejemplo.com")
+        input#email.form-control.not-number(placeholder="Digite el email, ejemplo@ejemplo.com")
     .form-group
       .col-sm-6.col-sm-offset-3
-        input#password.form-control(placeholder="Digite la contraseña")
+        input#password.form-control.not-number(placeholder="Digite la contraseña")
     .form-group
       .col-sm-6.col-sm-offset-3
-        select#email.form-control
+        select#email.form-control.not-number
           option(selected="selected", value="Seleccione un dominio") Seleccione un dominio
           option(value="Colpensiones") Colpensiones
           option(value="Externo") Externo

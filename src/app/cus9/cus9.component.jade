@@ -19,11 +19,11 @@
         .form-group
           label.control-label.col-sm-4 ID proceso
           .col-sm-6
-            input#idProceso.form-control(placeholder="Digite el ID del proceso")
+            input#idProceso.form-control.number(placeholder="Digite el ID del proceso")
         .form-group
           label.control-label.col-sm-4 ID litigar
           .col-sm-6
-            input#idLitigar.form-control(placeholder="Digite el ID a litigar")
+            input#idLitigar.form-control.not-number(placeholder="Digite el ID a litigar")
         .form-group
           label.control-label.col-sm-4 Fecha de notificación
           .col-sm-6
@@ -31,15 +31,15 @@
         .form-group
           label.control-label.col-sm-4 No. Bizagi - caso defensa judicial
           .col-sm-6
-            input#idBizagi.form-control(placeholder="Digite el número Bizagi - caso defensa judicial")
+            input#idBizagi.form-control.not-number(placeholder="Digite el número Bizagi - caso defensa judicial")
         .form-group
           label.control-label.col-sm-4 No. de juzgado (en letras)
           .col-sm-6
-            input#idJuzgado.form-control(placeholder="Digite el número del juzgado")
+            input#idJuzgado.form-control.number(placeholder="Digite el número del juzgado")
         .form-group
           label.control-label.col-sm-4 Tipo de juzgado
           .col-sm-6
-            select#tipoJuzgado.form-control
+            select#tipoJuzgado.form-control.not-number
               option(selected="selected", value="Seleccione el tipo de juzgado") Seleccione el tipo de juzgado
               option(value="0100") CONSEJO SUPERIOR DE LA JUDICATURA
               option(value="0101") CONSEJO SUPERIOR DE LA JUDICATURA - SALA ADMINISTRATIVA
@@ -120,7 +120,7 @@
         .form-group
           label.control-label.col-sm-4 Nombre de despacho inicial
           .col-sm-6
-            select#nombreDespacho.form-control
+            select#nombreDespacho.form-control.not-number
               option(selected="selected", value="Seleccione el nombre del despacho inicial") Seleccione el nombre del despacho inicial
               option(value="050023184002") JUZGADO 002 PROMISCUO DE CIRCUITO DE ABEJORRAL
               option(value="050023184003") JUZGADO 003 PROMISCUO DE CIRCUITO DE ABEJORRAL
@@ -234,7 +234,7 @@
         .form-group
           label.control-label.col-sm-4 Departamento juzgado
           .col-sm-6
-            select#depJuzgado.form-control
+            select#depJuzgado.form-control.not-number
               option(selected="selected", value="Seleccione el departamento del juzgado") Seleccione el departamento del juzgado
               option(value="05") ANTIOQUIA
               option(value="54") NORTE_DE_SANTANDER
@@ -272,7 +272,7 @@
         .form-group
           label.control-label.col-sm-4 Ciudad de juzgado / Lugar de los hechos
           .col-sm-6
-            select#ciudadJuzgado.form-control
+            select#ciudadJuzgado.form-control.not-number
               option(selected="selected", value="Seleccione la ciudad del juzgado / Lugar de los hechos") Seleccione la ciudad del juzgado / Lugar de los hechos
               option(value="002") ABEJORRAL
               option(value="003") ABREGO
@@ -390,11 +390,11 @@
         .form-group
           label.control-label.col-sm-4 23 dígitos del proceso / Número de proceso rama judicial
           .col-sm-6
-            input#veintiTresDig.form-control(placeholder="Digite los 23 dígitos del proceso / Número de proceso rama judicial")
+            input#veintiTresDig.form-control.number(placeholder="Digite los 23 dígitos del proceso / Número de proceso rama judicial")
         .form-group
           label.control-label.col-sm-4 Tipo de proceso
           .col-sm-6
-            select#tipoProceso.form-control
+            select#tipoProceso.form-control.not-number
               option(selected="selected", value="Seleccione el tipo de proceso") Seleccione el tipo de proceso
               option(value="1") ACCION DE NULIDAD Y RESTABLECIMIENTO DEL DERECHO
               option(value="2") ACCION DE REPARACION DIRECTA
@@ -410,42 +410,42 @@
         .form-group
           label.control-label.col-sm-4 Clasificación procesos /jurisdicción - acción
           .col-sm-6
-            input#clasProcesos.form-control(placeholder="Digite clasificación procesos /jurisdicción - acción")
+            input#clasProcesos.form-control.not-number(placeholder="Digite clasificación procesos /jurisdicción - acción")
         .form-group
           label.control-label.col-sm-4 CC demandante / identificación demandante
           .col-sm-6
-            input#idDemandante.form-control(placeholder="Digite el documento del demandante / identificación demandante")
+            input#idDemandante.form-control.number(placeholder="Digite el documento del demandante / identificación demandante")
         .form-group
           label.control-label.col-sm-4 Nombre demandante
           .col-sm-6
-            input#nombreDemandante.form-control(placeholder="Digite el nombre del demandante")
+            input#nombreDemandante.form-control.not-number(placeholder="Digite el nombre del demandante")
         .form-group
           label.control-label.col-sm-4 Demandado
           .col-sm-6
-            input#idDemandado.form-control(placeholder="Digite el nombre del demandado", value="Colpensiones")
+            input#idDemandado.form-control.not-number(placeholder="Digite el nombre del demandado", value="Colpensiones")
         .form-group
           label.control-label.col-sm-4 Nombre apoderado actual
           .col-sm-6
-            input#nombreApoAct.form-control(placeholder="Digite el nombre del apoderado actual")
+            input#nombreApoAct.form-control.not-number(placeholder="Digite el nombre del apoderado actual")
         .form-group
           label.control-label.col-sm-4 Cédula apoderado Colpensiones
           .col-sm-6
-            input#idApoAct.form-control(placeholder="Digite la cédula del apoderado Colpensiones")
+            input#idApoAct.form-control.number(placeholder="Digite la cédula del apoderado Colpensiones")
         .form-group
           label.control-label.col-sm-4 TP apoderado Colpensiones
           .col-sm-6
-            input#idTarjetaPro.form-control(placeholder="Digite la tarjeta profesional del apoderado")
+            input#idTarjetaPro.form-control.not-number(placeholder="Digite la tarjeta profesional del apoderado")
         .form-group
           label.control-label.col-sm-4 Clasificación trámites
           .col-sm-6
-            select#clasTramit.form-control
+            select#clasTramit.form-control.not-number
               option(selected="selected", value="Seleccione la clasificación de trámites") Seleccione la clasificación de trámites
               option(value="nuevo") Proceso Nuevo
               option(value="informativo") Proceso Informativo
         .form-group
           label.control-label.col-sm-4 Tipo informativo
           .col-sm-6
-            select#tipoInfor.form-control
+            select#tipoInfor.form-control.not-number
               option(selected="selected", value="Seleccione el tipo de informativo") Seleccione el tipo de informativo
               option(value="1") AUDIENCIA
               option(value="2") CAMBIO DE DESPACHO
@@ -464,11 +464,11 @@
         .form-group
           label.control-label.col-sm-4 Relación de informativo
           .col-sm-6
-            input#relInfor.form-control(placeholder="Digite la relación de informativo")
+            input#relInfor.form-control.not-number(placeholder="Digite la relación de informativo")
         .form-group
           label.control-label.col-sm-4 Regional
           .col-sm-6
-            select#idRegion.form-control
+            select#idRegion.form-control.not-number
               option(selected="selected", value="Seleccione la regional")
               option(value="1") ANTIOQUIA
               option(value="2") CENTRO
@@ -481,15 +481,15 @@
         .form-group
           label.control-label.col-sm-4 Año de radicación
           .col-sm-6
-            input#anoRad.form-control(placeholder="Digite el año de radicación")
+            input#anoRad.form-control.number(placeholder="Digite el año de radicación")
         .form-group
           label.control-label.col-sm-4 Tipo de unidad
           .col-sm-6
-            input#tipoUnid.form-control(placeholder="Digite el tipo de unidad", value="pesos")
+            input#tipoUnid.form-control.not-number(placeholder="Digite el tipo de unidad", value="pesos")
         .form-group
           label.control-label.col-sm-4 Tipo de apoderado
           .col-sm-6
-            input#tipoApo.form-control(placeholder="Digite el tipo de apoderado", value="externo")
+            input#tipoApo.form-control.not-number(placeholder="Digite el tipo de apoderado", value="externo")
       .col-xs-12
         .btn-group(role="group").pull-right
           .btn.btn-default.btn-md Limpiar
@@ -507,7 +507,7 @@
         .form-group
           label.control-label.col-sm-4 ¿De quién es el acto administrativo demandado?
           .col-sm-6
-            select#propietarioActAdmDem.form-control
+            select#propietarioActAdmDem.form-control.not-number
               option(selected="selected", value="Seleccione el propietario del acto administrativo demandado") Seleccione el propietario del acto administrativo demandado
               option(value="1") ISS
               option(value="2") COLPENSIONES
@@ -515,11 +515,11 @@
         .form-group
           label.control-label.col-sm-4 Número de la resolución
           .col-sm-6
-            input#numResolicion.form-control(placeholder="Digite el número de la resolución")
+            input#numResolicion.form-control.number(placeholder="Digite el número de la resolución")
         .form-group
           label.control-label.col-sm-4 Causa del proceso / Fondo que cubre el riesgo
           .col-sm-6
-            select#causaProces.form-control
+            select#causaProces.form-control.not-number
               option(selected="selected", value="Seleccione la causa del proceso / Fondo que cubre el riesgo") Seleccione la causa del proceso / Fondo que cubre el riesgo
               option(value="1") INVALIDEZ
               option(value="2") VEJEZ
@@ -528,7 +528,7 @@
         .form-group
           label.control-label.col-sm-4 Modalidad de pretensión
           .col-sm-6
-            select#modPreten.form-control
+            select#modPreten.form-control.not-number
               option(selected="selected", value="Seleccione la modalidad de pretensión") Seleccione la modalidad de pretensión
               option(value="1") RECONOCIMIENTO
               option(value="2") RELIQUIDACIÓN
@@ -536,7 +536,7 @@
         .form-group
           label.control-label.col-sm-4 Pretensión principal
           .col-sm-6
-            select#principalPreten.form-control
+            select#principalPreten.form-control.not-number
               option(selected="selected", value="Seleccione la pretensión principal") Seleccione la pretensión principal
               option(value="1") INVALIDEZ
               option(value="2") VEJEZ
@@ -551,7 +551,7 @@
         .form-group
           label.control-label.col-sm-4 Clase de pretensión
           .col-sm-6
-            select#clasePreten.form-control
+            select#clasePreten.form-control.not-number
               option(selected="selected", value="Seleccione la clase de pretensión") Seleccione la clase de pretensión
               option(value="1") INTERESES MORATORIOS
               option(value="2") RETROACTIVO
@@ -571,24 +571,24 @@
         .form-group
           label.control-label.col-sm-4 Cuantía estimada en el proceso
           .col-sm-6
-            input#cuantiaEstimada.form-control(placeholder="Digite la cuantía estimada en el proceso")
+            input#cuantiaEstimada.form-control.number(placeholder="Digite la cuantía estimada en el proceso")
         .form-group
           label.control-label.col-sm-4 Nombre afiliado causante
           .col-sm-6
-            input#nomAfilCaus.form-control(placeholder="Digite el Nombre afiliado causante")
+            input#nomAfilCaus.form-control.not-number(placeholder="Digite el Nombre afiliado causante")
         .form-group
           label.control-label.col-sm-4 CC afiliado causante/ identificación
           .col-sm-6
-            input#idafilCaus.form-control(placeholder="Digite la CC afiliado causante/ identificación")
+            input#idafilCaus.form-control.number(placeholder="Digite la CC afiliado causante/ identificación")
         .dashed-group
           .form-group
             label.control-label.col-sm-4 Nombre beneficiario 1
             .col-sm-6
-              input#nomBef1.form-control(placeholder="Digite el nombre beneficiario 1")
+              input#nomBef1.form-control.not-number(placeholder="Digite el nombre beneficiario 1")
           .form-group
             label.control-label.col-sm-4 Cédula ciudadanía beneficiario 1
             .col-sm-6
-              input#idBef1.form-control(placeholder="Digite la cédula ciudadanía beneficiario 1")
+              input#idBef1.form-control.number(placeholder="Digite la cédula ciudadanía beneficiario 1")
           .form-group
             label.control-label.col-sm-4
             .col-sm-6
@@ -599,22 +599,22 @@
         .form-group
           label.control-label.col-sm-4 Cantidad demandantes
           .col-sm-6
-            input#cantDeman.form-control(placeholder="Digite la cantidad de demandantes")
+            input#cantDeman.form-control.number(placeholder="Digite la cantidad de demandantes")
         .form-group
           label.control-label.col-sm-4 ¿Entre los demandantes hay una entidad pública?
           .col-sm-6
-            select#entPub.form-control
+            select#entPub.form-control.not-number
               option(selected="selected", value="Seleccione una respuesta") Seleccione una respuesta
               option(value="si") Sí
               option(value="no") No
         .form-group
           label.control-label.col-sm-4 Nombre apoderado contraparte
           .col-sm-6
-            input#apoContra.form-control(placeholder="Digite el nombre apoderado contraparte")
+            input#apoContra.form-control.not-number(placeholder="Digite el nombre apoderado contraparte")
         .form-group
           label.control-label.col-sm-4 Identificación apoderado contraparte
           .col-sm-6
-            input#apoContra.form-control(placeholder="Digite la Identificación apoderado contraparte")
+            input#apoContra.form-control.number(placeholder="Digite la Identificación apoderado contraparte")
       .col-xs-12
         .btn-group(role="group").pull-right
           .btn.btn-default.btn-md Limpiar

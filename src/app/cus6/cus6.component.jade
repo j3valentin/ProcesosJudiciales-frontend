@@ -19,11 +19,11 @@
         .form-group
           label.control-label.col-sm-4 ID proceso
           .col-sm-6
-            input#idProceso.form-control(disabled="disabled", placeholder="Digite el ID del proceso")
+            input#idProceso.form-control.number(disabled="disabled", placeholder="Digite el ID del proceso")
         .form-group
           label.control-label.col-sm-4 ID litigar
           .col-sm-6
-            input#idLitigar.form-control(disabled="disabled", placeholder="Digite el ID a litigar")
+            input#idLitigar.form-control.number(disabled="disabled", placeholder="Digite el ID a litigar")
         .form-group
           label.control-label.col-sm-4 Fecha de notificación
           .col-sm-6
@@ -31,15 +31,15 @@
         .form-group
           label.control-label.col-sm-4 No. Bizagi - caso defensa judicial
           .col-sm-6
-            input#idBizagi.form-control(disabled="disabled", placeholder="Digite el número Bizagi - caso defensa judicial")
+            input#idBizagi.form-control.not-number(disabled="disabled", placeholder="Digite el número Bizagi - caso defensa judicial")
         .form-group
           label.control-label.col-sm-4 No. de juzgado (en letras)
           .col-sm-6
-            input#idJuzgado.form-control(disabled="disabled", placeholder="Digite el número del juzgado")
+            input#idJuzgado.form-control.not-number(disabled="disabled", placeholder="Digite el número del juzgado")
         .form-group
           label.control-label.col-sm-4 Tipo de juzgado
           .col-sm-6
-            select#tipoJuzgado.form-control(disabled="disabled")
+            select#tipoJuzgado.form-control.not-number(disabled="disabled")
               option(selected="selected", value="Seleccione el tipo de juzgado") Seleccione el tipo de juzgado
               option(value="0100") CONSEJO SUPERIOR DE LA JUDICATURA
               option(value="0101") CONSEJO SUPERIOR DE LA JUDICATURA - SALA ADMINISTRATIVA
@@ -120,7 +120,7 @@
         .form-group
           label.control-label.col-sm-4 Nombre de despacho inicial
           .col-sm-6
-            select#nombreDespacho.form-control(disabled="disabled")
+            select#nombreDespacho.form-control.not-number(disabled="disabled")
               option(selected="selected", value="Seleccione el nombre del despacho inicial") Seleccione el nombre del despacho inicial
               option(value="050023184002") JUZGADO 002 PROMISCUO DE CIRCUITO DE ABEJORRAL
               option(value="050023184003") JUZGADO 003 PROMISCUO DE CIRCUITO DE ABEJORRAL
@@ -234,7 +234,7 @@
         .form-group
           label.control-label.col-sm-4 Departamento juzgado
           .col-sm-6
-            select#depJuzgado.form-control(disabled="disabled")
+            select#depJuzgado.form-control.not-number(disabled="disabled")
               option(selected="selected", value="Seleccione el departamento del juzgado") Seleccione el departamento del juzgado
               option(value="05") ANTIOQUIA
               option(value="54") NORTE_DE_SANTANDER
@@ -272,7 +272,7 @@
         .form-group
           label.control-label.col-sm-4 Ciudad de juzgado / Lugar de los hechos
           .col-sm-6
-            select#ciudadJuzgado.form-control(disabled="disabled")
+            select#ciudadJuzgado.form-control.not-number(disabled="disabled")
               option(selected="selected", value="Seleccione la ciudad del juzgado / Lugar de los hechos") Seleccione la ciudad del juzgado / Lugar de los hechos
               option(value="002") ABEJORRAL
               option(value="003") ABREGO
@@ -386,15 +386,15 @@
         .form-group
           label.control-label.col-sm-4 Radicado rama judicial / Número de radicación
           .col-sm-6
-            input#radicadoRamJud.form-control(disabled="disabled", placeholder="Digite el radicado de la rama judicial / Número de radicación ej. 2015_000003")
+            input#radicadoRamJud.form-control.not-number(disabled="disabled", placeholder="Digite el radicado de la rama judicial / Número de radicación ej. 2015_000003")
         .form-group
           label.control-label.col-sm-4 23 dígitos del proceso / Número de proceso rama judicial
           .col-sm-6
-            input#veintiTresDig.form-control(disabled="disabled", placeholder="Digite los 23 dígitos del proceso / Número de proceso rama judicial")
+            input#veintiTresDig.form-control.number(disabled="disabled", placeholder="Digite los 23 dígitos del proceso / Número de proceso rama judicial")
         .form-group
           label.control-label.col-sm-4 Tipo de proceso
           .col-sm-6
-            select#tipoProceso.form-control(disabled="disabled")
+            select#tipoProceso.form-control.not-number(disabled="disabled")
               option(selected="selected", value="Seleccione el tipo de proceso") Seleccione el tipo de proceso
               option(value="1") ACCION DE NULIDAD Y RESTABLECIMIENTO DEL DERECHO
               option(value="2") ACCION DE REPARACION DIRECTA
@@ -410,42 +410,42 @@
         .form-group
           label.control-label.col-sm-4 Clasificación procesos /jurisdicción - acción
           .col-sm-6
-            input#clasProcesos.form-control(disabled="disabled", placeholder="Digite clasificación procesos /jurisdicción - acción")
+            input#clasProcesos.form-control.not-number(disabled="disabled", placeholder="Digite clasificación procesos /jurisdicción - acción")
         .form-group
           label.control-label.col-sm-4 CC demandante / identificación demandante
           .col-sm-6
-            input#idDemandante.form-control(disabled="disabled", placeholder="Digite el documento del demandante / identificación demandante")
+            input#idDemandante.form-control.number(disabled="disabled", placeholder="Digite el documento del demandante / identificación demandante")
         .form-group
           label.control-label.col-sm-4 Nombre demandante
           .col-sm-6
-            input#nombreDemandante.form-control(disabled="disabled", placeholder="Digite el nombre del demandante")
+            input#nombreDemandante.form-control.not-number(disabled="disabled", placeholder="Digite el nombre del demandante")
         .form-group
           label.control-label.col-sm-4 Demandado
           .col-sm-6
-            input#idDemandado.form-control(disabled="disabled", placeholder="Digite el nombre del demandado", value="Colpensiones")
+            input#idDemandado.form-control.not-number(disabled="disabled", placeholder="Digite el nombre del demandado", value="Colpensiones")
         .form-group
           label.control-label.col-sm-4 Nombre apoderado actual
           .col-sm-6
-            input#nombreApoAct.form-control(disabled="disabled", placeholder="Digite el nombre del apoderado actual")
+            input#nombreApoAct.form-control.not-number(disabled="disabled", placeholder="Digite el nombre del apoderado actual")
         .form-group
           label.control-label.col-sm-4 Cédula apoderado Colpensiones
           .col-sm-6
-            input#idApoAct.form-control(disabled="disabled", placeholder="Digite la cédula del apoderado Colpensiones")
+            input#idApoAct.form-control.number(disabled="disabled", placeholder="Digite la cédula del apoderado Colpensiones")
         .form-group
           label.control-label.col-sm-4 TP apoderado Colpensiones
           .col-sm-6
-            input#idTarjetaPro.form-control(disabled="disabled", placeholder="Digite la tarjeta profesional del apoderado")
+            input#idTarjetaPro.form-control.not-number(disabled="disabled", placeholder="Digite la tarjeta profesional del apoderado")
         .form-group
           label.control-label.col-sm-4 Clasificación trámites
           .col-sm-6
-            select#clasTramit.form-control(disabled="disabled")
+            select#clasTramit.form-control.not-number(disabled="disabled")
               option(selected="selected", value="Seleccione la clasificación de trámites") Seleccione la clasificación de trámites
               option(value="nuevo") Proceso Nuevo
               option(value="informativo") Proceso Informativo
         .form-group
           label.control-label.col-sm-4 Tipo informativo
           .col-sm-6
-            select#tipoInfor.form-control(disabled="disabled")
+            select#tipoInfor.form-control.not-number(disabled="disabled")
               option(selected="selected", value="Seleccione el tipo de informativo") Seleccione el tipo de informativo
               option(value="1") AUDIENCIA
               option(value="2") CAMBIO DE DESPACHO
@@ -464,11 +464,11 @@
         .form-group
           label.control-label.col-sm-4 Relación de informativo
           .col-sm-6
-            input#relInfor.form-control(disabled="disabled", placeholder="Digite la relación de informativo")
+            input#relInfor.form-control.not-number(disabled="disabled", placeholder="Digite la relación de informativo")
         .form-group
           label.control-label.col-sm-4 Regional
           .col-sm-6
-            select#idRegion.form-control(disabled="disabled")
+            select#idRegion.form-control.not-number(disabled="disabled")
               option(selected="selected", value="Seleccione la regional")
               option(value="1") ANTIOQUIA
               option(value="2") CENTRO
@@ -485,11 +485,11 @@
         .form-group
           label.control-label.col-sm-4 Tipo de unidad
           .col-sm-6
-            input#tipoUnid.form-control(disabled="disabled", placeholder="Digite el tipo de unidad", value="pesos")
+            input#tipoUnid.form-control.not-number(disabled="disabled", placeholder="Digite el tipo de unidad", value="pesos")
         .form-group
           label.control-label.col-sm-4 Tipo de apoderado
           .col-sm-6
-            input#tipoApo.form-control(disabled="disabled", placeholder="Digite el tipo de apoderado", value="externo")
+            input#tipoApo.form-control.not-number(disabled="disabled", placeholder="Digite el tipo de apoderado", value="externo")
       .col-xs-12
         .btn-group(role="group").pull-right
           .btn.btn-default.btn-md Volver
@@ -505,7 +505,7 @@
         .form-group
           label.control-label.col-sm-4 ¿De quién es el acto administrativo demandado?
           .col-sm-6
-            select#propietarioActAdmDem.form-control(disabled="disabled")
+            select#propietarioActAdmDem.form-control.not-number(disabled="disabled")
               option(selected="selected", value="Seleccione el propietario del acto administrativo demandado") Seleccione el propietario del acto administrativo demandado
               option(value="1") ISS
               option(value="2") COLPENSIONES
@@ -513,11 +513,11 @@
         .form-group
           label.control-label.col-sm-4 Número de la resolución
           .col-sm-6
-            input#numResolicion.form-control(disabled="disabled", placeholder="Digite el número de la resolución")
+            input#numResolicion.form-control.number(disabled="disabled", placeholder="Digite el número de la resolución")
         .form-group
           label.control-label.col-sm-4 Causa del proceso / Fondo que cubre el riesgo
           .col-sm-6
-            select#causaProces.form-control(disabled="disabled")
+            select#causaProces.form-control.not-number(disabled="disabled")
               option(selected="selected", value="Seleccione la causa del proceso / Fondo que cubre el riesgo") Seleccione la causa del proceso / Fondo que cubre el riesgo
               option(value="1") INVALIDEZ
               option(value="2") VEJEZ
@@ -526,7 +526,7 @@
         .form-group
           label.control-label.col-sm-4 Modalidad de pretensión
           .col-sm-6
-            select#modPreten.form-control(disabled="disabled")
+            select#modPreten.form-control.not-number(disabled="disabled")
               option(selected="selected", value="Seleccione la modalidad de pretensión") Seleccione la modalidad de pretensión
               option(value="1") RECONOCIMIENTO
               option(value="2") RELIQUIDACIÓN
@@ -534,7 +534,7 @@
         .form-group
           label.control-label.col-sm-4 Pretensión principal
           .col-sm-6
-            select#principalPreten.form-control(disabled="disabled")
+            select#principalPreten.form-control.not-number(disabled="disabled")
               option(selected="selected", value="Seleccione la pretensión principal") Seleccione la pretensión principal
               option(value="1") INVALIDEZ
               option(value="2") VEJEZ
@@ -549,7 +549,7 @@
         .form-group
           label.control-label.col-sm-4 Clase de pretensión
           .col-sm-6
-            select#clasePreten.form-control(disabled="disabled")
+            select#clasePreten.form-control.not-number(disabled="disabled")
               option(selected="selected", value="Seleccione la clase de pretensión") Seleccione la clase de pretensión
               option(value="1") INTERESES MORATORIOS
               option(value="2") RETROACTIVO
@@ -569,50 +569,50 @@
         .form-group
           label.control-label.col-sm-4 Cuantía estimada en el proceso
           .col-sm-6
-            input#cuantiaEstimada.form-control(disabled="disabled", placeholder="Digite la cuantía estimada en el proceso")
+            input#cuantiaEstimada.form-control.number(disabled="disabled", placeholder="Digite la cuantía estimada en el proceso")
         .form-group
           label.control-label.col-sm-4 Nombre afiliado causante
           .col-sm-6
-            input#nomAfilCaus.form-control(disabled="disabled", placeholder="Digite el Nombre afiliado causante")
+            input#nomAfilCaus.form-control.not-number(disabled="disabled", placeholder="Digite el Nombre afiliado causante")
         .form-group
           label.control-label.col-sm-4 CC afiliado causante/ identificación
           .col-sm-6
-            input#idafilCaus.form-control(disabled="disabled", placeholder="Digite la CC afiliado causante/ identificación")
+            input#idafilCaus.form-control.number(disabled="disabled", placeholder="Digite la CC afiliado causante/ identificación")
         .form-group
           label.control-label.col-sm-4 Nombre beneficiario 1
           .col-sm-6
-            input#nomBef1.form-control(disabled="disabled", placeholder="Digite el nombre beneficiario 1")
+            input#nomBef1.form-control.not-number(disabled="disabled", placeholder="Digite el nombre beneficiario 1")
         .form-group
           label.control-label.col-sm-4 Cédula ciudadanía beneficiario 1
           .col-sm-6
-            input#idBef1.form-control(disabled="disabled", placeholder="Digite la cédula ciudadanía beneficiario 1")
+            input#idBef1.form-control.number(disabled="disabled", placeholder="Digite la cédula ciudadanía beneficiario 1")
         .form-group
           label.control-label.col-sm-4 Cantidad demandantes
           .col-sm-6
-            input#cantDeman.form-control(disabled="disabled", placeholder="Digite la cantidad de demandantes")
+            input#cantDeman.form-control.number(disabled="disabled", placeholder="Digite la cantidad de demandantes")
         .form-group
           label.control-label.col-sm-4 ¿Entre los demandantes hay una entidad pública?
           .col-sm-6
-            select#entPub.form-control(disabled="disabled")
+            select#entPub.form-control.not-number(disabled="disabled")
               option(selected="selected", value="Seleccione una respuesta") Seleccione una respuesta
               option(value="si") Sí
               option(value="no") No
         .form-group
           label.control-label.col-sm-4 Clasificación riesgo procesal fortaleza de la defenza (Criterio 1)
           .col-sm-6
-            input#criterio1.form-control(disabled="disabled", placeholder="Digite clasificación riesgo procesal fortaleza de la defenza")
+            input#criterio1.form-control.not-number(disabled="disabled", placeholder="Digite clasificación riesgo procesal fortaleza de la defenza")
         .form-group
           label.control-label.col-sm-4 Clasificación riesgo procesal fortaleza probatoria (Criterio 2)
           .col-sm-6
-            input#criterio2.form-control(disabled="disabled", placeholder="Digite la clasificación riesgo procesal fortaleza probatoria")
+            input#criterio2.form-control.not-number(disabled="disabled", placeholder="Digite la clasificación riesgo procesal fortaleza probatoria")
         .form-group
           label.control-label.col-sm-4 Clasificación riesgo procesal riesgos procesales (Criterio 3)
           .col-sm-6
-            input#criterio3.form-control(disabled="disabled", placeholder="Digite la clasificación riesgo procesal riesgos procesales")
+            input#criterio3.form-control.not-number(disabled="disabled", placeholder="Digite la clasificación riesgo procesal riesgos procesales")
         .form-group
           label.control-label.col-sm-4 Clasificación riesgo procesal nivel jurisprudencia (Criterio 4)
           .col-sm-6
-            input#criterio4.form-control(disabled="disabled", placeholder="Digite la clasificación riesgo procesal nivel jurisprudencia")
+            input#criterio4.form-control.not-number(disabled="disabled", placeholder="Digite la clasificación riesgo procesal nivel jurisprudencia")
         .form-group
           label.control-label.col-sm-4 Número de proceso Rama Judicial actual
           .col-sm-6
@@ -620,7 +620,7 @@
         .form-group
           label.control-label.col-sm-4 Instancia actual
           .col-sm-6
-            input#instanActual.form-control(disabled="disabled", placeholder="Digite la instancia actual")
+            input#instanActual.form-control.not-number(disabled="disabled", placeholder="Digite la instancia actual")
         .form-group
           label.control-label.col-sm-4 Número de despacho actual
           .col-sm-6
@@ -628,19 +628,19 @@
         .form-group
             label.control-label.col-sm-4 Tiempo estimado del proceso
             .col-sm-6
-              input#tiempoEstiProces.form-control(disabled="disabled", placeholder="Digite el tiempo estimado del proceso")
+              input#tiempoEstiProces.form-control.number(disabled="disabled", placeholder="Digite el tiempo estimado del proceso")
         .form-group
             label.control-label.col-sm-4 Etapa actual del proceso
             .col-sm-6
-              input#etapaActualProces.form-control(disabled="disabled", placeholder="Digite la etapa actual del proceso")
+              input#etapaActualProces.form-control.not-number(disabled="disabled", placeholder="Digite la etapa actual del proceso")
         .form-group
             label.control-label.col-sm-4 Última situación procesal
             .col-sm-6
-              input#ultimActuaProcesal.form-control(disabled="disabled", placeholder="Digite la última situación procesal")
+              input#ultimActuaProcesal.form-control.not-number(disabled="disabled", placeholder="Digite la última situación procesal")
         .form-group
             label.control-label.col-sm-4 Última actuación surtida en el proceso
             .col-sm-6
-              input#ultimActuaSurtida.form-control(disabled="disabled", placeholder="Digite la última actuación surtida en el proceso")
+              input#ultimActuaSurtida.form-control.not-number(disabled="disabled", placeholder="Digite la última actuación surtida en el proceso")
         .form-group
             label.control-label.col-sm-4 Fecha última situación
             .col-sm-6
@@ -655,11 +655,11 @@
         .form-group
           label.control-label.col-sm-4 Provisión contable en caso de pérdida
           .col-sm-6
-            input#provContaPerdida.form-control(disabled="disabled", placeholder="Digite la provisión contable en caso de pérdida")
+            input#provContaPerdida.form-control.not-number(disabled="disabled", placeholder="Digite la provisión contable en caso de pérdida")
         .form-group
           label.control-label.col-sm-4 Sentido fallo 1 instancia
           .col-sm-6
-            select#sentidoFallo1.form-control(disabled="disabled")
+            select#sentidoFallo1.form-control.not-number(disabled="disabled")
               option(selected="selected", value="Seleccione el sentido fallo 1 instancia") Seleccione el sentido fallo 1 instancia
               option(value="1") Favorable
               option(value="2") Desfavorable
@@ -671,7 +671,7 @@
         .form-group
           label.control-label.col-sm-4 Sentido fallo 2 instancia
           .col-sm-6
-            select#sentidoFallo2.form-control(disabled="disabled")
+            select#sentidoFallo2.form-control.not-number(disabled="disabled")
               option(selected="selected", value="Seleccione el sentido fallo 2 instancia") Seleccione el sentido fallo 2 instancia
               option(value="1") Favorable
               option(value="2") Desfavorable
@@ -679,33 +679,33 @@
         .form-group
           label.control-label.col-sm-4 Fecha fallo 2
           .col-sm-6
-            input#fechaFallo2.form-control(disabled="disabled", placeholder="Digite la fecha fallo 2")
+            input#fechaFallo2.form-control.not-number(disabled="disabled", placeholder="Digite la fecha fallo 2")
         .form-group
           label.control-label.col-sm-4 Liquidación de costas/no
           .col-sm-6
-            select#liquiCostas.form-control(disabled="disabled")
+            select#liquiCostas.form-control.not-number(disabled="disabled")
               option(selected="selected", value="Seleccione la liquidación de costas/no") Seleccione la liquidación de costas/no
               option(value="Sí") Sí
               option(value="No") No
         .form-group
           label.control-label.col-sm-4 Costas
           .col-sm-6
-            select#costas.form-control(disabled="disabled")
+            select#costas.form-control.not-number(disabled="disabled")
               option(selected="selected", value="Seleccione una opción") Seleccione una opción
               option(value="A favor") A favor
               option(value="En contra") En contra
         .form-group
           label.control-label.col-sm-4 Valor agencias en derecho
           .col-sm-6
-            input#valorAgenDer.form-control(disabled="disabled", placeholder="Digite el valor agencias en derecho")
+            input#valorAgenDer.form-control.number(disabled="disabled", placeholder="Digite el valor agencias en derecho")
         .form-group
           label.control-label.col-sm-4 Gastos procesales
           .col-sm-6
-            input#gastosProces.form-control(disabled="disabled", placeholder="Digite el valor agencias en derecho")
+            input#gastosProces.form-control.number(disabled="disabled", placeholder="Digite el valor agencias en derecho")
         .form-group
           label.control-label.col-sm-4 Recurso extraordinario
           .col-sm-6
-            select#recursoExtra.form-control(disabled="disabled")
+            select#recursoExtra.form-control.not-number(disabled="disabled")
               option(selected="selected", value="Seleccione una opción") Seleccione una opción
               option(value="Sí") Sí
               option(value="No") No
@@ -713,7 +713,7 @@
         .form-group
           label.control-label.col-sm-4 Formas de terminación anormal del proceso (parcialmente)
           .col-sm-6
-            select#formasTermin.form-control(disabled="disabled")
+            select#formasTermin.form-control.not-number(disabled="disabled")
               option(selected="selected", value="Seleccione la forma de terminación anormal") Seleccione la forma de terminación anormal
               option(value="1") CONCILIACIÓN JUDICIAL
               option(value="2") DESISTIMIENTO
@@ -722,25 +722,25 @@
         .form-group
           label.control-label.col-sm-4 Valor del acuerdo
           .col-sm-6
-            input#valorAcuerdo.form-control(disabled="disabled", placeholder="Digite el valor del acuerdo")
+            input#valorAcuerdo.form-control.number(disabled="disabled", placeholder="Digite el valor del acuerdo")
         .form-group
           label.control-label.col-sm-4 Estado del proceso
           .col-sm-6
-            select#formasTermin.form-control(disabled="disabled")
+            select#formasTermin.form-control.not-number(disabled="disabled")
               option(selected="selected", value="Seleccione el estado del proceso") Seleccione el estado del proceso
               option(value="1") Activo
               option(value="2") Inactivo
         .form-group
           label.control-label.col-sm-4 ¿Proceso tiene embargo?
           .col-sm-6
-            select#formasTermin.form-control(disabled="disabled")
+            select#formasTermin.form-control.not-number(disabled="disabled")
               option(selected="selected", value="Seleccione una respuesta") Seleccione una respuesta
               option(value="Sí") Sí
               option(value="No") No
         .form-group
           label.control-label.col-sm-4 ¿Sentencia entregada para cumplimiento si / no?
           .col-sm-6
-            select#entragadaCumplimiento.form-control(disabled="disabled")
+            select#entragadaCumplimiento.form-control.not-number(disabled="disabled")
               option(selected="selected", value="Seleccione una respuesta") Seleccione una respuesta
               option(value="Sí") Sí
               option(value="No") No
@@ -751,15 +751,15 @@
         .form-group
           label.control-label.col-sm-4 Valor de la sentencia
           .col-sm-6
-            input#valorSenten.form-control(disabled="disabled", placeholder="Digite el valor de la sentencia")
+            input#valorSenten.form-control.number(disabled="disabled", placeholder="Digite el valor de la sentencia")
         .form-group
           label.control-label.col-sm-4 Valor intereses moratorios
           .col-sm-6
-            input#valorInteresesMora.form-control(disabled="disabled", placeholder="Digite el valor de los intereses moratorios")
+            input#valorInteresesMora.form-control.number(disabled="disabled", placeholder="Digite el valor de los intereses moratorios")
         .form-group
           label.control-label.col-sm-4 Valor indexación
           .col-sm-6
-            input#valorIndexa.form-control(disabled="disabled", placeholder="Digite el valor de la indexación")
+            input#valorIndexa.form-control.number(disabled="disabled", placeholder="Digite el valor de la indexación")
         .form-group
           label.control-label.col-sm-4 Hechos del proceso
           .col-sm-6
@@ -775,15 +775,15 @@
         .form-group
           label.control-label.col-sm-4 Usuario
           .col-sm-6
-            input#usuario.form-control(disabled="disabled")
+            input#usuario.form-control.not-number(disabled="disabled")
         .form-group
           label.control-label.col-sm-4 Reparto
           .col-sm-6
-            input#reparto.form-control(disabled="disabled")
+            input#reparto.form-control.not-number(disabled="disabled")
         .form-group
           label.control-label.col-sm-4 Notaria
           .col-sm-6
-            input#notaria.form-control(disabled="disabled")
+            input#notaria.form-control.not-number(disabled="disabled")
         .form-group
           label.control-label.col-sm-4 Fecha expedición poder
           .col-sm-6
@@ -791,31 +791,31 @@
         .form-group
           label.control-label.col-sm-4 N°. Poder 1
           .col-sm-6
-            input#numPoder1.form-control(disabled="disabled")
+            input#numPoder1.form-control.number(disabled="disabled")
         .form-group
           label.control-label.col-sm-4 N°. Poder 2
           .col-sm-6
-            input#numPoder2.form-control(disabled="disabled")
+            input#numPoder2.form-control.number(disabled="disabled")
         .form-group
             label.control-label.col-sm-4 Novedad de la solicitud
             .col-sm-6
-              input#novedadSolic2.form-control(disabled="disabled")
+              input#novedadSolic2.form-control.not-number(disabled="disabled")
         .form-group
             label.control-label.col-sm-4 N°. Poder 3
             .col-sm-6
-              input#numPoder3.form-control(disabled="disabled")
+              input#numPoder3.form-control.number(disabled="disabled")
         .form-group
           label.control-label.col-sm-4 Novedad de la solicitud
           .col-sm-6
-            input#novedadSolic3.form-control(disabled="disabled")
+            input#novedadSolic3.form-control.not-number(disabled="disabled")
         .form-group
           label.control-label.col-sm-4 Quién elabora el poder
           .col-sm-6
-            input#quienElabPoder.form-control(disabled="disabled")
+            input#quienElabPoder.form-control.not-number(disabled="disabled")
         .form-group
           label.control-label.col-sm-4 Firma poder
           .col-sm-6
-            input#firmaPoder.form-control(disabled="disabled")
+            input#firmaPoder.form-control.not-number(disabled="disabled")
         .form-group
           label.control-label.col-sm-4 Fecha del envío del reparto
           .col-sm-6
@@ -823,11 +823,11 @@
         .form-group
           label.control-label.col-sm-4 Nombre apoderado contraparte
           .col-sm-6
-            input#nomApoContra.form-control(disabled="disabled")
+            input#nomApoContra.form-control.not-number(disabled="disabled")
         .form-group
           label.control-label.col-sm-4 Identificación apoderado contraparte
           .col-sm-6
-            input#idApoContra.form-control(disabled="disabled")
+            input#idApoContra.form-control.numbre(disabled="disabled")
       .col-xs-12
         .btn-group(role="group").pull-right
           .btn.btn-default.btn-md Volver

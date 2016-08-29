@@ -23,11 +23,11 @@
         .form-group
           label.control-label.col-sm-4 Nombre despacho inicial
           .col-sm-6
-            input#nomDespaIni.form-control(placeholder="Digite el nombre del despacho inicial")
+            input#nomDespaIni.form-control.not-number(placeholder="Digite el nombre del despacho inicial")
         .form-group
           label.control-label.col-sm-4 Departamento juzgado
           .col-sm-6
-            select#depJuzgado.form-control
+            select#depJuzgado.form-control.not-number
               option(selected="selected", value="Seleccione el departamento juzgado") Seleccione un departamento juzgado
               option(value="1") ACCION DE NULIDAD Y RESTABLECIMIENTO DEL DERECHO
               option(value="2") ACCION DE REPARACION DIRECTA
@@ -43,7 +43,7 @@
         .form-group
           label.control-label.col-sm-4 Tipo de proceso
           .col-sm-6
-            select#tipoProces.form-control
+            select#tipoProces.form-control.not-number
               option(selected="selected", value="Seleccione un tipo de proceso") Seleccione un tipo de proceso
               option(value="1") ACCION DE NULIDAD Y RESTABLECIMIENTO DEL DERECHO
               option(value="2") ACCION DE REPARACION DIRECTA
@@ -59,7 +59,7 @@
         .form-group
           label.control-label.col-sm-4 Pretención principal
           .col-sm-6
-            select#pretenPrincipal.form-control
+            select#pretenPrincipal.form-control.not-number
               option(selected="selected", value="Seleccione la pretención principal") Seleccione la pretención principal
               option(value="1") INVALIDEZ
               option(value="2") VEJEZ
@@ -74,19 +74,19 @@
         .form-group
           label.control-label.col-sm-4 Código reparto
           .col-sm-6
-            input#codReparto.form-control(placeholder="Digite el código de reparto")
+            input#codReparto.form-control.not-number(placeholder="Digite el código de reparto")
         .form-group
           label.control-label.col-sm-4 N° Bizagi - Caso defensa judicial
           .col-sm-6
-            input#codBizagi.form-control(placeholder="Digite el número Bizagi")
+            input#codBizagi.form-control.not-number(placeholder="Digite el número Bizagi")
         .form-group
           label.control-label.col-sm-4 Nombre demandante
           .col-sm-6
-            input#nomDemandante.form-control(placeholder="Digite el nombre del demandante")
+            input#nomDemandante.form-control.not-number(placeholder="Digite el nombre del demandante")
         .form-group
           label.control-label.col-sm-4 23 dígitos de proceso
           .col-sm-6
-            input#cod23Digitos.form-control(placeholder="Digite los 23 dígitos del proceso")
+            input#cod23Digitos.form-control.number(placeholder="Digite los 23 dígitos del proceso")
     .col-sm-6
       form.form-horizontal(role="form")
         .form-group
@@ -98,7 +98,7 @@
         .form-group
           label.control-label.col-sm-4 Ciudad juzgado
           .col-sm-6
-            select#ciudadJuzgado.form-control
+            select#ciudadJuzgado.form-control.not-number
               option(selected="selected", value="Seleccione la ciudad juzgado") Seleccione la ciudad juzgado
               option(value="1") ANTIOQUIA
               option(value="2") BOGOTA
@@ -111,7 +111,7 @@
         .form-group
           label.control-label.col-sm-4 Regional
           .col-sm-6
-            select#tipoProces.form-control
+            select#tipoProces.form-control.not-number
               option(selected="selected", value="Seleccione la regional") Seleccione la regional
               option(value="1") ANTIOQUIA
               option(value="2") BOGOTA
@@ -124,7 +124,7 @@
         .form-group
           label.control-label.col-sm-4 Clase de pretención
           .col-sm-6
-            select#clasePreten.form-control
+            select#clasePreten.form-control.not-number
               option(selected="selected", value="Seleccione la clase de pretensión") Seleccione la clase de pretensión
               option(value="1") INVALIDEZ
               option(value="2") VEJEZ
@@ -139,7 +139,7 @@
         .form-group
           label.control-label.col-sm-4 Estado del proceso
           .col-sm-6
-            select#clasePreten.form-control
+            select#clasePreten.form-control.not-number
               option(selected="selected", value="Seleccione el estado del proceso") Seleccione el estado del proceso
               option(value="1") Duplicado
               option(value="2") Notificación por ejecutivo
@@ -150,7 +150,7 @@
         .form-group
           label.control-label.col-sm-4 CC demandante
           .col-sm-6
-            input#codDemandante.form-control(placeholder="Digite la cédula del demandante")
+            input#codDemandante.form-control.number(placeholder="Digite la cédula del demandante")
     .col-sm-12
       .btn-group.pull-right
         .btn.btn-default.btn-md Limpiar
