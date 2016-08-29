@@ -403,6 +403,7 @@ i[title]:hover:after {
 .custom-file-input::-webkit-file-upload-button {
   visibility: hidden !important;
 }
+
 .custom-file-input::before {
   content: 'Examinar';
   // display: inline-block;
@@ -510,10 +511,19 @@ i[title]:hover:after {
   }
 }
 
-.table-responsive {
+#perfilesTable {
   border: 1px solid #ccc !important;
   border-radius: 12px;
   padding: 10px 5px;
+}
+
+.header + .jumbotron {
+  margin-bottom: auto;
+  @extend #perfilesTable;
+}
+
+.jumbotron input[type='file'] {
+  padding-left: 150px;
 }
 
 .form-control {

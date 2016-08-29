@@ -17,11 +17,11 @@
     .col-sm-6
       form.form-horizontal(role="form")
         .form-group
-          label.control-label.col-sm-4 Fecha inicio notificación
+          label.control-label.col-sm-6 Fecha inicio notificación
           .col-sm-6
             input#fechaIniModif.form-control(placeholder="Ingrese fecha inicio de notificación")
         .form-group
-          label.control-label.col-sm-4 Regional
+          label.control-label.col-sm-6 Regional
           .col-sm-6
             select#regional.form-control.not-number
               option(selected="selected", value="Seleccione la regional") Seleccione la regional
@@ -34,7 +34,7 @@
               option(value="7") SANTANDER
               option(value="8") SUR
         .form-group
-          label.control-label.col-sm-4 Apoderado actual
+          label.control-label.col-sm-6 Apoderado actual
           .col-sm-6
             select#apoActual.form-control.not-number
               option(selected="selected", value="Seleccione el nombre del apoderado actual") Seleccione el nombre del apoderado actual
@@ -50,7 +50,7 @@
               option(value="10") Apoderado10
               option(value="11") Apoderado11
         .form-group
-          label.control-label.col-sm-4 Instancia actual
+          label.control-label.col-sm-6 Instancia actual
           .col-sm-6
             select#pretenPrincipal.form-control.not-number
               option(selected="selected", value="Seleccione la instancia actual") Seleccione la instancia actual
@@ -60,7 +60,7 @@
               option(value="4") CASACION / REVISION
               option(value="5") CONSULTA
         .form-group
-          label.control-label.col-sm-4 Ciudad juzgado
+          label.control-label.col-sm-6 Ciudad juzgado
           .col-sm-6
             select#pretenPrincipal.form-control.not-number
               option(selected="selected", value="Seleccione la ciudad del juzgado") Seleccione la ciudad del juzgado
@@ -80,8 +80,6 @@
           label.control-label.col-sm-5 Fecha fin notificación
           .col-sm-6
             input#fechaFinNotif.form-control(placeholder="Ingrese fecha inicio notificación")
-        .form-group
-          label.control-label.col-sm-5.empty-input
         .form-group
           label.control-label.col-sm-5 ¿Con actualización de etapas?
           .col-sm-6

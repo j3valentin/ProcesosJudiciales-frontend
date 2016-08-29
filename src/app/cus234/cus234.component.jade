@@ -30,8 +30,8 @@
               input#nombreDemandante.form-control.not-number([ngModel]='proceso?.Nombre_Dem', disabled="disabled", placeholder="Digite el nombre del demandante", value="Camilo Erazo")
           //.row
             .col-xs-11
-              .btn.btn-primary.btn-md.pull-right Validar duplicidad
-          .well.well-sm(*ngIf="procesos.length > 0")
+              .btn.btn-primary.btn-md.pull-right Validar duplicidad 
+          //.well.well-sm(*ngIf="procesos.length > 0")
             .table-responsive
               table.table.table-condensed.table-hover.table-curved
               caption.text-left Procesos judiciales asociados / duplicados
@@ -57,6 +57,69 @@
                   td {{procesoDup.prj_idduplicado}}
                   td.text-center
                     i.glyphicon.glyphicon-edit.btn-sm-primary(title="Corregir")
+          .well.well-sm
+            .table-responsive
+            table.table.table-condensed.table-hover.table-curved
+              caption.text-left Procesos judiciales asociados / duplicados
+              thead.primary-emphasis
+                tr
+                  th Notificaci&oacute;n
+                  th 23 d&iacute;gitos
+                  th Bizagi
+                  th Tipo proceso
+                  th Demandante
+                  th C&eacute;dula
+                  th Nombre despacho
+                  th Estado
+                  th.text-center Corregir
+              tbody
+                tr
+                  td 2016-06-18
+                  td 1234567891011121314151617
+                  td 2016_132456
+                  td ordinario laboral
+                  td Camilo Erazo
+                  td 80234562
+                  td Juzgado 028
+                  td Duplicado
+                  td.text-center
+                    i.glyphicon.glyphicon-wrench.btn-sm-primary(aria-hidden="true")
+                tr
+                  td
+                    input.form-control.input-sm(value="2016-06-25")
+                  td
+                    input.form-control.input-sm(value="6587967891011121314156857")
+                  td
+                    input.form-control.input-sm(value="2016_132456")
+                  td
+                    input.form-control.input-sm(value="ordinario laboral")
+                  td
+                    input.form-control.input-sm(value="Camilo Erazo")
+                  td
+                    input.form-control.input-sm(value="80234562")
+                  td
+                    input.form-control.input-sm(value="Juzgado 028")
+                  td
+                    select.form-control.input-sm
+                      option Duplicado
+                      option Notificación por ejecutivo
+                      option Pleito pendiente
+                      option Cosa juzgada
+                      option Registro correcto
+                  td.text-center
+                    i.glyphicon.glyphicon-repeat.btn-sm-danger.flip-glyphicon
+                    i.glyphicon.glyphicon-floppy-disk.btn-sm-success
+                tr
+                  td 2016-07-02
+                  td 1984465654654121314151617
+                  td 2016_132456
+                  td ordinario laboral
+                  td Camilo Erazo
+                  td 80234562
+                  td Juzgado 028
+                  td Cosa juzgada
+                  td.text-center
+                    i.glyphicon.glyphicon-wrench.btn-sm-primary
         .header
           h3 Georeferenciaci&oacute;n y datos generales
         form.form-horizontal(role="form")
