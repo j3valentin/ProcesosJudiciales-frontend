@@ -1,7 +1,7 @@
 import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
-import {Clasificacion} from '../clasificacion';
+import {ClasificacionInterface} from '../clasificacion';
 
 
 /**
@@ -10,16 +10,16 @@ import {Clasificacion} from '../clasificacion';
 
 @Injectable()
 export class ClasificacionService {
-  private _clasificaciones$: Subject<Clasificacion[]>;
+  private _clasificaciones$: Subject<ClasificacionInterface[]>;
   private baseUrl: string;
   private dataStore: {
-    clasificaciones: Clasificacion[]
+    clasificaciones: ClasificacionInterface[]
   };
 
   constructor(private http: Http) {
     this.baseUrl = 'http://firux.ddns.net:8080/judiciales/api/sp';
     this.dataStore = {clasificaciones: []};
-    this._clasificaciones$ = <Subject<Clasificacion[]>>new Subject();
+    this._clasificaciones$ = <Subject<ClasificacionInterface[]>>new Subject();
   }
 
   get clasificaciones$() {

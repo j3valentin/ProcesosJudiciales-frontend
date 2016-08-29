@@ -1,4 +1,4 @@
-export interface Regional {
-  reg_id: number,
-  reg_descripcion: string
+export class Regional {
+  reg_id: number;
+  reg_descripcion: string;
 }

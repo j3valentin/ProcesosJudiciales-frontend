@@ -1,7 +1,7 @@
 import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
-import {ClasePretension} from '../clasePretencion';
+import {ClasePretensionInterface} from '../clasePretencion';
 
 
 /**
@@ -10,16 +10,16 @@ import {ClasePretension} from '../clasePretencion';
 
 @Injectable()
 export class ClasePretensionService {
-  private _clasesPretensiones$: Subject<ClasePretension[]>;
+  private _clasesPretensiones$: Subject<ClasePretensionInterface[]>;
   private baseUrl: string;
   private dataStore: {
-    clasesPretensiones: ClasePretension[]
+    clasesPretensiones: ClasePretensionInterface[]
   };
 
   constructor(private http: Http) {
     this.baseUrl = 'http://firux.ddns.net:8080/judiciales/api/sp';
     this.dataStore = {clasesPretensiones: []};
-    this._clasesPretensiones$ = <Subject<ClasePretension[]>>new Subject();
+    this._clasesPretensiones$ = <Subject<ClasePretensionInterface[]>>new Subject();
   }
 
   get clasesPretensiones$() {

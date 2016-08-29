@@ -1,7 +1,7 @@
 import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
-import {ActoAdmin} from '../actoAdmin';
+import {ActoAdminInterface} from '../actoAdmin';
 
 
 /**
@@ -10,16 +10,16 @@ import {ActoAdmin} from '../actoAdmin';
 
 @Injectable()
 export class ActoAdminService {
-  private _actosAdmin$: Subject<ActoAdmin[]>;
+  private _actosAdmin$: Subject<ActoAdminInterface[]>;
   private baseUrl: string;
   private dataStore: {
-    actosAdmin: ActoAdmin[]
+    actosAdmin: ActoAdminInterface[]
   };
 
   constructor(private http: Http) {
     this.baseUrl = 'http://firux.ddns.net:8080/judiciales/api/sp';
     this.dataStore = {actosAdmin: []};
-    this._actosAdmin$ = <Subject<ActoAdmin[]>>new Subject();
+    this._actosAdmin$ = <Subject<ActoAdminInterface[]>>new Subject();
   }
 
   get actosAdmin$() {

@@ -3,11 +3,6 @@ import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
 import {Municipio} from '../../app/cus234/municipio';
 
-
-/**
- * Created by Reivaj on 25/08/2016.
- */
-
 @Injectable()
 export class MunicipioService {
   private _municipios$: Subject<Municipio[]>;

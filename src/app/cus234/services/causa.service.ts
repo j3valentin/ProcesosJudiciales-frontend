@@ -1,7 +1,7 @@
 import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
-import {Causa} from '../causa';
+import {CausaInterace} from '../causa';
 
 
 /**
@@ -10,16 +10,16 @@ import {Causa} from '../causa';
 
 @Injectable()
 export class CausaService {
-  private _causas$: Subject<Causa[]>;
+  private _causas$: Subject<CausaInterace[]>;
   private baseUrl: string;
   private dataStore: {
-    causas: Causa[]
+    causas: CausaInterace[]
   };
 
   constructor(private http: Http) {
     this.baseUrl = 'http://firux.ddns.net:8080/judiciales/api/sp';
     this.dataStore = {causas: []};
-    this._causas$ = <Subject<Causa[]>>new Subject();
+    this._causas$ = <Subject<CausaInterace[]>>new Subject();
   }
 
   get causas$() {

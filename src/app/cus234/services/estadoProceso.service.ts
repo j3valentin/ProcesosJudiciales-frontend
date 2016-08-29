@@ -1,7 +1,7 @@
 import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
-import {EstadoProceso} from '../estadoProceso';
+import {EstadoProcesoInterface} from '../estadoProceso';
 
 
 /**
@@ -10,16 +10,16 @@ import {EstadoProceso} from '../estadoProceso';
 
 @Injectable()
 export class EstadoProcesoService {
-  private _estadoProcesoss$: Subject<EstadoProceso[]>;
+  private _estadoProcesoss$: Subject<EstadoProcesoInterface[]>;
   private baseUrl: string;
   private dataStore: {
-    estadoProcesos: EstadoProceso[]
+    estadoProcesos: EstadoProcesoInterface[]
   };
 
   constructor(private http: Http) {
     this.baseUrl = 'http://firux.ddns.net:8080/judiciales/api/sp';
     this.dataStore = {estadoProcesos: []};
-    this._estadoProcesoss$ = <Subject<EstadoProceso[]>>new Subject();
+    this._estadoProcesoss$ = <Subject<EstadoProcesoInterface[]>>new Subject();
   }
 
   get estadoProcesos$() {

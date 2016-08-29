@@ -1,7 +1,7 @@
 import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
-import {Pretension} from '../pretension';
+import {PretensionInterface} from '../pretension';
 
 
 /**
@@ -10,16 +10,16 @@ import {Pretension} from '../pretension';
 
 @Injectable()
 export class PretensionService {
-  private _pretensiones$: Subject<Pretension[]>;
+  private _pretensiones$: Subject<PretensionInterface[]>;
   private baseUrl: string;
   private dataStore: {
-    pretensiones: Pretension[]
+    pretensiones: PretensionInterface[]
   };
 
   constructor(private http: Http) {
     this.baseUrl = 'http://firux.ddns.net:8080/judiciales/api/sp';
     this.dataStore = {pretensiones: []};
-    this._pretensiones$ = <Subject<Pretension[]>>new Subject();
+    this._pretensiones$ = <Subject<PretensionInterface[]>>new Subject();
   }
 
   get pretensiones$() {

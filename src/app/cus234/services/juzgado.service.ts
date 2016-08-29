@@ -1,23 +1,23 @@
 import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
-import {Juzgado} from '../juzgado';
+import {JuzgadoInterface} from '../juzgado';
 
 /**
  * Created by fire on 20/08/2016.
  */
 @Injectable()
 export class JuzgadoService {
-  private _juzgados$: Subject<Juzgado[]>;
+  private _juzgados$: Subject<JuzgadoInterface[]>;
   private baseUrl: string;
   private dataStore: {
-    juzgados: Juzgado[]
+    juzgados: JuzgadoInterface[]
   };
 
   constructor(private http: Http) {
     this.baseUrl = 'http://firux.ddns.net:8080/judiciales/api/sp';
     this.dataStore = {juzgados: []};
-    this._juzgados$ = <Subject<Juzgado[]>>new Subject();
+    this._juzgados$ = <Subject<JuzgadoInterface[]>>new Subject();
   }
 
   get juzgados$() {

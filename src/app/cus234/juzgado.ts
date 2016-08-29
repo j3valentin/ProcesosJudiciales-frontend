@@ -1,7 +1,7 @@
 import {Municipio} from './municipio';
 import {Departamento} from './departamento';
 
-export interface Juzgado {
+export interface JuzgadoInterface {
   tij_id: string,
   tij_descripcion?: string,
   prj_numerojuzgado?: number,
@@ -9,4 +9,8 @@ export interface Juzgado {
   despacho?: string,
   depto?: Departamento,
   ciudad?: Municipio
+}
+
+export class Juzgado implements JuzgadoInterface {
+  tij_id: string;
 }

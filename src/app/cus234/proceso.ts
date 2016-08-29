@@ -1,20 +1,67 @@
-import {Juzgado}   from './juzgado';
-import {Apoderado} from './apoderado';
+import {JuzgadoInterface, Juzgado}   from './juzgado';
+import {ApoderadoInterface, Apoderado} from './apoderado';
 import {Afiliado}  from './afiliado';
-import {TipoProceso}  from './tipoProceso';
-import {TipoInformativo} from './tipoInformativo'
+import {TipoProcesoInterface, TipoProceso}  from './tipoProceso';
+import {TipoInformativoInterface, TipoInformativo} from './tipoInformativo'
 import {Regional} from './regional';
-import {Despacho} from './despacho';
-import {Clasificacion} from './clasificacion';
-import {Causa} from './causa';
-import {Pretension} from './Pretension';
-import {ModPretension} from './modPretension';
-import {ClasePretension} from './clasePretencion';
-import {ActoAdmin} from './actoAdmin';
-import {EstadoProceso} from './estadoProceso';
+import {DespachoInterface, Despacho} from './despacho';
+import {ClasificacionInterface, Clasificacion} from './clasificacion';
+import {CausaInterace, Causa} from './causa';
+import {PretensionInterface, Pretension} from './Pretension';
+import {ModPretensionInterface, ModPretension} from './modPretension';
+import {ClasePretensionInterface, ClasePretencion} from './clasePretencion';
+import {ActoAdminInterface, ActoAdmin} from './actoAdmin';
+import {EstadoProcesoInterface, EstadoProceso} from './estadoProceso';
 
-export interface Proceso {
+export interface ProcesoInterface {
   prj_fechanotifica?: string;
+  prj_23digitos: number;
+  prj_numerobizagi: string;
+  tipo: TipoProcesoInterface;
+  Nombre_Dem: string;
+  CC_Dem: number;
+  despacho?: DespachoInterface;
+  estadoProceso?: EstadoProcesoInterface;
+  prj_id?: number;
+  prj_litigacion?: string;
+  juzgado?: JuzgadoInterface;
+  prj_numeroradica?: string;
+  prj_clasificacionps?: string;
+  prj_demandado?: number;
+  apoderado?: ApoderadoInterface;
+  clasTramites?: ClasificacionInterface;
+  tipoInf?: TipoInformativoInterface;
+  prj_relacioninforma?: string;
+  regional?: Regional;
+  prj_anoradicacion?: number;
+  tiu_id?: number;
+  prj_hechosproceso?: string;
+  actoAdmin?: ActoAdminInterface;
+  prj_numresolucion?: string;
+  causa?: CausaInterace;
+  modPret?: ModPretensionInterface;
+  pretension?: PretensionInterface;
+  clasePret?: ClasePretensionInterface;
+  prj_fechaadminisiondemanda?: string;
+  prj_cuantiaestimada?: number;
+  afiliado?: Afiliado;
+  prj_cantidaddemandante?: number;
+  prj_entidadpublica?: string;
+  apodeContra?: ApoderadoInterface;
+  prj_23digitosa?:  number;
+}
+
+export class Proceso implements ProcesoInterface {
+  causa: Causa;
+  modPret: ModPretension;
+  pretension: Pretension;
+  clasePret: ClasePretencion;
+  actoAdmin: ActoAdmin;
+  apoderado: Apoderado;
+  tipoInf: TipoInformativo;
+  clasTramites: Clasificacion;
+  regional: Regional;
+  juzgado: Juzgado;
   prj_23digitos: number;
   prj_numerobizagi: string;
   tipo: TipoProceso;
@@ -22,31 +69,22 @@ export interface Proceso {
   CC_Dem: number;
   despacho: Despacho;
   estadoProceso: EstadoProceso;
-  prj_id?: number;
-  prj_litigacion?: string;
-  juzgado?: Juzgado;
-  prj_numeroradica?: string;
-  prj_clasificacionps?: string;
-  prj_demandado?: number;
-  apoderado?: Apoderado;
-  clasTramites?: Clasificacion;
-  tipoInf?: TipoInformativo;
-  prj_relacioninforma?: string;
-  regional?: Regional;
-  prj_anoradicacion?: number;
-  tiu_id?: number;
-  prj_hechosproceso?: string;
-  actoAdmin?: ActoAdmin;
-  prj_numresolucion?: string;
-  causa?: Causa;
-  modPret?: ModPretension;
-  pretension?: Pretension;
-  clasePret?: ClasePretension;
-  prj_fechaadminisiondemanda?: string;
-  prj_cuantiaestimada?: number;
-  afiliado?: Afiliado;
-  prj_cantidaddemandante?: number;
-  prj_entidadpublica?: string;
-  apodeContra?: Apoderado;
-  prj_23digitosa?:  number;
+
+  constructor() {
+    //this.prj_fechanotifica = new Date().toISOString().subtring(0, 10);
+
+    this.juzgado = new Juzgado();
+    this.regional = new Regional();
+    this.despacho = new Despacho();
+    this.tipo = new TipoProceso();
+    this.clasTramites = new Clasificacion();
+    this.tipoInf = new TipoInformativo();
+    this.apoderado = new Apoderado();
+    this.actoAdmin = new ActoAdmin();
+    this.causa = new Causa();
+    this.modPret = new ModPretension();
+    this.clasePret = new ClasePretencion();
+    this.estadoProceso = new EstadoProceso();
+    this.pretension = new Pretension();
+  }
 }

@@ -1,7 +1,7 @@
 import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
-import {Despacho} from '../despacho';
+import {DespachoInterface} from '../despacho';
 
 
 /**
@@ -10,16 +10,16 @@ import {Despacho} from '../despacho';
 
 @Injectable()
 export class DespachoService {
-  private _despachos$: Subject<Despacho[]>;
+  private _despachos$: Subject<DespachoInterface[]>;
   private baseUrl: string;
   private dataStore: {
-    despachos: Despacho[]
+    despachos: DespachoInterface[]
   };
 
   constructor(private http: Http) {
     this.baseUrl = 'http://firux.ddns.net:8080/judiciales/api/sp';
     this.dataStore = {despachos: []};
-    this._despachos$ = <Subject<Despacho[]>>new Subject();
+    this._despachos$ = <Subject<DespachoInterface[]>>new Subject();
   }
 
   get despachos$() {

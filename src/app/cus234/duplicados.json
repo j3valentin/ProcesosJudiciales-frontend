@@ -1,0 +1,30 @@
+[
+    {
+        "prj_fechanotifica": "2016-06-18",
+        "prj_23digitos": 1234567891011121314151617,
+        "prj_numerobizagi": "2016_132456",
+        "tipo": "ordinario laboral",
+        "Nombre_Dem": "Camilo Erazo",
+        "CC_Dem": 80234562,
+        "despacho": "Juzgado 028",
+        "estadoProceso": "Duplicado"
+    }, {
+        "prj_fechanotifica": "2016-06-18",
+        "prj_23digitos": 1234567891011121314151617,
+        "prj_numerobizagi": "2016_132456",
+        "tipo": "ordinario laboral",
+        "Nombre_Dem": "Camilo Erazo",
+        "CC_Dem": 80234562,
+        "despacho": "Juzgado 028",
+        "estadoProceso": "Duplicado"
+    }, {
+        "prj_fechanotifica": "2016-06-18",
+        "prj_23digitos": 1234567891011121314151617,
+        "prj_numerobizagi": "2016_132456",
+        "tipo": "ordinario laboral",
+        "Nombre_Dem": "Camilo Erazo",
+        "CC_Dem": 80234562,
+        "despacho": "Juzgado 028",
+        "estadoProceso": "Duplicado"
+    }
+]

@@ -1,7 +1,7 @@
 import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
-import {TipoProceso} from '../tipoProceso';
+import {TipoProcesoInterface} from '../tipoProceso';
 
 
 /**
@@ -10,16 +10,16 @@ import {TipoProceso} from '../tipoProceso';
 
 @Injectable()
 export class TipoProcesoService {
-  private _tipoProcesos$: Subject<TipoProceso[]>;
+  private _tipoProcesos$: Subject<TipoProcesoInterface[]>;
   private baseUrl: string;
   private dataStore: {
-    tipoProcesos: TipoProceso[]
+    tipoProcesos: TipoProcesoInterface[]
   };
 
   constructor(private http: Http) {
     this.baseUrl = 'http://firux.ddns.net:8080/judiciales/api/sp';
     this.dataStore = {tipoProcesos: []};
-    this._tipoProcesos$ = <Subject<TipoProceso[]>>new Subject();
+    this._tipoProcesos$ = <Subject<TipoProcesoInterface[]>>new Subject();
   }
 
   get tipoProcesos$() {

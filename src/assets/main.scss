@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'HelveticaNeueLTStdMedCnRg';
   src: url('fonts/helveticaneueltstd-mdcn-webfont.eot');
-  src: url('fonts/helveticaneueltstd-mdcn-webfont.eot?#iefix') 
-  format('embedded-opentype'), 
-  url('fonts/helveticaneueltstd-mdcn-webfont.woff') 
-  format('woff'), url('fonts/helveticaneueltstd-mdcn-webfont.ttf') 
+  src: url('fonts/helveticaneueltstd-mdcn-webfont.eot?#iefix')
+  format('embedded-opentype'),
+  url('fonts/helveticaneueltstd-mdcn-webfont.woff')
+  format('woff'), url('fonts/helveticaneueltstd-mdcn-webfont.ttf')
   format('truetype');
   font-weight: normal;
   font-style: normal;
@@ -212,7 +212,7 @@ td {
  .tabla_ing select {
      width: 195px!important;
  }
- 
+
  label{
  	font-family: Arial, Helvetica, sans-serif;
  	font-weight: bold;
@@ -221,7 +221,7 @@ td {
     margin: 0 auto;
     width: 360px;
     display: block;
-    table-layout: fixed;	
+    table-layout: fixed;
  }
 
 /*Clases para Procesos Judiciales*/
@@ -291,12 +291,12 @@ a.hyper_foot {
 }
 
 .footerImage {
-  -webkit-filter: grayscale(100%); 
+  -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
   cursor: pointer;
-  
+
   &:hover {
-    -webkit-filter: grayscale(0%); 
+    -webkit-filter: grayscale(0%);
     filter: grayscale(0%);
   }
 }
@@ -396,7 +396,7 @@ i[title]:hover:after {
   background-image: -ms-gradient(top, #337ab7, #286090);
   background-image: -o-gradient(top, #337ab7, #286090);
   .flip-glyphicon {
-    
+
   }
 }
 
@@ -438,12 +438,6 @@ i[title]:hover:after {
   margin-right: 5px !important;
 }
 
-// .headerIndex {
-//   width: 820px;
-//   margin: auto;
-//   background-color: #fcfcfc!important
-// }
-
 .contenedor_uno, .navbar, .container {
   border: medium none !important;
   height: auto;
@@ -475,33 +469,33 @@ i[title]:hover:after {
   background-color: #005e9d !important;
 }
 
-.header {
-  margin-bottom: -20px !important;
-  border-bottom: 0 !important;
-  margin-left: 25px;
+fieldset {
+  border: 1px solid #ccc;
+  border-radius: 1em;
+  margin-top: 2em;
+  padding: 2em 1em;
 }
 
-.header > h3 {
+legend {
+  margin-left: 1em;
+  margin-top: -2em;
+  position: absolute;
+  width: initial;
+  border: 0;
+  padding: 0 0.5em;
+}
+
+.header > h3, legend {
   text-transform: uppercase;
   color: #004C91;
-  position: relative;
-  z-index: 1000;
   background-color: #f1f1f1 !important;
   background-repeat: repeat-x;
   font-weight: bold;
   font-size: 18px;
   font-family: 'HelveticaNeueLTStdMedCnRg';
-  display: inline-block;
-  padding: 2px 8px;
 }
 
 .form-horizontal {
-  padding: 40px 15px;
-  // padding-top: 40px;
-  // padding-left: 15px;
-  border: 1px solid #ccc !important;
-  border-radius: 12px;
-
   & textarea {
     width: 360px;
   }
@@ -535,11 +529,11 @@ i[title]:hover:after {
 .form-control {
   padding-top: 3px;
   font: 9px Arial !important;
-  -webkit-box-shadow: inset 0px -2px 5px -1px rgba(0,0,0,0.09), 
+  -webkit-box-shadow: inset 0px -2px 5px -1px rgba(0,0,0,0.09),
                       inset 0px 2px 5px -1px rgba(0,0,0,0.09);
-  -moz-box-shadow: inset 0px -2px 5px -1px rgba(0,0,0,0.09), 
+  -moz-box-shadow: inset 0px -2px 5px -1px rgba(0,0,0,0.09),
                    inset 0px 2px 5px -1px rgba(0,0,0,0.09);
-  box-shadow: inset 0px -2px 5px -1px rgba(0,0,0,0.09), 
+  box-shadow: inset 0px -2px 5px -1px rgba(0,0,0,0.09),
               inset 0px 2px 5px -1px rgba(0,0,0,0.09);
 }
 

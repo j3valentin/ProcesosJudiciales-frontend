@@ -20,21 +20,21 @@ import {ActoAdminService} from './services/actoAdmin.service';
 import {ProcesoDupService} from './services/procesoDup.service';
 import {MunicipioService} from '../../shared/services/municipio.service';
 
-import {Juzgado} from './juzgado';
+import {JuzgadoInterface} from './juzgado';
 import {Proceso} from './proceso';
 import {Departamento} from './departamento';
-import {TipoProceso} from './tipoProceso';
-import {TipoInformativo} from './tipoInformativo';
+import {TipoProcesoInterface} from './tipoProceso';
+import {TipoInformativoInterface} from './tipoInformativo';
 import {Regional} from './regional';
-import {Despacho} from './despacho';
-import {Clasificacion} from './clasificacion';
-import {Causa} from './causa';
-import {ModPretension} from './modPretension';
-import {ActoAdmin} from './actoAdmin';
+import {DespachoInterface} from './despacho';
+import {ClasificacionInterface} from './clasificacion';
+import {CausaInterace} from './causa';
+import {ModPretensionInterface} from './modPretension';
+import {ActoAdminInterface} from './actoAdmin';
 import {ProcesoDup} from './procesoDup';
 import {Municipio} from './municipio';
-import {Pretension} from './pretension';
-import {ClasePretension} from './clasePretencion';
+import {PretensionInterface} from './pretension';
+import {ClasePretensionInterface} from './clasePretencion';
 
 @Component({
   selector: 'sd-cus234',
@@ -53,25 +53,26 @@ import {ClasePretension} from './clasePretencion';
 
 export class Cus234Component implements OnInit {
   errorMessage: string;
-  procesos: Proceso[];
+  procesos$: Observable<Proceso[]>;
   procesosDup$: Observable<ProcesoDup[]>;
-  juzgados$: Observable<Juzgado[]>;
-  despachos$: Observable<Despacho[]>;
+  juzgados$: Observable<JuzgadoInterface[]>;
+  despachos$: Observable<DespachoInterface[]>;
   departamentos$: Observable<Departamento[]>;
   municipios$: Observable<Municipio[]>;
-  tipoProcesos$: Observable<TipoProceso[]>;
-  tipoInformativos$: Observable<TipoInformativo[]>;
+  tipoProcesos$: Observable<TipoProcesoInterface[]>;
+  tipoInformativos$: Observable<TipoInformativoInterface[]>;
   regionales$: Observable<Regional[]>;
-  clasificaciones$: Observable<Clasificacion[]>;
-  causas$: Observable<Causa[]>;
-  modPretensiones$: Observable<ModPretension[]>;
-  actosAdmin$: Observable<ActoAdmin[]>;
-  pretensiones$: Observable<Pretension[]>;
-  clasesPretensiones$: Observable<ClasePretension[]>;
-  proceso: Proceso;
+  clasificaciones$: Observable<ClasificacionInterface[]>;
+  causas$: Observable<CausaInterace[]>;
+  modPretensiones$: Observable<ModPretensionInterface[]>;
+  actosAdmin$: Observable<ActoAdminInterface[]>;
+  pretensiones$: Observable<PretensionInterface[]>;
+  clasesPretensiones$: Observable<ClasePretensionInterface[]>;
+  proceso: Proceso = new Proceso();
   pestana: String = 'geoDatGen';
 
-  constructor(private juzgadoService: JuzgadoService,
+  constructor(private procesoService: ProcesoService,
+              private juzgadoService: JuzgadoService,
               private despachoService: DespachoService,
               private regionalService: RegionalService,
               private tipoProcesoService: TipoProcesoService,
@@ -84,49 +85,11 @@ export class Cus234Component implements OnInit {
               private actoAdminService: ActoAdminService,
               private procesoDupService: ProcesoDupService,
               private departamentoService: DepartamentoService,
-              private municipioService: MunicipioService,
-              private procesoService: ProcesoService
-              ) {
-    this.procesos = [];
-    // this.proceso = {
-    //   prj_fechanotifica: '2016-06-18',
-    //   prj_23digitos: 1234567891011121314151617,
-    //   prj_numerobizagi: '2016_132456',
-    //   tipo: {
-    //     tip_id: 1,
-    //     tip_descripcion: 'oordinario laboral'
-    //   },
-    //   Nombre_Dem: 'Camilo Erazo',
-    //   CC_Dem: 80234562,
-    //   despacho: {
-    //     dei_id: 1,
-    //     dei_descripcion: 'Juzgado 028',
-    //     tij_id: '1',
-    //     dpt_id: '1',
-    //     mpi_id: 1,
-    //     dei_consecutivoid: '',
-    //     dei_concatenado: ''
-    //   },
-    //   estadoProceso: {
-    //     esp_id: 4,
-    //     esp_descripcion: 'Duplicado'
-    //   },
-    //   juzgado: {
-    //     tij_id: '1',
-    //     ciudad: {
-    //       mpi_id: ''
-    //     }
-    //   },
-    //   apoderado:{
-    //     tia_id:''
-    //   },
-    //   causa{
-    //
-    //   }
-    // };
-  }
+              private municipioService: MunicipioService
+              ) {}
 
   ngOnInit() {
+    this.procesos$ = this.procesoService.procesos$;
     this.juzgados$ = this.juzgadoService.juzgados$;
     this.departamentos$ = this.departamentoService.departamentos$;
     this.municipios$ = this.municipioService.municipios$;
@@ -153,14 +116,5 @@ export class Cus234Component implements OnInit {
     this.modPretensionService.loadAll();
     this.actoAdminService.loadAll();
     this.procesoDupService.loadAll();
-  }
-
-  onProcesoChange(nProcesoNumero: number) {
-    console.log('Entra');
-    this.procesoService.getAllByProcesoNumero(nProcesoNumero)
-      .subscribe(
-        procesos => this.procesos = procesos,
-        error => this.errorMessage = <any>error);
-    console.log(nProcesoNumero);
   }
 }

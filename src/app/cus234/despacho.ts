@@ -1,4 +1,4 @@
-export interface Despacho {
+export interface DespachoInterface {
   dei_id: number,
   dei_descripcion?: string,
   tij_id?: string,
@@ -6,4 +6,8 @@ export interface Despacho {
   mpi_id?: number,
   dei_consecutivoid?: string,
   dei_concatenado?: string
+}
+
+export class Despacho implements DespachoInterface {
+  dei_id: number;
 }

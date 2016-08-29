@@ -1,7 +1,7 @@
 import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
-import {ModPretension} from '../modPretension';
+import {ModPretensionInterface} from '../modPretension';
 
 
 /**
@@ -10,16 +10,16 @@ import {ModPretension} from '../modPretension';
 
 @Injectable()
 export class ModPretensionService {
-  private _modPretensiones$: Subject<ModPretension[]>;
+  private _modPretensiones$: Subject<ModPretensionInterface[]>;
   private baseUrl: string;
   private dataStore: {
-    modPretensiones: ModPretension[]
+    modPretensiones: ModPretensionInterface[]
   };
 
   constructor(private http: Http) {
     this.baseUrl = 'http://firux.ddns.net:8080/judiciales/api/sp';
     this.dataStore = {modPretensiones: []};
-    this._modPretensiones$ = <Subject<ModPretension[]>>new Subject();
+    this._modPretensiones$ = <Subject<ModPretensionInterface[]>>new Subject();
   }
 
   get modPretensiones$() {
