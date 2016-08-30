@@ -11,11 +11,10 @@
 
 //CUS007 Consultar información histórico proceso - Nota: Se recomienda un modal
 .container
-  .header
-    h3 Consulta histórico de procesos
-  .row
+  form.form-horizontal(role="form")
     .col-sm-6
-      form.form-horizontal(role="form")
+      fieldset
+        legend Consulta histórico de procesos
         .form-group
           label.control-label.col-sm-6 Fecha inicio notificación
           .col-sm-6
@@ -75,7 +74,7 @@
               option(value="9") Ciudad9
               option(value="10") Ciudad10
     .col-sm-6
-      form.form-horizontal(role="form")
+      fieldset
         .form-group
           label.control-label.col-sm-5 Fecha fin notificación
           .col-sm-6
@@ -127,7 +126,7 @@
       .btn-group
         .btn.btn-default.btn-md Limpiar
         .btn.btn-primary.btn-md Consultar
-  .row
+  fieldset
     .well
       p Se identificaron &lt;&lt;Número de registros calculados&gt;&gt; procesos con los filtros de consulta diligenciados
     .btn-group.pull-right

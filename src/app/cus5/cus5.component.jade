@@ -11,11 +11,10 @@
 
 //CUS005 Búsqueda avanzada - Nota: Se recomienda un modal
 .container
-  .header
-    h3 Búsqueda avanzada / Filtros de consulta
-  .row
+  form.form-horizontal(role="form")
     .col-sm-6
-      form.form-horizontal(role="form")
+      fieldset
+        legend Búsqueda avanzada / Filtros de consulta  
         .form-group
           label.control-label.col-sm-4 Fecha inicio notificación
           .col-sm-6
@@ -88,7 +87,7 @@
           .col-sm-6
             input#cod23Digitos.form-control.number(placeholder="Digite los 23 dígitos del proceso")
     .col-sm-6
-      form.form-horizontal(role="form")
+      fieldset
         .form-group
           label.control-label.col-sm-4 Fecha fin notificación
           .col-sm-6
@@ -151,40 +150,41 @@
           label.control-label.col-sm-4 CC demandante
           .col-sm-6
             input#codDemandante.form-control.number(placeholder="Digite la cédula del demandante")
-    .col-sm-12
-      .btn-group.pull-right
-        .btn.btn-default.btn-md Limpiar
-        .btn.btn-primary.btn-md Consultar
-  .table-responsive
-    table.table.table-condensed.table-hover
-      caption.text-left Procesos encontrados
-      thead.primary-emphasis
-        tr
-          th 23 dígitos
-          th Bizagi
-          th Tipo proceso
-          th Demandante
-          th Cédula
-          th Nombre despacho
-          th.text-center Detalle
-      tbody
-        tr
-          td 1234567891011121314151617
-          td 2016_132456
-          td ordinario laboral
-          td Camilo Erazo
-          td 80234562
-          td Juzgado 028
-          td.text-center
-            i.glyphicon.glyphicon-file.btn-sm-default(title="Ver detalle")
-        tr
-          td 1984465654654121314151617
-          td 2016_132456
-          td ordinario laboral
-          td Camilo Erazo
-          td 80234562
-          td Juzgado 028
-          td.text-center
-            i.glyphicon.glyphicon-file.btn-sm-default(title="Ver detalle")
+  .col-sm-12
+    .btn-group.pull-right
+      .btn.btn-default.btn-md Limpiar
+      .btn.btn-primary.btn-md Consultar
+  fieldset
+    legend Procesos encontrados
+    .table-responsive
+      table.table.table-condensed.table-hover
+        thead.primary-emphasis
+          tr
+            th 23 dígitos
+            th Bizagi
+            th Tipo proceso
+            th Demandante
+            th Cédula
+            th Nombre despacho
+            th.text-center Detalle
+        tbody
+          tr
+            td 1234567891011121314151617
+            td 2016_132456
+            td ordinario laboral
+            td Camilo Erazo
+            td 80234562
+            td Juzgado 028
+            td.text-center
+              i.glyphicon.glyphicon-file.btn-sm-default(title="Ver detalle")
+          tr
+            td 1984465654654121314151617
+            td 2016_132456
+            td ordinario laboral
+            td Camilo Erazo
+            td 80234562
+            td Juzgado 028
+            td.text-center
+              i.glyphicon.glyphicon-file.btn-sm-default(title="Ver detalle")
   .btn-group.pull-right
     .btn.btn-success.btn-md Exportar

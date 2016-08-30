@@ -478,7 +478,7 @@ fieldset {
 
 legend {
   margin-left: 1em;
-  margin-top: -2em;
+  margin-top: -2.3em;
   position: absolute;
   width: initial;
   border: 0;
@@ -505,7 +505,7 @@ legend {
   }
 }
 
-#perfilesTable {
+#responsiveTable {
   border: 1px solid #ccc !important;
   border-radius: 12px;
   padding: 10px 5px;
@@ -513,7 +513,7 @@ legend {
 
 .header + .jumbotron {
   margin-bottom: auto;
-  @extend #perfilesTable;
+  @extend #responsiveTable;
 }
 
 .jumbotron input[type='file'] {

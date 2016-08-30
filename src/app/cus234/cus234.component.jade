@@ -29,7 +29,7 @@
             .form-group
               label.control-label.col-sm-4 Nombre del demandante
               .col-sm-6
-                input#nombreDemandante.form-control.not-number([ngModel]='proceso?.Nombre_Dem', disabled="disabled", placeholder="Digite el nombre del demandante", value="Camilo Erazo")
+                input#nombreDemandante.form-control([ngModel]='proceso?.Nombre_Dem', disabled="disabled", placeholder="Digite el nombre del demandante", value="Camilo Erazo")
             //.row
               .col-xs-11
                 .btn.btn-primary.btn-md.pull-right Validar duplicidad
@@ -116,7 +116,7 @@
             .form-group
               label.control-label.col-sm-4 ID litigar
               .col-sm-6
-                input#idLitigar.form-control.not-number([ngModel]='proceso?.prj_litigacion', placeholder="Digite el ID a litigar")
+                input#idLitigar.form-control([ngModel]='proceso?.prj_litigacion', placeholder="Digite el ID a litigar")
             .form-group
               label.control-label.col-sm-4 Fecha de notificaci&oacute;n
               .col-sm-6
@@ -156,7 +156,7 @@
             .form-group
               label.control-label.col-sm-4 Radicado rama judicial / N&uacute;mero de radicaci&oacute;n
               .col-sm-6
-                input#radicadoRamJud.form-control.not-number([ngModel]='proceso?.prj_numeroradica', placeholder="Digite el radicado de la rama judicial / Número de radicación ej. 2015_000003")
+                input#radicadoRamJud.form-control([ngModel]='proceso?.prj_numeroradica', placeholder="Digite el radicado de la rama judicial / Número de radicación ej. 2015_000003")
             //.form-group
               label.control-label.col-sm-4 23 d&eacute;gitos del proceso / N&uacute;mero de proceso rama judicial
               .col-sm-6
@@ -170,7 +170,7 @@
             .form-group
               label.control-label.col-sm-4 Clasificaci&oacute;n procesos /jurisdicci&oacute;n - acci&oacute;n
               .col-sm-6
-                input#clasProcesos.form-control.not-number([ngModel]='proceso?.prj_clasificacionps', placeholder="Digite clasificación procesos /jurisdicción - acción")
+                input#clasProcesos.form-control([ngModel]='proceso?.prj_clasificacionps', placeholder="Digite clasificación procesos /jurisdicción - acción")
             //.form-group
               label.control-label.col-sm-4 CC demandante / identificaci&oacute;n demandante
               .col-sm-6
@@ -182,11 +182,11 @@
             .form-group
               label.control-label.col-sm-4 Demandado
               .col-sm-6
-                input#idDemandado.form-control.not-number([ngModel]='proceso?.prj_demandado', placeholder="Digite el nombre del demandado", value="Colpensiones")
+                input#idDemandado.form-control([ngModel]='proceso?.prj_demandado', placeholder="Digite el nombre del demandado", value="Colpensiones")
             .form-group
               label.control-label.col-sm-4 Nombre apoderado actual
               .col-sm-6
-                input#nombreApoAct.form-control.not-number([ngModel]='proceso?.apoderado?.nombre', placeholder="Digite el nombre del apoderado actual")
+                input#nombreApoAct.form-control([ngModel]='proceso?.apoderado?.nombre', placeholder="Digite el nombre del apoderado actual")
             .form-group
               label.control-label.col-sm-4 C&eacute;dula apoderado Colpensiones
               .col-sm-6
@@ -194,7 +194,7 @@
             .form-group
               label.control-label.col-sm-4 Tarjeta profesional apoderado
               .col-sm-6
-                input#idTarjetaPro.form-control.not-number([ngModel]='proceso?.apoderado?.tarjeta', placeholder="Digite la tarjeta profesional del apoderado")
+                input#idTarjetaPro.form-control([ngModel]='proceso?.apoderado?.tarjeta', placeholder="Digite la tarjeta profesional del apoderado")
             .form-group
               label.control-label.col-sm-4 Clasificaci&oacute;n tr&aacute;mites
               .col-sm-6
@@ -212,7 +212,7 @@
             .form-group
               label.control-label.col-sm-4 Relaci&oacute;n de informativo
               .col-sm-6
-                input#relInfor.form-control.not-number([ngModel]='proceso?.prj_relacioninforma', placeholder="Digite la relacion de informativo")
+                input#relInfor.form-control([ngModel]='proceso?.prj_relacioninforma', placeholder="Digite la relacion de informativo")
             .form-group
               label.control-label.col-sm-4 Regional
               .col-sm-6
@@ -249,7 +249,7 @@
             .form-group
               label.control-label.col-sm-4 N&uacute;mero de la resoluci&oacute;n
               .col-sm-6
-                input#numResolicion.form-control.not-number([ngModel]='proceso?.numRes', placeholder="Digite el número de la resolución")
+                input#numResolicion.form-control([ngModel]='proceso?.numRes', placeholder="Digite el número de la resolución")
             .form-group
               label.control-label.col-sm-4 Causa del proceso / Fondo que cubre el riesgo
               .col-sm-6
@@ -285,7 +285,7 @@
             .form-group
               label.control-label.col-sm-4 Nombre afiliado causante
               .col-sm-6
-                input#nomAfilCaus.form-control.not-number([ngModel]='proceso?.afiliado?.nombre', placeholder="Digite el Nombre afiliado causante")
+                input#nomAfilCaus.form-control([ngModel]='proceso?.afiliado?.nombre', placeholder="Digite el Nombre afiliado causante")
             .form-group
               label.control-label.col-sm-4 CC afiliado causante/ identificaci&oacute;n
               .col-sm-6
