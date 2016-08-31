@@ -117,4 +117,8 @@ export class Cus234Component implements OnInit {
     this.actoAdminService.loadAll();
     this.procesoDupService.loadAll();
   }
+
+  registrarReparto(proceso: Proceso) {
+    console.log(proceso);
+  }
 }

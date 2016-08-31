@@ -77,15 +77,15 @@
         .form-group
           label.control-label.col-sm-4 N° Bizagi - Caso defensa judicial
           .col-sm-6
-            input#codBizagi.form-control.not-number(placeholder="Digite el número Bizagi")
+            input#codBizagi.form-control.not-number(placeholder="Digite el número Bizagi" maxlength="12")
         .form-group
           label.control-label.col-sm-4 Nombre demandante
           .col-sm-6
-            input#nomDemandante.form-control.not-number(placeholder="Digite el nombre del demandante")
+            input#nomDemandante.form-control.not-number(placeholder="Digite el nombre del demandante" maxlength="300")
         .form-group
           label.control-label.col-sm-4 23 dígitos de proceso
           .col-sm-6
-            input#cod23Digitos.form-control.number(placeholder="Digite los 23 dígitos del proceso")
+            input#cod23Digitos.form-control.number(placeholder="Digite los 23 dígitos del proceso" maxlength="23")
     .col-sm-6
       fieldset
         .form-group
@@ -149,7 +149,7 @@
         .form-group
           label.control-label.col-sm-4 CC demandante
           .col-sm-6
-            input#codDemandante.form-control.number(placeholder="Digite la cédula del demandante")
+            input#codDemandante.form-control.number(placeholder="Digite la cédula del demandante" maxlength="25")
   .col-sm-12
     .btn-group.pull-right
       .btn.btn-default.btn-md Limpiar

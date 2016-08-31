@@ -17,7 +17,7 @@ export class ActoAdminService {
   };
 
   constructor(private http: Http) {
-    this.baseUrl = 'http://firux.ddns.net:8080/judiciales/api/sp';
+    this.baseUrl = 'http://127.0.0.1:8080/judiciales/api/sp';
     this.dataStore = {actosAdmin: []};
     this._actosAdmin$ = <Subject<ActoAdminInterface[]>>new Subject();
   }

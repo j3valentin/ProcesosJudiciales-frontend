@@ -514,7 +514,7 @@
           .form-group
             label.control-label.col-sm-4 Número de la resolución
             .col-sm-6
-              input#numResolicion.form-control.not-number(placeholder="Digite el número de la resolución")
+              input#numResolicion.form-control.not-number(placeholder="Digite el número de la resolución" maxlength="100")
           .form-group
             label.control-label.col-sm-4 Causa del proceso / Fondo que cubre el riesgo
             .col-sm-6
@@ -570,24 +570,24 @@
           .form-group
             label.control-label.col-sm-4 Cuantía estimada en el proceso
             .col-sm-6
-              input#cuantiaEstimada.form-control.number(placeholder="Digite la cuantía estimada en el proceso")
+              input#cuantiaEstimada.form-control.number(placeholder="Digite la cuantía estimada en el proceso" maxlength="10")
           .form-group
             label.control-label.col-sm-4 Nombre afiliado causante
             .col-sm-6
-              input#nomAfilCaus.form-control.not-number(placeholder="Digite el Nombre afiliado causante")
+              input#nomAfilCaus.form-control.not-number(placeholder="Digite el Nombre afiliado causante" maxlength="300")
           .form-group
             label.control-label.col-sm-4 CC afiliado causante/ identificación
             .col-sm-6
-              input#idafilCaus.form-control.number(placeholder="Digite la CC afiliado causante/ identificación")
+              input#idafilCaus.form-control.number(placeholder="Digite la CC afiliado causante/ identificación" maxlength="25")
           .dashed-group
             .form-group
               label.control-label.col-sm-4 Nombre beneficiario 1
               .col-sm-6
-                input#nomBef1.form-control.not-number(placeholder="Digite el nombre beneficiario 1")
+                input#nomBef1.form-control.not-number(placeholder="Digite el nombre beneficiario 1" maxlength="300")
             .form-group
               label.control-label.col-sm-4 Cédula ciudadanía beneficiario 1
               .col-sm-6
-                input#idBef1.form-control.number(placeholder="Digite la cédula ciudadanía beneficiario 1")
+                input#idBef1.form-control.number(placeholder="Digite la cédula ciudadanía beneficiario 1" maxlength="25")
             .form-group
               label.control-label.col-sm-4
               .col-sm-6
@@ -598,7 +598,7 @@
           .form-group
             label.control-label.col-sm-4 Cantidad demandantes
             .col-sm-6
-              input#cantDeman.form-control.number.not-number(placeholder="Digite la cantidad de demandantes")
+              input#cantDeman.form-control.number.not-number(placeholder="Digite la cantidad de demandantes" maxlength="2")
           .form-group
             label.control-label.col-sm-4 ¿Entre los demandantes hay una entidad pública?
             .col-sm-6
@@ -625,7 +625,7 @@
           .form-group
             label.control-label.col-sm-4 Número de proceso Rama Judicial actual
             .col-sm-6
-              input#numRamActual.form-control.number(placeholder="Digite el número de proceso Rama Judicial actual")
+              input#numRamActual.form-control.number(placeholder="Digite el número de proceso Rama Judicial actual" maxlength="23")
           .form-group
             label.control-label.col-sm-4 Instancia actual
             .col-sm-6
@@ -633,7 +633,11 @@
           .form-group
             label.control-label.col-sm-4 Número de despacho actual
             .col-sm-6
-              input#despachoActual.form-control.number(placeholder="Digite el número de despacho actual")
+              input#despachoActual.form-control.number(placeholder="Digite el número de despacho actual" maxlength="50")
+          .form-group
+            label.control-label.col-sm-4 Despacho actual
+            .col-sm-6
+              input#despachoActual.form-control.number(placeholder="Digite el despacho actual" maxlength="300")
           .form-group
               label.control-label.col-sm-4 Tiempo estimado del proceso
               .col-sm-6
@@ -649,7 +653,7 @@
           .form-group
               label.control-label.col-sm-4 Última actuación surtida en el proceso
               .col-sm-6
-                input#ultimActuaSurtida.form-control.not-number(placeholder="Digite la última actuación surtida en el proceso")
+                input#ultimActuaSurtida.form-control.not-number(placeholder="Digite la última actuación surtida en el proceso" maxlength="300")
           .form-group
               label.control-label.col-sm-4 Fecha última situación
               .col-sm-6
@@ -665,7 +669,7 @@
             .form-group
               label.control-label.col-sm-4 Provisión contable en caso de pérdida
               .col-sm-6
-                input#provContaPerdida.form-control.number(placeholder="Digite la provisión contable en caso de pérdida")
+                input#provContaPerdida.form-control.number(placeholder="Digite la provisión contable en caso de pérdida" maxlength="10")
             .form-group
               label.control-label.col-sm-4 Sentido fallo 1 instancia
               .col-sm-6
@@ -707,11 +711,11 @@
             .form-group
               label.control-label.col-sm-4 Valor agencias en derecho
               .col-sm-6
-                input#valorAgenDer.form-control.number(placeholder="Digite el valor agencias en derecho")
+                input#valorAgenDer.form-control.number(placeholder="Digite el valor agencias en derecho" maxlength="20")
             .form-group
               label.control-label.col-sm-4 Gastos procesales
               .col-sm-6
-                input#gastosProces.form-control.number(placeholder="Digite el valor agencias en derecho")
+                input#gastosProces.form-control.number(placeholder="Digite el valor de gastos procesales" maxlength="20")
             .form-group
               label.control-label.col-sm-4 Recurso extraordinario
               .col-sm-6
@@ -732,7 +736,7 @@
             .form-group
               label.control-label.col-sm-4 Valor del acuerdo
               .col-sm-6
-                input#valorAcuerdo.form-control.number(placeholder="Digite el valor del acuerdo")
+                input#valorAcuerdo.form-control.number(placeholder="Digite el valor del acuerdo" maxlength="20")
             .form-group
               label.control-label.col-sm-4 Estado del proceso
               .col-sm-6
@@ -761,15 +765,15 @@
             .form-group
               label.control-label.col-sm-4 Valor de la sentencia
               .col-sm-6
-                input#valorSenten.form-control.number(placeholder="Digite el valor de la sentencia")
+                input#valorSenten.form-control.number(placeholder="Digite el valor de la sentencia" maxlength="20")
             .form-group
               label.control-label.col-sm-4 Valor intereses moratorios
               .col-sm-6
-                input#valorInteresesMora.form-control.number(placeholder="Digite el valor de los intereses moratorios")
+                input#valorInteresesMora.form-control.number(placeholder="Digite el valor de los intereses moratorios" maxlength="20")
             .form-group
               label.control-label.col-sm-4 Valor indexación
               .col-sm-6
-                input#valorIndexa.form-control.number(placeholder="Digite el valor de la indexación")
+                input#valorIndexa.form-control.number(placeholder="Digite el valor de la indexación" maxlength="20")
             .form-group
               label.control-label.col-sm-4 Hechos del proceso
               .col-sm-6
@@ -834,11 +838,11 @@
           .form-group
             label.control-label.col-sm-4 Nombre apoderado contraparte
             .col-sm-6
-              input#nomApoContra.form-control.not-number(disabled="disabled")
+              input#nomApoContra.form-control.not-number(disabled="disabled" maxlength="300")
           .form-group
             label.control-label.col-sm-4 Identificación apoderado contraparte
             .col-sm-6
-              input#idApoContra.form-control.number(disabled="disabled")
+              input#idApoContra.form-control.number(disabled="disabled" maxlength="25")
         .col-xs-12
           .btn-group(role="group").pull-right
             .btn.btn-default.btn-md Limpiar

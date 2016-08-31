@@ -7,7 +7,7 @@ import {Regional} from './regional';
 import {DespachoInterface, Despacho} from './despacho';
 import {ClasificacionInterface, Clasificacion} from './clasificacion';
 import {CausaInterace, Causa} from './causa';
-import {PretensionInterface, Pretension} from './Pretension';
+import {PretensionInterface, Pretension} from './pretension';
 import {ModPretensionInterface, ModPretension} from './modPretension';
 import {ClasePretensionInterface, ClasePretencion} from './clasePretencion';
 import {ActoAdminInterface, ActoAdmin} from './actoAdmin';

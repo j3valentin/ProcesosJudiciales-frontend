@@ -31,11 +31,11 @@
           .form-group
             label.control-label.col-sm-4 No. Bizagi - caso defensa judicial
             .col-sm-6
-              input#idBizagi.form-control.not-number(placeholder="Digite el número Bizagi - caso defensa judicial")
+              input#idBizagi.form-control.not-number(placeholder="Digite el número Bizagi - caso defensa judicial" maxlength="12")
           .form-group
             label.control-label.col-sm-4 No. de juzgado (en letras)
             .col-sm-6
-              input#idJuzgado.form-control.number(placeholder="Digite el número del juzgado")
+              input#idJuzgado.form-control.number(placeholder="Digite el número del juzgado" maxlength="10")
           .form-group
             label.control-label.col-sm-4 Tipo de juzgado
             .col-sm-6
@@ -386,11 +386,11 @@
           .form-group
             label.control-label.col-sm-4 Radicado rama judicial / Número de radicación
             .col-sm-6
-              input#radicadoRamJud.form-control(placeholder="Digite el radicado de la rama judicial / Número de radicación ej. 2015_000003")
+              input#radicadoRamJud.form-control(placeholder="Digite el radicado de la rama judicial / Número de radicación ej. 2015_000003" maxlength="12")
           .form-group
             label.control-label.col-sm-4 23 dígitos del proceso / Número de proceso rama judicial
             .col-sm-6
-              input#veintiTresDig.form-control.number(placeholder="Digite los 23 dígitos del proceso / Número de proceso rama judicial")
+              input#veintiTresDig.form-control.number(placeholder="Digite los 23 dígitos del proceso / Número de proceso rama judicial" maxlength="23")
           .form-group
             label.control-label.col-sm-4 Tipo de proceso
             .col-sm-6
@@ -414,27 +414,27 @@
           .form-group
             label.control-label.col-sm-4 CC demandante / identificación demandante
             .col-sm-6
-              input#idDemandante.form-control.number(placeholder="Digite el documento del demandante / identificación demandante")
+              input#idDemandante.form-control.number(placeholder="Digite el documento del demandante / identificación demandante" maxlength="25")
           .form-group
             label.control-label.col-sm-4 Nombre demandante
             .col-sm-6
-              input#nombreDemandante.form-control.not-number(placeholder="Digite el nombre del demandante")
+              input#nombreDemandante.form-control.not-number(placeholder="Digite el nombre del demandante" maxlength="300")
           .form-group
             label.control-label.col-sm-4 Demandado
             .col-sm-6
-              input#idDemandado.form-control.not-number(placeholder="Digite el nombre del demandado", value="Colpensiones")
+              input#idDemandado.form-control.not-number(placeholder="Digite el nombre del demandado", value="Colpensiones" maxlength="300")
           .form-group
             label.control-label.col-sm-4 Nombre apoderado actual
             .col-sm-6
-              input#nombreApoAct.form-control.not-number(placeholder="Digite el nombre del apoderado actual")
+              input#nombreApoAct.form-control.not-number(placeholder="Digite el nombre del apoderado actual" maxlength="300")
           .form-group
             label.control-label.col-sm-4 Cédula apoderado Colpensiones
             .col-sm-6
-              input#idApoAct.form-control.number(placeholder="Digite la cédula del apoderado Colpensiones")
+              input#idApoAct.form-control.number(placeholder="Digite la cédula del apoderado Colpensiones" maxlength="25")
           .form-group
             label.control-label.col-sm-4 TP apoderado Colpensiones
             .col-sm-6
-              input#idTarjetaPro.form-control.not-number(placeholder="Digite la tarjeta profesional del apoderado")
+              input#idTarjetaPro.form-control.not-number(placeholder="Digite la tarjeta profesional del apoderado" maxlength="25")
           .form-group
             label.control-label.col-sm-4 Clasificación trámites
             .col-sm-6
@@ -481,7 +481,7 @@
           .form-group
             label.control-label.col-sm-4 Año de radicación
             .col-sm-6
-              input#anoRad.form-control.number(placeholder="Digite el año de radicación")
+              input#anoRad.form-control.number(placeholder="Digite el año de radicación" maxlength="4")
           .form-group
             label.control-label.col-sm-4 Tipo de unidad
             .col-sm-6
@@ -571,24 +571,24 @@
             .form-group
               label.control-label.col-sm-4 Cuantía estimada en el proceso
               .col-sm-6
-                input#cuantiaEstimada.form-control.number(placeholder="Digite la cuantía estimada en el proceso")
+                input#cuantiaEstimada.form-control.number(placeholder="Digite la cuantía estimada en el proceso" maxlength="20")
             .form-group
               label.control-label.col-sm-4 Nombre afiliado causante
               .col-sm-6
-                input#nomAfilCaus.form-control.not-number(placeholder="Digite el Nombre afiliado causante")
+                input#nomAfilCaus.form-control.not-number(placeholder="Digite el Nombre afiliado causante" maxlength="300")
             .form-group
               label.control-label.col-sm-4 CC afiliado causante/ identificación
               .col-sm-6
-                input#idafilCaus.form-control.number(placeholder="Digite la CC afiliado causante/ identificación")
+                input#idafilCaus.form-control.number(placeholder="Digite la CC afiliado causante/ identificación" maxlength="25")
             .dashed-group
               .form-group
                 label.control-label.col-sm-4 Nombre beneficiario 1
                 .col-sm-6
-                  input#nomBef1.form-control.not-number(placeholder="Digite el nombre beneficiario 1")
+                  input#nomBef1.form-control.not-number(placeholder="Digite el nombre beneficiario 1" maxlength="300")
               .form-group
                 label.control-label.col-sm-4 Cédula ciudadanía beneficiario 1
                 .col-sm-6
-                  input#idBef1.form-control.number(placeholder="Digite la cédula ciudadanía beneficiario 1")
+                  input#idBef1.form-control.number(placeholder="Digite la cédula ciudadanía beneficiario 1" maxlength="25")
               .form-group
                 label.control-label.col-sm-4
                 .col-sm-6
@@ -599,7 +599,7 @@
             .form-group
               label.control-label.col-sm-4 Cantidad demandantes
               .col-sm-6
-                input#cantDeman.form-control.number(placeholder="Digite la cantidad de demandantes")
+                input#cantDeman.form-control.number(placeholder="Digite la cantidad de demandantes" maxlength="2")
             .form-group
               label.control-label.col-sm-4 ¿Entre los demandantes hay una entidad pública?
               .col-sm-6
@@ -610,11 +610,11 @@
             .form-group
               label.control-label.col-sm-4 Nombre apoderado contraparte
               .col-sm-6
-                input#apoContra.form-control.not-number(placeholder="Digite el nombre apoderado contraparte")
+                input#apoContra.form-control.not-number(placeholder="Digite el nombre apoderado contraparte" maxlength="300")
             .form-group
               label.control-label.col-sm-4 Identificación apoderado contraparte
               .col-sm-6
-                input#apoContra.form-control.number(placeholder="Digite la Identificación apoderado contraparte")
+                input#apoContra.form-control.number(placeholder="Digite la Identificación apoderado contraparte" maxlength="25")
         .col-xs-12
           .btn-group(role="group").pull-right
             .btn.btn-default.btn-md Limpiar

@@ -20,17 +20,17 @@
               label.control-label.col-sm-4 23 d&iacute;gitos del proceso / N&uacute;mero de proceso rama judicial
               .col-sm-6
                 input.form-control.number([ngModel]='proceso?.prj_23digitos', (change)="onProcesoChange()",
-                  placeholder="Digite los 23 dígitos del proceso / Número de proceso rama judicial", required)
+                  placeholder="Digite los 23 dígitos del proceso / Número de proceso rama judicial", maxlength="23", required)
             .form-group
               label.control-label.col-sm-4 CC demandante / identificaci&oacute;n del demandante
               .col-sm-6
-                input#idDemandante.form-control.number([ngModel]='proceso?.CC_Dem', disabled, required,
+                input#idDemandante.form-control.number([ngModel]='proceso?.CC_Dem', maxlength="25", required,
                   placeholder="Digite el documento del demandante / identificación demandante")
             .form-group
               label.control-label.col-sm-4 Nombre del demandante
               .col-sm-6
-                input#nombreDemandante.form-control([ngModel]='proceso?.Nombre_Dem', disabled, required,
-                  placeholder="Digite el nombre del demandante")
+                input#nombreDemandante.form-control([ngModel]='proceso?.Nombre_Dem', disabled="disabled",
+                  placeholder="Digite el nombre del demandante", value="Camilo Erazo" maxlength="300")
             //.row
               .col-xs-11
                 .btn.btn-primary.btn-md.pull-right Validar duplicidad
@@ -125,11 +125,11 @@
             .form-group
               label.control-label.col-sm-4 No. Bizagi - caso defensa judicial
               .col-sm-6
-                input#idBizagi.form-control.number([ngModel]='proceso?.prj_numerobizagi', placeholder="Digite el número Bizagi - caso defensa judicial")
+                input#idBizagi.form-control([ngModel]='proceso?.prj_numerobizagi', placeholder="Digite el número Bizagi - caso defensa judicial" maxlength="12")
             .form-group
               label.control-label.col-sm-4 No. de juzgado
               .col-sm-6
-                input#idJuzgado.form-control.number([ngModel]='proceso?.juzgado?.prj_numerojuzgado', placeholder='Digite el número del juzgado')
+                input#idJuzgado.form-control.number([ngModel]='proceso?.juzgado?.prj_numerojuzgado', placeholder='Digite el número del juzgado' maxlength="10")
             .form-group
               label.control-label.col-sm-4 Tipo de juzgado
               .col-sm-6
@@ -157,11 +157,11 @@
             .form-group
               label.control-label.col-sm-4 Radicado rama judicial / N&uacute;mero de radicaci&oacute;n
               .col-sm-6
-                input#radicadoRamJud.form-control([ngModel]='proceso?.prj_numeroradica', placeholder="Digite el radicado de la rama judicial / Número de radicación ej. 2015_000003")
+                input#radicadoRamJud.form-control([ngModel]='proceso?.prj_numeroradica', placeholder="Digite el radicado de la rama judicial / Número de radicación ej. 2015_000003" maxlength="9")
             //.form-group
               label.control-label.col-sm-4 23 d&eacute;gitos del proceso / N&uacute;mero de proceso rama judicial
               .col-sm-6
-                input#veintiTresDig.form-control(placeholder="Digite los 23 dígitos del proceso / Número de proceso rama judicial")
+                input#veintiTresDig.form-control(placeholder="Digite los 23 dígitos del proceso / Número de proceso rama judicial" maxlength="23")
             .form-group
               label.control-label.col-sm-4 Tipo de proceso
               .col-sm-6
@@ -171,31 +171,31 @@
             .form-group
               label.control-label.col-sm-4 Clasificaci&oacute;n procesos /jurisdicci&oacute;n - acci&oacute;n
               .col-sm-6
-                input#clasProcesos.form-control([ngModel]='proceso?.prj_clasificacionps', placeholder="Digite clasificación procesos /jurisdicción - acción")
+                input#clasProcesos.form-control([ngModel]='proceso?.prj_clasificacionps', placeholder="Digite clasificación procesos /jurisdicción - acción" maxlength="50")
             //.form-group
               label.control-label.col-sm-4 CC demandante / identificaci&oacute;n demandante
               .col-sm-6
-                input#idDemandante.form-control(placeholder="Digite el documento del demandante / identificación demandante")
+                input#idDemandante.form-control(placeholder="Digite el documento del demandante / identificación demandante" maxlength="25")
             //.form-group
               label.control-label.col-sm-4 Nombre demandante
               .col-sm-6
-                input#nombreDemandante.form-control(placeholder="Digite el nombre del demandante")
+                input#nombreDemandante.form-control(placeholder="Digite el nombre del demandante" maxlength="300")
             .form-group
               label.control-label.col-sm-4 Demandado
               .col-sm-6
-                input#idDemandado.form-control([ngModel]='proceso?.prj_demandado', placeholder="Digite el nombre del demandado", value="Colpensiones")
+                input#idDemandado.form-control([ngModel]='proceso?.prj_demandado', placeholder="Digite el nombre del demandado", value="Colpensiones" maxlength="12")
             .form-group
               label.control-label.col-sm-4 Nombre apoderado actual
               .col-sm-6
-                input#nombreApoAct.form-control([ngModel]='proceso?.apoderado?.nombre', placeholder="Digite el nombre del apoderado actual")
+                input#nombreApoAct.form-control([ngModel]='proceso?.apoderado?.nombre', placeholder="Digite el nombre del apoderado actual" maxlength="300")
             .form-group
               label.control-label.col-sm-4 C&eacute;dula apoderado Colpensiones
               .col-sm-6
-                input#idApoAct.form-control.number([ngModel]='proceso?.apoderado?.cedula', placeholder="Digite la cédula del apoderado Colpensiones")
+                input#idApoAct.form-control.number([ngModel]='proceso?.apoderado?.cedula', placeholder="Digite la cédula del apoderado Colpensiones" maxlength="25")
             .form-group
               label.control-label.col-sm-4 Tarjeta profesional apoderado
               .col-sm-6
-                input#idTarjetaPro.form-control([ngModel]='proceso?.apoderado?.tarjeta', placeholder="Digite la tarjeta profesional del apoderado")
+                input#idTarjetaPro.form-control([ngModel]='proceso?.apoderado?.tarjeta', placeholder="Digite la tarjeta profesional del apoderado" maxlength="25")
             .form-group
               label.control-label.col-sm-4 Clasificaci&oacute;n tr&aacute;mites
               .col-sm-6
@@ -213,7 +213,7 @@
             .form-group
               label.control-label.col-sm-4 Relaci&oacute;n de informativo
               .col-sm-6
-                input#relInfor.form-control([ngModel]='proceso?.prj_relacioninforma', placeholder="Digite la relacion de informativo")
+                input#relInfor.form-control([ngModel]='proceso?.prj_relacioninforma', placeholder="Digite la relacion de informativo" maxlength="300")
             .form-group
               label.control-label.col-sm-4 Regional
               .col-sm-6
@@ -223,15 +223,15 @@
             .form-group
               label.control-label.col-sm-4 A&ntilde;o de radicaci&oacute;n
               .col-sm-6
-                input#anoRad.form-control.number([ngModel]='proceso?.prj_anoradicacion', placeholder="Digite el año de radicación")
+                input#anoRad.form-control.number([ngModel]='proceso?.prj_anoradicacion', placeholder="Digite el año de radicación" maxlength="4")
             .form-group
               label.control-label.col-sm-4 Tipo de unidad
               .col-sm-6
-                input#tipoUnid.form-control.not-number([ngModel]='proceso?.tiu_id', placeholder="Digite el tipo de unidad", value="pesos")
+                input#tipoUnid.form-control.not-number([ngModel]='proceso?.tiu_id', placeholder="Digite el tipo de unidad", value="pesos" maxlength="10")
             .form-group
               label.control-label.col-sm-4 Tipo de apoderado
               .col-sm-6
-                input#tipoApo.form-control.not-number([ngModel]='proceso?.apoderado?.tipo', placeholder="Digite el tipo de apoderado", value="externo")
+                input#tipoApo.form-control.not-number([ngModel]='proceso?.apoderado?.tipo', placeholder="Digite el tipo de apoderado", value="externo" maxlength="10")
 
         #daPrePro.tab-pane.fade.in([class.active]='pestana==="daPrePro"')
           fieldset
@@ -250,7 +250,7 @@
             .form-group
               label.control-label.col-sm-4 N&uacute;mero de la resoluci&oacute;n
               .col-sm-6
-                input#numResolicion.form-control([ngModel]='proceso?.numRes', placeholder="Digite el número de la resolución")
+                input#numResolicion.form-control([ngModel]='proceso?.numRes', placeholder="Digite el número de la resolución" maxlength="100")
             .form-group
               label.control-label.col-sm-4 Causa del proceso / Fondo que cubre el riesgo
               .col-sm-6
@@ -282,24 +282,24 @@
             .form-group
               label.control-label.col-sm-4 Cuant&eacute;a estimada en el proceso
               .col-sm-6
-                input#cuantiaEstimada.form-control.number([ngModel]='proceso?.prj_cuantiaestimada', placeholder="Digite la cuantía estimada en el proceso")
+                input#cuantiaEstimada.form-control.number([ngModel]='proceso?.prj_cuantiaestimada', placeholder="Digite la cuantía estimada en el proceso" maxlength="10")
             .form-group
               label.control-label.col-sm-4 Nombre afiliado causante
               .col-sm-6
-                input#nomAfilCaus.form-control([ngModel]='proceso?.afiliado?.nombre', placeholder="Digite el Nombre afiliado causante")
+                input#nomAfilCaus.form-control([ngModel]='proceso?.afiliado?.nombre', placeholder="Digite el Nombre afiliado causante" maxlength="300")
             .form-group
               label.control-label.col-sm-4 CC afiliado causante/ identificaci&oacute;n
               .col-sm-6
-                input#idafilCaus.form-control.number([ngModel]='proceso?.afiliado?.cedula', placeholder="Digite la CC afiliado causante/ identificación")
+                input#idafilCaus.form-control.number([ngModel]='proceso?.afiliado?.cedula', placeholder="Digite la CC afiliado causante/ identificación" maxlength="25")
             .dashed-group
               .form-group
                 label.control-label.col-sm-4 Nombre beneficiario 1
                 .col-sm-6
-                  input#nomBef1.form-control.not-number([ngModel]='proceso?.afiliado?.beneficiario', placeholder="Digite el nombre beneficiario 1")
+                  input#nomBef1.form-control.not-number([ngModel]='proceso?.afiliado?.beneficiario', placeholder="Digite el nombre beneficiario 1" maxlength="300")
               .form-group
                 label.control-label.col-sm-4 C&eacute;dula ciudadan&eacute;a beneficiario 1
                 .col-sm-6
-                  input#idBef1.form-control.number([ngModel]='proceso?.afiliado?.cedulaBen', placeholder="Digite la cédula ciudadanía beneficiario 1")
+                  input#idBef1.form-control.number([ngModel]='proceso?.afiliado?.cedulaBen', placeholder="Digite la cédula ciudadanía beneficiario 1" maxlength="25")
               .form-group
                 label.control-label.col-sm-4
                 .col-sm-6
@@ -310,7 +310,7 @@
             .form-group
               label.control-label.col-sm-4 Cantidad demandantes
               .col-sm-6
-                input#cantDeman.form-control.number([ngModel]='proceso?.prj_cantidaddemandante', placeholder="Digite la cantidad de demandantes")
+                input#cantDeman.form-control.number([ngModel]='proceso?.prj_cantidaddemandante', placeholder="Digite la cantidad de demandantes" maxlength="2")
             .form-group
               label.control-label.col-sm-4 ¿Entre los demandantes hay una entidad p&uacute;blica?
               .col-sm-6
@@ -321,11 +321,11 @@
             .form-group
               label.control-label.col-sm-4 Nombre apoderado contraparte
               .col-sm-6
-                input#apoContra.form-control.not-number([ngModel]='proceso?.apodeContra?.nombre', placeholder="Digite el nombre apoderado contraparte")
+                input#apoContra.form-control.not-number([ngModel]='proceso?.apodeContra?.nombre', placeholder="Digite el nombre apoderado contraparte" maxlength="300")
             .form-group
               label.control-label.col-sm-4 Identificaci&oacute;n apoderado contraparte
               .col-sm-6
-                input#apoContraId.form-control.number([ngModel]='proceso?.apodeContra?.cedula', placeholder="Digite la Identificación apoderado contraparte")
+                input#apoContraId.form-control.number([ngModel]='proceso?.apodeContra?.cedula', placeholder="Digite la Identificación apoderado contraparte" maxlength="25")
       .col-xs-12
         .btn-group(role="group").pull-right
           input.btn.btn-default.btn-md(type='reset', value='Limpiar')
