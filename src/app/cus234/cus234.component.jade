@@ -1,7 +1,7 @@
 //CUS002 Formularios de registro, CUS003 Validar duplicidad y CUS004 Corregir
 .upperContainer
   .container
-    form.form-horizontal(role="form", (ngSubmit)='procesoService.create(proceso)')
+    form.form-horizontal(role="form", (ngSubmit)='registrarReparto(proceso)')
       .row([hidden]='submitted')
         ul.nav.nav-pills
           li.principalMenuItem
@@ -20,16 +20,17 @@
               label.control-label.col-sm-4 23 d&iacute;gitos del proceso / N&uacute;mero de proceso rama judicial
               .col-sm-6
                 input.form-control.number([ngModel]='proceso?.prj_23digitos', (change)="onProcesoChange()",
-                  placeholder="Digite los 23 dígitos del proceso / Número de proceso rama judicial"
-                  )
+                  placeholder="Digite los 23 dígitos del proceso / Número de proceso rama judicial", required)
             .form-group
               label.control-label.col-sm-4 CC demandante / identificaci&oacute;n del demandante
               .col-sm-6
-                input#idDemandante.form-control.number([ngModel]='proceso?.CC_Dem', placeholder="Digite el documento del demandante / identificación demandante")
+                input#idDemandante.form-control.number([ngModel]='proceso?.CC_Dem', disabled, required,
+                  placeholder="Digite el documento del demandante / identificación demandante")
             .form-group
               label.control-label.col-sm-4 Nombre del demandante
               .col-sm-6
-                input#nombreDemandante.form-control([ngModel]='proceso?.Nombre_Dem', disabled="disabled", placeholder="Digite el nombre del demandante", value="Camilo Erazo")
+                input#nombreDemandante.form-control([ngModel]='proceso?.Nombre_Dem', disabled, required,
+                  placeholder="Digite el nombre del demandante")
             //.row
               .col-xs-11
                 .btn.btn-primary.btn-md.pull-right Validar duplicidad
