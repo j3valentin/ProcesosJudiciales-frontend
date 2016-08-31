@@ -324,7 +324,7 @@ a.hyper_foot {
   // }
 
   &:active {
-    color: #ccc;
+    // color: #ccc;
     margin-top: 0.5px;
     text-shadow: -0.5px -1px 0px rgba(150, 150, 150, 1);
   }
@@ -356,7 +356,7 @@ a.hyper_foot {
 }
 
 .btn-search {
-  color: #88898a;
+  color: white;
   padding-left: 10px;
   @extend .btn-sm-invert;
 }
@@ -467,6 +467,7 @@ i[title]:hover:after {
 
 .azulOsc_f {
   background-color: #005e9d !important;
+  height: auto;
 }
 
 fieldset {

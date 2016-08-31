@@ -1,5 +1,5 @@
 .navbar-default {
-  background-color: #f7f7f7 !important;
+  background-color: #005e9d !important;
   clear: both;
 
   .navbar-brand {
@@ -11,7 +11,7 @@
 }
 
 .navbar-default .navbar-nav a {
-  // color: #88898A !important;
+  color: white;
   font-size: 12px;
   font-weight: 500;
   padding: 6px 3px;
@@ -21,11 +21,11 @@ a:hover, .active {
   text-decoration: underline !important;
 }
 
-.navbar-default .navbar-nav a.router-link-active:hover, 
-.navbar-default .navbar-nav a.router-link-active:focus {
-  color: #88898a !important;
-  // background-color: #fcfcfc !important;
-}
+// .navbar-default .navbar-nav a.router-link-active:hover, 
+// .navbar-default .navbar-nav a.router-link-active:focus {
+//   color: #88898a !important;
+//   // background-color: #fcfcfc !important;
+// }
 
 .navbar {
   min-height: 5px !important;
