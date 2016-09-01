@@ -1,6 +1,6 @@
 export interface PretensionInterface {
   prp_id: number,
-  mop_descripcion?: string
+  prp_descripcion?: string
   cap_id?: number,
 }
 
