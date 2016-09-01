@@ -86,7 +86,9 @@ export class Cus234Component implements OnInit {
               private procesoDupService: ProcesoDupService,
               private departamentoService: DepartamentoService,
               private municipioService: MunicipioService
-              ) {}
+              ) {
+    console.log(this.proceso);
+  }
 
   ngOnInit() {
     this.procesos$ = this.procesoService.procesos$;

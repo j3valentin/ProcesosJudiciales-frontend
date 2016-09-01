@@ -15,7 +15,7 @@ export class JuzgadoService {
   };
 
   constructor(private http: Http) {
-    this.baseUrl = 'http://127.0.0.1:8080/judiciales/api/sp';
+    this.baseUrl = 'http://firux.ddns.net:8080/judiciales/api/sp';
     this.dataStore = {juzgados: []};
     this._juzgados$ = <Subject<JuzgadoInterface[]>>new Subject();
   }

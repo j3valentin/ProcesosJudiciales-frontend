@@ -17,20 +17,23 @@
           fieldset
             legend Consulta de procesos / Validar duplicidad
             .form-group
-              label.control-label.col-sm-4 23 d&iacute;gitos del proceso / N&uacute;mero de proceso rama judicial
+              label.control-label.col-sm-4.required(for='digitos') 23 d&iacute;gitos del proceso / N&uacute;mero de proceso rama judicial
               .col-sm-6
-                input.form-control.number([ngModel]='proceso?.prj_23digitos', (change)="onProcesoChange()",
-                  placeholder="Digite los 23 dígitos del proceso / Número de proceso rama judicial", maxlength="23", required)
+                input#digitos.form-control.number(maxlength="23", required,
+                  placeholder="Digite los 23 dígitos del proceso / Número de proceso rama judicial",
+                  [ngModel]='proceso?.prj_23digitos')
             .form-group
-              label.control-label.col-sm-4 CC demandante / identificaci&oacute;n del demandante
+              label.control-label.col-sm-4.required(for='id_demandante') CC demandante / identificaci&oacute;n del demandante
               .col-sm-6
-                input#idDemandante.form-control.number([ngModel]='proceso?.CC_Dem', maxlength="25", required,
-                  placeholder="Digite el documento del demandante / identificación demandante")
+                input#id_demandante.form-control.number(maxlength="25", required,
+                  placeholder="Digite el documento del demandante / identificación demandante",
+                  [ngModel]='proceso?.CC_Dem')
             .form-group
-              label.control-label.col-sm-4 Nombre del demandante
+              label.control-label.col-sm-4.required(for='nombre_demandante') Nombre del demandante
               .col-sm-6
-                input#nombreDemandante.form-control([ngModel]='proceso?.Nombre_Dem', disabled="disabled",
-                  placeholder="Digite el nombre del demandante", value="Camilo Erazo" maxlength="300")
+                input#nombre_demandante.form-control(maxlength="300",
+                  placeholder="Digite el nombre del demandante",
+                  [ngModel]='proceso?.Nombre_Dem')
             //.row
               .col-xs-11
                 .btn.btn-primary.btn-md.pull-right Validar duplicidad
@@ -111,67 +114,84 @@
           fieldset
             legend Georeferenciaci&oacute;n y datos generales
             .form-group
-              label.control-label.col-sm-4 ID proceso
+              label.control-label.col-sm-4.required(for='proceso_id') ID proceso
               .col-sm-6
-                input#idProceso.form-control.number([ngModel]='proceso?.prj_id', placeholder="Digite el ID del proceso")
+                input#proceso_id.form-control.number(required,
+                  placeholder="Digite el ID del proceso",
+                  [ngModel]='proceso?.prj_id')
             .form-group
-              label.control-label.col-sm-4 ID litigar
+              label.control-label.col-sm-4.required(for='litigar_id') ID litigar
               .col-sm-6
-                input#idLitigar.form-control([ngModel]='proceso?.prj_litigacion', placeholder="Digite el ID a litigar")
+                input#litigar_id.form-control(required,
+                  placeholder="Digite el ID a litigar",
+                  [ngModel]='proceso?.prj_litigacion')
             .form-group
-              label.control-label.col-sm-4 Fecha de notificaci&oacute;n
+              label.control-label.col-sm-4.required(for='fecha_notificacion') Fecha de notificaci&oacute;n
               .col-sm-6
-                input#fechaNotificacion.form-control([ngModel]='proceso?.prj_fechanotifica', placeholder="Ingrese la fecha de notificación")
+                input#fecha_notificacion.form-control(type="date", required,
+                  placeholder="Ingrese la fecha de notificación",
+                  [ngModel]='proceso?.prj_fechanotifica')
             .form-group
-              label.control-label.col-sm-4 No. Bizagi - caso defensa judicial
+              label.control-label.col-sm-4.required(for='bizagi') No. Bizagi - caso defensa judicial
               .col-sm-6
-                input#idBizagi.form-control([ngModel]='proceso?.prj_numerobizagi', placeholder="Digite el número Bizagi - caso defensa judicial" maxlength="12")
+                input#bizagi.form-control.number(maxlength="12", required,
+                  placeholder="Digite el número Bizagi - caso defensa judicial",
+                  [ngModel]='proceso?.prj_numerobizagi')
             .form-group
-              label.control-label.col-sm-4 No. de juzgado
+              label.control-label.col-sm-4.required(for='juzgado') No. de juzgado
               .col-sm-6
-                input#idJuzgado.form-control.number([ngModel]='proceso?.juzgado?.prj_numerojuzgado', placeholder='Digite el número del juzgado' maxlength="10")
+                input#juzgado.form-control.number( maxlength="10", required,
+                  placeholder='Digite el número del juzgado',
+                  [ngModel]='proceso?.juzgado?.prj_numerojuzgado')
             .form-group
-              label.control-label.col-sm-4 Tipo de juzgado
+              label.control-label.col-sm-4.required(for='tipo_juzgado') Tipo de juzgado
               .col-sm-6
-                select.form-control
-                  option(selected="selected", value="Seleccione el tipo de juzgado") Seleccione el tipo de juzgado
+                select#tipo_juzgado.form-control(required)
+                  option(selected, value="") Seleccione el tipo de juzgado
                   option(*ngFor="#juzgado of juzgados$ | async", [value]="juzgado.tij_id") {{juzgado.tij_descripcion}}
             .form-group
-              label.control-label.col-sm-4 Nombre de despacho inicial
+              label.control-label.col-sm-4.required(for='despacho_inicial') Nombre de despacho inicial
               .col-sm-6
-                select.form-control
-                  option(selected="selected", value="Seleccione el nombre del despacho inicial") Seleccione el nombre del despacho inicial
+                select#despacho_inicial.form-control(required)
+                  option(selected, value="") Seleccione el nombre del despacho inicial
                   option(*ngFor="#despacho of despachos$ | async", [value]="despacho.dei_id") {{despacho.dei_descripcion}}
             .form-group
-              label.control-label.col-sm-4 Departamento juzgado
+              label.control-label.col-sm-4.required(for='departamento_juzgado') Departamento juzgado
               .col-sm-6
-                select.form-control([ngModel]='proceso?.despacho?.dpt_id', (ngModelChange)='municipioService.loadAllByDepto($event)')
-                  option(selected="selected", value="Seleccione el departamento del juzgado") Seleccione el departamento del juzgado
+                select#departamento_juzgado.form-control(required,
+                  [ngModel]='proceso?.despacho?.dpt_id',
+                  (ngModelChange)='municipioService.loadAllByDepto($event)')
+                  option(selected, value="") Seleccione el departamento del juzgado
                   option(*ngFor="#departamento of departamentos$ | async", [value]="departamento.dpt_id" ) {{departamento.dpt_descripcion}}
             .form-group
-              label.control-label.col-sm-4 Ciudad de juzgado / Lugar de los hechos
+              label.control-label.col-sm-4.required(for="ciudad_juzgado") Ciudad de juzgado / Lugar de los hechos
               .col-sm-6
-                select#ciudadJuzgado.form-control([ngModel]='proceso?.juzgado?.ciudad')
-                  option(selected="selected", value="Seleccione la ciudad del juzgado / Lugar de los hechos") Seleccione la ciudad del juzgado / Lugar de los hechos
+                select#ciudad_juzgado.form-control(required,
+                  [ngModel]='proceso?.juzgado?.ciudad')
+                  option(selected, value="") Seleccione la ciudad del juzgado / Lugar de los hechos
                   option(*ngFor="#municipio of municipios$ | async", [value]="municipio.mpi_id" ) {{municipio.mpi_descripcion}}
             .form-group
-              label.control-label.col-sm-4 Radicado rama judicial / N&uacute;mero de radicaci&oacute;n
+              label.control-label.col-sm-4.required(for="radicado_ram_jud") Radicado rama judicial / N&uacute;mero de radicaci&oacute;n
               .col-sm-6
-                input#radicadoRamJud.form-control([ngModel]='proceso?.prj_numeroradica', placeholder="Digite el radicado de la rama judicial / Número de radicación ej. 2015_000003" maxlength="9")
+                input#radicado_ram_jud.form-control(maxlength="9", required,
+                  placeholder="Digite el radicado de la rama judicial / Número de radicación ej. 2015_000003",
+                  [ngModel]='proceso?.prj_numeroradica')
             //.form-group
               label.control-label.col-sm-4 23 d&eacute;gitos del proceso / N&uacute;mero de proceso rama judicial
               .col-sm-6
                 input#veintiTresDig.form-control(placeholder="Digite los 23 dígitos del proceso / Número de proceso rama judicial" maxlength="23")
             .form-group
-              label.control-label.col-sm-4 Tipo de proceso
+              label.control-label.col-sm-4.required(for="tipo_proceso") Tipo de proceso
               .col-sm-6
-                select.form-control([ngModel]='proceso?.tipo')
-                  option(selected="selected", value="Seleccione el tipo de proceso") Seleccione el tipo de proceso
+                select#tipo_proceso.form-control(required, [ngModel]='proceso?.tipo')
+                  option(selected, value="") Seleccione el tipo de proceso
                   option(*ngFor="#tipoProceso of tipoProcesos$ | async", [value]="tipoProceso.tip_id") {{tipoProceso.tip_descripcion}}
             .form-group
-              label.control-label.col-sm-4 Clasificaci&oacute;n procesos /jurisdicci&oacute;n - acci&oacute;n
+              label.control-label.col-sm-4.required(for="clas_procesos") Clasificaci&oacute;n procesos /jurisdicci&oacute;n - acci&oacute;n
               .col-sm-6
-                input#clasProcesos.form-control([ngModel]='proceso?.prj_clasificacionps', placeholder="Digite clasificación procesos /jurisdicción - acción" maxlength="50")
+                input#clas_procesos.form-control(maxlength="50", required,
+                  placeholder="Digite clasificación procesos /jurisdicción - acción",
+                  [ngModel]='proceso?.prj_clasificacionps')
             //.form-group
               label.control-label.col-sm-4 CC demandante / identificaci&oacute;n demandante
               .col-sm-6
@@ -181,57 +201,76 @@
               .col-sm-6
                 input#nombreDemandante.form-control(placeholder="Digite el nombre del demandante" maxlength="300")
             .form-group
-              label.control-label.col-sm-4 Demandado
+              label.control-label.col-sm-4.required(for="id_demandado") Demandado
               .col-sm-6
-                input#idDemandado.form-control([ngModel]='proceso?.prj_demandado', placeholder="Digite el nombre del demandado", value="Colpensiones" maxlength="12")
+                input#id_demandado.form-control(maxlength="12", required,
+                  value="Colpensiones",
+                  placeholder="Digite el nombre del demandado",
+                  [ngModel]='proceso?.prj_demandado' )
             .form-group
-              label.control-label.col-sm-4 Nombre apoderado actual
+              label.control-label.col-sm-4(for="nombre_apo_act") Nombre apoderado actual
               .col-sm-6
-                input#nombreApoAct.form-control([ngModel]='proceso?.apoderado?.nombre', placeholder="Digite el nombre del apoderado actual" maxlength="300")
+                input#nombre_apo_act.form-control(maxlength="300",
+                  placeholder="Digite el nombre del apoderado actual",
+                  [ngModel]='proceso?.apoderado?.nombre')
             .form-group
-              label.control-label.col-sm-4 C&eacute;dula apoderado Colpensiones
+              label.control-label.col-sm-4.required(for="id_apo_act") C&eacute;dula apoderado Colpensiones
               .col-sm-6
-                input#idApoAct.form-control.number([ngModel]='proceso?.apoderado?.cedula', placeholder="Digite la cédula del apoderado Colpensiones" maxlength="25")
+                input#id_apo_act.form-control.number(maxlength="25", required,
+                  placeholder="Digite la cédula del apoderado Colpensiones",
+                  [ngModel]='proceso?.apoderado?.cedula')
             .form-group
-              label.control-label.col-sm-4 Tarjeta profesional apoderado
+              label.control-label.col-sm-4.required(for="id_tarjeta_pro") Tarjeta profesional apoderado
               .col-sm-6
-                input#idTarjetaPro.form-control([ngModel]='proceso?.apoderado?.tarjeta', placeholder="Digite la tarjeta profesional del apoderado" maxlength="25")
+                input#id_tarjeta_pro.form-control(maxlength="25", required,
+                  placeholder="Digite la tarjeta profesional del apoderado",
+                  [ngModel]='proceso?.apoderado?.tarjeta')
             .form-group
-              label.control-label.col-sm-4 Clasificaci&oacute;n tr&aacute;mites
+              label.control-label.col-sm-4.required(for="clas_tramit") Clasificaci&oacute;n tr&aacute;mites
               .col-sm-6
-                select#clasTramit.form-control([ngModel]='proceso?.clasTramites')
-                  option(selected="selected", value="Seleccione la clasificaci&oacute;n de tr&aacute;mites") Seleccione la clasificaci&oacute;n de tr&aacute;mites
+                select#clas_tramit.form-control(required, [ngModel]='proceso?.clasTramites')
+                  option(selected, value="Seleccione la clasificaci&oacute;n de tr&aacute;mites") Seleccione la clasificaci&oacute;n de tr&aacute;mites
                   option(*ngFor="#clasificacion of clasificaciones$ | async", [value]="clasificacion.clt_id") {{clasificacion.clt_descripcion}}
                   //option(value="nuevo") Proceso Nuevo
                   //option(value="informativo") Proceso Informativo
             .form-group
-              label.control-label.col-sm-4 Tipo informativo
+              label.control-label.col-sm-4.required(for="tipo_infor") Tipo informativo
               .col-sm-6
-                select#tipoInfor.form-control([ngModel]='proceso?.tipoInf')
-                  option(selected="selected", value="Seleccione el tipo de informativo") Seleccione el tipo de informativo
+                select#tipo_infor.form-control(required, [ngModel]='proceso?.tipoInf')
+                  option(selected, value="Seleccione el tipo de informativo") Seleccione el tipo de informativo
                   option(*ngFor="#tipoInformativo of tipoInformativos$ | async", [value]="tipoInformativo.tii_id") {{tipoInformativo.tii_descripcion}}
             .form-group
-              label.control-label.col-sm-4 Relaci&oacute;n de informativo
+              label.control-label.col-sm-4.required(for="rel_infor") Relaci&oacute;n de informativo
               .col-sm-6
-                input#relInfor.form-control([ngModel]='proceso?.prj_relacioninforma', placeholder="Digite la relacion de informativo" maxlength="300")
+                input#rel_infor.form-control(maxlength="300", required,
+                  placeholder="Digite la relacion de informativo",
+                  [ngModel]='proceso?.prj_relacioninforma')
             .form-group
-              label.control-label.col-sm-4 Regional
+              label.control-label.col-sm-4.required(for="id_region") Regional
               .col-sm-6
-                select#idRegion.form-control([ngModel]='proceso?.regional')
-                  option(selected="selected", value="Seleccione la regional")
+                select#id_region.form-control(required, [ngModel]='proceso?.regional')
+                  option(selected, value="Seleccione la regional")
                   option(*ngFor="#regional of regionales$ | async", [value]="regional.reg_id") {{regional.reg_descripcion}}
             .form-group
-              label.control-label.col-sm-4 A&ntilde;o de radicaci&oacute;n
+              label.control-label.col-sm-4.required(for="ano_rad") A&ntilde;o de radicaci&oacute;n
               .col-sm-6
-                input#anoRad.form-control.number([ngModel]='proceso?.prj_anoradicacion', placeholder="Digite el año de radicación" maxlength="4")
+                input#ano_rad.form-control.number(maxlength="4", required,
+                  placeholder="Digite el año de radicación",
+                  [ngModel]='proceso?.prj_anoradicacion')
             .form-group
-              label.control-label.col-sm-4 Tipo de unidad
+              label.control-label.col-sm-4.required(for="tipo_unid") Tipo de unidad
               .col-sm-6
-                input#tipoUnid.form-control.not-number([ngModel]='proceso?.tiu_id', placeholder="Digite el tipo de unidad", value="pesos" maxlength="10")
+                input#tipo_unid.form-control.not-number(maxlength="10", required,
+                  value="pesos",
+                  placeholder="Digite el tipo de unidad",
+                  [ngModel]='proceso?.tiu_id')
             .form-group
-              label.control-label.col-sm-4 Tipo de apoderado
+              label.control-label.col-sm-4.required(for="tipo_apo") Tipo de apoderado
               .col-sm-6
-                input#tipoApo.form-control.not-number([ngModel]='proceso?.apoderado?.tipo', placeholder="Digite el tipo de apoderado", value="externo" maxlength="10")
+                input#tipo_apo.form-control.not-number(maxlength="10", required,
+                  value="externo",
+                  placeholder="Digite el tipo de apoderado",
+                  [ngModel]='proceso?.apoderado?.tipo')
 
         #daPrePro.tab-pane.fade.in([class.active]='pestana==="daPrePro"')
           fieldset
@@ -240,7 +279,8 @@
               label.control-label.col-sm-4 Hechos del proceso
               .col-sm-6
                 .textarea#hechosProces
-                  textarea([ngModel]='proceso?.prj_hechosproceso', cols="73", rows="5", maxlength="300")
+                  textarea(cols="73", rows="5", maxlength="300",
+                    [ngModel]='proceso?.prj_hechosproceso')
             .form-group
               label.control-label.col-sm-4 &iquest;De qui&eacute;n es el acto administrativo demandado?
               .col-sm-6
@@ -329,6 +369,6 @@
       .col-xs-12
         .btn-group(role="group").pull-right
           input.btn.btn-default.btn-md(type='reset', value='Limpiar')
-          button.btn.btn-success.btn-md((click)='pestana="daPrePro"', *ngIf='pestana==="geoDatGen"') Continuar
-          button.btn.btn-success.btn-md((click)='pestana="geoDatGen"', *ngIf='pestana==="daPrePro"') Volver
+          a.btn.btn-success.btn-md((click)='pestana="daPrePro"', *ngIf='pestana==="geoDatGen"') Continuar
+          a.btn.btn-success.btn-md((click)='pestana="geoDatGen"', *ngIf='pestana==="daPrePro"') Volver
           input.btn.btn-primary.btn-md(type="submit", value='Guardar')

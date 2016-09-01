@@ -10,4 +10,9 @@ export interface DespachoInterface {
 
 export class Despacho implements DespachoInterface {
   dei_id: number;
+  dpt_id: string;
+
+  constructor() {
+    this.dpt_id = '';
+  }
 }
