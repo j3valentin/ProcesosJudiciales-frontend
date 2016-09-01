@@ -6,7 +6,7 @@ import {Directive,
   ElementRef, Renderer,
   HostListener} from 'angular2/core';
 
-@Directive({selector: '[number]'})
+@Directive({selector: '[not-number]'})
 export class NotNumberDirective {
 
   constructor(private el: ElementRef, private renderer: Renderer) {}
@@ -39,10 +39,5 @@ export class NotNumberDirective {
     if (event.keyCode >= 96 || event.keyCode <= 105) {
       event.preventDefault();
     }
-  }
-
-  @HostListener('keyup') onKeyUp() {
-    let nel = this.el.nativeElement;
-    this.renderer.setElementProperty(nel, 'value', nel.value.replace(/[^0-9]/g, ''));
   }
 }

@@ -28,7 +28,7 @@
               label.control-label.col-sm-4.required(for='nombre_demandante') Nombre del demandante
               .col-sm-6
                 input#nombre_demandante.form-control(maxlength="300", not-number,
-                  placeholder="Digite el nombre del demandante",
+                  placeholder="Digite el NomBenef del demandante",
                   [ngModel]='proceso?.Nombre_Dem')
             //.row
               .col-xs-11
@@ -191,13 +191,13 @@
               .col-sm-6
                 input#id_demandado.form-control(maxlength="12", required,
                   value="Colpensiones",
-                  placeholder="Digite el nombre del demandado",
+                  placeholder="Digite el NomBenef del demandado",
                   [ngModel]='proceso?.prj_demandado' )
             .form-group
               label.control-label.col-sm-4(for="nombre_apoderado") Nombre apoderado actual
               .col-sm-6
                 input#nombre_apoderado.form-control(maxlength="300",
-                  placeholder="Digite el nombre del apoderado actual",
+                  placeholder="Digite el NomBenef del apoderado actual",
                   [ngModel]='proceso?.apoderado?.nombre')
             .form-group
               label.control-label.col-sm-4.required(for="cedula_apoderado") C&eacute;dula apoderado Colpensiones
@@ -333,7 +333,7 @@
               .col-sm-6
                 input#nombre_afiliado_causante.form-control(maxlength="300", not-number,
                   placeholder="Digite el Nombre afiliado causante",
-                  [ngModel]='proceso?.afiliado?.nombre')
+                  [ngModel]='proceso?.afiliado?.NomBenef')
             .form-group
               label.control-label.col-sm-4(
                 for='identificacion_afiliado_causante') CC afiliado causante/ identificaci&oacute;n
@@ -342,29 +342,27 @@
                   placeholder="Digite la CC afiliado causante/ identificación",
                   [ngModel]='proceso?.afiliado?.cedula')
             .dashed-group
-              .form-group
-                label.control-label.col-sm-4(for='beneficiario_nombre') Nombre beneficiario 1
-                .col-sm-6
-                  input#beneficiario_nombre.form-control(maxlength="300", not-number,
-                    placeholder="Digite el nombre beneficiario 1",
-                    [ngModel]='proceso?.afiliado?.beneficiario')
-              .form-group
-                label.control-label.col-sm-4(
-                  for='beneficiario_identificacion') C&eacute;dula ciudadan&eacute;a beneficiario 1
-                .col-sm-6
-                  input#beneficiario_identificacion.form-control(maxlength="25", number,
-                    placeholder="Digite la cédula ciudadanía beneficiario 1",
-                    [ngModel]='proceso?.afiliado?.cedulaBen')
+              .form-groupoption(*ngFor='#beneficiario of beneficiarios; #i=index')
+                .form-group
+                  label.control-label.col-sm-4 Nombre beneficiario {{i + 1}}
+                  .col-sm-6
+                    input.form-control(maxlength="300", not-number,
+                      placeholder="Digite el NomBenef beneficiario {{i + 1}}")
+                .form-group
+                  label.control-label.col-sm-4 C&eacute;dula ciudadan&eacute;a beneficiario {{i + 1}}
+                  .col-sm-6
+                    input.form-control(maxlength="25", number,
+                      placeholder="Digite la cédula ciudadanía beneficiario {{i + 1}}")
               .form-group
                 label.control-label.col-sm-4
                 .col-sm-6
                   .btn-group.pull-right
-                    a.btn.btn-danger.btn-xs - beneficiario
-                    a.btn.btn-success.btn-xs + beneficiario
-                    // Nota para el programador: El botón debe permitir agregar nuevos campos para
-                      "Nombre del beneficiario #" y "Cédula ciudadania beneficiario #".
-                      Según especificaciones del CUS002 se pueden agregar hasta 5 beneficiarios.
-                      Al quinto el botón se oculta.
+                    a.btn.btn-danger.btn-xs(
+                      *ngIf='beneficiarios.length > 0',
+                      (click)='removeBeneficiario()') - beneficiario
+                    a.btn.btn-success.btn-xs(
+                      *ngIf='beneficiarios.length < 5',
+                      (click)='addBeneficiario()') + beneficiario
             .form-group
               label.control-label.col-sm-4(
                 for='cantidad_demandantes') Cantidad demandantes
@@ -377,15 +375,15 @@
                 for='entidad_publica') &iquest;Entre los demandantes hay una entidad p&uacute;blica?
               .col-sm-6
                 select#entidad_publica.form-control([ngModel]='proceso?.prj_entidadpublica')
-                  option(selected, value="") Seleccione una respuesta
-                  option(value="si") S&iacute;
-                  option(value="no") No
+                  option(value='') Seleccione una respuesta
+                  option(value='si') S&iacute;
+                  option(value='no') No
             .form-group
               label.control-label.col-sm-4(
                 for='apoderado_contraparte_nombre') Nombre apoderado contraparte
               .col-sm-6
                 input#apoderado_contraparte_nombre.form-control(maxlength="300", not-number,
-                  placeholder="Digite el nombre apoderado contraparte",
+                  placeholder="Digite el NomBenef apoderado contraparte",
                   [ngModel]='proceso?.apodeContra?.nombre')
             .form-group
               label.control-label.col-sm-4(
