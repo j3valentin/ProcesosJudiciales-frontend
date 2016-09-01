@@ -150,15 +150,17 @@
               .col-sm-6
                 select#despacho_inicial.form-control(required)
                   option(selected, value="") Seleccione el nombre del despacho inicial
-                  option(*ngFor="#despacho of despachos$ | async", [value]="despacho.dei_id") {{despacho.dei_descripcion}}
+                  option(*ngFor="#despacho of despachos$ | async",
+                    [value]="despacho.dei_id") {{despacho.dei_descripcion}}
             .form-group
               label.control-label.col-sm-4.required(for='departamento_juzgado') Departamento juzgado
               .col-sm-6
                 select#departamento_juzgado.form-control(required,
                   [ngModel]='proceso?.despacho?.dpt_id',
-                  (ngModelChange)='municipioService.loadAllByDepto($event)')
-                  option(selected, value="") Seleccione el departamento del juzgado
-                  option(*ngFor="#departamento of departamentos$ | async", [value]="departamento.dpt_id" ) {{departamento.dpt_descripcion}}
+                  (change)='municipioService.loadAllByDepto($event.target.value)')
+                  option(value='') Seleccione el departamento del juzgado
+                  option(*ngFor="#departamento of departamentos$ | async",
+                    [value]="departamento.dpt_id" ) {{departamento.dpt_descripcion}}
             .form-group
               label.control-label.col-sm-4.required(for="ciudad_juzgado") Ciudad de juzgado / Lugar de los hechos
               .col-sm-6
@@ -284,14 +286,14 @@
               .col-sm-6
                 select#causa_proceso.form-control(
                   [ngModel]='proceso?.causa?.cap_id',
-                  (ngModelChange)='pretensionService.loadAllByCausa($event)')
+                  (change)='pretensionService.loadAllByCausa($event.target.value)')
                   option(selected, value="") Seleccione la causa del proceso / Fondo que cubre el riesgo
                   option(*ngFor="#causa of causas$ | async", [value]="causa.cap_id") {{causa.cap_descripcion}}
             .form-group
               label.control-label.col-sm-4(for='modalidad_pretencion') Modalidad de pretensi&oacute;n
               .col-sm-6
                 select#modalidad_pretencion.form-control([ngModel]='proceso?.modPret')
-                  option(selected, value="") Seleccione la modalidad de pretensi&oacute;n
+                  option(value="") Seleccione la modalidad de pretensi&oacute;n
                   option(*ngFor="#modPretension of modPretensiones$ | async",
                     [value]="modPretension.mop_id") {{modPretension.mop_descripcion}}
             .form-group
@@ -300,15 +302,15 @@
               .col-sm-6
                 select#pretencion_principal.form-control(
                   [ngModel]='proceso?.pretension?.prp_id',
-                  (ngModelChange)='pretensionService.loadAllByPretension($event)')
-                  option(selected, value="") Seleccione la pretensi&oacute;n principal
+                  (change)='pretensionService.loadAllByPretension($event.target.value)')
+                  option(value="") Seleccione la pretensi&oacute;n principal
                   option(*ngFor="#pretension of pretensiones$ | async",
                     [value]="pretension.prp_id") {{pretension.mop_descripcion}}
             .form-group
               label.control-label.col-sm-4(for='clase_pretencion') Clase de pretensi&oacute;n
               .col-sm-6
                 select#clase_pretencion.form-control([ngModel]='proceso?.clasePret')
-                  option(selected, value="") Seleccione la clase de pretensi&oacute;n
+                  option(value="") Seleccione la clase de pretensi&oacute;n
                   option(*ngFor="#clasePretension of clasesPretensiones$ | async",
                     [value]="clasePretension.clp_id") {{clasePretension.clp_descripcion}}
             .form-group
