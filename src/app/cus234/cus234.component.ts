@@ -4,7 +4,6 @@ import {HTTP_PROVIDERS} from 'angular2/http';
 import {Observable} from 'rxjs';
 
 import {NumberDirective} from '../../shared/directives/number.directive';
-import {UtilService} from '../../shared/services/util.service';
 
 import {SeguridadService} from '../../shared/services/seguridad.service';
 import {JuzgadoService} from './services/juzgado.service';
@@ -45,7 +44,7 @@ import {ClasePretensionInterface} from './clasePretencion';
   templateUrl: './cus234.component.html',
   styleUrls: ['./cus234.component.css'],
   directives: [FORM_DIRECTIVES, CORE_DIRECTIVES, NumberDirective],
-  providers: [HTTP_PROVIDERS, UtilService, SeguridadService,
+  providers: [HTTP_PROVIDERS, SeguridadService,
     ProcesoService, JuzgadoService,
     DepartamentoService, MunicipioService,
     DespachoService, RegionalService,
@@ -73,8 +72,7 @@ export class Cus234Component implements OnInit {
   proceso: Proceso = new Proceso();
   pestana: String = 'geoDatGen';
 
-  constructor(private utilService: UtilService,
-              private procesoService: ProcesoService,
+  constructor(private procesoService: ProcesoService,
               private juzgadoService: JuzgadoService,
               private despachoService: DespachoService,
               private regionalService: RegionalService,
