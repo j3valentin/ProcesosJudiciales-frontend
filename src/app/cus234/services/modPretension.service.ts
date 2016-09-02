@@ -17,7 +17,7 @@ export class ModPretensionService {
   };
 
   constructor(private http: Http) {
-    this.baseUrl = 'http://127.0.0.1:8080/judiciales/api/sp';
+    this.baseUrl = 'http://firux.ddns.net:8080/judiciales/api/sp';
     this.dataStore = {modPretensiones: []};
     this._modPretensiones$ = <Subject<ModPretensionInterface[]>>new Subject();
   }

@@ -17,7 +17,7 @@ export class TipoInformativoService {
   };
 
   constructor(private http: Http) {
-    this.baseUrl = 'http://127.0.0.1:8080/judiciales/api/sp';
+    this.baseUrl = 'http://firux.ddns.net:8080/judiciales/api/sp';
     this.dataStore = {tipoInformativos: []};
     this._tipoInformativos$ = <Subject<TipoInformativoInterface[]>>new Subject();
   }
@@ -26,10 +26,12 @@ export class TipoInformativoService {
     return this._tipoInformativos$.asObservable();
   }
 
-  loadAll() {
+  loadAllByClas(i_ctl_id: number) {
     let body = JSON.stringify({
       type: 'CON',
-      parameters: {}
+      parameters: {
+        i_ctl_id: i_ctl_id
+      }
     });
     let headers = new Headers({
       'Content-Type': 'application/json',

@@ -1,8 +1,12 @@
 export interface TipoProcesoInterface {
-  tip_id: number,
-  tip_descripcion?: string
+  tip_id: number;
+  tip_descripcion?: string;
 }
 
 export class TipoProceso implements TipoProcesoInterface {
   tip_id: number;
+
+  constructor() {
+    this.tip_id = '';
+  }
 }

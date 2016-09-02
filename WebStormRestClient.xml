@@ -3,7 +3,7 @@
     <list />
   </option>
   <option name="httpMethod" value="POST" />
-  <option name="urlBase" value="http://127.0.0.1:8080" />
+  <option name="urlBase" value="http://firux.ddns.net:8080" />
   <option name="urlPath" value="/judiciales/api/sp" />
   <option name="headers">
     <list>

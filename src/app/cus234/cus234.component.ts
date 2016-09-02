@@ -4,6 +4,7 @@ import {HTTP_PROVIDERS} from 'angular2/http';
 import {Observable} from 'rxjs';
 
 import {NumberDirective} from '../../shared/directives/number.directive';
+import {NotNumberDirective} from '../../shared/directives/not-number.directive';
 
 import {SeguridadService} from '../../shared/services/seguridad.service';
 import {JuzgadoService} from './services/juzgado.service';
@@ -34,22 +35,25 @@ import {CausaInterace} from './causa';
 import {ModPretensionInterface} from './modPretension';
 import {ActoAdminInterface} from './actoAdmin';
 import {ProcesoDup} from './procesoDup';
-import {Municipio} from './municipio';
+import {MunicipioInterface} from './municipio';
 import {PretensionInterface} from './pretension';
 import {ClasePretensionInterface} from './clasePretencion';
+import {Beneficiario} from './beneficiario';
 
 @Component({
   selector: 'sd-cus234',
   moduleId: module.id,
   templateUrl: './cus234.component.html',
   styleUrls: ['./cus234.component.css'],
-  directives: [FORM_DIRECTIVES, CORE_DIRECTIVES, NumberDirective],
+  directives: [FORM_DIRECTIVES, CORE_DIRECTIVES,
+    NumberDirective, NotNumberDirective],
   providers: [HTTP_PROVIDERS, SeguridadService,
     ProcesoService, JuzgadoService,
     DepartamentoService, MunicipioService,
     DespachoService, RegionalService,
-    TipoProcesoService, TipoInformativoService, ClasificacionService,
-    CausaService, ModPretensionService, PretensionService, ClasePretensionService,
+    TipoProcesoService, TipoInformativoService,
+    ClasificacionService,  CausaService, ModPretensionService,
+    PretensionService, ClasePretensionService,
     ActoAdminService, ProcesoDupService]
 })
 export class Cus234Component implements OnInit {
@@ -59,7 +63,7 @@ export class Cus234Component implements OnInit {
   juzgados$: Observable<JuzgadoInterface[]>;
   despachos$: Observable<DespachoInterface[]>;
   departamentos$: Observable<Departamento[]>;
-  municipios$: Observable<Municipio[]>;
+  municipios$: Observable<MunicipioInterface[]>;
   tipoProcesos$: Observable<TipoProcesoInterface[]>;
   tipoInformativos$: Observable<TipoInformativoInterface[]>;
   regionales$: Observable<Regional[]>;
@@ -71,6 +75,7 @@ export class Cus234Component implements OnInit {
   clasesPretensiones$: Observable<ClasePretensionInterface[]>;
   proceso: Proceso = new Proceso();
   pestana: String = 'geoDatGen';
+  beneficiarios: Beneficiario[] = [];
 
   constructor(private procesoService: ProcesoService,
               private juzgadoService: JuzgadoService,
@@ -87,9 +92,7 @@ export class Cus234Component implements OnInit {
               private procesoDupService: ProcesoDupService,
               private departamentoService: DepartamentoService,
               private municipioService: MunicipioService
-              ) {
-    console.log(this.proceso);
-  }
+              ) {}
 
   ngOnInit() {
     this.procesos$ = this.procesoService.procesos$;
@@ -113,12 +116,21 @@ export class Cus234Component implements OnInit {
     this.despachoService.loadAll();
     this.regionalService.loadAll();
     this.tipoProcesoService.loadAll();
-    this.tipoInformativoService.loadAll();
     this.clasificacionService.loadAll();
     this.causaService.loadAll();
     this.modPretensionService.loadAll();
     this.actoAdminService.loadAll();
     this.procesoDupService.loadAll();
+
+    this.beneficiarios.push(new Beneficiario());
+  }
+
+  addBeneficiario() {
+    this.beneficiarios.push(new Beneficiario());
+  }
+
+  removeBeneficiario() {
+    this.beneficiarios.pop();
   }
 
   registrarReparto(proceso: Proceso) {

@@ -1,6 +1,6 @@
 import {JuzgadoInterface, Juzgado}   from './juzgado';
 import {ApoderadoInterface, Apoderado} from './apoderado';
-import {Afiliado}  from './afiliado';
+import {Beneficiario}  from './beneficiario';
 import {TipoProcesoInterface, TipoProceso}  from './tipoProceso';
 import {TipoInformativoInterface, TipoInformativo} from './tipoInformativo'
 import {Regional} from './regional';
@@ -44,7 +44,7 @@ export interface ProcesoInterface {
   clasePret?: ClasePretensionInterface;
   prj_fechaadminisiondemanda?: string;
   prj_cuantiaestimada?: number;
-  afiliado?: Afiliado;
+  afiliado?: Beneficiario;
   prj_cantidaddemandante?: number;
   prj_entidadpublica?: string;
   apodeContra?: ApoderadoInterface;

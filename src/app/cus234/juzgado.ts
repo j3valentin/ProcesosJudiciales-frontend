@@ -1,4 +1,4 @@
-import {Municipio} from './municipio';
+import {MunicipioInterface, Municipio} from './municipio';
 import {Departamento} from './departamento';
 
 export interface JuzgadoInterface {
@@ -8,9 +8,14 @@ export interface JuzgadoInterface {
   tipo?: string,
   despacho?: string,
   depto?: Departamento,
-  ciudad?: Municipio
+  ciudad?: MunicipioInterface
 }
 
 export class Juzgado implements JuzgadoInterface {
   tij_id: string;
+  ciudad: Municipio;
+
+  constructor() {
+    this.ciudad = new Municipio();
+  }
 }

@@ -5,4 +5,8 @@ export interface ClasificacionInterface {
 
 export class Clasificacion implements ClasificacionInterface {
   clt_id: number;
+
+  constructor() {
+    this.clt_id = '';
+  }
 }
