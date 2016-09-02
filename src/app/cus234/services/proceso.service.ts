@@ -30,6 +30,7 @@ export class ProcesoService {
     let body = JSON.stringify({
       type: 'CON',
       parameters: {
+        'prj_id':1,
         'prj_litigacion':proceso.prj_litigacion,
         'prj_fechanotifica':`${proceso.prj_fechanotifica} 00:00:00`,
         'prj_numerobizagi':proceso.prj_numerobizagi,
@@ -62,7 +63,6 @@ export class ProcesoService {
         'mop_id':proceso.modPret.mop_id,
         'prp_id':proceso.pretension.prp_id,
         'clp_id':proceso.clasePret.clp_id,
-        // 'clp_id':1,
         'prj_fechaadminisiondemanda':`${proceso.prj_fechaadminisiondemanda} 00:00:00`,
         'prj_cuantiaestimada':proceso.prj_cuantiaestimada,
         'NomAfiliado':'',

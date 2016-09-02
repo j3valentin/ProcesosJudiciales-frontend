@@ -242,7 +242,7 @@
             .form-group
               label.control-label.col-sm-4.required(for='regional_id') Regional
               .col-sm-6
-                select#regional_id.form-control(required, [ngModel]='proceso?.regional')
+                select#regional_id.form-control(required, (change)='proceso.regional.reg_id=$event.target.value')
                   option(value='Seleccione la regional')
                   option(*ngFor='#regional of regionales$ | async',
                   [value]='regional.reg_id') {{regional.reg_descripcion}}
