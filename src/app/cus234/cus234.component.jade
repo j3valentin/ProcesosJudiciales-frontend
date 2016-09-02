@@ -179,7 +179,8 @@
             .form-group
               label.control-label.col-sm-4.required(for='tipo_proceso') Tipo de proceso
               .col-sm-6
-                select#tipo_proceso.form-control(required, [ngModel]='proceso?.tipo')
+                select#tipo_proceso.form-control(required,
+                [ngModel]='proceso?.tipo?.tip_id')
                   option(value='') Seleccione el tipo de proceso
                   option(*ngFor='#tipoProceso of tipoProcesos$ | async',
                     [value]='tipoProceso.tip_id') {{tipoProceso.tip_descripcion}}
@@ -218,7 +219,7 @@
               label.control-label.col-sm-4.required(for='clasificacion_tramite') Clasificaci&oacute;n tr&aacute;mites
               .col-sm-6
                 select#clasificacion_tramite.form-control(required,
-                  [ngModel]='proceso?.clasTramites',
+                  [ngModel]='proceso?.clasTramites?.clt_id',
                   (change)='tipoInformativoService.loadAllByClas($event.target.value)')
                   option(value='') Seleccione la clasificaci&oacute;n de tr&aacute;mites
                   option(*ngFor='#clasificacion of clasificaciones$ | async',
@@ -226,8 +227,9 @@
             .form-group
               label.control-label.col-sm-4.required(for='tipo_informativo') Tipo informativo
               .col-sm-6
-                select#tipo_informativo.form-control(required, [ngModel]='proceso?.tipoInf')
-                  option(value='Seleccione el tipo de informativo') Seleccione el tipo de informativo
+                select#tipo_informativo.form-control(required,
+                  [ngModel]='proceso?.tipoInf?.tii_id')
+                  option(value='') Seleccione el tipo de informativo
                   option(*ngFor='#tipoInformativo of tipoInformativos$ | async',
                     [value]='tipoInformativo.tii_id') {{tipoInformativo.tii_descripcion}}
             .form-group
@@ -239,8 +241,9 @@
             .form-group
               label.control-label.col-sm-4.required(for='regional_id') Regional
               .col-sm-6
-                select#regional_id.form-control(required, [ngModel]='proceso?.regional')
-                  option(value='Seleccione la regional')
+                select#regional_id.form-control(required,
+                  [ngModel]='proceso?.regional.reg_id')
+                  option(value='') Seleccione regional
                   option(*ngFor='#regional of regionales$ | async',
                     [value]='regional.reg_id') {{regional.reg_descripcion}}
             .form-group

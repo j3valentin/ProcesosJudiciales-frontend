@@ -1,20 +1,20 @@
 import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
-import {Municipio} from '../../app/cus234/municipio';
+import {MunicipioInterface} from '../../app/cus234/municipio';
 
 @Injectable()
 export class MunicipioService {
-  private _municipios$: Subject<Municipio[]>;
+  private _municipios$: Subject<MunicipioInterface[]>;
   private baseUrl: string;
   private dataStore: {
-    municipios: Municipio[]
+    municipios: MunicipioInterface[]
   };
 
   constructor(private http: Http) {
-    this.baseUrl = 'http://127.0.0.1:8080/judiciales/api/sp';
+    this.baseUrl = 'http://firux.ddns.net:8080/judiciales/api/sp';
     this.dataStore = {municipios: []};
-    this._municipios$ = <Subject<Municipio[]>>new Subject();
+    this._municipios$ = <Subject<MunicipioInterface[]>>new Subject();
   }
 
   get municipios$() {
