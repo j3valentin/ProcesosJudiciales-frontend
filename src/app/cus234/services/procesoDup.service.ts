@@ -17,7 +17,7 @@ export class ProcesoDupService {
   };
 
   constructor(private http: Http) {
-    this.baseUrl = 'http://127.0.0.1:8080/judiciales/api/sp';
+    this.baseUrl = 'http://firux.ddns.net:8080/judiciales/api/sp';
     this.dataStore = {procesosDup: []};
     this._procesosDup$ = <Subject<ProcesoDup[]>>new Subject();
   }
@@ -26,17 +26,21 @@ export class ProcesoDupService {
     return this._procesosDup$.asObservable();
   }
 
-  loadAll() {
+  getAllByProcesoNumero(nProcesoNumero: number) {
     let body = JSON.stringify({
       type: 'CON',
-      parameters: {}
+      parameters: {
+        'prj_23Digitosa': nProcesoNumero
+      }
     });
     let headers = new Headers({
       'Content-Type': 'application/json',
-      'sp-name': 'pr_ConsultaProcespDuplicado'
+      'sp-name': 'pr_ConsultaDuplicadoProceso'
     });
     let options = new RequestOptions({headers: headers});
-    this.http.post(this.baseUrl, body, options)
+    return this.http.post(this.baseUrl, body, options)
+    // let body = model.toJSON();
+    // return this.http.get('/app/cus234/duplicados.json')
       .map(response => response.json())
       .subscribe(data => {
         this.dataStore.procesosDup = data;

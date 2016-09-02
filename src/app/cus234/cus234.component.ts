@@ -35,7 +35,7 @@ import {CausaInterace} from './causa';
 import {ModPretensionInterface} from './modPretension';
 import {ActoAdminInterface} from './actoAdmin';
 import {ProcesoDup} from './procesoDup';
-import {Municipio} from './municipio';
+import {MunicipioInterface} from './municipio';
 import {PretensionInterface} from './pretension';
 import {ClasePretensionInterface} from './clasePretencion';
 import {Beneficiario} from './beneficiario';
@@ -58,12 +58,11 @@ import {Beneficiario} from './beneficiario';
 })
 export class Cus234Component implements OnInit {
   errorMessage: string;
-  procesos$: Observable<Proceso[]>;
   procesosDup$: Observable<ProcesoDup[]>;
   juzgados$: Observable<JuzgadoInterface[]>;
   despachos$: Observable<DespachoInterface[]>;
   departamentos$: Observable<Departamento[]>;
-  municipios$: Observable<Municipio[]>;
+  municipios$: Observable<MunicipioInterface[]>;
   tipoProcesos$: Observable<TipoProcesoInterface[]>;
   tipoInformativos$: Observable<TipoInformativoInterface[]>;
   regionales$: Observable<Regional[]>;
@@ -95,7 +94,7 @@ export class Cus234Component implements OnInit {
               ) {}
 
   ngOnInit() {
-    this.procesos$ = this.procesoService.procesos$;
+    this.procesosDup$ = this.procesoDupService.procesosDup$;
     this.juzgados$ = this.juzgadoService.juzgados$;
     this.departamentos$ = this.departamentoService.departamentos$;
     this.municipios$ = this.municipioService.municipios$;
@@ -120,7 +119,6 @@ export class Cus234Component implements OnInit {
     this.causaService.loadAll();
     this.modPretensionService.loadAll();
     this.actoAdminService.loadAll();
-    this.procesoDupService.loadAll();
 
     this.beneficiarios.push(new Beneficiario());
   }
@@ -133,8 +131,7 @@ export class Cus234Component implements OnInit {
     this.beneficiarios.pop();
   }
 
-  registrarReparto(proceso: Proceso) {
-    console.log(proceso);
-    this.procesoService.create(proceso);
+  registrarReparto() {
+    this.procesoService.create(this.proceso);
   }
 }

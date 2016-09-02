@@ -23,7 +23,7 @@ export interface ProcesoInterface {
   despacho?: DespachoInterface;
   estadoProceso?: EstadoProcesoInterface;
   prj_id?: number;
-  prj_litigacion?: string;
+  prj_litigacion: string;
   juzgado?: JuzgadoInterface;
   prj_numeroradica?: string;
   prj_clasificacionps?: string;
@@ -47,11 +47,13 @@ export interface ProcesoInterface {
   afiliado?: Beneficiario;
   prj_cantidaddemandante?: number;
   prj_entidadpublica?: string;
-  apodeContra?: ApoderadoInterface;
+  apodeContra: ApoderadoInterface;
   prj_23digitosa?:  number;
 }
 
 export class Proceso implements ProcesoInterface {
+  prj_litigacion: string;
+  apodeContra: Apoderado;
   causa: Causa;
   modPret: ModPretension;
   pretension: Pretension;
@@ -72,7 +74,6 @@ export class Proceso implements ProcesoInterface {
 
   constructor() {
     //this.prj_fechanotifica = new Date().toISOString().subtring(0, 10);
-
     this.juzgado = new Juzgado();
     this.regional = new Regional();
     this.despacho = new Despacho();
@@ -86,5 +87,6 @@ export class Proceso implements ProcesoInterface {
     this.clasePret = new ClasePretencion();
     this.estadoProceso = new EstadoProceso();
     this.pretension = new Pretension();
+    this.apodeContra = new Apoderado();
   }
 }
