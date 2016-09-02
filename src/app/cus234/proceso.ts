@@ -27,7 +27,7 @@ export interface ProcesoInterface {
   juzgado?: JuzgadoInterface;
   prj_numeroradica?: string;
   prj_clasificacionps?: string;
-  prj_demandado?: number;
+  prj_demandado: number;
   apoderado?: ApoderadoInterface;
   clasTramites?: ClasificacionInterface;
   tipoInf?: TipoInformativoInterface;
@@ -52,6 +52,7 @@ export interface ProcesoInterface {
 }
 
 export class Proceso implements ProcesoInterface {
+  prj_demandado: number;
   prj_litigacion: string;
   apodeContra: Apoderado;
   causa: Causa;
@@ -88,5 +89,7 @@ export class Proceso implements ProcesoInterface {
     this.estadoProceso = new EstadoProceso();
     this.pretension = new Pretension();
     this.apodeContra = new Apoderado();
+
+    this.prj_demandado = 1;
   }
 }

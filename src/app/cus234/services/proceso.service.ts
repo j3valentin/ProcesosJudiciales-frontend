@@ -19,7 +19,7 @@ export class ProcesoService {
   };
 
   constructor(private http: Http) {
-    this.baseUrl = 'http://firux.ddns.net:8080/judiciales/api/sp';
+    this.baseUrl = 'http://127.0.0.1:8080/judiciales/api/sp';
     this.dataStore = {procesos: []};
     this._procesos$ = <Subject<ProcesoInterface[]>>new Subject();
   }
@@ -30,7 +30,6 @@ export class ProcesoService {
     let body = JSON.stringify({
       type: 'CON',
       parameters: {
-        'prj_id':1,
         'prj_litigacion':proceso.prj_litigacion,
         'prj_fechanotifica':`${proceso.prj_fechanotifica} 00:00:00`,
         'prj_numerobizagi':proceso.prj_numerobizagi,
@@ -54,8 +53,10 @@ export class ProcesoService {
         'prj_relacioninforma':proceso.prj_relacioninforma,
         'reg_idjuzgado':proceso.regional.reg_id,
         'prj_anoradicacion':proceso.prj_anoradicacion,
-        'tiu_id':proceso.tiu_id,
-        'tia_id':proceso.apoderado.tia_id,
+        // 'tiu_id':proceso.tiu_id,
+        // 'tia_id':proceso.apoderado.tia_id,
+        'tiu_id':1,
+        'tia_id':1,
         'prj_hechosproceso':proceso.prj_hechosproceso,
         'ead_id':proceso.actoAdmin.ead_id,
         'prj_numresolucion':proceso.prj_numresolucion,
@@ -82,14 +83,14 @@ export class ProcesoService {
         'NomApoContra':proceso.apodeContra.nombre,
         'CCApoContra':proceso.apodeContra.cedula,
         // 'esp_id':proceso.estadoProceso.esp_id,
-         'esp_id':1,
+        'esp_id':1,
         'loginmodifica':''
       }
     });
     console.log(body);
     let headers = new Headers({
       'Content-Type': 'application/json',
-      'sp-name': 'pr_Inserta_PSJudicial'
+      'sp-name': 'pr_InsertaReparto'
     });
     let options = new RequestOptions({headers: headers});
     this.http.post(this.baseUrl, body, options)
