@@ -11,23 +11,23 @@
 
 //CUS005 Búsqueda avanzada - Nota: Se recomienda un modal
 .container
-  form.form-horizontal(role="form")
+  form.form-horizontal(role='form')
     .col-sm-6
       fieldset
-        legend Búsqueda avanzada / Filtros de consulta  
+        legend Búsqueda avanzada / Filtros de consulta
         .form-group
-          label.control-label.col-sm-4 Fecha inicio notificación
+          label.control-label.col-sm-4(for='fecha_inicio_notificacion') Fecha inicio notificación
           .col-sm-6
-            input#fechaIniNotif.form-control(placeholder="Ingrese fecha inicio notificación")
+            input#fecha_inicio_notificacion.form-control(placeholder='aaaa-mm-dd')
         .form-group
-          label.control-label.col-sm-4 Nombre despacho inicial
+          label.control-label.col-sm-4(for='nombre_despacho_inicial') Nombre despacho inicial
           .col-sm-6
-            input#nomDespaIni.form-control.not-number(placeholder="Digite el nombre del despacho inicial")
+            input#nombre_despacho_inicial.form-control.not-number(placeholder='Digite el nombre del despacho inicial')
         .form-group
-          label.control-label.col-sm-4 Departamento juzgado
+          label.control-label.col-sm-4(for='departamento_juzgado') Departamento juzgado
           .col-sm-6
-            select#depJuzgado.form-control.not-number
-              option(selected="selected", value="Seleccione el departamento juzgado") Seleccione un departamento juzgado
+            select#departamento_juzgado.form-control.not-number
+              option(value='') Seleccione un departamento juzgado
               option(value="1") ACCION DE NULIDAD Y RESTABLECIMIENTO DEL DERECHO
               option(value="2") ACCION DE REPARACION DIRECTA
               option(value="3") ACCION DE CUMPLIMIENTO
@@ -40,10 +40,10 @@
               option(value="10") ORDINARIO LABORAL DE UNICA INSTANCIA
               option(value="11") ORDINARIO LABORAL DE PRIMERA INSTANCIA
         .form-group
-          label.control-label.col-sm-4 Tipo de proceso
+          label.control-label.col-sm-4(for='tipo_de_proceso') Tipo de proceso
           .col-sm-6
-            select#tipoProces.form-control.not-number
-              option(selected="selected", value="Seleccione un tipo de proceso") Seleccione un tipo de proceso
+            select#tipo_de_proceso.form-control.not-number
+              option(value='') Seleccione un tipo de proceso
               option(value="1") ACCION DE NULIDAD Y RESTABLECIMIENTO DEL DERECHO
               option(value="2") ACCION DE REPARACION DIRECTA
               option(value="3") ACCION DE CUMPLIMIENTO
@@ -56,10 +56,10 @@
               option(value="10") ORDINARIO LABORAL DE UNICA INSTANCIA
               option(value="11") ORDINARIO LABORAL DE PRIMERA INSTANCIA
         .form-group
-          label.control-label.col-sm-4 Pretención principal
+          label.control-label.col-sm-4(for='pretencion_principal') Pretención principal
           .col-sm-6
-            select#pretenPrincipal.form-control.not-number
-              option(selected="selected", value="Seleccione la pretención principal") Seleccione la pretención principal
+            select#pretencion_principal.form-control.not-number
+              option(value='') Seleccione la pretención principal
               option(value="1") INVALIDEZ
               option(value="2") VEJEZ
               option(value="3") SOBREVIVIENTES
@@ -71,34 +71,37 @@
               option(value="9") ISS PATRONO
               option(value="10") OTROS
         .form-group
-          label.control-label.col-sm-4 Código reparto
+          label.control-label.col-sm-4(for='codigo_reparto') Código reparto
           .col-sm-6
-            input#codReparto.form-control.not-number(placeholder="Digite el código de reparto")
+            input#codigo_reparto.form-control.not-number(placeholder='Digite el código de reparto')
         .form-group
-          label.control-label.col-sm-4 N° Bizagi - Caso defensa judicial
+          label.control-label.col-sm-4(for='bizagi') N° Bizagi - Caso defensa judicial
           .col-sm-6
-            input#codBizagi.form-control.not-number(placeholder="Digite el número Bizagi" maxlength="12")
+            input#bizagi.form-control(maxlength='12',
+            placeholder='Digite el número Bizagi')
         .form-group
-          label.control-label.col-sm-4 Nombre demandante
+          label.control-label.col-sm-4(for='nombre_demandante') Nombre demandante
           .col-sm-6
-            input#nomDemandante.form-control.not-number(placeholder="Digite el nombre del demandante" maxlength="300")
+            input#nombre_demandante.form-control(maxlength='300', not-number,
+              placeholder='Digite el nombre del demandante')
         .form-group
-          label.control-label.col-sm-4 23 dígitos de proceso
+          label.control-label.col-sm-4(for='23_digitos_de_procesos') 23 dígitos de proceso
           .col-sm-6
-            input#cod23Digitos.form-control.number(placeholder="Digite los 23 dígitos del proceso" maxlength="23")
+            input#23_digitos_de_procesos.form-control(maxlength='23', number,
+              placeholder='Digite los 23 dígitos del proceso')
     .col-sm-6
       fieldset
         .form-group
-          label.control-label.col-sm-4 Fecha fin notificación
+          label.control-label.col-sm-4(for='fecha_fin_notificacion') Fecha fin notificación
           .col-sm-6
-            input#fechaFinNotif.form-control(placeholder="Ingrese fecha inicio notificación")
+            input#fecha_fin_notificacion.form-control(placeholder='aaaa-mm-dd')
         .form-group
           label.control-label.col-sm-4.empty-input
         .form-group
-          label.control-label.col-sm-4 Ciudad juzgado
+          label.control-label.col-sm-4(for='ciudad_juzgado') Ciudad juzgado
           .col-sm-6
-            select#ciudadJuzgado.form-control.not-number
-              option(selected="selected", value="Seleccione la ciudad juzgado") Seleccione la ciudad juzgado
+            select#ciudad_juzgado.form-control.not-number
+              option(value='') Seleccione la ciudad juzgado
               option(value="1") ANTIOQUIA
               option(value="2") BOGOTA
               option(value="3") CARIBE
@@ -108,10 +111,10 @@
               option(value="7") SANTANDER
               option(value="8") SUR
         .form-group
-          label.control-label.col-sm-4 Regional
+          label.control-label.col-sm-4(for='regional') Regional
           .col-sm-6
-            select#tipoProces.form-control.not-number
-              option(selected="selected", value="Seleccione la regional") Seleccione la regional
+            select#regional.form-control.not-number
+              option(value='') Seleccione la regional
               option(value="1") ANTIOQUIA
               option(value="2") BOGOTA
               option(value="3") CARIBE
@@ -121,10 +124,10 @@
               option(value="7") SANTANDER
               option(value="8") SUR
         .form-group
-          label.control-label.col-sm-4 Clase de pretención
+          label.control-label.col-sm-4(for='clase_de_pretencion') Clase de pretención
           .col-sm-6
-            select#clasePreten.form-control.not-number
-              option(selected="selected", value="Seleccione la clase de pretensión") Seleccione la clase de pretensión
+            select#clase_de_pretencion.form-control.not-number
+              option(value='') Seleccione la clase de pretensión
               option(value="1") INVALIDEZ
               option(value="2") VEJEZ
               option(value="3") SOBREVIVIENTES
@@ -136,10 +139,10 @@
               option(value="9") ISS PATRONO
               option(value="10") OTROS
         .form-group
-          label.control-label.col-sm-4 Estado del proceso
+          label.control-label.col-sm-4(for='estado_del_proceso') Estado del proceso
           .col-sm-6
-            select#clasePreten.form-control.not-number
-              option(selected="selected", value="Seleccione el estado del proceso") Seleccione el estado del proceso
+            select#estado_del_proceso.form-control.not-number
+              option(value='') Seleccione el estado del proceso
               option(value="1") Duplicado
               option(value="2") Notificación por ejecutivo
               option(value="3") Pleito pendiente
@@ -147,9 +150,10 @@
         .form-group
           label.control-label.col-sm-4.empty-input
         .form-group
-          label.control-label.col-sm-4 CC demandante
+          label.control-label.col-sm-4(for='cc_demandante') CC demandante
           .col-sm-6
-            input#codDemandante.form-control.number(placeholder="Digite la cédula del demandante" maxlength="25")
+            input#cc_demandante.form-control.number(maxlength='25', number,
+              placeholder='Digite la cédula del demandante' )
   .col-sm-12
     .btn-group.pull-right
       .btn.btn-default.btn-md Limpiar
@@ -176,7 +180,7 @@
             td 80234562
             td Juzgado 028
             td.text-center
-              i.glyphicon.glyphicon-file.btn-sm-default(title="Ver detalle")
+              i.glyphicon.glyphicon-file.btn-sm-default(title='Ver detalle')
           tr
             td 1984465654654121314151617
             td 2016_132456
@@ -185,6 +189,6 @@
             td 80234562
             td Juzgado 028
             td.text-center
-              i.glyphicon.glyphicon-file.btn-sm-default(title="Ver detalle")
+              i.glyphicon.glyphicon-file.btn-sm-default(title='Ver detalle')
   .btn-group.pull-right
     .btn.btn-success.btn-md Exportar

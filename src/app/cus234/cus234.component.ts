@@ -35,7 +35,7 @@ import {CausaInterace} from './causa';
 import {ModPretensionInterface} from './modPretension';
 import {ActoAdminInterface} from './actoAdmin';
 import {ProcesoDup} from './procesoDup';
-import {Municipio} from './municipio';
+import {MunicipioInterface} from './municipio';
 import {PretensionInterface} from './pretension';
 import {ClasePretensionInterface} from './clasePretencion';
 import {Beneficiario} from './beneficiario';
@@ -63,7 +63,7 @@ export class Cus234Component implements OnInit {
   juzgados$: Observable<JuzgadoInterface[]>;
   despachos$: Observable<DespachoInterface[]>;
   departamentos$: Observable<Departamento[]>;
-  municipios$: Observable<Municipio[]>;
+  municipios$: Observable<MunicipioInterface[]>;
   tipoProcesos$: Observable<TipoProcesoInterface[]>;
   tipoInformativos$: Observable<TipoInformativoInterface[]>;
   regionales$: Observable<Regional[]>;
