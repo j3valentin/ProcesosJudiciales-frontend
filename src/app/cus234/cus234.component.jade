@@ -255,17 +255,17 @@
             .form-group
               label.control-label.col-sm-4.required(for='tipo_unidad') Tipo de unidad
               .col-sm-6
-                input#tipo_unidad.form-control.not-number(maxlength='10', required,
+                input#tipo_unidad.form-control.not-number(maxlength='5', required,
                 value='pesos',
                 placeholder='Digite el tipo de unidad',
                 (change)='proceso.tiu_id=$event.target.value')
             .form-group
               label.control-label.col-sm-4.required(for='tipo_apoderado') Tipo de apoderado
               .col-sm-6
-                input#tipo_apoderado.form-control.not-number(maxlength='10', required,
+                input#tipo_apoderado.form-control.not-number(maxlength='5', required,
                 value='externo',
                 placeholder='Digite el tipo de apoderado',
-                [ngModel]='proceso?.apoderado?.tipo')
+                (change)='proceso.apoderado.tia_id=$event.target.value')
 
         #daPrePro.tab-pane.fade.in([class.active]='pestana==="daPrePro"')
           fieldset
@@ -289,13 +289,12 @@
               .col-sm-6
                 input#numero_resolucion.form-control(maxlength='100',
                 placeholder='Digite el número de la resolución',
-                [ngModel]='proceso?.numRes')
+                (change)='proceso.prj_numresolucion=$event.target.value')
             .form-group
               label.control-label.col-sm-4(for='causa_proceso') Causa del proceso / Fondo que cubre el riesgo
               .col-sm-6
                 select#causa_proceso.form-control(
-                [ngModel]='proceso?.causa?.cap_id',
-                (change)='pretensionService.loadAllByCausa($event.target.value)')
+                (change)='proceso.causa.cap_id=$event.target.value;pretensionService.loadAllByCausa($event.target.value)')
                   option(value='') Seleccione la causa del proceso / Fondo que cubre el riesgo
                   option(*ngFor='#causa of causas$ | async', [value]='causa.cap_id') {{causa.cap_descripcion}}
             .form-group

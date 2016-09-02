@@ -1,7 +1,8 @@
 import {Injectable}          from 'angular2/core';
 import {
-  Http
-  //, Response ,Headers, RequestOptions
+  Http,
+  //, Response ,
+  Headers, RequestOptions
 }                            from 'angular2/http';
 
 // import {Observable}          from 'rxjs/Observable';
@@ -79,21 +80,22 @@ export class ProcesoService {
         'prj_entidadpublica':proceso.prj_entidadpublica,
         'NomApoContra':proceso.apodeContra.nombre,
         'CCApoContra':proceso.apodeContra.cedula,
-        'esp_id':proceso.estadoProceso.esp_id,
+        // 'esp_id':proceso.estadoProceso.esp_id,
+         'esp_id':1,
         'loginmodifica':''
       }
     });
     console.log(body);
-    // let headers = new Headers({
-    //   'Content-Type': 'application/json',
-    //   'sp-name': 'pr_Inserta_PSJudicial'
-    // });
-    // let options = new RequestOptions({headers: headers});
-    // this.http.post(this.baseUrl, body, options)
-    //   .map(response => response.json())
-    //   .subscribe(data => console.log('Process created succesfully.'),
-    //     error => console.log('Could not create a procces.'))
-    // ;
+    let headers = new Headers({
+      'Content-Type': 'application/json',
+      'sp-name': 'pr_Inserta_PSJudicial'
+    });
+    let options = new RequestOptions({headers: headers});
+    this.http.post(this.baseUrl, body, options)
+      .map(response => response.json())
+      .subscribe(data => console.log('Process created succesfully.'),
+        error => console.log('Could not create a procces.'))
+    ;
   }
 
   // private handleError(error: Response) {

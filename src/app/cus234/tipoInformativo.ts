@@ -6,7 +6,4 @@ export interface TipoInformativoInterface {
 export class TipoInformativo implements TipoInformativoInterface {
   tii_id: number;
 
-  constructor() {
-    this.tii_id = '';
-  }
 }

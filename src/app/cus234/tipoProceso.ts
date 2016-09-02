@@ -5,8 +5,4 @@ export interface TipoProcesoInterface {
 
 export class TipoProceso implements TipoProcesoInterface {
   tip_id: number;
-
-  constructor() {
-    this.tip_id = '';
-  }
 }
