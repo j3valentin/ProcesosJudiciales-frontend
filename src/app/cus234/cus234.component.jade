@@ -198,25 +198,25 @@
                 input#id_demandado.form-control(maxlength='12', required,
                 value='Colpensiones',
                 placeholder='Digite el nombre del demandado',
-                [ngModel]='proceso?.prj_demandado' )
+                (change)='proceso.prj_demandado=$event.target.value')
             .form-group
               label.control-label.col-sm-4(for='nombre_apoderado') Nombre apoderado actual
               .col-sm-6
                 input#nombre_apoderado.form-control(maxlength='300', not-number,
                 placeholder='Digite el nombre del apoderado actual',
-                [ngModel]='proceso?.apoderado?.nombre')
+                (change)='proceso.apoderado.nombre=$event.target.value')
             .form-group
               label.control-label.col-sm-4.required(for='cedula_apoderado') C&eacute;dula apoderado Colpensiones
               .col-sm-6
                 input#cedula_apoderado.form-control.number(maxlength="25", number, required,
                 placeholder='Digite la cédula del apoderado Colpensiones',
-                [ngModel]='proceso?.apoderado?.cedula')
+                (change)='proceso.apoderado.cedula=$event.target.value')
             .form-group
               label.control-label.col-sm-4.required(for='tarjeta_profesional') Tarjeta profesional apoderado
               .col-sm-6
                 input#tarjeta_profesional.form-control(maxlength='25', required,
                 placeholder='Digite la tarjeta profesional del apoderado',
-                [ngModel]='proceso?.apoderado?.tarjeta')
+                (change)='proceso.apoderado.tarjeta=$event.target.value')
             .form-group
               label.control-label.col-sm-4.required(for='clasificacion_tramite') Clasificaci&oacute;n tr&aacute;mites
               .col-sm-6
@@ -238,7 +238,7 @@
               .col-sm-6
                 input#relacion_informativo.form-control(maxlength='300', required,
                 placeholder='Digite la relacion de informativo',
-                [ngModel]='proceso?.prj_relacioninforma')
+                (change)='proceso.prj_relacioninforma=$event.target.value')
             .form-group
               label.control-label.col-sm-4.required(for='regional_id') Regional
               .col-sm-6
@@ -251,14 +251,14 @@
               .col-sm-6
                 input#ano_radicacion.form-control.number(maxlength='4', number, required,
                 placeholder='Digite el año de radicación',
-                [ngModel]='proceso?.prj_anoradicacion')
+                (change)='proceso.prj_anoradicacion=$event.target.value')
             .form-group
               label.control-label.col-sm-4.required(for='tipo_unidad') Tipo de unidad
               .col-sm-6
                 input#tipo_unidad.form-control.not-number(maxlength='10', required,
                 value='pesos',
                 placeholder='Digite el tipo de unidad',
-                [ngModel]='proceso?.tiu_id')
+                (change)='proceso.tiu_id=$event.target.value')
             .form-group
               label.control-label.col-sm-4.required(for='tipo_apoderado') Tipo de apoderado
               .col-sm-6
@@ -275,12 +275,12 @@
               .col-sm-6
                 .textarea#hechos_proceso
                   textarea(cols='73', rows='5', maxlength='300', required,
-                  [ngModel]='proceso?.prj_hechosproceso')
+                  (change)='proceso.prj_hechosproceso=$event.target.value')
             .form-group
               label.control-label.col-sm-4(
               for='propietario_acto_admin') &iquest;De qui&eacute;n es el acto administrativo demandado?
               .col-sm-6
-                select#propietario_acto_admin.form-control([ngModel]='proceso?.actoAdmin')
+                select#propietario_acto_admin.form-control((change)='proceso.actoAdmin.ead_id=$event.target.value')
                   option(value='') Seleccione el propietario del acto administrativo demandado
                   option(*ngFor='#actoAdmin of actosAdmin$ | async',
                   [value]='actoAdmin.ead_id') {{actoAdmin.ead_descripcion}}
@@ -301,7 +301,7 @@
             .form-group
               label.control-label.col-sm-4(for='modalidad_pretencion') Modalidad de pretensi&oacute;n
               .col-sm-6
-                select#modalidad_pretencion.form-control([ngModel]='proceso?.modPret')
+                select#modalidad_pretencion.form-control((change)='proceso.modPret.mop_id=$event.target.value')
                   option(value='') Seleccione la modalidad de pretensi&oacute;n
                   option(*ngFor='#modPretension of modPretensiones$ | async',
                   [value]='modPretension.mop_id') {{modPretension.mop_descripcion}}
@@ -310,14 +310,14 @@
               for='pretencion_principal') Pretensi&oacute;n principal
               .col-sm-6
                 select#pretencion_principal.form-control(
-                [ngModel]='proceso?.pretension?.prp_id')
+                (change)='proceso.pretension.prp_id=$event.target.value')
                   option(value='') Seleccione la pretensi&oacute;n principal
                   option(*ngFor='#pretension of pretensiones$ | async',
                   [value]='pretension.prp_id') {{pretension.prp_descripcion}}
             .form-group
               label.control-label.col-sm-4(for='clase_pretencion') Clase de pretensi&oacute;n
               .col-sm-6
-                select#clase_pretencion.form-control([ngModel]='proceso?.clasePret')
+                select#clase_pretencion.form-control((change)='proceso.clasePret.clp_id=$event.target.value')
                   option(value='') Seleccione la clase de pretensi&oacute;n
                   option(*ngFor='#clasePretension of clasesPretensiones$ | async',
                   [value]='clasePretension.clp_id') {{clasePretension.clp_descripcion}}
@@ -334,7 +334,7 @@
               .col-sm-6
                 input#cuantia_estimada.form-control.number(maxlength='10', number,
                 placeholder='Digite la cuantía estimada en el proceso',
-                [ngModel]='proceso?.prj_cuantiaestimada')
+                (change)='proceso.prj_cuantiaestimada=$event.target.value')
             .form-group
               label.control-label.col-sm-4(for='nombre_afiliado_causante') Nombre afiliado causante
               .col-sm-6
@@ -376,12 +376,12 @@
               .col-sm-6
                 input#cantidad_demandantes.form-control(maxlength='2', number,
                 placeholder='Digite la cantidad de demandantes',
-                [ngModel]='proceso?.prj_cantidaddemandante')
+                (change)='proceso.prj_cantidaddemandante=$event.target.value')
             .form-group
               label.control-label.col-sm-4(
               for='entidad_publica') &iquest;Entre los demandantes hay una entidad p&uacute;blica?
               .col-sm-6
-                select#entidad_publica.form-control([ngModel]='proceso?.prj_entidadpublica')
+                select#entidad_publica.form-control((change)='proceso.prj_entidadpublica=$event.target.value')
                   option(value='') Seleccione una respuesta
                   option(value='si') S&iacute;
                   option(value='no') No
@@ -391,14 +391,14 @@
               .col-sm-6
                 input#apoderado_contraparte_nombre.form-control(maxlength='300', not-number,
                 placeholder='Digite el nombre apoderado contraparte',
-                [ngModel]='proceso?.apodeContra?.nombre')
+                (change)='proceso.apodeContra.nombre=$event.target.value')
             .form-group
               label.control-label.col-sm-4(
               for='apoderado_contraparte_identificacion') Identificaci&oacute;n apoderado contraparte
               .col-sm-6
                 input#apoderado_contraparte_identificacion.form-control(maxlength='25', number,
                 placeholder='Digite la Identificación apoderado contraparte',
-                [ngModel]='proceso?.apodeContra?.cedula')
+                (change)='proceso.apodeContra.cedula=$event.target.value')
       .col-xs-12
         .btn-group(role='group').pull-right
           input.btn.btn-default.btn-md(type='reset', value='Limpiar')
