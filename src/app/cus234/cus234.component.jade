@@ -309,7 +309,7 @@
               for='pretencion_principal') Pretensi&oacute;n principal
               .col-sm-6
                 select#pretencion_principal.form-control(
-                (change)='proceso.pretension.prp_id=$event.target.value')
+                (change)='proceso.pretension.prp_id=$event.target.value;clasePretensionService.loadAllByPreten($event.target.value)')
                   option(value='') Seleccione la pretensi&oacute;n principal
                   option(*ngFor='#pretension of pretensiones$ | async',
                   [value]='pretension.prp_id') {{pretension.prp_descripcion}}
@@ -319,7 +319,7 @@
                 select#clase_pretencion.form-control((change)='proceso.clasePret.clp_id=$event.target.value')
                   option(value='') Seleccione la clase de pretensi&oacute;n
                   option(*ngFor='#clasePretension of clasesPretensiones$ | async',
-                  [value]='clasePretension.clp_id') {{clasePretension.clp_descripcion}}
+                  [value]='clasePretension.clp_id') {{clasePretension.clp_descripcio}}
             .form-group
               label.control-label.col-sm-4(
               for='fecha_admision') Fecha de admisi&oacute;n de la demanda
