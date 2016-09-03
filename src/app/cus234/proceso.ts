@@ -1,17 +1,17 @@
 import {JuzgadoInterface, Juzgado}   from './juzgado';
 import {ApoderadoInterface, Apoderado} from './apoderado';
 import {Beneficiario}  from './beneficiario';
-import {TipoProcesoInterface, TipoProceso}  from './tipoProceso';
+import {TipoProcesoInterface, TipoProceso}  from '../../shared/model/tipoProceso';
 import {TipoInformativoInterface, TipoInformativo} from './tipoInformativo'
-import {Regional} from './regional';
-import {DespachoInterface, Despacho} from './despacho';
+import {Regional} from '../../shared/model/regional';
+import {DespachoInterface, Despacho} from '../../shared/model/despacho';
 import {ClasificacionInterface, Clasificacion} from './clasificacion';
-import {CausaInterace, Causa} from './causa';
-import {PretensionInterface, Pretension} from './pretension';
+import {CausaInterace, Causa} from '../../shared/model/causa';
+import {PretensionInterface, Pretension} from '../../shared/model/pretension';
 import {ModPretensionInterface, ModPretension} from './modPretension';
-import {ClasePretensionInterface, ClasePretencion} from './clasePretencion';
+import {ClasePretensionInterface, ClasePretension} from '../../shared/model/clasePretension';
 import {ActoAdminInterface, ActoAdmin} from './actoAdmin';
-import {EstadoProceso} from './estadoProceso';
+import {EstadoProceso} from '../../shared/model/estadoProceso';
 
 export interface ProcesoInterface {
   prj_fechanotifica?: string;
@@ -61,7 +61,7 @@ export class Proceso implements ProcesoInterface {
   causa: Causa;
   modPret: ModPretension;
   pretension: Pretension;
-  clasePret: ClasePretencion;
+  clasePret: ClasePretension;
   actoAdmin: ActoAdmin;
   apoderado: Apoderado;
   tipoInf: TipoInformativo;
@@ -88,7 +88,7 @@ export class Proceso implements ProcesoInterface {
     this.actoAdmin = new ActoAdmin();
     this.causa = new Causa();
     this.modPret = new ModPretension();
-    this.clasePret = new ClasePretencion();
+    this.clasePret = new ClasePretension();
     this.estadoProceso = new EstadoProceso();
     this.pretension = new Pretension();
     this.apodeContra = new Apoderado();

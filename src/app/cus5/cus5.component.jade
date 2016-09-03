@@ -11,153 +11,144 @@
 
 //CUS005 Búsqueda avanzada - Nota: Se recomienda un modal
 .container
-  form.form-horizontal(role='form')
+  form.form-horizontal(role='form',(ngSubmit)='buscar()')
     .col-sm-6
       fieldset
         legend Búsqueda avanzada / Filtros de consulta
         .form-group
-          label.control-label.col-sm-4(for='fecha_inicio_notificacion') Fecha inicio notificación
+          label.control-label.col-sm-4(for='fecha_inicio_notificacion') Fecha inicio notificaci&oacute;n
           .col-sm-6
-            input#fecha_inicio_notificacion.form-control(placeholder='aaaa-mm-dd')
+            input#fecha_inicio_notificacion.form-control(placeholder='aaaa-mm-dd',
+            (change) = 'buscarProceso.fechaInicio=$event.target.value')
         .form-group
           label.control-label.col-sm-4(for='nombre_despacho_inicial') Nombre despacho inicial
           .col-sm-6
-            input#nombre_despacho_inicial.form-control.not-number(placeholder='Digite el nombre del despacho inicial')
+            select#nombre_despacho_inicial.form-control(
+            (change)='buscarProceso.despacho.dei_id=$event.target.value')
+              option(value='') Seleccione el nombre del despacho inicial
+              option(*ngFor='#despacho of despachos$ | async',
+              [value]='despacho.dei_id') {{despacho.dei_descripcion}}
         .form-group
           label.control-label.col-sm-4(for='departamento_juzgado') Departamento juzgado
           .col-sm-6
-            select#departamento_juzgado.form-control.not-number
-              option(value='') Seleccione un departamento juzgado
-              option(value="1") ACCION DE NULIDAD Y RESTABLECIMIENTO DEL DERECHO
-              option(value="2") ACCION DE REPARACION DIRECTA
-              option(value="3") ACCION DE CUMPLIMIENTO
-              option(value="4") ACCION POPULAR
-              option(value="5") EXTENSION DE JURISPRUDENCIA
-              option(value="6") NULIDAD SIMPLE
-              option(value="7") REPARACION DIRECTA
-              option(value="8") ADMINISTRATIVO EJECUTIVO
-              option(value="9") EJECUTIVO LABORAL
-              option(value="10") ORDINARIO LABORAL DE UNICA INSTANCIA
-              option(value="11") ORDINARIO LABORAL DE PRIMERA INSTANCIA
+            select#departamento_juzgado.form-control(
+            (change)='buscarProceso.departamento.dpt_id=$event.target.value;municipioService.loadAllByDepto($event.target.value)')
+              option(value='') Seleccione el departamento del juzgado
+              option(*ngFor='#departamento of departamentos$ | async',
+              [value] = 'departamento.dpt_id') {{departamento.dpt_descripcion}}
         .form-group
           label.control-label.col-sm-4(for='tipo_de_proceso') Tipo de proceso
           .col-sm-6
-            select#tipo_de_proceso.form-control.not-number
-              option(value='') Seleccione un tipo de proceso
-              option(value="1") ACCION DE NULIDAD Y RESTABLECIMIENTO DEL DERECHO
-              option(value="2") ACCION DE REPARACION DIRECTA
-              option(value="3") ACCION DE CUMPLIMIENTO
-              option(value="4") ACCION POPULAR
-              option(value="5") EXTENSION DE JURISPRUDENCIA
-              option(value="6") NULIDAD SIMPLE
-              option(value="7") REPARACION DIRECTA
-              option(value="8") ADMINISTRATIVO EJECUTIVO
-              option(value="9") EJECUTIVO LABORAL
-              option(value="10") ORDINARIO LABORAL DE UNICA INSTANCIA
-              option(value="11") ORDINARIO LABORAL DE PRIMERA INSTANCIA
+            select#tipo_de_proceso.form-control(
+            (change)='buscarProceso.tipoProceso.tip_id=$event.target.value')
+              option(value='') Seleccione el tipo de proceso
+              option( *ngFor='#tipoProceso of tipoProcesos$ | async',
+              [value]='tipoProceso.tip_id') {{tipoProceso.tip_descripcion}}
         .form-group
-          label.control-label.col-sm-4(for='pretencion_principal') Pretención principal
+          label.control-label.col-sm-4(
+          for='pretension_principal') Pretensi&oacute;n principal
           .col-sm-6
-            select#pretencion_principal.form-control.not-number
-              option(value='') Seleccione la pretención principal
-              option(value="1") INVALIDEZ
-              option(value="2") VEJEZ
-              option(value="3") SOBREVIVIENTES
-              option(value="4") AUXILIOS FUNERARIOS
-              option(value="5") AFILIACIÓN
-              option(value="6") MORA PATRONAL
-              option(value="7") CONFLICTOS DE COMPETENCIA
-              option(value="8") COLPENSIONES PATRONO
-              option(value="9") ISS PATRONO
-              option(value="10") OTROS
+            select#pretension_principal.form-control.not-number(
+            (change)='buscarProceso.pretension.prp_id=$event.target.value;clasePretensionService.loadAllByPreten($event.target.value)')
+              option(value='') Seleccione la pretensi&oacute;n principal
+              option(*ngFor='#pretension of pretensiones$ | async',
+              [value]='pretension.prp_id') {{pretension.prp_descripcion}}
+          //label.control-label.col-sm-4(for='causa_proceso') Causa del proceso
+          //.col-sm-6
+          //  select#causa_proceso.form-control(
+          //  (change)='buscarProceso.causa.cap_id=$event.target.value;pretensionService.loadAllByCausa($event.target.value)')
+          //    option(value='') Seleccione la causa del proceso / Fondo que cubre el riesgo
+          //    option(*ngFor='#causa of causas$ | async', [value]='causa.cap_id') {{causa.cap_descripcion}}
+        .form-group
         .form-group
           label.control-label.col-sm-4(for='codigo_reparto') Código reparto
           .col-sm-6
-            input#codigo_reparto.form-control.not-number(placeholder='Digite el código de reparto')
+            input#codigo_reparto.form-control.not-number(
+            (change)='buscarProceso.codReparto=$event.target.value',
+            placeholder='Digite el código de reparto')
         .form-group
           label.control-label.col-sm-4(for='bizagi') N° Bizagi - Caso defensa judicial
           .col-sm-6
-            input#bizagi.form-control(maxlength='12',
+            input#bizagi.form-control(
+            (change)='buscarProceso.i_prj_numerobizagi=$event.target.value', maxlength='12',
             placeholder='Digite el número Bizagi')
         .form-group
           label.control-label.col-sm-4(for='nombre_demandante') Nombre demandante
           .col-sm-6
-            input#nombre_demandante.form-control(maxlength='300', not-number,
-              placeholder='Digite el nombre del demandante')
+            input#nombre_demandante.form-control(
+            (change)='buscarProceso.i_per_nombre=$event.target.value',
+            maxlength='300', not-number,
+            placeholder='Digite el nombre del demandante')
         .form-group
           label.control-label.col-sm-4(for='23_digitos_de_procesos') 23 dígitos de proceso
           .col-sm-6
-            input#23_digitos_de_procesos.form-control(maxlength='23', number,
-              placeholder='Digite los 23 dígitos del proceso')
+            input#23_digitos_de_procesos.form-control(
+            (change)='buscarProceso.i_23digitos=$event.target.value',
+            maxlength='23', number,
+            placeholder='Digite los 23 dígitos del proceso')
     .col-sm-6
       fieldset
         .form-group
-          label.control-label.col-sm-4(for='fecha_fin_notificacion') Fecha fin notificación
+          label.control-label.col-sm-4(for='fecha_fin_notificacion') Fecha fin notificaci&oacute;n
           .col-sm-6
-            input#fecha_fin_notificacion.form-control(placeholder='aaaa-mm-dd')
+            input#fecha_fin_notificacion.form-control(
+            (change)='buscarProceso.fechaFin=$event.target.value',placeholder='aaaa-mm-dd')
+        .form-group
+          //label.control-label.col-sm-4(
+          //for='pretension_principal') Pretensi&oacute;n principal
+          //.col-sm-6
+          //  select#pretension_principal.form-control.not-number(
+          //  (change)='buscarProceso.pretension.prp_id=$event.target.value;clasePretensionService.loadAllByPreten($event.target.value)')
+          //    option(value='') Seleccione la pretensi&oacute;n principal
+          //    option(*ngFor='#pretension of pretensiones$ | async',
+          //    [value]='pretension.prp_id') {{pretension.prp_descripcion}}
         .form-group
           label.control-label.col-sm-4.empty-input
         .form-group
-          label.control-label.col-sm-4(for='ciudad_juzgado') Ciudad juzgado
+          label.control-label.col-sm-4(for='ciudad_juzgado') Ciudad de juzgado / Lugar de los hechos
           .col-sm-6
-            select#ciudad_juzgado.form-control.not-number
-              option(value='') Seleccione la ciudad juzgado
-              option(value="1") ANTIOQUIA
-              option(value="2") BOGOTA
-              option(value="3") CARIBE
-              option(value="4") CENTRO
-              option(value="5") EJE CAFETERO
-              option(value="6") OCCIDENTE
-              option(value="7") SANTANDER
-              option(value="8") SUR
+            select#ciudad_juzgado.form-control.not-number(
+            (change)='buscarProceso.municipio.mpi_id=$event.target.value')
+              option(value='') Seleccione la ciudad del juzgado / Lugar de los hechos
+              option(*ngFor='#municipio of municipios$ | async',
+              [value]='municipio.mpi_id') {{municipio.mpi_descripcion}}
         .form-group
           label.control-label.col-sm-4(for='regional') Regional
           .col-sm-6
-            select#regional.form-control.not-number
+            select#regional.form-control.not-number(
+            (change)='buscarProceso.regional.reg_id=$event.target.value')
               option(value='') Seleccione la regional
-              option(value="1") ANTIOQUIA
-              option(value="2") BOGOTA
-              option(value="3") CARIBE
-              option(value="4") CENTRO
-              option(value="5") EJE CAFETERO
-              option(value="6") OCCIDENTE
-              option(value="7") SANTANDER
-              option(value="8") SUR
+              option(*ngFor='#regional of regionales$ | async',
+              [value]='regional.reg_id') {{regional.reg_descripcion}}
         .form-group
-          label.control-label.col-sm-4(for='clase_de_pretencion') Clase de pretención
+          label.control-label.col-sm-4(for='clase_de_pretension') Clase de pretensi&oacute;n
           .col-sm-6
-            select#clase_de_pretencion.form-control.not-number
-              option(value='') Seleccione la clase de pretensión
-              option(value="1") INVALIDEZ
-              option(value="2") VEJEZ
-              option(value="3") SOBREVIVIENTES
-              option(value="4") AUXILIOS FUNERARIOS
-              option(value="5") AFILIACIÓN
-              option(value="6") MORA PATRONAL
-              option(value="7") CONFLICTOS DE COMPETENCIA
-              option(value="8") COLPENSIONES PATRONO
-              option(value="9") ISS PATRONO
-              option(value="10") OTROS
+            select#clase_de_pretension.form-control.not-number(
+            (change)='buscarProceso.clasePretension.clp_id=$event.target.value')
+              option(value='') Seleccione la clase de pretensi&oacute;n
+              option(*ngFor='#clasePretension of clasesPretensiones$ | async',
+              [value]='clasePretension.clp_id') {{clasePretension.clp_descripcio}}
         .form-group
           label.control-label.col-sm-4(for='estado_del_proceso') Estado del proceso
           .col-sm-6
-            select#estado_del_proceso.form-control.not-number
-              option(value='') Seleccione el estado del proceso
-              option(value="1") Duplicado
-              option(value="2") Notificación por ejecutivo
-              option(value="3") Pleito pendiente
-              option(value="4") Cosa juzgada
+            select#estado_del_proceso.form-control(
+            (change)='buscarProceso.estadoProceso.esp_id=$event.target.value')
+              option(value='') Seleccione es estado del proceso
+              option(*ngFor='#estadoProceso of estadosProceso$ | async',
+              [value]='estadoProceso.esp_id') {{estadoProceso.esp_descripcion}}
         .form-group
           label.control-label.col-sm-4.empty-input
         .form-group
           label.control-label.col-sm-4(for='cc_demandante') CC demandante
           .col-sm-6
-            input#cc_demandante.form-control.number(maxlength='25', number,
-              placeholder='Digite la cédula del demandante' )
-  .col-sm-12
-    .btn-group.pull-right
-      .btn.btn-default.btn-md Limpiar
-      .btn.btn-primary.btn-md Consultar
+            input#cc_demandante.form-control.number(
+            (change)='buscarProceso.i_af_numerodocumento=$event.target.value',
+            maxlength='25', number,
+            placeholder='Digite la cédula del demandante' )
+    .col-sm-12
+      .btn-group(role='group').pull-right
+        input.btn.btn-default.btn-md(type='reset', value='Limpiar')
+        input.btn.btn-primary.btn-md(type='submit', value='Consultar')
   fieldset
     legend Procesos encontrados
     .table-responsive
@@ -172,22 +163,19 @@
             th Nombre despacho
             th.text-center Detalle
         tbody
-          tr
-            td 1234567891011121314151617
-            td 2016_132456
-            td ordinario laboral
-            td Camilo Erazo
-            td 80234562
-            td Juzgado 028
-            td.text-center
-              i.glyphicon.glyphicon-file.btn-sm-default(title='Ver detalle')
-          tr
-            td 1984465654654121314151617
-            td 2016_132456
-            td ordinario laboral
-            td Camilo Erazo
-            td 80234562
-            td Juzgado 028
+          tr(*ngFor='#procesoBuscado of (procesosBuscados$ | async); #i=index')
+            td
+              label {{procesoBuscado.i_23digitos}}
+            td
+              label {{procesoBuscado.i_prj_numerobizagi}}
+            td
+              label {{procesoBuscado.tipoProceso.tip_id}}
+            td
+              label {{procesoBuscado.i_per_nombre}}
+            td
+              label {{procesoBuscado.i_af_numerodocumento}}
+            td
+              label {{procesoBuscado.despacho.dei_id}}
             td.text-center
               i.glyphicon.glyphicon-file.btn-sm-default(title='Ver detalle')
   .btn-group.pull-right

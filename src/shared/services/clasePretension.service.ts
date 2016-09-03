@@ -1,7 +1,7 @@
 import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
-import {ClasePretensionInterface} from '../clasePretencion';
+import {ClasePretensionInterface} from '../model/clasePretension';
 
 
 /**
@@ -17,7 +17,7 @@ export class ClasePretensionService {
   };
 
   constructor(private http: Http) {
-    this.baseUrl = 'http://firux.ddns.net:8080/judiciales/api/sp';
+    this.baseUrl = 'http://127.0.0.1:8080/judiciales/api/sp';
     this.dataStore = {clasesPretensiones: []};
     this._clasesPretensiones$ = <Subject<ClasePretensionInterface[]>>new Subject();
   }

@@ -4,6 +4,6 @@ export interface ClasePretensionInterface {
   prp_id?: number
 }
 
-export class ClasePretencion implements ClasePretensionInterface {
+export class ClasePretension implements ClasePretensionInterface {
   clp_id: number;
 }
