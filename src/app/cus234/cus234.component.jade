@@ -23,13 +23,13 @@
               .col-sm-6
                 input#id_demandante.form-control.number(maxlength='25', number, required,
                 placeholder='Digite el documento del demandante / identificación demandante',
-                (change)='proceso.CC_Dem=$event.target.value')
+                (change)='proceso.CC_Dem=$event.target.value;procesoDupService.getAllByDocumento($event.target.value)')
             .form-group
               label.control-label.col-sm-4.required(for='nombre_demandante') Nombre del demandante
               .col-sm-6
                 input#nombre_demandante.form-control(maxlength='300', not-number,
                 placeholder='Digite el nombre del demandante',
-                (change)='proceso.Nombre_Dem=$event.target.value')
+                (change)='proceso.Nombre_Dem=$event.target.value;procesoDupService.getAllByNombre($event.target.value)')
             //.row
               .col-xs-11
                 .btn.btn-primary.btn-md.pull-right Validar duplicidad

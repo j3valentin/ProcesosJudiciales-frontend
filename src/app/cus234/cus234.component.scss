@@ -4,19 +4,19 @@
 }
 
 .titleItem {
-  color:#245575 !important;
+  color: #245575 !important;
   text-decoration: none !important;
 }
 
 .principalMenuItem {
   margin-left: 0;
   border-radius: 15px 15px 0 0;
-	font-size: 12px !important;
+  font-size: 12px !important;
   color: #23527c !important;
 
   :hover {
     border-radius: 15px 15px 0 0;
-  	color: #b7ddf7 !important;
+    color: #b7ddf7 !important;
     background: #23527c;
   }
 }
@@ -72,7 +72,9 @@ textarea {
 }
 
 @-moz-document url-prefix() {
-  fieldset { display: table-cell; }
+  fieldset {
+    display: table-cell;
+  }
 }
 
 table {
@@ -121,4 +123,9 @@ td {
 .empty-input {
   min-height: 34px;
   height: 34px;
+}
+
+label.required::after {
+  content: "*";
+  //color: #23527c;
 }
