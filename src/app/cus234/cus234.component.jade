@@ -350,35 +350,37 @@
               .col-sm-6
                 input#nombre_afiliado_causante.form-control(maxlength='300', not-number,
                 placeholder='Digite el Nombre afiliado causante',
-                [ngModel]='proceso?.afiliado?.nombre')
+                (change)='proceso.afiliado.NomBenef=$event.target.value')
             .form-group
               label.control-label.col-sm-4(
               for='identificacion_afiliado_causante') CC afiliado causante/ identificaci&oacute;n
               .col-sm-6
                 input#identificacion_afiliado_causante.form-control(maxlength="25", number,
                 placeholder='Digite la CC afiliado causante/ identificación',
-                [ngModel]='proceso?.afiliado?.cedula')
+                (change)='proceso.afiliado.CCBenf=$event.target.value')
             .dashed-group
-              .form-group(*ngFor='#beneficiario of beneficiarios; #i=index')
+              .form-group(*ngFor='#beneficiario of proceso.beneficiarios; #i=index')
                 .form-group
                   label.control-label.col-sm-4 Nombre beneficiario {{i + 1}}
                   .col-sm-6
                     input.form-control(maxlength='300', not-number,
-                    placeholder='Digite el NomBenef beneficiario {{i + 1}}')
+                    placeholder='Digite el nombre del beneficiario {{i + 1}}',
+                    (change)='beneficiario.NomBenef=$event.target.value')
                 .form-group
                   label.control-label.col-sm-4 C&eacute;dula ciudadan&eacute;a beneficiario {{i + 1}}
                   .col-sm-6
                     input.form-control(maxlength='25', number,
-                    placeholder='Digite la cédula ciudadanía beneficiario {{i + 1}}')
+                    placeholder='Digite la cédula ciudadanía beneficiario {{i + 1}}',
+                    (change)='beneficiario.CCBenf=$event.target.value')
               .form-group
                 label.control-label.col-sm-4
                 .col-sm-6
                   .btn-group.pull-right
                     a.btn.btn-danger.btn-xs(
-                    *ngIf='beneficiarios.length > 0',
+                    *ngIf='proceso.beneficiarios.length > 0',
                     (click)='removeBeneficiario()') - beneficiario
                     a.btn.btn-success.btn-xs(
-                    *ngIf='beneficiarios.length < 5',
+                    *ngIf='proceso.beneficiarios.length < 5',
                     (click)='addBeneficiario()') + beneficiario
             .form-group
               label.control-label.col-sm-4(

@@ -44,14 +44,16 @@ export interface ProcesoInterface {
   clasePret?: ClasePretensionInterface;
   prj_fechaadminisiondemanda?: string;
   prj_cuantiaestimada?: number;
-  afiliado?: Beneficiario;
+  afiliado: Beneficiario;
   prj_cantidaddemandante: number;
   prj_entidadpublica?: string;
   apodeContra: ApoderadoInterface;
-  prj_23digitosa?:  number;
+  beneficiarios: Beneficiario[];
 }
 
 export class Proceso implements ProcesoInterface {
+  afiliado: Beneficiario;
+  beneficiarios: Beneficiario[];
   prj_cantidaddemandante: number;
   prj_demandado: number;
   prj_litigacion: string;
@@ -90,7 +92,9 @@ export class Proceso implements ProcesoInterface {
     this.estadoProceso = new EstadoProceso();
     this.pretension = new Pretension();
     this.apodeContra = new Apoderado();
+    this.afiliado = new Beneficiario();
 
     this.prj_demandado = 1;
+    this.beneficiarios = [];
   }
 }

@@ -78,7 +78,6 @@ export class Cus234Component implements OnInit {
   proceso: Proceso = new Proceso();
   procesoDup: ProcesoDup= new ProcesoDup;
   pestana: String = 'geoDatGen';
-  beneficiarios: Beneficiario[] = [];
 
   constructor(private procesoService: ProcesoService,
               private juzgadoService: JuzgadoService,
@@ -124,15 +123,15 @@ export class Cus234Component implements OnInit {
     this.modPretensionService.loadAll();
     this.actoAdminService.loadAll();
 
-    this.beneficiarios.push(new Beneficiario());
+    this.proceso.beneficiarios.push(new Beneficiario());
   }
 
   addBeneficiario() {
-    this.beneficiarios.push(new Beneficiario());
+    this.proceso.beneficiarios.push(new Beneficiario());
   }
 
   removeBeneficiario() {
-    this.beneficiarios.pop();
+    this.proceso.beneficiarios.pop();
   }
 
   registrarReparto() {

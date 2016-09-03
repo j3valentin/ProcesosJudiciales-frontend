@@ -5,7 +5,6 @@ import {
   Headers, RequestOptions
 }                            from 'angular2/http';
 
-// import {Observable}          from 'rxjs/Observable';
 import {Subject}             from 'rxjs/Subject';
 
 import {ProcesoInterface}    from '../proceso';
@@ -25,8 +24,12 @@ export class ProcesoService {
   }
 
   create(proceso: ProcesoInterface) {
-    console.log(proceso);
+    let pendientes = 5 - proceso.beneficiarios.length;
+    for(let i = 0; i < pendientes; i++) {
+      proceso.beneficiarios.push({NomBenef:'',CCBenf:null});
+    }
     console.log('Entra al servicio');
+    console.log(proceso);
     let body = JSON.stringify({
       type: 'CON',
       outParameters: ['out_prj_id'],
@@ -67,18 +70,18 @@ export class ProcesoService {
         'clp_id':proceso.clasePret.clp_id,
         'prj_fechaadminisiondemanda':`${proceso.prj_fechaadminisiondemanda} 00:00:00`,
         'prj_cuantiaestimada':proceso.prj_cuantiaestimada,
-        'NomAfiliado':'',
-        'CCAfiliado':null,
-        'NomBenef1':'',
-        'CCBenf1':null,
-        'NomBenef2':'',
-        'CCBenf2':null,
-        'NomBenef3':'',
-        'CCBenf3':null,
-        'NomBenef4':'',
-        'CCBenf4':null,
-        'NomBenef5':'',
-        'CCBenf5':null,
+        'NomAfiliado':proceso.afiliado.NomBenef,
+        'CCAfiliado':proceso.afiliado.CCBenf,
+        'NomBenef1':proceso.beneficiarios[0].NomBenef,
+        'CCBenf1':proceso.beneficiarios[0].CCBenf,
+        'NomBenef2':proceso.beneficiarios[1].NomBenef,
+        'CCBenf2':proceso.beneficiarios[1].CCBenf,
+        'NomBenef3':proceso.beneficiarios[2].NomBenef,
+        'CCBenf3':proceso.beneficiarios[2].CCBenf,
+        'NomBenef4':proceso.beneficiarios[3].NomBenef,
+        'CCBenf4':proceso.beneficiarios[3].CCBenf,
+        'NomBenef5':proceso.beneficiarios[4].NomBenef,
+        'CCBenf5':proceso.beneficiarios[4].CCBenf,
         'prj_cantidaddemandante':proceso.prj_cantidaddemandante,
         'prj_entidadpublica':proceso.prj_entidadpublica,
         'NomApoContra':proceso.apodeContra.nombre,
@@ -99,6 +102,9 @@ export class ProcesoService {
       .subscribe(data => console.log('Process created succesfully.'),
         error => console.log('Could not create a procces.'))
     ;
+    for(let i = 0; i < pendientes; i++) {
+      proceso.beneficiarios.pop();
+    }
   }
 
   // private handleError(error: Response) {
