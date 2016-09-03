@@ -38,7 +38,9 @@ import {ProcesoDup} from './procesoDup';
 import {MunicipioInterface} from './municipio';
 import {PretensionInterface} from './pretension';
 import {ClasePretensionInterface} from './clasePretencion';
+import {EstadoProcesoInterface} from './estadoProceso';
 import {Beneficiario} from './beneficiario';
+
 
 @Component({
   selector: 'sd-cus234',
@@ -72,7 +74,9 @@ export class Cus234Component implements OnInit {
   actosAdmin$: Observable<ActoAdminInterface[]>;
   pretensiones$: Observable<PretensionInterface[]>;
   clasesPretensiones$: Observable<ClasePretensionInterface[]>;
+  estadosProcesos$:Observable<EstadoProcesoInterface[]>;
   proceso: Proceso = new Proceso();
+  procesoDup: ProcesoDup= new ProcesoDup;
   pestana: String = 'geoDatGen';
   beneficiarios: Beneficiario[] = [];
 

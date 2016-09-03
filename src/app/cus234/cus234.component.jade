@@ -63,26 +63,33 @@
                         i.glyphicon.glyphicon-wrench.btn-sm-primary(aria-hidden='true')
                     tr
                       td
-                        input.form-control.input-sm(value='2016-06-25')
+                        input.form-control.input-sm([value]='procesoDup.prj_fechanotifica',
+                        (change)='procesoDup.prj_fechanotifica=$event.target.value')
                       td
-                        input.form-control.input-sm(value='6587967891011121314156857')
+                        input.form-control.input-sm([value]='procesoDup.prj_23digitosa',
+                        (change)='procesoDup.prj_23digitosa=$event.target.value')
                       td
-                        input.form-control.input-sm(value='2016_132456')
+                        input.form-control.input-sm([value]='procesoDup.prj_numerobizagi',
+                        (change)='procesoDup.prj_numerobizagi=$event.target.value')
                       td
-                        input.form-control.input-sm(value='ordinario laboral')
+                        input.form-control.input-sm([value]='procesoDup.tip_id',
+                        (change)='procesoDup.tip_id=$event.target.value')
                       td
-                        input.form-control.input-sm(value='Camilo Erazo')
+                        input.form-control.input-sm([value]='procesoDup.per_Nombre',
+                        (change)='procesoDup.per_Nombre=$event.target.value')
                       td
-                        input.form-control.input-sm(value='80234562')
+                        input.form-control.input-sm([value]='procesoDup.af_numerodocumento',
+                        (change)='procesoDup.af_numerodocumento=$event.target.value')
                       td
-                        input.form-control.input-sm(value='Juzgado 028')
+                        input.form-control.input-sm([value]='procesoDup.dei_id',
+                        (change)='procesoDup.dei_id=$event.target.value')
                       td
-                        select.form-control.input-sm
-                          option Duplicado
-                          option Notificación por ejecutivo
-                          option Pleito pendiente
-                          option Cosa juzgada
-                          option Registro correcto
+                        input.form-control.input-sm((change)='proceso.estadoProceso.esp_id=$event.target.value')
+                      td
+                        select.form-control.input-sm((change)='proceso.estadoProceso.esp_id=$event.target.value')
+                          option(*ngFor='#estadoProceso of estadosProcesos$ | async',
+                          [value]='estadoProceso.esp_id') {{estadoProceso.esp_descripcion}}
+
                       td.text-center
                         i.glyphicon.glyphicon-repeat.btn-sm-danger.flip-glyphicon
                         i.glyphicon.glyphicon-floppy-disk.btn-sm-success
