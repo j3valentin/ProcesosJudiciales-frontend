@@ -34,7 +34,7 @@ export class NumberDirective {
       // Allow: Ctrl+X
       (key === 88 && key === true) ||
       // Allow: home, end, left, right
-      (key >= 35 && key <= 39)) {
+      (key >= 35 && key <= 40)) {
       // let it happen, don't do anything
       return;
     }
@@ -46,7 +46,7 @@ export class NumberDirective {
     }
 
     var regex = /[0-9]|\./;
-    if( !regex.test(String.fromCharCode( key )) ) {
+    if( !regex.test(evt.key) ) {
       evt.returnValue = false;
       if(evt.preventDefault) evt.preventDefault();
     }
