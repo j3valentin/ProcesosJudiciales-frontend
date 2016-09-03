@@ -45,13 +45,14 @@ export interface ProcesoInterface {
   prj_fechaadminisiondemanda?: string;
   prj_cuantiaestimada?: number;
   afiliado?: Beneficiario;
-  prj_cantidaddemandante?: number;
+  prj_cantidaddemandante: number;
   prj_entidadpublica?: string;
   apodeContra: ApoderadoInterface;
   prj_23digitosa?:  number;
 }
 
 export class Proceso implements ProcesoInterface {
+  prj_cantidaddemandante: number;
   prj_demandado: number;
   prj_litigacion: string;
   apodeContra: Apoderado;

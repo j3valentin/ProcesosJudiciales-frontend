@@ -19,7 +19,7 @@ export class ProcesoService {
   };
 
   constructor(private http: Http) {
-    this.baseUrl = 'http://127.0.0.1:8080/judiciales/api/sp';
+    this.baseUrl = 'http://127.0.0.1:8080/judiciales/api/sp/inserta-reparto';
     this.dataStore = {procesos: []};
     this._procesos$ = <Subject<ProcesoInterface[]>>new Subject();
   }
@@ -29,6 +29,7 @@ export class ProcesoService {
     console.log('Entra al servicio');
     let body = JSON.stringify({
       type: 'CON',
+      outParameters: ['out_prj_id'],
       parameters: {
         'prj_litigacion':proceso.prj_litigacion,
         'prj_fechanotifica':`${proceso.prj_fechanotifica} 00:00:00`,
@@ -67,18 +68,18 @@ export class ProcesoService {
         'prj_fechaadminisiondemanda':`${proceso.prj_fechaadminisiondemanda} 00:00:00`,
         'prj_cuantiaestimada':proceso.prj_cuantiaestimada,
         'NomAfiliado':'',
-        'CCAfiliado':'',
+        'CCAfiliado':null,
         'NomBenef1':'',
-        'CCBenf1':'',
+        'CCBenf1':null,
         'NomBenef2':'',
-        'CCBenf2':'',
+        'CCBenf2':null,
         'NomBenef3':'',
-        'CCBenf3':'',
+        'CCBenf3':null,
         'NomBenef4':'',
-        'CCBenf4':'',
+        'CCBenf4':null,
         'NomBenef5':'',
-        'CCBenf5':'',
-        'prj_cantidaddemanda':proceso.prj_cantidaddemandante,
+        'CCBenf5':null,
+        'prj_cantidaddemandante':proceso.prj_cantidaddemandante,
         'prj_entidadpublica':proceso.prj_entidadpublica,
         'NomApoContra':proceso.apodeContra.nombre,
         'CCApoContra':proceso.apodeContra.cedula,
