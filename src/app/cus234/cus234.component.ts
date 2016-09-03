@@ -22,6 +22,7 @@ import {PretensionService} from './services/pretension.service';
 import {ActoAdminService} from './services/actoAdmin.service';
 import {ProcesoDupService} from './services/procesoDup.service';
 import {MunicipioService} from '../../shared/services/municipio.service';
+import {EstadoProcesoService} from './services/estadoProceso.service';
 
 import {JuzgadoInterface} from './juzgado';
 import {Proceso} from './proceso';
@@ -38,7 +39,7 @@ import {ProcesoDup} from './procesoDup';
 import {MunicipioInterface} from './municipio';
 import {PretensionInterface} from './pretension';
 import {ClasePretensionInterface} from './clasePretencion';
-import {EstadoProcesoInterface} from './estadoProceso';
+import {EstadoProceso} from './estadoProceso';
 import {Beneficiario} from './beneficiario';
 
 
@@ -56,7 +57,7 @@ import {Beneficiario} from './beneficiario';
     TipoProcesoService, TipoInformativoService,
     ClasificacionService,  CausaService, ModPretensionService,
     PretensionService, ClasePretensionService,
-    ActoAdminService, ProcesoDupService]
+    ActoAdminService, ProcesoDupService, EstadoProcesoService]
 })
 export class Cus234Component implements OnInit {
   errorMessage: string;
@@ -74,10 +75,10 @@ export class Cus234Component implements OnInit {
   actosAdmin$: Observable<ActoAdminInterface[]>;
   pretensiones$: Observable<PretensionInterface[]>;
   clasesPretensiones$: Observable<ClasePretensionInterface[]>;
-  estadosProcesos$:Observable<EstadoProcesoInterface[]>;
+  estadoProcesos$: Observable<EstadoProceso[]>;
   proceso: Proceso = new Proceso();
-  procesoDup: ProcesoDup= new ProcesoDup;
   pestana: String = 'geoDatGen';
+  procesoDupSelect: number;
 
   constructor(private procesoService: ProcesoService,
               private juzgadoService: JuzgadoService,
@@ -91,6 +92,7 @@ export class Cus234Component implements OnInit {
               private modPretensionService: ModPretensionService,
               private pretensionService: PretensionService,
               private actoAdminService: ActoAdminService,
+              private estadoProcesoService: EstadoProcesoService,
               private procesoDupService: ProcesoDupService,
               private departamentoService: DepartamentoService,
               private municipioService: MunicipioService
@@ -112,6 +114,7 @@ export class Cus234Component implements OnInit {
     this.pretensiones$ = this.pretensionService.pretensiones$;
     this.actosAdmin$ = this.actoAdminService.actosAdmin$;
     this.procesosDup$ = this.procesoDupService.procesosDup$;
+    this.estadoProcesos$ = this.estadoProcesoService.estadosProceso$;
 
     this.juzgadoService.loadAll();
     this.departamentoService.loadAll();
@@ -122,6 +125,7 @@ export class Cus234Component implements OnInit {
     this.causaService.loadAll();
     this.modPretensionService.loadAll();
     this.actoAdminService.loadAll();
+    this.estadoProcesoService.loadAll();
 
     this.proceso.beneficiarios.push(new Beneficiario());
   }

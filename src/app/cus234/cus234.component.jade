@@ -5,7 +5,7 @@
       .row([hidden]='submitted')
         ul.nav.nav-pills
           li.principalMenuItem
-            a((click)='pestana="geoDatGen"') Georeferenciaci&oacute;n y Datos Generales
+            a((click)='pestana="geoDatGen"') Georeferenciaci&oacute;n y Datos Generales del proceso
           li.principalMenuItem
             a((click)='pestana="daPrePro"') Datos Cualitativos, Pretenciones y Etapas Procesales
       .tab-content
@@ -50,85 +50,74 @@
                       th Estado
                       th.text-center Corregir
                   tbody
-                    tr
-                      td 2016-06-18
-                      td 1234567891011121314151617
-                      td 2016_132456
-                      td ordinario laboral
-                      td Camilo Erazo
-                      td 80234562
-                      td Juzgado 028
-                      td Duplicado
-                      td.text-center
-                        i.glyphicon.glyphicon-wrench.btn-sm-primary(aria-hidden='true')
-                    tr
+                    tr(*ngFor='#procesoDup of (procesosDup$ | async); #i=index')
                       td
+                        label(*ngIf='procesoDupSelect != i') {{procesoDup.prj_fechanotifica}}
                         input.form-control.input-sm([value]='procesoDup.prj_fechanotifica',
+                        *ngIf='procesoDupSelect == i',
                         (change)='procesoDup.prj_fechanotifica=$event.target.value')
                       td
+                        label(*ngIf='procesoDupSelect != i') {{procesoDup.prj_23digitosa}}
                         input.form-control.input-sm([value]='procesoDup.prj_23digitosa',
+                        *ngIf='procesoDupSelect == i',
                         (change)='procesoDup.prj_23digitosa=$event.target.value')
                       td
+                        label(*ngIf='procesoDupSelect != i') {{procesoDup.prj_numerobizagi}}
                         input.form-control.input-sm([value]='procesoDup.prj_numerobizagi',
+                        *ngIf='procesoDupSelect == i',
                         (change)='procesoDup.prj_numerobizagi=$event.target.value')
                       td
+                        label(*ngIf='procesoDupSelect != i') {{procesoDup.tip_id}}
                         input.form-control.input-sm([value]='procesoDup.tip_id',
+                        *ngIf='procesoDupSelect == i',
                         (change)='procesoDup.tip_id=$event.target.value')
                       td
+                        label(*ngIf='procesoDupSelect != i') {{procesoDup.per_Nombre}}
                         input.form-control.input-sm([value]='procesoDup.per_Nombre',
+                        *ngIf='procesoDupSelect == i',
                         (change)='procesoDup.per_Nombre=$event.target.value')
                       td
+                        label(*ngIf='procesoDupSelect != i') {{procesoDup.pdu_fechaverificacion}}
                         input.form-control.input-sm([value]='procesoDup.af_numerodocumento',
+                        *ngIf='procesoDupSelect == i',
                         (change)='procesoDup.af_numerodocumento=$event.target.value')
                       td
+                        label(*ngIf='procesoDupSelect != i') {{procesoDup.pdu_loginverifica}}
                         input.form-control.input-sm([value]='procesoDup.dei_id',
+                        *ngIf='procesoDupSelect == i',
                         (change)='procesoDup.dei_id=$event.target.value')
                       td
-                        input.form-control.input-sm((change)='proceso.estadoProceso.esp_id=$event.target.value')
-                      td
-                        select.form-control.input-sm((change)='proceso.estadoProceso.esp_id=$event.target.value')
-                          option(*ngFor='#estadoProceso of estadosProcesos$ | async',
+                        label(*ngIf='procesoDupSelect != i') TODO: estado
+                        select#estado_proceso.form-control(
+                        *ngIf='procesoDupSelect == i',
+                        (change)='proceso.estadoProceso.esp_id=$event.target.value')
+                          option(value='') Seleccione es estado del proceso
+                          option(*ngFor='#estadoProceso of estadosProceso$ | async',
                           [value]='estadoProceso.esp_id') {{estadoProceso.esp_descripcion}}
-
                       td.text-center
-                        i.glyphicon.glyphicon-repeat.btn-sm-danger.flip-glyphicon
-                        i.glyphicon.glyphicon-floppy-disk.btn-sm-success
-                    tr
-                      td 2016-07-02
-                      td 1984465654654121314151617
-                      td 2016_132456
-                      td ordinario laboral
-                      td Camilo Erazo
-                      td 80234562
-                      td Juzgado 028
-                      td Cosa juzgada
-                      td.text-center
-                        i.glyphicon.glyphicon-wrench.btn-sm-primary
-                    tr(*ngFor='#procesoDup of procesosDup')
-                      td {{procesoDup.pdu_id}}
-                      td {{procesoDup.prj_id}}
-                      td {{procesoDup.cup_id}}
-                      td {{procesoDup.pdu_estadoDiplicidad}}
-                      td {{procesoDup.pdu_fechaverificacion}}
-                      td {{procesoDup.pdu_loginverifica}}
-                      td {{procesoDup.prj_idduplicado}}
-                      td.text-center
-                        i.glyphicon.glyphicon-edit.btn-sm-primary(title='Corregir')
+                        i.glyphicon.glyphicon-pencil.btn-sm-primary(title='Corregir',
+                        *ngIf='procesoDupSelect != i',
+                        (click)='procesoDupSelect = i')
+                        i.glyphicon.glyphicon-repeat.btn-sm-danger.flip-glyphicon(
+                        *ngIf='procesoDupSelect == i',
+                        (click)='procesoDupSelect = null')
+                        i.glyphicon.glyphicon-floppy-disk.btn-sm-success(
+                        *ngIf='procesoDupSelect == i',
+                        (click)='procesoDupService.update(procesoDup); procesoDupSelect = null')
           fieldset
-            legend Georeferenciaci&oacute;n y datos generales
+            legend Georeferenciaci&oacute;n y datos generales del proceso
             .form-group
-              label.control-label.col-sm-4.required(for='proceso_id') ID proceso
+              label.control-label.col-sm-4(for='proceso_id') ID proceso
               .col-sm-6
                 input#proceso_id.form-control.number(number, required,
                 placeholder='Digite el ID del proceso',
-                [ngModel]='proceso?.prj_id')
+                (change)='proceso.prj_id$event.target.value')
             .form-group
               label.control-label.col-sm-4.required(for='litigar_id') ID litigar
               .col-sm-6
                 input#litigar_id.form-control(required,
                 placeholder='Digite el ID a litigar',
-                (change)='proceso.prj_litigacion=$event.target.value',
-                [(ngModel)]='proceso.prj_litigacion')
+                (change)='proceso.prj_litigacion=$event.target.value')
             .form-group
               label.control-label.col-sm-4.required(for='fecha_notificacion') Fecha de notificaci&oacute;n
               .col-sm-6
@@ -253,7 +242,7 @@
               .col-sm-6
                 select#regional_id.form-control(required,
                 (change)='proceso.regional.reg_id=$event.target.value')
-                  option(value='Seleccione la regional')
+                  option(value='') Seleccione la regional
                   option(*ngFor='#regional of regionales$ | async',
                   [value]='regional.reg_id') {{regional.reg_descripcion}}
             .form-group
@@ -361,13 +350,13 @@
             .dashed-group
               .form-group(*ngFor='#beneficiario of proceso.beneficiarios; #i=index')
                 .form-group
-                  label.control-label.col-sm-4 Nombre beneficiario {{i + 1}}
+                  label.control-label.col-sm-4.required Nombre beneficiario {{i + 1}}
                   .col-sm-6
                     input.form-control(maxlength='300', not-number,
                     placeholder='Digite el nombre del beneficiario {{i + 1}}',
                     (change)='beneficiario.NomBenef=$event.target.value')
                 .form-group
-                  label.control-label.col-sm-4 C&eacute;dula ciudadan&eacute;a beneficiario {{i + 1}}
+                  label.control-label.col-sm-4.required C&eacute;dula ciudadan&eacute;a beneficiario {{i + 1}}
                   .col-sm-6
                     input.form-control(maxlength='25', number,
                     placeholder='Digite la cédula ciudadanía beneficiario {{i + 1}}',

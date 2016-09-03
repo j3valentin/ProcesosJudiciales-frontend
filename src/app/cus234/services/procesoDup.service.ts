@@ -39,8 +39,6 @@ export class ProcesoDupService {
     });
     let options = new RequestOptions({headers: headers});
     return this.http.post(this.baseUrl, body, options)
-    // let body = model.toJSON();
-    // return this.http.get('/app/cus234/duplicados.json')
       .map(response => response.json())
       .subscribe(data => {
         this.dataStore.procesosDup = data;
@@ -83,12 +81,37 @@ export class ProcesoDupService {
     });
     let options = new RequestOptions({headers: headers});
     return this.http.post(this.baseUrl, body, options)
-    // let body = model.toJSON();
-    // return this.http.get('/app/cus234/duplicados.json')
       .map(response => response.json())
       .subscribe(data => {
         this.dataStore.procesosDup = data;
         this._procesosDup$.next(this.dataStore.procesosDup);
       }, error => console.log('Could not load procesosDup.'));
+  }
+
+  update(procesoDup : ProcesoDup) {
+    let body = JSON.stringify({
+      type: 'SIN',
+      parameters: {
+        prj_23Digitosa: procesoDup.prj_23digitosa,
+        tip_id: procesoDup.tip_id,
+        Nombre_Dem: procesoDup.per_Nombre,
+        cc_Dem: procesoDup.af_numerodocumento,
+        Dei_id: procesoDup.dei_id,
+        esp_id: 1,//TODO: ajustar sp de consulta de duplicados para obttener el esp_id (id_estado)
+        prj_id: procesoDup.prj_id,
+        loginmodifica: ''
+      }
+    });
+    let headers = new Headers({
+      'Content-Type': 'application/json',
+      'sp-name': 'pr_ActualizaPsJudicial'
+    });
+    let options = new RequestOptions({headers: headers});
+    return this.http.post(this.baseUrl, body, options)
+      .map(response => response.json())
+      .subscribe(data => {
+        this.dataStore.procesosDup = data;
+        this._procesosDup$.next(this.dataStore.procesosDup);
+      }, error => console.log('Could not update procesoDup.'));
   }
 }
