@@ -75,7 +75,7 @@ export class Cus234Component implements OnInit {
   actosAdmin$: Observable<ActoAdminInterface[]>;
   pretensiones$: Observable<PretensionInterface[]>;
   clasesPretensiones$: Observable<ClasePretensionInterface[]>;
-  estadoProcesos$: Observable<EstadoProceso[]>;
+  estadosProceso$: Observable<EstadoProceso[]>;
   proceso: Proceso = new Proceso();
   pestana: String = 'geoDatGen';
   procesoDupSelect: number;
@@ -114,7 +114,7 @@ export class Cus234Component implements OnInit {
     this.pretensiones$ = this.pretensionService.pretensiones$;
     this.actosAdmin$ = this.actoAdminService.actosAdmin$;
     this.procesosDup$ = this.procesoDupService.procesosDup$;
-    this.estadoProcesos$ = this.estadoProcesoService.estadosProceso$;
+    this.estadosProceso$ = this.estadoProcesoService.estadosProceso$;
 
     this.juzgadoService.loadAll();
     this.departamentoService.loadAll();

@@ -11,7 +11,7 @@ import {PretensionInterface, Pretension} from './pretension';
 import {ModPretensionInterface, ModPretension} from './modPretension';
 import {ClasePretensionInterface, ClasePretencion} from './clasePretencion';
 import {ActoAdminInterface, ActoAdmin} from './actoAdmin';
-import {EstadoProcesoInterface, EstadoProceso} from './estadoProceso';
+import {EstadoProceso} from './estadoProceso';
 
 export interface ProcesoInterface {
   prj_fechanotifica?: string;
@@ -21,7 +21,7 @@ export interface ProcesoInterface {
   Nombre_Dem: string;
   CC_Dem: number;
   despacho?: DespachoInterface;
-  estadoProceso?: EstadoProcesoInterface;
+  estadoProceso?: EstadoProceso;
   prj_id?: number;
   prj_litigacion: string;
   juzgado?: JuzgadoInterface;
