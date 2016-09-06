@@ -2,6 +2,7 @@ import {Injectable}          from 'angular2/core';
 import {Http, Headers, RequestOptions}                from 'angular2/http';
 import {Subject}             from 'rxjs/Subject';
 import {BuscarProcesoInterface}    from './buscarProceso';
+import {WEBAPI_URL} from '../../shared/constantes';
 
 /**
  * Created by Reivaj on 03/09/2016.
@@ -10,13 +11,11 @@ import {BuscarProcesoInterface}    from './buscarProceso';
 @Injectable()
 export class BuscarProcesoService {
   private _procesosBusca$: Subject<BuscarProcesoInterface[]>;
-  private baseUrl;  // URL to web api
   private dataStore: {  // This is where we will store our data in memory
     procesosBusca: BuscarProcesoInterface[]
   };
 
   constructor(private http: Http) {
-    this.baseUrl = 'http://127.0.0.1:8080/judiciales/api/sp/';
     this.dataStore = {procesosBusca: []};
     this._procesosBusca$ = <Subject<BuscarProcesoInterface[]>>new Subject();
   }
@@ -55,7 +54,7 @@ export class BuscarProcesoService {
       'sp-name': 'pr_ConsultaAvanzada'
     });
     let options = new RequestOptions({headers: headers});
-    return this.http.post(this.baseUrl, body, options)
+    return this.http.post(WEBAPI_URL, body, options)
       .map(response => response.json())
       .subscribe(data => {
         this.dataStore.procesosBusca = data;

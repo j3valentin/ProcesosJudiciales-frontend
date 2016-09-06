@@ -1,7 +1,8 @@
 import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
-import {JuzgadoInterface} from '../juzgado';
+import {JuzgadoInterface} from '../model/juzgado';
+import {WEBAPI_URL} from '../../../shared/constantes';
 
 /**
  * Created by fire on 20/08/2016.
@@ -15,7 +16,7 @@ export class JuzgadoService {
   };
 
   constructor(private http: Http) {
-    this.baseUrl = 'http://127.0.0.1:8080/judiciales/api/sp';
+    this.baseUrl = WEBAPI_URL;
     this.dataStore = {juzgados: []};
     this._juzgados$ = <Subject<JuzgadoInterface[]>>new Subject();
   }

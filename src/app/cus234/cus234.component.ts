@@ -24,23 +24,23 @@ import {ProcesoDupService} from './services/procesoDup.service';
 import {MunicipioService} from '../../shared/services/municipio.service';
 import {EstadoProcesoService} from '../../shared/services/estadoProceso.service';
 
-import {JuzgadoInterface} from './juzgado';
-import {Proceso} from './proceso';
+import {JuzgadoInterface} from './model/juzgado';
+import {Proceso} from './model/proceso';
 import {Departamento} from '../../shared/model/departamento';
 import {TipoProcesoInterface} from '../../shared/model/tipoProceso';
-import {TipoInformativoInterface} from './tipoInformativo';
+import {TipoInformativoInterface} from './model/tipoInformativo';
 import {Regional} from '../../shared/model/regional';
 import {DespachoInterface} from '../../shared/model/despacho';
-import {ClasificacionInterface} from './clasificacion';
+import {ClasificacionInterface} from './model/clasificacion';
 import {CausaInterace} from '../../shared/model/causa';
-import {ModPretensionInterface} from './modPretension';
-import {ActoAdminInterface} from './actoAdmin';
-import {ProcesoDup} from './procesoDup';
+import {ModPretensionInterface} from './model/modPretension';
+import {ActoAdminInterface} from './model/actoAdmin';
+import {ProcesoDup} from './model/procesoDup';
 import {MunicipioInterface} from '../../shared/model/municipio';
 import {PretensionInterface} from '../../shared/model/pretension';
 import {ClasePretensionInterface} from '../../shared/model/clasePretension';
 import {EstadoProceso} from '../../shared/model/estadoProceso';
-import {Beneficiario} from './beneficiario';
+import {Beneficiario} from './model/beneficiario';
 
 
 @Component({
@@ -108,6 +108,7 @@ export class Cus234Component implements OnInit {
     this.tipoProcesos$ = this.tipoProcesoService.tipoProcesos$;
     this.tipoInformativos$ = this.tipoInformativoService.tipoInformativos$;
     this.clasificaciones$ = this.clasificacionService.clasificaciones$;
+    // this.causas$ = this.causaService.getCausas$();
     this.causas$ = this.causaService.causas$;
     this.modPretensiones$ = this.modPretensionService.modPretensiones$;
     this.clasesPretensiones$ = this.clasePretensionService.clasesPretensiones$;

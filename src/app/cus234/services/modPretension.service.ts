@@ -1,7 +1,8 @@
 import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
-import {ModPretensionInterface} from '../modPretension';
+import {ModPretensionInterface} from '../model/modPretension';
+import {WEBAPI_URL} from '../../../shared/constantes';
 
 
 /**
@@ -17,7 +18,7 @@ export class ModPretensionService {
   };
 
   constructor(private http: Http) {
-    this.baseUrl = 'http://127.0.0.1:8080/judiciales/api/sp';
+    this.baseUrl = WEBAPI_URL;
     this.dataStore = {modPretensiones: []};
     this._modPretensiones$ = <Subject<ModPretensionInterface[]>>new Subject();
   }

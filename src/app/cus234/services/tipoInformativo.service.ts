@@ -1,7 +1,8 @@
 import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
-import {TipoInformativoInterface} from '../tipoInformativo';
+import {TipoInformativoInterface} from '../model/tipoInformativo';
+import {WEBAPI_URL} from '../../../shared/constantes';
 
 
 /**
@@ -17,7 +18,7 @@ export class TipoInformativoService {
   };
 
   constructor(private http: Http) {
-    this.baseUrl = 'http://127.0.0.1:8080/judiciales/api/sp';
+    this.baseUrl = WEBAPI_URL;
     this.dataStore = {tipoInformativos: []};
     this._tipoInformativos$ = <Subject<TipoInformativoInterface[]>>new Subject();
   }

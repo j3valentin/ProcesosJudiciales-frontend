@@ -2,6 +2,7 @@ import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
 import {MunicipioInterface} from '../model/municipio';
+import {WEBAPI_URL} from '../constantes';
 
 @Injectable()
 export class MunicipioService {
@@ -12,7 +13,7 @@ export class MunicipioService {
   };
 
   constructor(private http: Http) {
-    this.baseUrl = 'http://127.0.0.1:8080/judiciales/api/sp';
+    this.baseUrl = WEBAPI_URL;
     this.dataStore = {municipios: []};
     this._municipios$ = <Subject<MunicipioInterface[]>>new Subject();
   }

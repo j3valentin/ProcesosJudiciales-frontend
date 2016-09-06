@@ -2,6 +2,7 @@ import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
 import {ClasePretensionInterface} from '../model/clasePretension';
+import {WEBAPI_URL} from '../constantes';
 
 
 /**
@@ -17,7 +18,7 @@ export class ClasePretensionService {
   };
 
   constructor(private http: Http) {
-    this.baseUrl = 'http://127.0.0.1:8080/judiciales/api/sp';
+    this.baseUrl = WEBAPI_URL;
     this.dataStore = {clasesPretensiones: []};
     this._clasesPretensiones$ = <Subject<ClasePretensionInterface[]>>new Subject();
   }

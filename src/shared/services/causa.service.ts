@@ -2,6 +2,7 @@ import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
 import {CausaInterace} from '../model/causa';
+import {WEBAPI_URL} from '../constantes';
 
 
 /**
@@ -11,13 +12,11 @@ import {CausaInterace} from '../model/causa';
 @Injectable()
 export class CausaService {
   private _causas$: Subject<CausaInterace[]>;
-  private baseUrl: string;
   private dataStore: {
     causas: CausaInterace[]
   };
 
   constructor(private http: Http) {
-    this.baseUrl = 'http://127.0.0.1:8080/judiciales/api/sp';
     this.dataStore = {causas: []};
     this._causas$ = <Subject<CausaInterace[]>>new Subject();
   }
@@ -36,7 +35,7 @@ export class CausaService {
       'sp-name': 'pr_ConsultaCausaProceso'
     });
     let options = new RequestOptions({headers: headers});
-    this.http.post(this.baseUrl, body, options)
+    this.http.post(WEBAPI_URL, body, options)
       .map(response => response.json())
       .subscribe(data => {
         this.dataStore.causas = data;

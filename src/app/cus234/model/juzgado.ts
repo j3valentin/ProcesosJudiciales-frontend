@@ -1,5 +1,5 @@
-import {MunicipioInterface, Municipio} from '../../shared/model/municipio';
-import {Departamento} from '../../shared/model/departamento';
+import {MunicipioInterface, Municipio} from '../../../shared/model/municipio';
+import {Departamento} from '../../../shared/model/departamento';
 
 export interface JuzgadoInterface {
   tij_id: string,
