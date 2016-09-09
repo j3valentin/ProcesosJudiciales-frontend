@@ -27,7 +27,7 @@
             .form-group
               label.control-label.col-sm-4.required(for='nombre_demandante') Nombre del demandante
               .col-sm-6
-                input#nombre_demandante.form-control(maxlength='300', not-number,
+                input#nombre_demandante.form-control(maxlength='300', not-number, required
                 placeholder='Digite el nombre del demandante',
                 (change)='proceso.Nombre_Dem=$event.target.value;procesoDupService.getAllByNombre($event.target.value)')
             //.row
@@ -107,7 +107,7 @@
           fieldset
             legend Georeferenciaci&oacute;n y datos generales del proceso
             .form-group
-              label.control-label.col-sm-4(for='proceso_id') ID proceso
+              label.control-label.col-sm-4.required(for='proceso_id') ID proceso
               .col-sm-6
                 input#proceso_id.form-control.number(number, required,
                 placeholder='Digite el ID del proceso',
@@ -121,8 +121,8 @@
             .form-group
               label.control-label.col-sm-4.required(for='fecha_notificacion') Fecha de notificaci&oacute;n
               .col-sm-6
-                input#fecha_notificacion.form-control(required,
-                placeholder='aaaa-mm-dd',
+                input#fecha_notificacion.form-control(required, placeholder='aaaa-mm-dd',
+                pattern='(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))',
                 (change)='proceso.prj_fechanotifica=$event.target.value')
             .form-group
               label.control-label.col-sm-4.required(for='bizagi') No. Bizagi - caso defensa judicial
@@ -228,7 +228,7 @@
               .col-sm-6
                 select#tipo_informativo.form-control(required,
                 (change)='proceso.tipoInf.tii_id=$event.target.value')
-                  option(value='Seleccione el tipo de informativo') Seleccione el tipo de informativo
+                  option(value='') Seleccione el tipo de informativo
                   option(*ngFor='#tipoInformativo of tipoInformativos$ | async',
                   [value]='tipoInformativo.tii_id') {{tipoInformativo.tii_descripcion}}
             .form-group
@@ -254,15 +254,13 @@
             .form-group
               label.control-label.col-sm-4.required(for='tipo_unidad') Tipo de unidad
               .col-sm-6
-                input#tipo_unidad.form-control.not-number(maxlength='5', required,
-                value='pesos',
+                input#tipo_unidad.form-control.not-number(maxlength='10', required
                 placeholder='Digite el tipo de unidad',
                 (change)='proceso.tiu_id=$event.target.value')
             .form-group
               label.control-label.col-sm-4.required(for='tipo_apoderado') Tipo de apoderado
               .col-sm-6
-                input#tipo_apoderado.form-control.not-number(maxlength='5', required,
-                value='externo',
+                input#tipo_apoderado.form-control.not-number(maxlength='10', required,
                 placeholder='Digite el tipo de apoderado',
                 (change)='proceso.apoderado.tia_id=$event.target.value')
 
@@ -324,8 +322,8 @@
               label.control-label.col-sm-4(
               for='fecha_admision') Fecha de admisi&oacute;n de la demanda
               .col-sm-6
-                input#fecha_admision.form-control(
-                placeholder='aaaa-mm-dd',
+                input#fecha_admision.form-control(placeholder='aaaa-mm-dd',
+                pattern='(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))',
                 (change)='proceso.prj_fechaadminisiondemanda=$event.target.value')
             .form-group
               label.control-label.col-sm-4(
@@ -335,16 +333,16 @@
                 placeholder='Digite la cuantía estimada en el proceso',
                 (change)='proceso.prj_cuantiaestimada=$event.target.value')
             .form-group
-              label.control-label.col-sm-4(for='nombre_afiliado_causante') Nombre afiliado causante
+              label.control-label.col-sm-4.required(for='nombre_afiliado_causante') Nombre afiliado causante
               .col-sm-6
-                input#nombre_afiliado_causante.form-control(maxlength='300', not-number,
+                input#nombre_afiliado_causante.form-control(maxlength='300', not-number, required
                 placeholder='Digite el Nombre afiliado causante',
                 (change)='proceso.afiliado.NomBenef=$event.target.value')
             .form-group
-              label.control-label.col-sm-4(
+              label.control-label.col-sm-4.required(
               for='identificacion_afiliado_causante') CC afiliado causante/ identificaci&oacute;n
               .col-sm-6
-                input#identificacion_afiliado_causante.form-control(maxlength="25", number,
+                input#identificacion_afiliado_causante.form-control(maxlength="25", number, required
                 placeholder='Digite la CC afiliado causante/ identificación',
                 (change)='proceso.afiliado.CCBenf=$event.target.value')
             .dashed-group
@@ -352,13 +350,13 @@
                 .form-group
                   label.control-label.col-sm-4.required Nombre beneficiario {{i + 1}}
                   .col-sm-6
-                    input.form-control(maxlength='300', not-number,
+                    input.form-control(maxlength='300', not-number, required
                     placeholder='Digite el nombre del beneficiario {{i + 1}}',
                     (change)='beneficiario.NomBenef=$event.target.value')
                 .form-group
                   label.control-label.col-sm-4.required C&eacute;dula ciudadan&eacute;a beneficiario {{i + 1}}
                   .col-sm-6
-                    input.form-control(maxlength='25', number,
+                    input.form-control(maxlength='25', number, required
                     placeholder='Digite la cédula ciudadanía beneficiario {{i + 1}}',
                     (change)='beneficiario.CCBenf=$event.target.value')
               .form-group
@@ -366,7 +364,7 @@
                 .col-sm-6
                   .btn-group.pull-right
                     a.btn.btn-danger.btn-xs(
-                    *ngIf='proceso.beneficiarios.length > 0',
+                    *ngIf='proceso.beneficiarios.length > 1',
                     (click)='removeBeneficiario()') - beneficiario
                     a.btn.btn-success.btn-xs(
                     *ngIf='proceso.beneficiarios.length < 5',
@@ -380,7 +378,7 @@
                 (change)='proceso.prj_cantidaddemandante=$event.target.value')
             .form-group
               label.control-label.col-sm-4(
-              for='entidad_publica') &iquest;Entre los demandantes hay una entidad p&uacute;blica?
+              for='entidad_publica') &iquest;Entre los demandantes hay entidades p&uacute;blicas?
               .col-sm-6
                 select#entidad_publica.form-control((change)='proceso.prj_entidadpublica=$event.target.value')
                   option(value='') Seleccione una respuesta
