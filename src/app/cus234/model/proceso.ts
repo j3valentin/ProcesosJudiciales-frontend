@@ -52,6 +52,9 @@ export interface ProcesoInterface {
 }
 
 export class Proceso implements ProcesoInterface {
+  prj_id: number;
+  prj_fechanotifica: string;
+  prj_numeroradica: string;
   afiliado: Beneficiario;
   beneficiarios: Beneficiario[];
   prj_cantidaddemandante: number;
@@ -96,5 +99,26 @@ export class Proceso implements ProcesoInterface {
 
     this.prj_demandado = 1;
     this.beneficiarios = [];
+
+    this.prj_id = null;
+    this.prj_litigacion = null;
+    this.prj_fechanotifica = null;
+    this.prj_numerobizagi = null;
+    this.prj_numeroradica = null;
+    this.prj_23digitos = null;
+    // this.prj_clasificacionps = null;
+    // this.CC_Dem = null;
+    // this.Nombre_Dem = null;
+    // this.prj_relacioninforma = null;
+    // this.prj_anoradicacion = null;
+    // this. = null;
+    // this. = null;
+    // this. = null;
+    // this. = null;
+    // this. = null;
+    // this. = null;
+    // this. = null;
+    // this. = null;
+
   }
 }

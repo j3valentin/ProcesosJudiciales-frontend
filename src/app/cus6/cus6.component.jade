@@ -16,27 +16,32 @@
             label.control-label.col-sm-4 ID proceso
             .col-sm-6
               input#id_proceso.form-control.number(disabled='disabled',
-              placeholder='Digite el ID del proceso')
+                placeholder='Digite el ID del proceso',
+                [value]='proceso.prj_id')
           .form-group
             label.control-label.col-sm-4 ID litigar
             .col-sm-6
               input#litigar_id.form-control.number(disabled='disabled',
-              placeholder='Digite el ID a litigar')
+                placeholder='Digite el ID a litigar',
+                [value]='proceso.prj_litigacion')
           .form-group
             label.control-label.col-sm-4 Fecha de notificación
             .col-sm-6
               input#fecha_notificacion.form-control(disabled='disabled',
-              placeholder='Ingrese la fecha de notificación')
+                placeholder='Ingrese la fecha de notificación',
+                [value]='proceso.prj_fechanotifica')
           .form-group
             label.control-label.col-sm-4 No. Bizagi - caso defensa judicial
             .col-sm-6
               input#bizagi.form-control.not-number(disabled='disabled', maxlength='12',
-              placeholder='Digite el número Bizagi - caso defensa judicial')
+                placeholder='Digite el número Bizagi - caso defensa judicial',
+                [value]='proceso.prj_numerobizagi')
           .form-group
             label.control-label.col-sm-4 No. de juzgado (en letras)
             .col-sm-6
               input#juzgado.form-control.not-number(disabled='disabled',
-              placeholder='Digite el número del juzgado')
+                placeholder='Digite el número del juzgado',
+                [value]='proceso.juzgado.prj_numerojuzgado')
           .form-group
             label.control-label.col-sm-4 Tipo de juzgado
             .col-sm-6
@@ -74,12 +79,14 @@
             label.control-label.col-sm-4 Radicado rama judicial / Número de radicación
             .col-sm-6
               input#radicado_ram_jud.form-control(disabled='disabled', maxlength='10',
-              placeholder='Digite el radicado de la rama judicial / Número de radicación ej. 2015_000003'  )
+                placeholder='Digite el radicado de la rama judicial / Número de radicación ej. 2015_000003',
+                [value]='proceso.prj_numeroradica'  )
           .form-group
             label.control-label.col-sm-4 23 dígitos del proceso / Número de proceso rama judicial
             .col-sm-6
               input#veinti_tres_dig.form-control.number(disabled='disabled', maxlength='23',
-              placeholder='Digite los 23 dígitos del proceso / Número de proceso rama judicial' )
+                placeholder='Digite los 23 dígitos del proceso / Número de proceso rama judicial',
+                [value]='proceso.prj_23digitos' )
           .form-group
             label.control-label.col-sm-4 Tipo de proceso
             .col-sm-6
@@ -92,36 +99,47 @@
             label.control-label.col-sm-4 Clasificación procesos /jurisdicción - acción
             .col-sm-6
               input#clas_procesos.form-control.not-number(disabled='disabled',
-              placeholder='Digite clasificación procesos /jurisdicción - acción')
+               placeholder='Digite clasificación procesos /jurisdicción - acción',
+               [value]='proceso.prj_clasificacionps')
           .form-group
             label.control-label.col-sm-4 CC demandante / identificación demandante
             .col-sm-6
               input#id_demandante.form-control.number(disabled='disabled', maxlength='25',
-              placeholder='Digite el documento del demandante / identificación demandante' )
+                placeholder='Digite el documento del demandante / identificación demandante',
+                [value]='proceso.CC_Dem' )
           .form-group
             label.control-label.col-sm-4 Nombre demandante
             .col-sm-6
               input#nombre_demandante.form-control.not-number(disabled='disabled', maxlength='300',
-              placeholder='Digite el NomBenef del demandante' )
+                placeholder='Digite el NomBenef del demandante',
+                [value]='proceso.Nombre_Dem' )
           .form-group
             label.control-label.col-sm-4 Demandado
             .col-sm-6
-              input#id_demandado.form-control.not-number(disabled='disabled',value='Colpensiones', maxlength='12'
-              placeholder='Digite el NomBenef del demandado')
+              select#id_demandado.form-control(required,
+              placeholder='Digite el nombre del demandado',
+              (change)='proceso.prj_demandado=$event.target.value')
+                option(value='1') Colpensiones
+                option(value='2') ISS
+                option(value='3') Otro
           .form-group
             label.control-label.col-sm-4 Nombre apoderado actual
             .col-sm-6
               input#nombre_apoderado.form-control.not-number(disabled='disabled', maxlength='300',
-              placeholder='Digite el Nombre del apoderado actual' )
+                placeholder='Digite el Nombre del apoderado actual',
+                [value]='proceso.apoderado.nombre' )
           .form-group
             label.control-label.col-sm-4 Cédula apoderado Colpensiones
             .col-sm-6
-              input#cedula_apoderado.form-control.number(disabled='disabled',
-              placeholder='Digite la cédula del apoderado Colpensiones' maxlength='25')
+              input#cedula_apoderado.form-control.number(disabled='disabled',maxlength='25'
+                placeholder='Digite la cédula del apoderado Colpensiones',
+                [value]='proceso.apoderado.cedula' )
           .form-group
             label.control-label.col-sm-4 TP apoderado Colpensiones
             .col-sm-6
-              input#tarjeta_profesional.form-control.not-number(disabled='disabled', placeholder='Digite la tarjeta profesional del apoderado' maxlength='25')
+              input#tarjeta_profesional.form-control.not-number(disabled='disabled', maxlength='25'
+                placeholder='Digite la tarjeta profesional del apoderado',
+                [value]='proceso.apoderado.tarjeta' )
           .form-group
             label.control-label.col-sm-4 Clasificación trámites
             .col-sm-6
@@ -141,7 +159,9 @@
           .form-group
             label.control-label.col-sm-4 Relación de informativo
             .col-sm-6
-              input#relacion_informativo.form-control.not-number(disabled='disabled', placeholder='Digite la relación de informativo')
+              input#relacion_informativo.form-control.not-number(disabled='disabled',
+                placeholder='Digite la relación de informativo',
+                [value]='proceso.prj_relacioninforma')
           .form-group
             label.control-label.col-sm-4 Regional
             .col-sm-6
@@ -153,15 +173,21 @@
           .form-group
             label.control-label.col-sm-4 Año de radicación
             .col-sm-6
-              input#ano_radicacion.form-control(disabled='disabled', placeholder='Digite el año de radicación' maxlength='4')
+              input#ano_radicacion.form-control(disabled='disabled', maxlength='4'
+                placeholder='Digite el año de radicación',
+                [value]='proceso.prj_anoradicacion || ""' )
           .form-group
             label.control-label.col-sm-4 Tipo de unidad
             .col-sm-6
-              input#tipo_unidad.form-control.not-number(disabled='disabled', placeholder='Digite el tipo de unidad', value='pesos')
+              input#tipo_unidad.form-control.not-number(disabled='disabled',
+                placeholder='Digite el tipo de unidad',
+                [value]='proceso.tiu_id' )
           .form-group
             label.control-label.col-sm-4 Tipo de apoderado
             .col-sm-6
-              input#tipo_apoderado.form-control.not-number(disabled='disabled', placeholder='Digite el tipo de apoderado', value='externo')
+              input#tipo_apoderado.form-control.not-number(disabled='disabled',
+                placeholder='Digite el tipo de apoderado',
+                [value]='proceso.apoderado.tia_id' )
         .col-xs-12
           .btn-group(role='group').pull-right
             .btn.btn-default.btn-md Volver

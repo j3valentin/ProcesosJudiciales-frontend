@@ -12,8 +12,8 @@
 //CUS005 Búsqueda avanzada - Nota: Se recomienda un modal
 .container
   form.form-horizontal(role='form',(ngSubmit)='buscar()')
-    .col-sm-6
-      fieldset
+    fieldset
+      .col-sm-6
         legend Búsqueda avanzada / Filtros de consulta
         .form-group
           label.control-label.col-sm-4(for='fecha_inicio_notificacion') Fecha inicio notificaci&oacute;n
@@ -86,8 +86,8 @@
             (change)='buscarProceso.i_23digitos=$event.target.value',
             maxlength='23', number,
             placeholder='Digite los 23 dígitos del proceso')
-    .col-sm-6
-      fieldset
+
+      .col-sm-6
         .form-group
           label.control-label.col-sm-4(for='fecha_fin_notificacion') Fecha fin notificaci&oacute;n
           .col-sm-6
@@ -145,10 +145,10 @@
             (change)='buscarProceso.i_af_numerodocumento=$event.target.value',
             maxlength='25', number,
             placeholder='Digite la cédula del demandante' )
-    .col-sm-12
-      .btn-group(role='group').pull-right
-        input.btn.btn-default.btn-md(type='reset', value='Limpiar')
-        input.btn.btn-primary.btn-md(type='submit', value='Consultar')
+      .col-sm-12
+        .btn-group(role='group').pull-right
+          input.btn.btn-default.btn-md(type='reset', value='Limpiar')
+          input.btn.btn-primary.btn-md(type='submit', value='Consultar')
   fieldset
     legend Procesos encontrados
     .table-responsive

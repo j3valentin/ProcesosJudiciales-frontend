@@ -20,5 +20,6 @@ export class Juzgado implements JuzgadoInterface {
   constructor() {
     this.depto = new Departamento();
     this.ciudad = new Municipio();
+    this.prj_numerojuzgado = null;
   }
 }

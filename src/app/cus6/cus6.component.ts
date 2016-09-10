@@ -1,8 +1,5 @@
 import {Component} from 'angular2/core';
 import {CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
-import {Proceso} from '../cus234/proceso';
-import {Beneficiario} from '../../shared/model/beneficiario';
-import {JuzgadoInterface} from '../../shared/model/juzgado';
 import {Observable} from 'rxjs';
 import {JuzgadoService} from '../cus234/services/juzgado.service';
 import {OnInit} from 'angular2/src/core/linker/interfaces';
@@ -15,18 +12,21 @@ import {MunicipioInterface} from '../../shared/model/municipio';
 import {TipoProcesoInterface} from '../../shared/model/tipoProceso';
 import {TipoProcesoService} from '../../shared/services/tipoProceso.service';
 import {ClasificacionService} from '../cus234/services/clasificacion.service';
-import {ClasificacionInterface} from '../../shared/model/clasificacion';
 import {TipoInformativoService} from '../cus234/services/tipoInformativo.service';
-import {TipoInformativoInterface} from '../../shared/model/tipoInformativo';
 import {RegionalService} from '../../shared/services/regional.service';
 import {Regional} from '../../shared/model/regional';
 import {ActoAdminService} from '../cus234/services/actoAdmin.service';
-import {ActoAdminInterface} from '../../shared/model/actoAdmin';
 import {PretensionInterface} from '../../shared/model/pretension';
 import {PretensionService} from '../../shared/services/pretension.service';
 import {ClasePretensionService} from '../../shared/services/clasePretension.service';
 import {ClasePretensionInterface} from '../../shared/model/clasePretension';
 import {HTTP_PROVIDERS} from 'angular2/http';
+import {JuzgadoInterface} from '../cus234/model/juzgado';
+import {ClasificacionInterface} from '../cus234/model/clasificacion';
+import {TipoInformativoInterface} from '../cus234/model/tipoInformativo';
+import {ActoAdminInterface} from '../cus234/model/actoAdmin';
+import {Proceso} from '../cus234/model/proceso';
+import {Beneficiario} from '../cus234/model/beneficiario';
 
 
 @Component({
