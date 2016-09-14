@@ -12,46 +12,33 @@
 //CUS007 Consultar información histórico proceso - Nota: Se recomienda un modal
 .container
   form.form-horizontal(role="form")
-    .col-sm-6
-      fieldset
+
+    fieldset
+      .col-sm-6
         legend Consulta histórico de procesos
         .form-group
-          label.control-label.col-sm-6 Fecha inicio notificación
+          label.control-label.col-sm-4(for='fecha_inicio_notificacion') Fecha inicio notificaci&oacute;n
           .col-sm-6
-            input#fechaIniModif.form-control(placeholder="Ingrese fecha inicio de notificación")
+            input#fecha_inicio_notificacion.form-control(placeholder='aaaa-mm-dd',
+            pattern='(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))')
         .form-group
-          label.control-label.col-sm-6 Regional
+          label.control-label.col-sm-4(for='regional') Regional
           .col-sm-6
             select#regional.form-control.not-number
-              option(selected="selected", value="Seleccione la regional") Seleccione la regional
-              option(value="1") ANTIOQUIA
-              option(value="2") BOGOTA
-              option(value="3") CARIBE
-              option(value="4") CENTRO
-              option(value="5") EJE CAFETERO
-              option(value="6") OCCIDENTE
-              option(value="7") SANTANDER
-              option(value="8") SUR
+              option(value='') Seleccione la regional
+              option(*ngFor='#regional of regionales$ | async',
+              [value]='regional.reg_id') {{regional.reg_descripcion}}
         .form-group
-          label.control-label.col-sm-6 Apoderado actual
+          label.control-label.col-sm-4(for='nombre_apoderado_actual') Apoderado actual
           .col-sm-6
-            select#apoActual.form-control.not-number
-              option(selected="selected", value="Seleccione el NomBenef del apoderado actual") Seleccione el nombre del apoderado actual
-              option(value="1") Apoderado1
-              option(value="2") Apoderado2
-              option(value="3") Apoderado3
-              option(value="4") Apoderado4
-              option(value="5") Apoderado5
-              option(value="6") Apoderado6
-              option(value="7") Apoderado7
-              option(value="8") Apoderado8
-              option(value="9") Apoderado9
-              option(value="10") Apoderado10
-              option(value="11") Apoderado11
+            select#nombre_apoderado_actual.form-control.not-number
+              option(value='') Seleccione el apoderado
+              //option(*ngFor='#regional of regionales$ | async',  ajustar
+              //[value]='regional.reg_id') {{regional.reg_descripcion}}
         .form-group
-          label.control-label.col-sm-6 Instancia actual
+          label.control-label.col-sm-4(for='instancia_actual') Instancia actual
           .col-sm-6
-            select#pretenPrincipal.form-control.not-number
+            select#instancia_actual.form-control.not-number
               option(selected="selected", value="Seleccione la instancia actual") Seleccione la instancia actual
               option(value="1") PRIMERA
               option(value="2") SEGUNDA
@@ -59,30 +46,22 @@
               option(value="4") CASACION / REVISION
               option(value="5") CONSULTA
         .form-group
-          label.control-label.col-sm-6 Ciudad juzgado
+          label.control-label.col-sm-4(for='ciudad_juzgado') Ciudad juzgado
           .col-sm-6
-            select#pretenPrincipal.form-control.not-number
-              option(selected="selected", value="Seleccione la ciudad del juzgado") Seleccione la ciudad del juzgado
-              option(value="1") Ciudad1
-              option(value="2") Ciudad2
-              option(value="3") Ciudad3
-              option(value="4") Ciudad4
-              option(value="5") Ciudad5
-              option(value="6") Ciudad6
-              option(value="7") Ciudad7
-              option(value="8") Ciudad8
-              option(value="9") Ciudad9
-              option(value="10") Ciudad10
-    .col-sm-6
-      fieldset
+            select#ciudad_juzgado.form-control.not-number
+              option(value='') Seleccione la ciudad del juzgado
+              option(*ngFor='#municipio of municipios$ | async',
+              [value]='municipio.mpi_id') {{municipio.mpi_descripcion}}
+      .col-sm-6
         .form-group
-          label.control-label.col-sm-5 Fecha fin notificación
+          label.control-label.col-sm-5(for='fecha_fin_notificacion') Fecha fin notificaci&oacute;n
           .col-sm-6
-            input#fechaFinNotif.form-control(placeholder="Ingrese fecha inicio notificación")
+            input#fecha_fin_notificacion.form-control(placeholder='aaaa-mm-dd',
+            pattern='(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))')
         .form-group
-          label.control-label.col-sm-5 ¿Con actualización de etapas?
+          label.control-label.col-sm-5(for='con_actualizacion_de_etapas1') ¿Con actualización de etapas?
           .col-sm-6
-            select#pretenPrincipal.form-control.not-number
+            select#con_actualizacion_de_etapas1.form-control.not-number
               option(selected="selected", value="Seleccione la etapa actual del proceso") Seleccione la etapa actual del proceso
               option(value="1") Etapa1
               option(value="2") Etapa2
@@ -95,9 +74,9 @@
               option(value="9") Etapa9
               option(value="10") Etapa10
         .form-group
-          label.control-label.col-sm-5 ¿Con actualización de etapas?
+          label.control-label.col-sm-5(for='con_actualizacion_de_etapas2') ¿Con actualización de etapas?
           .col-sm-6
-            select#pretenPrincipal.form-control.not-number
+            select#con_actualizacion_de_etapas2.form-control.not-number
               option(selected="selected", value="Seleccione la etapa actual del proceso") Seleccione la etapa actual del proceso
               option(value="1") Etapa1
               option(value="2") Etapa2
@@ -110,22 +89,17 @@
               option(value="9") Etapa9
               option(value="10") Etapa10
         .form-group
-          label.control-label.col-sm-5 Departamento juzgado
+          label.control-label.col-sm-5(for='departamento_juzgado') Departamento juzgado
           .col-sm-6
-            select#ciudadJuzgado.form-control.not-number
-              option(selected="selected", value="Seleccione el departamento del juzgado", style="color:#ccc !important") Seleccione la ciudad juzgado
-              option(value="1") ANTIOQUIA
-              option(value="2") BOGOTA
-              option(value="3") CARIBE
-              option(value="4") CENTRO
-              option(value="5") EJE CAFETERO
-              option(value="6") OCCIDENTE
-              option(value="7") SANTANDER
-              option(value="8") SUR
-    .col-sm-12.text-right
-      .btn-group
-        .btn.btn-default.btn-md Limpiar
-        .btn.btn-primary.btn-md Consultar
+            select#departamento_juzgado.form-control(
+            (change)='municipioService.loadAllByDepto($event.target.value)')
+              option(value='') Seleccione el departamento del juzgado
+              option(*ngFor='#departamento of departamentos$ | async',
+              [value] = 'departamento.dpt_id') {{departamento.dpt_descripcion}}
+      .col-sm-12
+        .btn-group(role='group').pull-right
+          input.btn.btn-default.btn-md(type='reset', value='Limpiar')
+          input.btn.btn-primary.btn-md(type='submit', value='Consultar')
   fieldset
     .well
       p Se identificaron &lt;&lt;Número de registros calculados&gt;&gt; procesos con los filtros de consulta diligenciados

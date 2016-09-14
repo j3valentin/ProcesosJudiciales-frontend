@@ -64,8 +64,7 @@ export class Cus5Component implements OnInit {
               private municipioService: MunicipioService,
               private pretensionService: PretensionService,
               private regionalService: RegionalService,
-              private tipoProcesoService: TipoProcesoService) {
-  }
+              private tipoProcesoService: TipoProcesoService) {}
 
   ngOnInit() {
     this.procesosBuscados$ = this.buscarProcesoService.procesosBusca$;
