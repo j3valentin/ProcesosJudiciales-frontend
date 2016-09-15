@@ -1,12 +1,14 @@
 export interface ApoderadoInterface {
-  tia_id: string
+  tia_id: number,
+  tia_descripcion: string,
   nombre?: string,
   cedula?: number,
   tarjeta?: string,
 }
 
 export class Apoderado implements ApoderadoInterface {
-  tia_id: string;
+  tia_id: number;
+  tia_descripcion: string;
   nombre: string;
   cedula: number;
   tarjeta: string;
@@ -17,3 +19,4 @@ export class Apoderado implements ApoderadoInterface {
     this.tarjeta = null;
   }
 }
+

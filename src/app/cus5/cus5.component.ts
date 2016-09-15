@@ -6,7 +6,7 @@ import {Observable} from 'rxjs';
 import {NumberDirective} from '../../shared/directives/number.directive';
 import {NotNumberDirective} from '../../shared/directives/not-number.directive';
 
-import {BuscarProcesoService} from './buscarProceso.service';
+import {BuscarProcesoService} from './services/buscarProceso.service';
 import {ClasePretensionService} from '../../shared/services/clasePretension.service';
 import {CausaService} from '../../shared/services/causa.service';
 import {DepartamentoService} from '../../shared/services/departamento.service';

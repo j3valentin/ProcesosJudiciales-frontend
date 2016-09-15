@@ -1,8 +1,8 @@
 import {Injectable}          from 'angular2/core';
 import {Http, Headers, RequestOptions}                from 'angular2/http';
 import {Subject}             from 'rxjs/Subject';
-import {BuscarProcesoInterface}    from './buscarProceso';
-import {WEBAPI_URL} from '../../shared/constantes';
+import {BuscarProcesoInterface}    from '../buscarProceso';
+import {WEBAPI_URL} from '../../../shared/constantes';
 
 /**
  * Created by Reivaj on 03/09/2016.
@@ -43,7 +43,8 @@ export class BuscarProcesoService {
           i_per_nombre: buscarProceso.i_per_nombre,
           i_af_numerodocumento: buscarProceso.i_af_numerodocumento,
           i_23digitos: buscarProceso.i_23digitos,
-          i_NomApo: buscarProceso.i_NomApo,
+          // i_NomApo: buscarProceso.i_NomApo,
+          i_NomApo: 'andres',
           i_prj_numresolucion: buscarProceso.i_prj_numresolucion
         }
       })

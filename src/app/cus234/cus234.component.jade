@@ -254,16 +254,19 @@
             .form-group
               label.control-label.col-sm-4.required(for='tipo_unidad') Tipo de unidad
               .col-sm-6
-                input#tipo_unidad.form-control.not-number(maxlength='10', required
-                placeholder='Digite el tipo de unidad',
-                (change)='proceso.tiu_id=$event.target.value')
+                select#tipo_unidad.form-control(required,
+                (change)='proceso.tipoUni.tiu_id=$event.target.value')
+                  option(value='') Seleccione el tipo de unidad
+                  option(*ngFor='#tipoUnidad of tiposUnidad$ | async',
+                  [value]='tipoUnidad.tiu_id') {{tipoUnidad.tiu_descripcion}}
             .form-group
               label.control-label.col-sm-4.required(for='tipo_apoderado') Tipo de apoderado
               .col-sm-6
-                input#tipo_apoderado.form-control.not-number(maxlength='10', required,
-                placeholder='Digite el tipo de apoderado',
+                select#tipo_apoderado.form-control(required,maxlength='10',
                 (change)='proceso.apoderado.tia_id=$event.target.value')
-
+                  option(value='') Seleccione el tipo de apoderado
+                  option(*ngFor='#apoderado of tiposApoderado$ | async',
+                  [value]='apoderado.tia_id') {{apoderado.tia_descripcion}}
         #daPrePro.tab-pane.fade.in([class.active]='pestana==="daPrePro"')
           fieldset
             legend Datos cualitativos, pretensiones y etapas procesales

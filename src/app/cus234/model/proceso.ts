@@ -12,6 +12,7 @@ import {ModPretensionInterface, ModPretension} from './modPretension';
 import {ClasePretensionInterface, ClasePretension} from '../../../shared/model/clasePretension';
 import {ActoAdminInterface, ActoAdmin} from './actoAdmin';
 import {EstadoProceso} from '../../../shared/model/estadoProceso';
+import {TipoUnidad} from './tipoUnidad';
 
 export interface ProcesoInterface {
   prj_fechanotifica?: string;
@@ -34,7 +35,7 @@ export interface ProcesoInterface {
   prj_relacioninforma?: string;
   regional?: Regional;
   prj_anoradicacion?: number;
-  tiu_id?: number;
+  tipoUnidad?: TipoUnidad;
   prj_hechosproceso?: string;
   actoAdmin?: ActoAdminInterface;
   prj_numresolucion?: string;
@@ -68,6 +69,7 @@ export class Proceso implements ProcesoInterface {
   actoAdmin: ActoAdmin;
   apoderado: Apoderado;
   tipoInf: TipoInformativo;
+  tipoUnidad: TipoUnidad;
   clasTramites: Clasificacion;
   regional: Regional;
   juzgado: Juzgado;
@@ -87,6 +89,7 @@ export class Proceso implements ProcesoInterface {
     this.tipo = new TipoProceso();
     this.clasTramites = new Clasificacion();
     this.tipoInf = new TipoInformativo();
+    this.tipoUnidad=new TipoUnidad();
     this.apoderado = new Apoderado();
     this.actoAdmin = new ActoAdmin();
     this.causa = new Causa();

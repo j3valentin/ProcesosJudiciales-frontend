@@ -8,6 +8,8 @@ import {NotNumberDirective} from '../../shared/directives/not-number.directive';
 
 import {SeguridadService} from '../../shared/services/seguridad.service';
 import {JuzgadoService} from './services/juzgado.service';
+import {TipoApoderadoService} from './services/tipoApoderado.service';
+import {TipoUnidadService} from './services/tipoUnidad.service';
 import {ProcesoService} from './services/proceso.service';
 import {DepartamentoService} from '../../shared/services/departamento.service';
 import {DespachoService} from '../../shared/services/despacho.service';
@@ -41,6 +43,8 @@ import {PretensionInterface} from '../../shared/model/pretension';
 import {ClasePretensionInterface} from '../../shared/model/clasePretension';
 import {EstadoProceso} from '../../shared/model/estadoProceso';
 import {Beneficiario} from './model/beneficiario';
+import {ApoderadoInterface} from './model/apoderado';
+import {TipoUnidadInterface} from './model/tipoUnidad';
 
 
 @Component({
@@ -53,10 +57,10 @@ import {Beneficiario} from './model/beneficiario';
   providers: [HTTP_PROVIDERS, SeguridadService,
     ProcesoService, JuzgadoService,
     DepartamentoService, MunicipioService,
-    DespachoService, RegionalService,
+    DespachoService, RegionalService,TipoUnidadService,
     TipoProcesoService, TipoInformativoService,
     ClasificacionService,  CausaService, ModPretensionService,
-    PretensionService, ClasePretensionService,
+    PretensionService, ClasePretensionService, TipoApoderadoService,
     ActoAdminService, ProcesoDupService, EstadoProcesoService]
 })
 export class Cus234Component implements OnInit {
@@ -68,6 +72,8 @@ export class Cus234Component implements OnInit {
   municipios$: Observable<MunicipioInterface[]>;
   tipoProcesos$: Observable<TipoProcesoInterface[]>;
   tipoInformativos$: Observable<TipoInformativoInterface[]>;
+  tiposApoderado$: Observable<ApoderadoInterface[]>;
+  tiposUnidad$: Observable<TipoUnidadInterface[]>;
   regionales$: Observable<Regional[]>;
   clasificaciones$: Observable<ClasificacionInterface[]>;
   causas$: Observable<CausaInterace[]>;
@@ -95,6 +101,8 @@ export class Cus234Component implements OnInit {
               private estadoProcesoService: EstadoProcesoService,
               private procesoDupService: ProcesoDupService,
               private departamentoService: DepartamentoService,
+              private tipoApoderadoService: TipoApoderadoService,
+              private tipoUnidadService: TipoUnidadService,
               private municipioService: MunicipioService
               ) {}
 
@@ -107,8 +115,9 @@ export class Cus234Component implements OnInit {
     this.regionales$ = this.regionalService.regionales$;
     this.tipoProcesos$ = this.tipoProcesoService.tipoProcesos$;
     this.tipoInformativos$ = this.tipoInformativoService.tipoInformativos$;
+    this.tiposApoderado$ = this.tipoApoderadoService.tiposApod$;
+    this.tiposUnidad$ = this.tipoUnidadService.tiposUnidad$;
     this.clasificaciones$ = this.clasificacionService.clasificaciones$;
-    // this.causas$ = this.causaService.getCausas$();
     this.causas$ = this.causaService.causas$;
     this.modPretensiones$ = this.modPretensionService.modPretensiones$;
     this.clasesPretensiones$ = this.clasePretensionService.clasesPretensiones$;
@@ -122,9 +131,12 @@ export class Cus234Component implements OnInit {
     this.despachoService.loadAll();
     this.regionalService.loadAll();
     this.tipoProcesoService.loadAll();
+    this.tipoApoderadoService.loadAll();
+    this.tipoUnidadService.loadAll();
     this.clasificacionService.loadAll();
     this.causaService.loadAll();
     this.modPretensionService.loadAll();
+    this.actoAdminService.loadAll();
     this.actoAdminService.loadAll();
     this.estadoProcesoService.loadAll();
 
