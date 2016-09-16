@@ -1,8 +1,8 @@
 import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
-import {ApoderadoInterface} from '../model/apoderado';
-import {WEBAPI_URL} from '../../../shared/constantes';
+import {ActoAdminInterface} from '../model/actoAdmin';
+import {WEBAPI_URL} from '../constantes';
 
 
 /**
@@ -10,21 +10,21 @@ import {WEBAPI_URL} from '../../../shared/constantes';
  */
 
 @Injectable()
-export class TipoApoderadoService {
-  private _tiposApod$: Subject<ApoderadoInterface[]>;
+export class ActoAdminService {
+  private _actosAdmin$: Subject<ActoAdminInterface[]>;
   private baseUrl: string;
   private dataStore: {
-    tiposApod: ApoderadoInterface[]
+    actosAdmin: ActoAdminInterface[]
   };
 
   constructor(private http: Http) {
     this.baseUrl = WEBAPI_URL;
-    this.dataStore = {tiposApod: []};
-    this._tiposApod$ = <Subject<ApoderadoInterface[]>>new Subject();
+    this.dataStore = {actosAdmin: []};
+    this._actosAdmin$ = <Subject<ActoAdminInterface[]>>new Subject();
   }
 
-  get tiposApod$() {
-    return this._tiposApod$.asObservable();
+  get actosAdmin$() {
+    return this._actosAdmin$.asObservable();
   }
 
   loadAll() {
@@ -34,14 +34,14 @@ export class TipoApoderadoService {
     });
     let headers = new Headers({
       'Content-Type': 'application/json',
-      'sp-name': 'pr_ConsultaTipoApoderado'
+      'sp-name': 'pr_ConsultaEntidadActoAdministravo'
     });
     let options = new RequestOptions({headers: headers});
     this.http.post(this.baseUrl, body, options)
       .map(response => response.json())
       .subscribe(data => {
-        this.dataStore.tiposApod = data;
-        this._tiposApod$.next(this.dataStore.tiposApod);
-      }, error => console.log('Could not load tiposApod.'));
+        this.dataStore.actosAdmin = data;
+        this._actosAdmin$.next(this.dataStore.actosAdmin);
+      }, error => console.log('Could not load actosAdmin.'));
   }
 }

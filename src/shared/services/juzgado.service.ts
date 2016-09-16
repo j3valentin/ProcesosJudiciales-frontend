@@ -2,7 +2,7 @@ import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
 import {JuzgadoInterface} from '../model/juzgado';
-import {WEBAPI_URL} from '../../../shared/constantes';
+import {WEBAPI_URL} from '../constantes';
 
 /**
  * Created by fire on 20/08/2016.

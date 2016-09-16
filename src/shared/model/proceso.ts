@@ -1,17 +1,17 @@
 import {JuzgadoInterface, Juzgado}   from './juzgado';
 import {ApoderadoInterface, Apoderado} from './apoderado';
 import {Beneficiario}  from './beneficiario';
-import {TipoProcesoInterface, TipoProceso}  from '../../../shared/model/tipoProceso';
+import {TipoProcesoInterface, TipoProceso}  from './tipoProceso';
 import {TipoInformativoInterface, TipoInformativo} from './tipoInformativo'
-import {Regional} from '../../../shared/model/regional';
-import {DespachoInterface, Despacho} from '../../../shared/model/despacho';
+import {Regional} from './regional';
+import {DespachoInterface, Despacho} from './despacho';
 import {ClasificacionInterface, Clasificacion} from './clasificacion';
-import {CausaInterace, Causa} from '../../../shared/model/causa';
-import {PretensionInterface, Pretension} from '../../../shared/model/pretension';
+import {CausaInterace, Causa} from './causa';
+import {PretensionInterface, Pretension} from './pretension';
 import {ModPretensionInterface, ModPretension} from './modPretension';
-import {ClasePretensionInterface, ClasePretension} from '../../../shared/model/clasePretension';
+import {ClasePretensionInterface, ClasePretension} from './clasePretension';
 import {ActoAdminInterface, ActoAdmin} from './actoAdmin';
-import {EstadoProceso} from '../../../shared/model/estadoProceso';
+import {EstadoProceso} from './estadoProceso';
 import {TipoUnidad} from './tipoUnidad';
 
 export interface ProcesoInterface {

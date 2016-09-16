@@ -1,8 +1,8 @@
 import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
-import {TipoUnidadInterface} from '../model/tipoUnidad';
-import {WEBAPI_URL} from '../../../shared/constantes';
+import {ModPretensionInterface} from '../model/modPretension';
+import {WEBAPI_URL} from '../constantes';
 
 
 /**
@@ -10,21 +10,21 @@ import {WEBAPI_URL} from '../../../shared/constantes';
  */
 
 @Injectable()
-export class TipoUnidadService {
-  private _tiposUnidad$: Subject<TipoUnidadInterface[]>;
+export class ModPretensionService {
+  private _modPretensiones$: Subject<ModPretensionInterface[]>;
   private baseUrl: string;
   private dataStore: {
-    tiposUnidad: TipoUnidadInterface[]
+    modPretensiones: ModPretensionInterface[]
   };
 
   constructor(private http: Http) {
     this.baseUrl = WEBAPI_URL;
-    this.dataStore = {tiposUnidad: []};
-    this._tiposUnidad$ = <Subject<TipoUnidadInterface[]>>new Subject();
+    this.dataStore = {modPretensiones: []};
+    this._modPretensiones$ = <Subject<ModPretensionInterface[]>>new Subject();
   }
 
-  get tiposUnidad$() {
-    return this._tiposUnidad$.asObservable();
+  get modPretensiones$() {
+    return this._modPretensiones$.asObservable();
   }
 
   loadAll() {
@@ -34,14 +34,14 @@ export class TipoUnidadService {
     });
     let headers = new Headers({
       'Content-Type': 'application/json',
-      'sp-name': 'pr_ConsultaTipoUnidad'
+      'sp-name': 'pr_ConsultaModalidadPretension'
     });
     let options = new RequestOptions({headers: headers});
     this.http.post(this.baseUrl, body, options)
       .map(response => response.json())
       .subscribe(data => {
-        this.dataStore.tiposUnidad = data;
-        this._tiposUnidad$.next(this.dataStore.tiposUnidad);
-      }, error => console.log('Could not load tiposUnidad.'));
+        this.dataStore.modPretensiones = data;
+        this._modPretensiones$.next(this.dataStore.modPretensiones);
+      }, error => console.log('Could not load modPretensiones.'));
   }
 }

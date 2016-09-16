@@ -2,7 +2,7 @@ import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
 import {ClasificacionInterface} from '../model/clasificacion';
-import {WEBAPI_URL} from '../../../shared/constantes';
+import {WEBAPI_URL} from '../constantes';
 
 
 /**

@@ -2,7 +2,7 @@ import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
 import {ProcesoDup} from '../model/procesoDup';
-import {WEBAPI_URL} from '../../../shared/constantes';
+import {WEBAPI_URL} from '../constantes';
 
 
 /**
@@ -98,7 +98,7 @@ export class ProcesoDupService {
         Nombre_Dem: procesoDup.per_Nombre,
         cc_Dem: procesoDup.af_numerodocumento,
         Dei_id: procesoDup.dei_id,
-        esp_id: 1,//TODO: ajustar sp de consulta de duplicados para obttener el esp_id (id_estado)
+        esp_id: 1,//TODO: ajustar sp de consulta de duplicados para obtener el esp_id (id_estado)
         prj_id: procesoDup.prj_id,
         loginmodifica: ''
       }

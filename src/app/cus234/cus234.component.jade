@@ -255,7 +255,7 @@
               label.control-label.col-sm-4.required(for='tipo_unidad') Tipo de unidad
               .col-sm-6
                 select#tipo_unidad.form-control(required,
-                (change)='proceso.tipoUni.tiu_id=$event.target.value')
+                (change)='proceso.tipoUnidad.tiu_id=$event.target.value')
                   option(value='') Seleccione el tipo de unidad
                   option(*ngFor='#tipoUnidad of tiposUnidad$ | async',
                   [value]='tipoUnidad.tiu_id') {{tipoUnidad.tiu_descripcion}}

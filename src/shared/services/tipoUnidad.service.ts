@@ -1,8 +1,8 @@
 import {Injectable} from 'angular2/core';
 import {Http, Headers, RequestOptions} from 'angular2/http';
 import {Subject} from 'rxjs/Subject';
-import {ActoAdminInterface} from '../model/actoAdmin';
-import {WEBAPI_URL} from '../../../shared/constantes';
+import {TipoUnidadInterface} from '../model/tipoUnidad';
+import {WEBAPI_URL} from '../constantes';
 
 
 /**
@@ -10,21 +10,21 @@ import {WEBAPI_URL} from '../../../shared/constantes';
  */
 
 @Injectable()
-export class ActoAdminService {
-  private _actosAdmin$: Subject<ActoAdminInterface[]>;
+export class TipoUnidadService {
+  private _tiposUnidad$: Subject<TipoUnidadInterface[]>;
   private baseUrl: string;
   private dataStore: {
-    actosAdmin: ActoAdminInterface[]
+    tiposUnidad: TipoUnidadInterface[]
   };
 
   constructor(private http: Http) {
     this.baseUrl = WEBAPI_URL;
-    this.dataStore = {actosAdmin: []};
-    this._actosAdmin$ = <Subject<ActoAdminInterface[]>>new Subject();
+    this.dataStore = {tiposUnidad: []};
+    this._tiposUnidad$ = <Subject<TipoUnidadInterface[]>>new Subject();
   }
 
-  get actosAdmin$() {
-    return this._actosAdmin$.asObservable();
+  get tiposUnidad$() {
+    return this._tiposUnidad$.asObservable();
   }
 
   loadAll() {
@@ -34,14 +34,14 @@ export class ActoAdminService {
     });
     let headers = new Headers({
       'Content-Type': 'application/json',
-      'sp-name': 'pr_ConsultaEntidadActoAdministravo'
+      'sp-name': 'pr_ConsultaTipoUnidad'
     });
     let options = new RequestOptions({headers: headers});
     this.http.post(this.baseUrl, body, options)
       .map(response => response.json())
       .subscribe(data => {
-        this.dataStore.actosAdmin = data;
-        this._actosAdmin$.next(this.dataStore.actosAdmin);
-      }, error => console.log('Could not load actosAdmin.'));
+        this.dataStore.tiposUnidad = data;
+        this._tiposUnidad$.next(this.dataStore.tiposUnidad);
+      }, error => console.log('Could not load tiposUnidad.'));
   }
 }

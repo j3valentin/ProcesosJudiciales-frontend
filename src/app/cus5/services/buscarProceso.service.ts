@@ -44,7 +44,7 @@ export class BuscarProcesoService {
           i_af_numerodocumento: buscarProceso.i_af_numerodocumento,
           i_23digitos: buscarProceso.i_23digitos,
           // i_NomApo: buscarProceso.i_NomApo,
-          i_NomApo: 'andres',
+          i_NomApo: 'Nombre apoderado actual',
           i_prj_numresolucion: buscarProceso.i_prj_numresolucion
         }
       })
