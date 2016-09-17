@@ -1,5 +1,6 @@
 import {Component, OnInit} from 'angular2/core';
 import {CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
+import {ROUTER_DIRECTIVES, RouteParams} from 'angular2/router';
 import {HTTP_PROVIDERS} from 'angular2/http';
 import {Observable} from 'rxjs';
 
@@ -51,7 +52,7 @@ import {ProcesoActu} from './model/procesoActu';
   moduleId: module.id,
   templateUrl: './cus9.component.html',
   styleUrls: ['./cus9.component.css'],
-  directives: [FORM_DIRECTIVES, CORE_DIRECTIVES,
+  directives: [ROUTER_DIRECTIVES, FORM_DIRECTIVES, CORE_DIRECTIVES,
     NumberDirective, NotNumberDirective],
   providers: [HTTP_PROVIDERS, SeguridadService,
     ProcesoService, JuzgadoService,
@@ -63,7 +64,9 @@ import {ProcesoActu} from './model/procesoActu';
     ActoAdminService, ProcesoDupService, EstadoProcesoService]
 })
 export class Cus9Component implements OnInit {
+  prj_id: number;
   errorMessage: string;
+
   procesosDup$: Observable<ProcesoDup[]>;
   juzgados$: Observable<JuzgadoInterface[]>;
   despachos$: Observable<DespachoInterface[]>;
@@ -86,7 +89,8 @@ export class Cus9Component implements OnInit {
   pestana: String = 'geoDatGen';
   procesoDupSelect: number;
 
-  constructor(private procesoService: ProcesoService,
+  constructor(params: RouteParams,
+              private procesoService: ProcesoService,
               private juzgadoService: JuzgadoService,
               private despachoService: DespachoService,
               private regionalService: RegionalService,
@@ -104,6 +108,8 @@ export class Cus9Component implements OnInit {
               private tipoApoderadoService: TipoApoderadoService,
               private tipoUnidadService: TipoUnidadService,
               private municipioService: MunicipioService) {
+    console.log(params);
+    this.prj_id = +params.get('prj_id');
   }
 
   ngOnInit() {
@@ -127,8 +133,18 @@ export class Cus9Component implements OnInit {
     this.estadosProceso$ = this.estadoProcesoService.estadosProceso$;
     this.proceso = this.procesoService.proceso$;
 
+    this.procesoService.loadProcess(this.prj_id);
+
     this.juzgadoService.loadAll();
+
     this.departamentoService.loadAll();
+    // let dpt_idjuzgado;
+    // this.proceso.subscribe(function (proceso) {
+    //   dpt_idjuzgado = proceso.dpt_idjuzgado
+    //   this.municipioService.loadAllByDepto(dpt_idjuzgado);
+    //   return dpt_idjuzgado;
+    // });
+
     this.despachoService.loadAll();
     this.regionalService.loadAll();
     this.tipoProcesoService.loadAll();
@@ -140,7 +156,8 @@ export class Cus9Component implements OnInit {
     this.actoAdminService.loadAll();
     this.actoAdminService.loadAll();
     this.estadoProcesoService.loadAll();
-    this.procesoService.loadProcess(214);
+
+
     //console.log('proceso: '+ this.procesos[0]);
 
     //   this.proceso$.beneficiarios.push(new Beneficiario());

@@ -192,6 +192,7 @@
             td
               label {{procesoBuscado.despacho.dei_id}}
             td.text-center
-              i.glyphicon.glyphicon-file.btn-sm-default(title='Ver detalle')
+              a([routerLink]="['Cus9', {prj_id:procesoBuscado.prj_id}]", role="button")
+                i.glyphicon.glyphicon-file.btn-sm-default(title='Ver detalle')
   .btn-group.pull-right
     .btn.btn-success.btn-md Exportar

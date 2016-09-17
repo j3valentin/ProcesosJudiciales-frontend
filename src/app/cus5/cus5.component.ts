@@ -1,4 +1,5 @@
 import {Component, OnInit} from 'angular2/core';
+import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
 import {HTTP_PROVIDERS} from 'angular2/http';
 import {Observable} from 'rxjs';
@@ -35,7 +36,7 @@ import {TipoProcesoInterface} from '../../shared/model/tipoProceso';
   moduleId: module.id,
   templateUrl: './cus5.component.html',
   styleUrls: ['./cus5.component.css'],
-  directives: [FORM_DIRECTIVES, CORE_DIRECTIVES,
+  directives: [ROUTER_DIRECTIVES, FORM_DIRECTIVES, CORE_DIRECTIVES,
     NumberDirective, NotNumberDirective],
   providers: [HTTP_PROVIDERS, BuscarProcesoService, CausaService, ClasePretensionService,
     DepartamentoService, DespachoService, EstadoProcesoService, MunicipioService,

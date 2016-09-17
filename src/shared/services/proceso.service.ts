@@ -202,7 +202,8 @@ export class ProcesoService {
     });
     let options = new RequestOptions({headers: headers});
     this.http.post(this.baseUrl, body, options)
-      .map(response => response.json()[0]) // Se selecciona la primera posicion porque solo se obtiene uno TODO: crear funcion para mapear response a objeto
+      .map(response => response.json()[0]) // Se selecciona la primera posicion porque
+      // solo se obtiene uno TODO: crear funcion para mapear response a objeto
       .subscribe(data => {
         this.dataStore.proceso = data;
         this._proceso$.next(this.dataStore.proceso);

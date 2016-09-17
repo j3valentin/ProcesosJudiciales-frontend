@@ -45,7 +45,8 @@
               label.control-label.col-sm-4.required(for='tipo_juzgado') Tipo de juzgado
               .col-sm-6
                 select#tipo_juzgado.form-control(required,
-                (change)='proceso.juzgado.tij_id=$event.target.value')
+                [value]='(proceso | async)?.tij_id',
+                (change)='proceso.tij_id=$event.target.value')
                   option(value='') Seleccione el tipo de juzgado
                   option(*ngFor='#juzgado of juzgados$ | async',
                   [value]='juzgado.tij_id') {{juzgado.tij_descripcion}}
@@ -53,7 +54,8 @@
               label.control-label.col-sm-4.required(for='despacho_inicial') Nombre de despacho inicial
               .col-sm-6
                 select#despacho_inicial.form-control(required,
-                (change)='proceso.despacho.dei_id=$event.target.value')
+                [value]='(proceso | async)?.dei_id',
+                (change)='proceso.dei_id=$event.target.value')
                   option(value='') Seleccione el nombre del despacho inicial
                   option(*ngFor='#despacho of despachos$ | async',
                   [value]='despacho.dei_id') {{despacho.dei_descripcion}}
@@ -61,7 +63,8 @@
               label.control-label.col-sm-4.required(for='departamento_juzgado') Departamento juzgado
               .col-sm-6
                 select#departamento_juzgado.form-control(required,
-                (change)='proceso.juzgado.depto.dpt_id=$event.target.value;municipioService.loadAllByDepto($event.target.value)')
+                [value]='(proceso | async)?.dpt_idjuzgado',
+                (change)='proceso.dpt_id=$event.target.value;municipioService.loadAllByDepto($event.target.value)')
                   option(value='') Seleccione el departamento del juzgado
                   option(*ngFor='#departamento of departamentos$ | async',
                   [value]='departamento.dpt_id') {{departamento.dpt_descripcion}}
@@ -69,7 +72,8 @@
               label.control-label.col-sm-4.required(for='ciudad_juzgado') Ciudad de juzgado / Lugar de los hechos
               .col-sm-6
                 select#ciudad_juzgado.form-control(required,
-                (change)='proceso.juzgado.ciudad.mpi_id=$event.target.value')
+                [value]='(proceso | async)?.mpi_idjuzgado',
+                (change)='proceso.mpi_id=$event.target.value')
                   option(value='') Seleccione la ciudad del juzgado / Lugar de los hechos
                   option(*ngFor='#municipio of municipios$ | async',
                   [value]='municipio.mpi_id') {{municipio.mpi_descripcion}}
@@ -77,19 +81,22 @@
               label.control-label.col-sm-4.required(for='radicado_ram_jud') Radicado rama judicial / N&uacute;mero de radicaci&oacute;n
               .col-sm-6
                 input#radicado_ram_jud.form-control(maxlength='9', required,
+                [value]='(proceso | async)?.prj_numeroradica',
                 placeholder='Digite el radicado de la rama judicial / Número de radicación ej. 2015_0003',
                 (change)='proceso.prj_numeroradica=$event.target.value')
             .form-group
               label.control-label.col-sm-4.required(for='digitos') 23 d&iacute;gitos del proceso / N&uacute;mero de proceso rama judicial
               .col-sm-6
                 input#digitos.form-control(maxlength='23', number, required,
+                [value]='(proceso | async)?.prj_23digitos',
                 placeholder='Digite los 23 dígitos del proceso / Número de proceso rama judicial',
                 (change)='proceso.prj_23digitos=$event.target.value')
             .form-group
               label.control-label.col-sm-4.required(for='tipo_proceso') Tipo de proceso
               .col-sm-6
                 select#tipo_proceso.form-control(required,
-                (change)='proceso.tipo.tip_id=$event.target.value')
+                [value]='(proceso | async)?.tip_id',
+                (change)='proceso.tip_id=$event.target.value')
                   option(value='') Seleccione el tipo de proceso
                   option(*ngFor='#tipoProceso of tipoProcesos$ | async',
                   [value]='tipoProceso.tip_id') {{tipoProceso.tip_descripcion}}
@@ -97,12 +104,14 @@
               label.control-label.col-sm-4.required(for='clas_procesos') Clasificaci&oacute;n procesos /jurisdicci&oacute;n - acci&oacute;n
               .col-sm-6
                 input#clas_procesos.form-control(maxlength='50', required,
+                [value]='(proceso | async)?.prj_clasificacionps',
                 placeholder='Digite clasificación procesos /jurisdicción - acción',
                 (change)='proceso.prj_clasificacionps=$event.target.value')
             .form-group
               label.control-label.col-sm-4.required(for='id_demandado') Demandado
               .col-sm-6
                 select#id_demandado.form-control(required,
+                [value]='(proceso | async)?.prj_demandado',
                 placeholder='Digite el nombre del demandado',
                 (change)='proceso.prj_demandado=$event.target.value')
                   option(value='1') Colpensiones
@@ -112,25 +121,29 @@
               label.control-label.col-sm-4(for='nombre_apoderado') Nombre apoderado actual
               .col-sm-6
                 input#nombre_apoderado.form-control(maxlength='300', not-number,
+                [value]='(proceso | async)?.persApo_per_Nombre',
                 placeholder='Digite el nombre del apoderado actual',
-                (change)='proceso.apoderado.nombre=$event.target.value')
+                (change)='proceso.persApo_per_Nombre=$event.target.value')
             .form-group
               label.control-label.col-sm-4.required(for='cedula_apoderado') C&eacute;dula apoderado Colpensiones
               .col-sm-6
                 input#cedula_apoderado.form-control.number(maxlength="25", number, required,
+                [value]='(proceso | async)?.persApo_af_numerodocumento',
                 placeholder='Digite la cédula del apoderado Colpensiones',
-                (change)='proceso.apoderado.cedula=$event.target.value')
+                (change)='proceso.persApo_af_numerodocumento=$event.target.value')
             .form-group
               label.control-label.col-sm-4.required(for='tarjeta_profesional') Tarjeta profesional apoderado
               .col-sm-6
                 input#tarjeta_profesional.form-control(maxlength='25', required,
+                [value]='(proceso | async)?.per_NumeTarjProfesional',
                 placeholder='Digite la tarjeta profesional del apoderado',
-                (change)='proceso.apoderado.tarjeta=$event.target.value')
+                (change)='proceso.per_NumeTarjProfesional=$event.target.value')
             .form-group
               label.control-label.col-sm-4.required(for='clasificacion_tramite') Clasificaci&oacute;n tr&aacute;mites
               .col-sm-6
                 select#clasificacion_tramite.form-control(required,
-                (change)='proceso.clasTramites.clt_id=$event.target.value;tipoInformativoService.loadAllByClas($event.target.value)')
+                [value]='(proceso | async)?.clt_id',
+                (change)='proceso.clt_id=$event.target.value;tipoInformativoService.loadAllByClas($event.target.value)')
                   option(value='') Seleccione la clasificaci&oacute;n de tr&aacute;mites
                   option(*ngFor='#clasificacion of clasificaciones$ | async',
                   [value]='clasificacion.clt_id') {{clasificacion.clt_descripcion}}
@@ -138,7 +151,8 @@
               label.control-label.col-sm-4.required(for='tipo_informativo') Tipo informativo
               .col-sm-6
                 select#tipo_informativo.form-control(required,
-                (change)='proceso.tipoInf.tii_id=$event.target.value')
+                [value]='(proceso | async)?.tii_id',
+                (change)='proceso.tii_id=$event.target.value')
                   option(value='') Seleccione el tipo de informativo
                   option(*ngFor='#tipoInformativo of tipoInformativos$ | async',
                   [value]='tipoInformativo.tii_id') {{tipoInformativo.tii_descripcion}}
@@ -146,13 +160,15 @@
               label.control-label.col-sm-4.required(for='relacion_informativo') Relaci&oacute;n de informativo
               .col-sm-6
                 input#relacion_informativo.form-control(maxlength='300', required,
+                [value]='(proceso | async)?.prj_relacioninforma',
                 placeholder='Digite la relacion de informativo',
                 (change)='proceso.prj_relacioninforma=$event.target.value')
             .form-group
               label.control-label.col-sm-4.required(for='regional_id') Regional
               .col-sm-6
                 select#regional_id.form-control(required,
-                (change)='proceso.regional.reg_id=$event.target.value')
+                [value]='(proceso | async)?.reg_id',
+                (change)='proceso.reg_id=$event.target.value')
                   option(value='') Seleccione la regional
                   option(*ngFor='#regional of regionales$ | async',
                   [value]='regional.reg_id') {{regional.reg_descripcion}}
@@ -160,12 +176,14 @@
               label.control-label.col-sm-4.required(for='ano_radicacion') A&ntilde;o de radicaci&oacute;n
               .col-sm-6
                 input#ano_radicacion.form-control.number(maxlength='4', number, required,
+                [value]='(proceso | async)?.prj_anoradicacion',
                 placeholder='Digite el año de radicación',
                 (change)='proceso.prj_anoradicacion=$event.target.value')
             .form-group
               label.control-label.col-sm-4.required(for='tipo_unidad') Tipo de unidad
               .col-sm-6
                 select#tipo_unidad.form-control(required,
+                [value]='(proceso | async)?.tiu_id',
                 (change)='proceso.tipoUnidad.tiu_id=$event.target.value')
                   option(value='') Seleccione el tipo de unidad
                   option(*ngFor='#tipoUnidad of tiposUnidad$ | async',
@@ -174,6 +192,7 @@
               label.control-label.col-sm-4.required(for='tipo_apoderado') Tipo de apoderado
               .col-sm-6
                 select#tipo_apoderado.form-control(required,maxlength='10',
+                [value]='(proceso | async)?.tia_id',
                 (change)='proceso.apoderado.tia_id=$event.target.value')
                   option(value='') Seleccione el tipo de apoderado
                   option(*ngFor='#apoderado of tiposApoderado$ | async',
@@ -186,12 +205,15 @@
               .col-sm-6
                 .textarea#hechos_proceso
                   textarea(cols='73', rows='5', maxlength='300', required,
+                  [value]='(proceso | async)?.prj_hechosproceso',
                   (change)='proceso.prj_hechosproceso=$event.target.value')
             .form-group
               label.control-label.col-sm-4(
               for='propietario_acto_admin') &iquest;De qui&eacute;n es el acto administrativo demandado?
               .col-sm-6
-                select#propietario_acto_admin.form-control (change)='proceso.actoAdmin.ead_id=$event.target.value')
+                select#propietario_acto_admin.form-control(
+                (change)='proceso.actoAdmin.ead_id=$event.target.value',
+                [value]='(proceso | async)?.prj_hechosproceso')
                   option(value='') Seleccione el propietario del acto administrativo demandado
                   option(*ngFor='#actoAdmin of actosAdmin$ | async',
                   [value]='actoAdmin.ead_id') {{actoAdmin.ead_descripcion}}
@@ -199,20 +221,24 @@
               label.control-label.col-sm-4(for='numero_resolucion') N&uacute;mero de la resoluci&oacute;n
               .col-sm-6
                 input#numero_resolucion.form-control(maxlength='100',
+                [value]='(proceso | async)?.prj_numresolucion',
                 placeholder='Digite el número de la resolución',
                 (change)='proceso.prj_numresolucion=$event.target.value')
             .form-group
               label.control-label.col-sm-4(for='causa_proceso') Causa del proceso / Fondo que cubre el riesgo
               .col-sm-6
                 select#causa_proceso.form-control(
-                (change)='proceso.causa.cap_id=$event.target.value;pretensionService.loadAllByCausa($event.target.value)')
+                [value]='(proceso | async)?.cap_id',
+                (change)='proceso.cap_id=$event.target.value;pretensionService.loadAllByCausa($event.target.value)')
                   option(value='') Seleccione la causa del proceso / Fondo que cubre el riesgo
-                  option(*ngFor='#causa of causas$ | async', [value]='causa.cap_id') {{causa.cap_descripcion}}
+                  option(*ngFor='#causa of causas$ | async',
+                  [value]='causa.cap_id') {{causa.cap_descripcion}}
             .form-group
               label.control-label.col-sm-4(for='modalidad_pretencion') Modalidad de pretensi&oacute;n
               .col-sm-6
                 select#modalidad_pretencion.form-control(
-                (change)='proceso.modPret.mop_id=$event.target.value')
+                [value]='(proceso | async)?.mop_id',
+                (change)='proceso.mop_id=$event.target.value')
                   option(value='') Seleccione la modalidad de pretensi&oacute;n
                   option(*ngFor='#modPretension of modPretensiones$ | async',
                   [value]='modPretension.mop_id') {{modPretension.mop_descripcion}}
@@ -221,7 +247,8 @@
               for='pretencion_principal') Pretensi&oacute;n principal
               .col-sm-6
                 select#pretencion_principal.form-control(
-                (change)='proceso.pretension.prp_id=$event.target.value;clasePretensionService.loadAllByPreten($event.target.value)')
+                [value]='(proceso | async)?.prp_id',
+                (change)='proceso.prp_id=$event.target.value;clasePretensionService.loadAllByPreten($event.target.value)')
                   option(value='') Seleccione la pretensi&oacute;n principal
                   option(*ngFor='#pretension of pretensiones$ | async',
                   [value]='pretension.prp_id') {{pretension.prp_descripcion}}
@@ -229,7 +256,8 @@
               label.control-label.col-sm-4(for='clase_pretencion') Clase de pretensi&oacute;n
               .col-sm-6
                 select#clase_pretencion.form-control(
-                (change)='proceso.clasePret.clp_id=$event.target.value')
+                [value]='(proceso | async)?.clp_id',
+                (change)='proceso.clp_id=$event.target.value')
                   option(value='') Seleccione la clase de pretensi&oacute;n
                   option(*ngFor='#clasePretension of clasesPretensiones$ | async',
                   [value]='clasePretension.clp_id') {{clasePretension.clp_descripcio}}
@@ -238,6 +266,7 @@
               for='fecha_admision') Fecha de admisi&oacute;n de la demanda
               .col-sm-6
                 input#fecha_admision.form-control( placeholder='aaaa-mm-dd',
+                [value]='(proceso | async)?.prj_fechaadminisiondemanda',
                 pattern='(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))',
                 (change)='proceso.prj_fechaadminisiondemanda=$event.target.value')
             .form-group
@@ -245,21 +274,24 @@
               for='cuantia_estimada') Cuant&iacute;a estimada en el proceso
               .col-sm-6
                 input#cuantia_estimada.form-control.number(maxlength='10', number,
+                [value]='(proceso | async)?.prj_cuantiaestimada',
                 placeholder='Digite la cuantía estimada en el proceso',
                 (change)='proceso.prj_cuantiaestimada=$event.target.value')
             .form-group
               label.control-label.col-sm-4.required(for='nombre_afiliado_causante') Nombre afiliado causante
               .col-sm-6
                 input#nombre_afiliado_causante.form-control(maxlength='300', not-number, required
+                [value]='(proceso | async)?.persAfi_per_Nombre',
                 placeholder='Digite el Nombre afiliado causante',
-                (change)='proceso.afiliado.NomBenef=$event.target.value')
+                (change)='proceso.persAfi_per_Nombre=$event.target.value')
             .form-group
               label.control-label.col-sm-4.required(
               for='identificacion_afiliado_causante') CC afiliado causante/ identificaci&oacute;n
               .col-sm-6
                 input#identificacion_afiliado_causante.form-control(maxlength="25", number, required
+                [value]='(proceso | async)?.persAfi_af_numerodocumento',
                 placeholder='Digite la CC afiliado causante/ identificación',
-                (change)='proceso.afiliado.CCBenf=$event.target.value')
+                (change)='proceso.persAfi_af_numerodocumento=$event.target.value')
             //.dashed-group
             //  .form-group(*ngFor='#beneficiario of proceso.beneficiarios; #i=index')
             //    .form-group
@@ -289,13 +321,16 @@
               for='cantidad_demandantes') Cantidad demandantes
               .col-sm-6
                 input#cantidad_demandantes.form-control(maxlength='2', number,
+                [value]='(proceso | async)?.prj_cantidaddemandante',
                 placeholder='Digite la cantidad de demandantes',
                 (change)='proceso.prj_cantidaddemandante=$event.target.value')
             .form-group
               label.control-label.col-sm-4(
               for='entidad_publica') &iquest;Entre los demandantes hay entidades p&uacute;blicas?
               .col-sm-6
-                select#entidad_publica.form-control( (change)='proceso.prj_entidadpublica=$event.target.value')
+                select#entidad_publica.form-control(
+                [value] = '(proceso | async)?.prj_entidadpublica',
+                (change)='proceso.prj_entidadpublica=$event.target.value')
                   option(value='') Seleccione una respuesta
                   option(value='si') S&iacute;
                   option(value='no') No
@@ -304,15 +339,17 @@
               for='apoderado_contraparte_nombre') Nombre apoderado contraparte
               .col-sm-6
                 input#apoderado_contraparte_nombre.form-control( maxlength='300', not-number,
+                [value] = '(proceso | async)?.persApoContra_per_Nombre',
                 placeholder='Digite el nombre apoderado contraparte',
-                (change)='proceso.apodeContra.nombre=$event.target.value')
+                (change)='proceso.persApoContra_per_Nombre=$event.target.value')
             .form-group
               label.control-label.col-sm-4(
               for='apoderado_contraparte_identificacion') Identificaci&oacute;n apoderado contraparte
               .col-sm-6
                 input#apoderado_contraparte_identificacion.form-control( maxlength='25', number,
+                [value] = '(proceso | async)?.persApoContra_af_numerodocumento',
                 placeholder='Digite la Identificación apoderado contraparte',
-                (change)='proceso.apodeContra.cedula=$event.target.value')
+                (change)='proceso.persApoContra_af_numerodocumento=$event.target.value')
       .col-xs-12
         .btn-group(role='group').pull-right
           input.btn.btn-default.btn-md(type='reset', value='Limpiar')

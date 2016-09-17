@@ -19,15 +19,16 @@ import {Cus12Component} from './cus12/cus12.component';
   directives: [ROUTER_DIRECTIVES, NavbarComponent]
 })
 @RouteConfig([
-  { path: '/',      name: 'Cus11',  component: Cus11Component  },
-  { path: '/cus234', name: 'Cus234', component: Cus234Component },
-  { path: '/cus5', name: 'Cus5', component: Cus5Component },
-  { path: '/cus6', name: 'Cus6', component: Cus6Component },
-  { path: '/cus7', name: 'Cus7', component: Cus7Component },
-  { path: '/cus8', name: 'Cus8', component: Cus8Component },
-  { path: '/cus9', name: 'Cus9', component: Cus9Component },
-  { path: '/cus10', name: 'Cus10', component: Cus10Component },
-  { path: '/cus11', name: 'Cus11', component: Cus11Component },
-  { path: '/cus12', name: 'Cus12', component: Cus12Component }
+  {path: '/', name: 'Cus11', component: Cus11Component},
+  {path: '/cus234', name: 'Cus234', component: Cus234Component},
+  {path: '/cus5', name: 'Cus5', component: Cus5Component},
+  {path: '/cus6', name: 'Cus6', component: Cus6Component},
+  {path: '/cus7', name: 'Cus7', component: Cus7Component},
+  {path: '/cus8', name: 'Cus8', component: Cus8Component},
+  {path: '/cus9/:prj_id', name: 'Cus9', component: Cus9Component},
+  {path: '/cus10', name: 'Cus10', component: Cus10Component},
+  {path: '/cus11', name: 'Cus11', component: Cus11Component},
+  {path: '/cus12', name: 'Cus12', component: Cus12Component}
 ])
-export class AppComponent {}
+export class AppComponent {
+}
