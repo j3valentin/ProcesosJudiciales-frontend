@@ -48,130 +48,117 @@ import {TipoUnidadInterface} from '../../shared/model/tipoUnidad';
 import {ProcesoActu} from './model/procesoActu';
 
 @Component({
-  selector: 'sd-cus9',
-  moduleId: module.id,
-  templateUrl: './cus9.component.html',
-  styleUrls: ['./cus9.component.css'],
-  directives: [ROUTER_DIRECTIVES, FORM_DIRECTIVES, CORE_DIRECTIVES,
-    NumberDirective, NotNumberDirective],
-  providers: [HTTP_PROVIDERS, SeguridadService,
-    ProcesoService, JuzgadoService,
-    DepartamentoService, MunicipioService,
-    DespachoService, RegionalService, TipoUnidadService,
-    TipoProcesoService, TipoInformativoService,
-    ClasificacionService, CausaService, ModPretensionService,
-    PretensionService, ClasePretensionService, TipoApoderadoService,
-    ActoAdminService, ProcesoDupService, EstadoProcesoService]
+    selector: 'sd-cus9',
+    moduleId: module.id,
+    templateUrl: './cus9.component.html',
+    styleUrls: ['./cus9.component.css'],
+    directives: [ROUTER_DIRECTIVES, FORM_DIRECTIVES, CORE_DIRECTIVES,
+        NumberDirective, NotNumberDirective],
+    providers: [HTTP_PROVIDERS, SeguridadService,
+        ProcesoService, JuzgadoService,
+        DepartamentoService, MunicipioService,
+        DespachoService, RegionalService, TipoUnidadService,
+        TipoProcesoService, TipoInformativoService,
+        ClasificacionService, CausaService, ModPretensionService,
+        PretensionService, ClasePretensionService, TipoApoderadoService,
+        ActoAdminService, ProcesoDupService, EstadoProcesoService]
 })
 export class Cus9Component implements OnInit {
-  prj_id: number;
-  errorMessage: string;
+    prj_id: number;
+    errorMessage: string;
 
-  procesosDup$: Observable<ProcesoDup[]>;
-  juzgados$: Observable<JuzgadoInterface[]>;
-  despachos$: Observable<DespachoInterface[]>;
-  departamentos$: Observable<Departamento[]>;
-  municipios$: Observable<MunicipioInterface[]>;
-  tipoProcesos$: Observable<TipoProcesoInterface[]>;
-  tipoInformativos$: Observable<TipoInformativoInterface[]>;
-  tiposApoderado$: Observable<ApoderadoInterface[]>;
-  tiposUnidad$: Observable<TipoUnidadInterface[]>;
-  regionales$: Observable<Regional[]>;
-  clasificaciones$: Observable<ClasificacionInterface[]>;
-  causas$: Observable<CausaInterace[]>;
-  modPretensiones$: Observable<ModPretensionInterface[]>;
-  actosAdmin$: Observable<ActoAdminInterface[]>;
-  pretensiones$: Observable<PretensionInterface[]>;
-  clasesPretensiones$: Observable<ClasePretensionInterface[]>;
-  estadosProceso$: Observable<EstadoProceso[]>;
-  proceso: Observable<ProcesoActu>;
+    procesosDup$: Observable<ProcesoDup[]>;
+    juzgados$: Observable<JuzgadoInterface[]>;
+    despachos$: Observable<DespachoInterface[]>;
+    departamentos$: Observable<Departamento[]>;
+    municipios$: Observable<MunicipioInterface[]>;
+    tipoProcesos$: Observable<TipoProcesoInterface[]>;
+    tipoInformativos$: Observable<TipoInformativoInterface[]>;
+    tiposApoderado$: Observable<ApoderadoInterface[]>;
+    tiposUnidad$: Observable<TipoUnidadInterface[]>;
+    regionales$: Observable<Regional[]>;
+    clasificaciones$: Observable<ClasificacionInterface[]>;
+    causas$: Observable<CausaInterace[]>;
+    modPretensiones$: Observable<ModPretensionInterface[]>;
+    actosAdmin$: Observable<ActoAdminInterface[]>;
+    pretensiones$: Observable<PretensionInterface[]>;
+    clasesPretensiones$: Observable<ClasePretensionInterface[]>;
+    estadosProceso$: Observable<EstadoProceso[]>;
+    proceso: Observable<ProcesoActu>;
 
-  pestana: String = 'geoDatGen';
-  procesoDupSelect: number;
+    pestana: String = 'geoDatGen';
+    procesoDupSelect: number;
 
-  constructor(params: RouteParams,
-              private procesoService: ProcesoService,
-              private juzgadoService: JuzgadoService,
-              private despachoService: DespachoService,
-              private regionalService: RegionalService,
-              private tipoProcesoService: TipoProcesoService,
-              private tipoInformativoService: TipoInformativoService,
-              private clasificacionService: ClasificacionService,
-              private causaService: CausaService,
-              private clasePretensionService: ClasePretensionService,
-              private modPretensionService: ModPretensionService,
-              private pretensionService: PretensionService,
-              private actoAdminService: ActoAdminService,
-              private estadoProcesoService: EstadoProcesoService,
-              private procesoDupService: ProcesoDupService,
-              private departamentoService: DepartamentoService,
-              private tipoApoderadoService: TipoApoderadoService,
-              private tipoUnidadService: TipoUnidadService,
-              private municipioService: MunicipioService) {
-    console.log(params);
-    this.prj_id = +params.get('prj_id');
-  }
+    constructor(params: RouteParams,
+                private procesoService: ProcesoService,
+                private juzgadoService: JuzgadoService,
+                private despachoService: DespachoService,
+                private regionalService: RegionalService,
+                private tipoProcesoService: TipoProcesoService,
+                private tipoInformativoService: TipoInformativoService,
+                private clasificacionService: ClasificacionService,
+                private causaService: CausaService,
+                private clasePretensionService: ClasePretensionService,
+                private modPretensionService: ModPretensionService,
+                private pretensionService: PretensionService,
+                private actoAdminService: ActoAdminService,
+                private estadoProcesoService: EstadoProcesoService,
+                private procesoDupService: ProcesoDupService,
+                private departamentoService: DepartamentoService,
+                private tipoApoderadoService: TipoApoderadoService,
+                private tipoUnidadService: TipoUnidadService,
+                private municipioService: MunicipioService) {
+        this.prj_id = +params.get('prj_id');
+    }
 
-  ngOnInit() {
-    this.procesosDup$ = this.procesoDupService.procesosDup$;
-    this.juzgados$ = this.juzgadoService.juzgados$;
-    this.departamentos$ = this.departamentoService.departamentos$;
-    this.municipios$ = this.municipioService.municipios$;
-    this.despachos$ = this.despachoService.despachos$;
-    this.regionales$ = this.regionalService.regionales$;
-    this.tipoProcesos$ = this.tipoProcesoService.tipoProcesos$;
-    this.tipoInformativos$ = this.tipoInformativoService.tipoInformativos$;
-    this.tiposApoderado$ = this.tipoApoderadoService.tiposApod$;
-    this.tiposUnidad$ = this.tipoUnidadService.tiposUnidad$;
-    this.clasificaciones$ = this.clasificacionService.clasificaciones$;
-    this.causas$ = this.causaService.causas$;
-    this.modPretensiones$ = this.modPretensionService.modPretensiones$;
-    this.clasesPretensiones$ = this.clasePretensionService.clasesPretensiones$;
-    this.pretensiones$ = this.pretensionService.pretensiones$;
-    this.actosAdmin$ = this.actoAdminService.actosAdmin$;
-    this.procesosDup$ = this.procesoDupService.procesosDup$;
-    this.estadosProceso$ = this.estadoProcesoService.estadosProceso$;
-    this.proceso = this.procesoService.proceso$;
+    ngOnInit() {
+        this.procesosDup$ = this.procesoDupService.procesosDup$;
+        this.juzgados$ = this.juzgadoService.juzgados$;
+        this.departamentos$ = this.departamentoService.departamentos$;
+        this.municipios$ = this.municipioService.municipios$;
+        this.despachos$ = this.despachoService.despachos$;
+        this.regionales$ = this.regionalService.regionales$;
+        this.tipoProcesos$ = this.tipoProcesoService.tipoProcesos$;
+        this.tipoInformativos$ = this.tipoInformativoService.tipoInformativos$;
+        this.tiposApoderado$ = this.tipoApoderadoService.tiposApod$;
+        this.tiposUnidad$ = this.tipoUnidadService.tiposUnidad$;
+        this.clasificaciones$ = this.clasificacionService.clasificaciones$;
+        this.causas$ = this.causaService.causas$;
+        this.modPretensiones$ = this.modPretensionService.modPretensiones$;
+        this.clasesPretensiones$ = this.clasePretensionService.clasesPretensiones$;
+        this.pretensiones$ = this.pretensionService.pretensiones$;
+        this.actosAdmin$ = this.actoAdminService.actosAdmin$;
+        this.procesosDup$ = this.procesoDupService.procesosDup$;
+        this.estadosProceso$ = this.estadoProcesoService.estadosProceso$;
+        this.proceso = this.procesoService.proceso$;
 
-    this.procesoService.loadProcess(this.prj_id);
+        this.procesoService.loadProcess(this.prj_id);
+        this.juzgadoService.loadAll();
+        this.departamentoService.loadAll();
+        this.despachoService.loadAll();
+        this.regionalService.loadAll();
+        this.tipoProcesoService.loadAll();
+        this.tipoApoderadoService.loadAll();
+        this.tipoUnidadService.loadAll();
+        this.clasificacionService.loadAll();
+        this.causaService.loadAll();
+        this.modPretensionService.loadAll();
+        this.actoAdminService.loadAll();
+        this.actoAdminService.loadAll();
+        this.estadoProcesoService.loadAll();
 
-    this.juzgadoService.loadAll();
-
-    this.departamentoService.loadAll();
-    // let dpt_idjuzgado;
-    // this.proceso.subscribe(function (proceso) {
-    //   dpt_idjuzgado = proceso.dpt_idjuzgado
-    //   this.municipioService.loadAllByDepto(dpt_idjuzgado);
-    //   return dpt_idjuzgado;
-    // });
-
-    this.despachoService.loadAll();
-    this.regionalService.loadAll();
-    this.tipoProcesoService.loadAll();
-    this.tipoApoderadoService.loadAll();
-    this.tipoUnidadService.loadAll();
-    this.clasificacionService.loadAll();
-    this.causaService.loadAll();
-    this.modPretensionService.loadAll();
-    this.actoAdminService.loadAll();
-    this.actoAdminService.loadAll();
-    this.estadoProcesoService.loadAll();
-
-
-    //console.log('proceso: '+ this.procesos[0]);
-
-    //   this.proceso$.beneficiarios.push(new Beneficiario());
-    // }
-    //
-    // addBeneficiario() {
-    //   this.proceso$.beneficiarios.push(new Beneficiario());
-    // }
-    //
-    // removeBeneficiario() {
-    //   this.proceso$.beneficiarios.pop();
-    // }
-    //
-    // actualizarReparto() {
-    //   this.procesoService.update(this.proceso$);
-  }
+        //   this.proceso$.beneficiarios.push(new Beneficiario());
+        // }
+        //
+        // addBeneficiario() {
+        //   this.proceso$.beneficiarios.push(new Beneficiario());
+        // }
+        //
+        // removeBeneficiario() {
+        //   this.proceso$.beneficiarios.pop();
+        // }
+        //
+        // actualizarReparto() {
+        //   this.procesoService.update(this.proceso$);
+    }
 }

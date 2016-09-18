@@ -6,6 +6,7 @@ import {WEBAPI_URL} from '../constantes';
 
 import {ProcesoActu} from '../../app/cus9/model/procesoActu';
 import {ProcesoInterface} from '../model/proceso';
+import {MunicipioService} from './municipio.service'
 
 @Injectable()
 export class ProcesoService {
@@ -15,7 +16,8 @@ export class ProcesoService {
     proceso: ProcesoActu
   };
 
-  constructor(private http: Http) {
+  constructor(private http: Http,
+              private municipioService: MunicipioService) {
     this.baseUrl = WEBAPI_URL;
     this.dataStore = {
       proceso: new ProcesoActu()
@@ -206,6 +208,7 @@ export class ProcesoService {
       // solo se obtiene uno TODO: crear funcion para mapear response a objeto
       .subscribe(data => {
         this.dataStore.proceso = data;
+        this.municipioService.loadAllByDepto(data.dpt_idjuzgado);
         this._proceso$.next(this.dataStore.proceso);
       }, error => console.log('Could not load procesos.'));
   }

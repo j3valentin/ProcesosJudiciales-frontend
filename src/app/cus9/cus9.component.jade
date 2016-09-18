@@ -1,4 +1,4 @@
-//CUS002 Formularios de registro, CUS003 Validar duplicidad y CUS004 Corregir
+//CUS009
 .upperContainer
   .container
     form.form-horizontal(role='form', (ngSubmit)='actualizarReparto()')
@@ -27,7 +27,7 @@
               .col-sm-6
                 input#fecha_notificacion.form-control(required, disabled,
                 pattern='(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))',
-                [value]='(proceso | async)?.prj_fechanotifica')
+                [value]='(proceso | async)?.prj_fechanotifica | date:"yyyy/MM/dd"')
             .form-group
               label.control-label.col-sm-4.required(for='bizagi') No. Bizagi - caso defensa judicial
               .col-sm-6
@@ -64,7 +64,7 @@
               .col-sm-6
                 select#departamento_juzgado.form-control(required,
                 [value]='(proceso | async)?.dpt_idjuzgado',
-                (change)='proceso.dpt_id=$event.target.value;municipioService.loadAllByDepto($event.target.value)')
+                (change)='proceso.dpt_idjuzgado=$event.target.value;municipioService.loadAllByDepto($event.target.value)')
                   option(value='') Seleccione el departamento del juzgado
                   option(*ngFor='#departamento of departamentos$ | async',
                   [value]='departamento.dpt_id') {{departamento.dpt_descripcion}}
@@ -73,7 +73,7 @@
               .col-sm-6
                 select#ciudad_juzgado.form-control(required,
                 [value]='(proceso | async)?.mpi_idjuzgado',
-                (change)='proceso.mpi_id=$event.target.value')
+                (change)='proceso.mpi_idjuzgado=$event.target.value')
                   option(value='') Seleccione la ciudad del juzgado / Lugar de los hechos
                   option(*ngFor='#municipio of municipios$ | async',
                   [value]='municipio.mpi_id') {{municipio.mpi_descripcion}}
@@ -266,7 +266,7 @@
               for='fecha_admision') Fecha de admisi&oacute;n de la demanda
               .col-sm-6
                 input#fecha_admision.form-control( placeholder='aaaa-mm-dd',
-                [value]='(proceso | async)?.prj_fechaadminisiondemanda',
+                [value]='(proceso | async)?.prj_fechaadminisiondemanda | date:"yyyy-MM-dd"',
                 pattern='(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))',
                 (change)='proceso.prj_fechaadminisiondemanda=$event.target.value')
             .form-group
@@ -332,8 +332,8 @@
                 [value] = '(proceso | async)?.prj_entidadpublica',
                 (change)='proceso.prj_entidadpublica=$event.target.value')
                   option(value='') Seleccione una respuesta
-                  option(value='si') S&iacute;
-                  option(value='no') No
+                  option(value='s') S&iacute;
+                  option(value='n') No
             .form-group
               label.control-label.col-sm-4(
               for='apoderado_contraparte_nombre') Nombre apoderado contraparte
