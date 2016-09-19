@@ -57,9 +57,9 @@ import {TipoUnidadInterface} from '../../shared/model/tipoUnidad';
   providers: [HTTP_PROVIDERS, SeguridadService,
     ProcesoService, JuzgadoService,
     DepartamentoService, MunicipioService,
-    DespachoService, RegionalService,TipoUnidadService,
+    DespachoService, RegionalService, TipoUnidadService,
     TipoProcesoService, TipoInformativoService,
-    ClasificacionService,  CausaService, ModPretensionService,
+    ClasificacionService, CausaService, ModPretensionService,
     PretensionService, ClasePretensionService, TipoApoderadoService,
     ActoAdminService, ProcesoDupService, EstadoProcesoService]
 })
@@ -103,8 +103,8 @@ export class Cus234Component implements OnInit {
               private departamentoService: DepartamentoService,
               private tipoApoderadoService: TipoApoderadoService,
               private tipoUnidadService: TipoUnidadService,
-              private municipioService: MunicipioService
-              ) {}
+              private municipioService: MunicipioService) {
+  }
 
   ngOnInit() {
     this.procesosDup$ = this.procesoDupService.procesosDup$;
