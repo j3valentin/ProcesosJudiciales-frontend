@@ -37,7 +37,6 @@ import {ClasificacionInterface} from '../../shared/model/clasificacion';
 import {CausaInterace} from '../../shared/model/causa';
 import {ModPretensionInterface} from '../../shared/model/modPretension';
 import {ActoAdminInterface} from '../../shared/model/actoAdmin';
-import {ProcesoDup} from '../../shared/model/procesoDup';
 import {MunicipioInterface} from '../../shared/model/municipio';
 import {PretensionInterface} from '../../shared/model/pretension';
 import {ClasePretensionInterface} from '../../shared/model/clasePretension';
@@ -61,13 +60,12 @@ import {ProcesoActu} from './model/procesoActu';
         TipoProcesoService, TipoInformativoService,
         ClasificacionService, CausaService, ModPretensionService,
         PretensionService, ClasePretensionService, TipoApoderadoService,
-        ActoAdminService, ProcesoDupService, EstadoProcesoService]
+        ActoAdminService, EstadoProcesoService]
 })
 export class Cus9Component implements OnInit {
     prj_id: number;
     errorMessage: string;
 
-    procesosDup$: Observable<ProcesoDup[]>;
     juzgados$: Observable<JuzgadoInterface[]>;
     despachos$: Observable<DespachoInterface[]>;
     departamentos$: Observable<Departamento[]>;
@@ -90,29 +88,28 @@ export class Cus9Component implements OnInit {
     procesoDupSelect: number;
 
     constructor(params: RouteParams,
-                private procesoService: ProcesoService,
-                private juzgadoService: JuzgadoService,
-                private despachoService: DespachoService,
-                private regionalService: RegionalService,
-                private tipoProcesoService: TipoProcesoService,
-                private tipoInformativoService: TipoInformativoService,
-                private clasificacionService: ClasificacionService,
-                private causaService: CausaService,
-                private clasePretensionService: ClasePretensionService,
-                private modPretensionService: ModPretensionService,
-                private pretensionService: PretensionService,
-                private actoAdminService: ActoAdminService,
-                private estadoProcesoService: EstadoProcesoService,
-                private procesoDupService: ProcesoDupService,
-                private departamentoService: DepartamentoService,
-                private tipoApoderadoService: TipoApoderadoService,
-                private tipoUnidadService: TipoUnidadService,
-                private municipioService: MunicipioService) {
+        private procesoService: ProcesoService,
+        private juzgadoService: JuzgadoService,
+        private despachoService: DespachoService,
+        private regionalService: RegionalService,
+        private tipoProcesoService: TipoProcesoService,
+        private tipoInformativoService: TipoInformativoService,
+        private clasificacionService: ClasificacionService,
+        private causaService: CausaService,
+        private clasePretensionService: ClasePretensionService,
+        private modPretensionService: ModPretensionService,
+        private pretensionService: PretensionService,
+        private actoAdminService: ActoAdminService,
+        private estadoProcesoService: EstadoProcesoService,
+        private procesoDupService: ProcesoDupService,
+        private departamentoService: DepartamentoService,
+        private tipoApoderadoService: TipoApoderadoService,
+        private tipoUnidadService: TipoUnidadService,
+        private municipioService: MunicipioService) {
         this.prj_id = +params.get('prj_id');
     }
 
     ngOnInit() {
-        this.procesosDup$ = this.procesoDupService.procesosDup$;
         this.juzgados$ = this.juzgadoService.juzgados$;
         this.departamentos$ = this.departamentoService.departamentos$;
         this.municipios$ = this.municipioService.municipios$;
@@ -128,7 +125,6 @@ export class Cus9Component implements OnInit {
         this.clasesPretensiones$ = this.clasePretensionService.clasesPretensiones$;
         this.pretensiones$ = this.pretensionService.pretensiones$;
         this.actosAdmin$ = this.actoAdminService.actosAdmin$;
-        this.procesosDup$ = this.procesoDupService.procesosDup$;
         this.estadosProceso$ = this.estadoProcesoService.estadosProceso$;
         this.proceso = this.procesoService.proceso$;
 

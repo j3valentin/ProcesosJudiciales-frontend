@@ -27,6 +27,7 @@ export class FiltroPorCc {
 @Pipe({name: 'nombre'})
 export class FiltroPorNombre {
   transform(procesos: ProcesoDup[], nombre: string): ProcesoDup[] {
-    return procesos.filter(proceso=>proceso.per_Nombre.indexOf(nombre[0]) !== -1);
+    let lower =nombre[0].toLocaleLowerCase();
+    return procesos.filter(proceso=>proceso.per_Nombre.toLocaleLowerCase().indexOf(lower) !== -1);
   }
 }
