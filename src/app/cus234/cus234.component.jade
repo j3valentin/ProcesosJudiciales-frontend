@@ -19,24 +19,26 @@
               .col-sm-6
                 input#digitos.form-control(maxlength='23', number, required,
                 placeholder='Digite los 23 dígitos del proceso / Número de proceso rama judicial',
-                (change)='proceso.prj_23digitos=$event.target.value;procesoDupService.getAllByProcesoNumero($event.target.value)')
+                (change)='proceso.prj_23digitos=$event.target.value;getProcesosByNumero($event.target.value)')
             .form-group
               label.control-label.col-sm-4.required(for='id_demandante') CC demandante / identificaci&oacute;n del demandante
               .col-sm-6
-                input#id_demandante.form-control.number(maxlength='25', number, required, [disabled]='(procesosDup$ | async) === null',
+                input#id_demandante.form-control.number(maxlength='25', number, required,
                 placeholder='Digite el documento del demandante / identificación demandante',
-                (change)='proceso.CC_Dem=$event.target.value;"(procesosDup$ | async).length > 0 "?procesoDupService.getAllByDocumento($event.target.value):null')
+                [(ngModel)]='proceso.CC_Dem',
+                (change)='procesosDup.length > 0 ? null : getProcesosByCedula($event.target.value)')
             .form-group
               label.control-label.col-sm-4.required(for='nombre_demandante') Nombre del demandante
               .col-sm-6
                 input#nombre_demandante.form-control(maxlength='300', not-number, required
-                placeholder='Digite el nombre del demandante', [disabled]='(procesosDup$ | async) === null',
-                (change)='proceso.Nombre_Dem=$event.target.value;"(procesosDup$ | async).length > 0 "?procesoDupService.getAllByNombre($event.target.value):null')
+                placeholder='Digite el nombre del demandante', [disabled]='procesosDup.length<=0',
+                [(ngModel)]='proceso.Nombre_Dem',
+                (change)='procesosDup.length > 0? null : getProcesosByNombre($event.target.value)')
             //.row
               .col-xs-11
                 .btn.btn-primary.btn-md.pull-right Validar duplicidad
             //.well.well-sm
-            .well.well-sm(*ngIf='(procesosDup$ | async)?.length > 0')
+            .well.well-sm(*ngIf='(procesosDup)?.length > 0')
               .table-responsive
                 table.table.table-condensed.table-hover.table-curved
                   caption.text-left Procesos judiciales asociados / duplicados
@@ -52,10 +54,10 @@
                       th Estado
                       th.text-center Corregir
                   tbody
-                    tr(*ngFor='#procesoDup of (procesosDup$ | async); #i=index')
+                    tr(*ngFor='#procesoDup of ((procesosDup | cc: proceso.CC_Dem?proceso.CC_Dem:"")| nombre:proceso.Nombre_Dem?proceso.Nombre_Dem:""); #i=index')
                       td
-                        label(*ngIf='procesoDupSelect != i') {{procesoDup.prj_fechanotifica}}
-                        input.form-control.input-sm([value]='procesoDup.prj_fechanotifica',
+                        label(*ngIf='procesoDupSelect != i') {{procesoDup.prj_fechanotifica | date}}
+                        input.form-control.input-sm([value]='procesoDup.prj_fechanotifica | date',
                         *ngIf='procesoDupSelect == i',
                         (change)='procesoDup.prj_fechanotifica=$event.target.value')
                       td
@@ -79,12 +81,12 @@
                         *ngIf='procesoDupSelect == i',
                         (change)='procesoDup.per_Nombre=$event.target.value')
                       td
-                        label(*ngIf='procesoDupSelect != i') {{procesoDup.pdu_fechaverificacion}}
+                        label(*ngIf='procesoDupSelect != i') {{procesoDup.af_numerodocumento}}
                         input.form-control.input-sm([value]='procesoDup.af_numerodocumento',
                         *ngIf='procesoDupSelect == i',
                         (change)='procesoDup.af_numerodocumento=$event.target.value')
                       td
-                        label(*ngIf='procesoDupSelect != i') {{procesoDup.pdu_loginverifica}}
+                        label(*ngIf='procesoDupSelect != i') {{procesoDup.dei_id}}
                         input.form-control.input-sm([value]='procesoDup.dei_id',
                         *ngIf='procesoDupSelect == i',
                         (change)='procesoDup.dei_id=$event.target.value')

@@ -1,6 +1,6 @@
 import {Injectable} from 'angular2/core';
-import {Http, Headers, RequestOptions} from 'angular2/http';
-import {Subject} from 'rxjs/Subject';
+import {Http, Response, Headers, RequestOptions} from 'angular2/http';
+import {Observable}     from 'rxjs/Observable';
 import {ProcesoDup} from '../model/procesoDup';
 import {WEBAPI_URL} from '../constantes';
 
@@ -11,20 +11,10 @@ import {WEBAPI_URL} from '../constantes';
 
 @Injectable()
 export class ProcesoDupService {
-  private _procesosDup$: Subject<ProcesoDup[]>;
   private baseUrl: string;
-  private dataStore: {
-    procesosDup: ProcesoDup[]
-  };
 
   constructor(private http: Http) {
     this.baseUrl = WEBAPI_URL;
-    this.dataStore = {procesosDup: []};
-    this._procesosDup$ = <Subject<ProcesoDup[]>>new Subject();
-  }
-
-  get procesosDup$() {
-    return this._procesosDup$.asObservable();
   }
 
   getAllByProcesoNumero(nProcesoNumero: number) {
@@ -38,13 +28,13 @@ export class ProcesoDupService {
       'Content-Type': 'application/json',
       'sp-name': 'pr_ConsultaDuplicadoProceso'
     });
-    let options = new RequestOptions({headers: headers});
+    let options = new RequestOptions({ headers: headers });
     return this.http.post(this.baseUrl, body, options)
-      .map(response => response.json())
-      .subscribe(data => {
-        this.dataStore.procesosDup = data;
-        this._procesosDup$.next(this.dataStore.procesosDup);
-      }, error => console.log('Could not load procesosDup.'));
+      .map(function (response) {
+        let json = response.json();
+        return <ProcesoDup[]>json;
+      })
+      .catch(this.handleError)
   }
 
   getAllByDocumento(nDocumento: number) {
@@ -58,15 +48,13 @@ export class ProcesoDupService {
       'Content-Type': 'application/json',
       'sp-name': 'pr_ConsultaDuplicadoCedula'
     });
-    let options = new RequestOptions({headers: headers});
+     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.baseUrl, body, options)
-    // let body = model.toJSON();
-    // return this.http.get('/app/cus234/duplicados.json')
-      .map(response => response.json())
-      .subscribe(data => {
-        this.dataStore.procesosDup = data;
-        this._procesosDup$.next(this.dataStore.procesosDup);
-      }, error => console.log('Could not load procesosDup.'));
+      .map(function (response) {
+        let json = response.json();
+        return <ProcesoDup[]>json;
+      })
+      .catch(this.handleError)
   }
 
   getAllByNombre(nombre: string) {
@@ -80,16 +68,16 @@ export class ProcesoDupService {
       'Content-Type': 'application/json',
       'sp-name': 'pr_ConsultaDuplicadoDemandante'
     });
-    let options = new RequestOptions({headers: headers});
+     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.baseUrl, body, options)
-      .map(response => response.json())
-      .subscribe(data => {
-        this.dataStore.procesosDup = data;
-        this._procesosDup$.next(this.dataStore.procesosDup);
-      }, error => console.log('Could not load procesosDup.'));
+      .map(function (response) {
+        let json = response.json();
+        return <ProcesoDup[]>json;
+      })
+      .catch(this.handleError)
   }
 
-  update(procesoDup : ProcesoDup) {
+  update(procesoDup: ProcesoDup) {
     let body = JSON.stringify({
       type: 'SIN',
       parameters: {
@@ -107,12 +95,18 @@ export class ProcesoDupService {
       'Content-Type': 'application/json',
       'sp-name': 'pr_ActualizaPsJudicial'
     });
-    let options = new RequestOptions({headers: headers});
+    let options = new RequestOptions({ headers: headers });
     return this.http.post(this.baseUrl, body, options)
-      .map(response => response.json())
-      .subscribe(data => {
-        this.dataStore.procesosDup = data;
-        this._procesosDup$.next(this.dataStore.procesosDup);
-      }, error => console.log('Could not update procesoDup.'));
+      .map(response => <ProcesoDup[]>response.json().data)
+      .do(data => console.log(data))
+      .catch(this.handleError)
+      ;
+  }
+
+  private handleError(error: Response) {
+    console.error(error);
+    return Observable.throw(error.json().error || 'Server error');
   }
 }
+
+

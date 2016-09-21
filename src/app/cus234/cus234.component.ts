@@ -6,6 +6,8 @@ import {Observable} from 'rxjs';
 import {NumberDirective} from '../../shared/directives/number.directive';
 import {NotNumberDirective} from '../../shared/directives/not-number.directive';
 
+import {FiltroPorCc, FiltroPorNombre} from './pipes/procesoDup-filter.pipe';
+
 import {SeguridadService} from '../../shared/services/seguridad.service';
 import {JuzgadoService} from '../../shared/services/juzgado.service';
 import {TipoApoderadoService} from '../../shared/services/tipoApoderado.service';
@@ -54,6 +56,7 @@ import {TipoUnidadInterface} from '../../shared/model/tipoUnidad';
   styleUrls: ['./cus234.component.css'],
   directives: [FORM_DIRECTIVES, CORE_DIRECTIVES,
     NumberDirective, NotNumberDirective],
+  pipes: [FiltroPorCc, FiltroPorNombre],
   providers: [HTTP_PROVIDERS, SeguridadService,
     ProcesoService, JuzgadoService,
     DepartamentoService, MunicipioService,
@@ -65,7 +68,7 @@ import {TipoUnidadInterface} from '../../shared/model/tipoUnidad';
 })
 export class Cus234Component implements OnInit {
   errorMessage: string;
-  procesosDup$: Observable<ProcesoDup[]>;
+  procesosDup: ProcesoDup[];
   juzgados$: Observable<JuzgadoInterface[]>;
   despachos$: Observable<DespachoInterface[]>;
   departamentos$: Observable<Departamento[]>;
@@ -104,10 +107,10 @@ export class Cus234Component implements OnInit {
               private tipoApoderadoService: TipoApoderadoService,
               private tipoUnidadService: TipoUnidadService,
               private municipioService: MunicipioService) {
+    this.procesosDup = [];
   }
 
   ngOnInit() {
-    this.procesosDup$ = this.procesoDupService.procesosDup$;
     this.juzgados$ = this.juzgadoService.juzgados$;
     this.departamentos$ = this.departamentoService.departamentos$;
     this.municipios$ = this.municipioService.municipios$;
@@ -123,7 +126,6 @@ export class Cus234Component implements OnInit {
     this.clasesPretensiones$ = this.clasePretensionService.clasesPretensiones$;
     this.pretensiones$ = this.pretensionService.pretensiones$;
     this.actosAdmin$ = this.actoAdminService.actosAdmin$;
-    this.procesosDup$ = this.procesoDupService.procesosDup$;
     this.estadosProceso$ = this.estadoProcesoService.estadosProceso$;
 
     this.juzgadoService.loadAll();
@@ -141,6 +143,30 @@ export class Cus234Component implements OnInit {
     this.estadoProcesoService.loadAll();
 
     this.proceso.beneficiarios.push(new Beneficiario());
+  }
+
+  getProcesosByNumero(nProcesoNumero: number) {
+    this.procesoDupService.getAllByProcesoNumero(nProcesoNumero).subscribe(
+      procesosdup => this.procesosDup = procesosdup,
+      error => this.errorMessage = <any>error,
+      () => console.log(this.procesosDup)
+    );
+  }
+
+  getProcesosByCedula(cedula: number) {
+    this.procesoDupService.getAllByDocumento(cedula).subscribe(
+      procesosdup => this.procesosDup = procesosdup,
+      error => this.errorMessage = <any>error,
+      () => console.log(this.procesosDup)
+    );
+  }
+
+  getProcesosByNombre(nombre: string) {
+    this.procesoDupService.getAllByNombre(nombre).subscribe(
+      procesosdup => this.procesosDup = procesosdup,
+      error => this.errorMessage = <any>error,
+      () => console.log(this.procesosDup)
+    );
   }
 
   addBeneficiario() {
